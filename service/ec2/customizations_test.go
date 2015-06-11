@@ -14,7 +14,7 @@ import (
 var _ = unit.Imported
 
 func TestCopySnapshotPresignedURL(t *testing.T) {
-	svc := ec2.New(&aws.Config{Region: "us-west-2"})
+	svc := ec2.New(&aws.Config{Region: aws.StringPtr("us-west-2")})
 
 	assert.NotPanics(t, func() {
 		// Doesn't panic on nil input
@@ -23,8 +23,8 @@ func TestCopySnapshotPresignedURL(t *testing.T) {
 	})
 
 	req, _ := svc.CopySnapshotRequest(&ec2.CopySnapshotInput{
-		SourceRegion:     aws.String("us-west-1"),
-		SourceSnapshotID: aws.String("snap-id"),
+		SourceRegion:     aws.StringPtr("us-west-1"),
+		SourceSnapshotID: aws.StringPtr("snap-id"),
 	})
 	req.Sign()
 

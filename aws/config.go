@@ -28,55 +28,35 @@ const DefaultRetries = -1
 // DefaultConfig is the default all service configuration will be based off of.
 var DefaultConfig = &Config{
 	Credentials:             DefaultChainCredentials,
-	Endpoint:                "",
-	Region:                  os.Getenv("AWS_REGION"),
-	DisableSSL:              false,
-	ManualSend:              false,
+	Endpoint:                StringPtr(""),
+	Region:                  StringPtr(os.Getenv("AWS_REGION")),
+	DisableSSL:              BoolPtr(false),
+	ManualSend:              BoolPtr(false),
 	HTTPClient:              http.DefaultClient,
-	LogHTTPBody:             false,
-	LogLevel:                0,
+	LogHTTPBody:             BoolPtr(false),
+	LogLevel:                IntPtr(0),
 	Logger:                  os.Stdout,
-	MaxRetries:              DefaultRetries,
-	DisableParamValidation:  false,
-	DisableComputeChecksums: false,
-	S3ForcePathStyle:        false,
+	MaxRetries:              IntPtr(DefaultRetries),
+	DisableParamValidation:  BoolPtr(false),
+	DisableComputeChecksums: BoolPtr(false),
+	S3ForcePathStyle:        BoolPtr(false),
 }
 
 // A Config provides service configuration
 type Config struct {
 	Credentials             *credentials.Credentials
-	Endpoint                string
-	Region                  string
-	DisableSSL              bool
-	ManualSend              bool
+	Endpoint                *string
+	Region                  *string
+	DisableSSL              *bool
+	ManualSend              *bool
 	HTTPClient              *http.Client
-	LogHTTPBody             bool
-	LogLevel                uint
+	LogHTTPBody             *bool
+	LogLevel                *int
 	Logger                  io.Writer
-	MaxRetries              int
-	DisableParamValidation  bool
-	DisableComputeChecksums bool
-	S3ForcePathStyle        bool
-}
-
-// Copy will return a shallow copy of the Config object.
-func (c Config) Copy() Config {
-	dst := Config{}
-	dst.Credentials = c.Credentials
-	dst.Endpoint = c.Endpoint
-	dst.Region = c.Region
-	dst.DisableSSL = c.DisableSSL
-	dst.ManualSend = c.ManualSend
-	dst.HTTPClient = c.HTTPClient
-	dst.LogHTTPBody = c.LogHTTPBody
-	dst.LogLevel = c.LogLevel
-	dst.Logger = c.Logger
-	dst.MaxRetries = c.MaxRetries
-	dst.DisableParamValidation = c.DisableParamValidation
-	dst.DisableComputeChecksums = c.DisableComputeChecksums
-	dst.S3ForcePathStyle = c.S3ForcePathStyle
-
-	return dst
+	MaxRetries              *int
+	DisableParamValidation  *bool
+	DisableComputeChecksums *bool
+	S3ForcePathStyle        *bool
 }
 
 // Merge merges the newcfg attribute values into this Config. Each attribute
@@ -89,84 +69,58 @@ func (c Config) Merge(newcfg *Config) *Config {
 		return &c
 	}
 
-	cfg := Config{}
+	cfg := c
 
 	if newcfg.Credentials != nil {
 		cfg.Credentials = newcfg.Credentials
-	} else {
-		cfg.Credentials = c.Credentials
 	}
 
-	if newcfg.Endpoint != "" {
+	if newcfg.Endpoint != nil {
 		cfg.Endpoint = newcfg.Endpoint
-	} else {
-		cfg.Endpoint = c.Endpoint
 	}
 
-	if newcfg.Region != "" {
+	if newcfg.Region != nil {
 		cfg.Region = newcfg.Region
-	} else {
-		cfg.Region = c.Region
 	}
 
-	if newcfg.DisableSSL {
+	if newcfg.DisableSSL != nil {
 		cfg.DisableSSL = newcfg.DisableSSL
-	} else {
-		cfg.DisableSSL = c.DisableSSL
 	}
 
-	if newcfg.ManualSend {
+	if newcfg.ManualSend != nil {
 		cfg.ManualSend = newcfg.ManualSend
-	} else {
-		cfg.ManualSend = c.ManualSend
 	}
 
 	if newcfg.HTTPClient != nil {
 		cfg.HTTPClient = newcfg.HTTPClient
-	} else {
-		cfg.HTTPClient = c.HTTPClient
 	}
 
-	if newcfg.LogHTTPBody {
+	if newcfg.LogHTTPBody != nil {
 		cfg.LogHTTPBody = newcfg.LogHTTPBody
-	} else {
-		cfg.LogHTTPBody = c.LogHTTPBody
 	}
 
-	if newcfg.LogLevel != 0 {
+	if newcfg.LogLevel != nil {
 		cfg.LogLevel = newcfg.LogLevel
-	} else {
-		cfg.LogLevel = c.LogLevel
 	}
 
 	if newcfg.Logger != nil {
 		cfg.Logger = newcfg.Logger
-	} else {
-		cfg.Logger = c.Logger
 	}
 
-	if newcfg.MaxRetries != DefaultRetries {
+	if newcfg.MaxRetries != nil {
 		cfg.MaxRetries = newcfg.MaxRetries
-	} else {
-		cfg.MaxRetries = c.MaxRetries
 	}
 
-	if newcfg.DisableParamValidation {
+	if newcfg.DisableParamValidation != nil {
 		cfg.DisableParamValidation = newcfg.DisableParamValidation
-	} else {
-		cfg.DisableParamValidation = c.DisableParamValidation
 	}
 
-	if newcfg.DisableComputeChecksums {
+	if newcfg.DisableComputeChecksums != nil {
 		cfg.DisableComputeChecksums = newcfg.DisableComputeChecksums
-	} else {
-		cfg.DisableComputeChecksums = c.DisableComputeChecksums
 	}
 
-	if newcfg.S3ForcePathStyle {
+	if newcfg.S3ForcePathStyle != nil {
 		cfg.S3ForcePathStyle = newcfg.S3ForcePathStyle
-	} else {
-		cfg.S3ForcePathStyle = c.S3ForcePathStyle
 	}
 
 	return &cfg

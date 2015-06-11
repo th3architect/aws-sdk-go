@@ -26,8 +26,8 @@ func TestPredictEndpoint(t *testing.T) {
 	})
 
 	req, _ := ml.PredictRequest(&machinelearning.PredictInput{
-		PredictEndpoint: aws.String("https://localhost/endpoint"),
-		MLModelID:       aws.String("id"),
+		PredictEndpoint: aws.StringPtr("https://localhost/endpoint"),
+		MLModelID:       aws.StringPtr("id"),
 		Record:          map[string]*string{},
 	})
 	err := req.Send()

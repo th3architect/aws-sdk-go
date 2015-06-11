@@ -20,7 +20,7 @@ func ExampleSES_DeleteIdentity() {
 	svc := ses.New(nil)
 
 	params := &ses.DeleteIdentityInput{
-		Identity: aws.String("Identity"), // Required
+		Identity: aws.StringPtr("Identity"), // Required
 	}
 	resp, err := svc.DeleteIdentity(params)
 
@@ -47,7 +47,7 @@ func ExampleSES_DeleteVerifiedEmailAddress() {
 	svc := ses.New(nil)
 
 	params := &ses.DeleteVerifiedEmailAddressInput{
-		EmailAddress: aws.String("Address"), // Required
+		EmailAddress: aws.StringPtr("Address"), // Required
 	}
 	resp, err := svc.DeleteVerifiedEmailAddress(params)
 
@@ -75,7 +75,7 @@ func ExampleSES_GetIdentityDKIMAttributes() {
 
 	params := &ses.GetIdentityDKIMAttributesInput{
 		Identities: []*string{ // Required
-			aws.String("Identity"), // Required
+			aws.StringPtr("Identity"), // Required
 			// More values...
 		},
 	}
@@ -105,7 +105,7 @@ func ExampleSES_GetIdentityNotificationAttributes() {
 
 	params := &ses.GetIdentityNotificationAttributesInput{
 		Identities: []*string{ // Required
-			aws.String("Identity"), // Required
+			aws.StringPtr("Identity"), // Required
 			// More values...
 		},
 	}
@@ -135,7 +135,7 @@ func ExampleSES_GetIdentityVerificationAttributes() {
 
 	params := &ses.GetIdentityVerificationAttributesInput{
 		Identities: []*string{ // Required
-			aws.String("Identity"), // Required
+			aws.StringPtr("Identity"), // Required
 			// More values...
 		},
 	}
@@ -214,9 +214,9 @@ func ExampleSES_ListIdentities() {
 	svc := ses.New(nil)
 
 	params := &ses.ListIdentitiesInput{
-		IdentityType: aws.String("IdentityType"),
-		MaxItems:     aws.Long(1),
-		NextToken:    aws.String("NextToken"),
+		IdentityType: aws.StringPtr("IdentityType"),
+		MaxItems:     aws.Int64Ptr(1),
+		NextToken:    aws.StringPtr("NextToken"),
 	}
 	resp, err := svc.ListIdentities(params)
 
@@ -270,40 +270,40 @@ func ExampleSES_SendEmail() {
 	params := &ses.SendEmailInput{
 		Destination: &ses.Destination{ // Required
 			BCCAddresses: []*string{
-				aws.String("Address"), // Required
+				aws.StringPtr("Address"), // Required
 				// More values...
 			},
 			CCAddresses: []*string{
-				aws.String("Address"), // Required
+				aws.StringPtr("Address"), // Required
 				// More values...
 			},
 			ToAddresses: []*string{
-				aws.String("Address"), // Required
+				aws.StringPtr("Address"), // Required
 				// More values...
 			},
 		},
 		Message: &ses.Message{ // Required
 			Body: &ses.Body{ // Required
 				HTML: &ses.Content{
-					Data:    aws.String("MessageData"), // Required
-					Charset: aws.String("Charset"),
+					Data:    aws.StringPtr("MessageData"), // Required
+					Charset: aws.StringPtr("Charset"),
 				},
 				Text: &ses.Content{
-					Data:    aws.String("MessageData"), // Required
-					Charset: aws.String("Charset"),
+					Data:    aws.StringPtr("MessageData"), // Required
+					Charset: aws.StringPtr("Charset"),
 				},
 			},
 			Subject: &ses.Content{ // Required
-				Data:    aws.String("MessageData"), // Required
-				Charset: aws.String("Charset"),
+				Data:    aws.StringPtr("MessageData"), // Required
+				Charset: aws.StringPtr("Charset"),
 			},
 		},
-		Source: aws.String("Address"), // Required
+		Source: aws.StringPtr("Address"), // Required
 		ReplyToAddresses: []*string{
-			aws.String("Address"), // Required
+			aws.StringPtr("Address"), // Required
 			// More values...
 		},
-		ReturnPath: aws.String("Address"),
+		ReturnPath: aws.StringPtr("Address"),
 	}
 	resp, err := svc.SendEmail(params)
 
@@ -334,10 +334,10 @@ func ExampleSES_SendRawEmail() {
 			Data: []byte("PAYLOAD"), // Required
 		},
 		Destinations: []*string{
-			aws.String("Address"), // Required
+			aws.StringPtr("Address"), // Required
 			// More values...
 		},
-		Source: aws.String("Address"),
+		Source: aws.StringPtr("Address"),
 	}
 	resp, err := svc.SendRawEmail(params)
 
@@ -364,8 +364,8 @@ func ExampleSES_SetIdentityDKIMEnabled() {
 	svc := ses.New(nil)
 
 	params := &ses.SetIdentityDKIMEnabledInput{
-		DKIMEnabled: aws.Boolean(true),      // Required
-		Identity:    aws.String("Identity"), // Required
+		DKIMEnabled: aws.BoolPtr(true),         // Required
+		Identity:    aws.StringPtr("Identity"), // Required
 	}
 	resp, err := svc.SetIdentityDKIMEnabled(params)
 
@@ -392,8 +392,8 @@ func ExampleSES_SetIdentityFeedbackForwardingEnabled() {
 	svc := ses.New(nil)
 
 	params := &ses.SetIdentityFeedbackForwardingEnabledInput{
-		ForwardingEnabled: aws.Boolean(true),      // Required
-		Identity:          aws.String("Identity"), // Required
+		ForwardingEnabled: aws.BoolPtr(true),         // Required
+		Identity:          aws.StringPtr("Identity"), // Required
 	}
 	resp, err := svc.SetIdentityFeedbackForwardingEnabled(params)
 
@@ -420,9 +420,9 @@ func ExampleSES_SetIdentityNotificationTopic() {
 	svc := ses.New(nil)
 
 	params := &ses.SetIdentityNotificationTopicInput{
-		Identity:         aws.String("Identity"),         // Required
-		NotificationType: aws.String("NotificationType"), // Required
-		SNSTopic:         aws.String("NotificationTopic"),
+		Identity:         aws.StringPtr("Identity"),         // Required
+		NotificationType: aws.StringPtr("NotificationType"), // Required
+		SNSTopic:         aws.StringPtr("NotificationTopic"),
 	}
 	resp, err := svc.SetIdentityNotificationTopic(params)
 
@@ -449,7 +449,7 @@ func ExampleSES_VerifyDomainDKIM() {
 	svc := ses.New(nil)
 
 	params := &ses.VerifyDomainDKIMInput{
-		Domain: aws.String("Domain"), // Required
+		Domain: aws.StringPtr("Domain"), // Required
 	}
 	resp, err := svc.VerifyDomainDKIM(params)
 
@@ -476,7 +476,7 @@ func ExampleSES_VerifyDomainIdentity() {
 	svc := ses.New(nil)
 
 	params := &ses.VerifyDomainIdentityInput{
-		Domain: aws.String("Domain"), // Required
+		Domain: aws.StringPtr("Domain"), // Required
 	}
 	resp, err := svc.VerifyDomainIdentity(params)
 
@@ -503,7 +503,7 @@ func ExampleSES_VerifyEmailAddress() {
 	svc := ses.New(nil)
 
 	params := &ses.VerifyEmailAddressInput{
-		EmailAddress: aws.String("Address"), // Required
+		EmailAddress: aws.StringPtr("Address"), // Required
 	}
 	resp, err := svc.VerifyEmailAddress(params)
 
@@ -530,7 +530,7 @@ func ExampleSES_VerifyEmailIdentity() {
 	svc := ses.New(nil)
 
 	params := &ses.VerifyEmailIdentityInput{
-		EmailAddress: aws.String("Address"), // Required
+		EmailAddress: aws.StringPtr("Address"), // Required
 	}
 	resp, err := svc.VerifyEmailIdentity(params)
 

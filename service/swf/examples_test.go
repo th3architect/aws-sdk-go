@@ -20,27 +20,27 @@ func ExampleSWF_CountClosedWorkflowExecutions() {
 	svc := swf.New(nil)
 
 	params := &swf.CountClosedWorkflowExecutionsInput{
-		Domain: aws.String("DomainName"), // Required
+		Domain: aws.StringPtr("DomainName"), // Required
 		CloseStatusFilter: &swf.CloseStatusFilter{
-			Status: aws.String("CloseStatus"), // Required
+			Status: aws.StringPtr("CloseStatus"), // Required
 		},
 		CloseTimeFilter: &swf.ExecutionTimeFilter{
-			OldestDate: aws.Time(time.Now()), // Required
-			LatestDate: aws.Time(time.Now()),
+			OldestDate: aws.TimePtr(time.Now()), // Required
+			LatestDate: aws.TimePtr(time.Now()),
 		},
 		ExecutionFilter: &swf.WorkflowExecutionFilter{
-			WorkflowID: aws.String("WorkflowId"), // Required
+			WorkflowID: aws.StringPtr("WorkflowId"), // Required
 		},
 		StartTimeFilter: &swf.ExecutionTimeFilter{
-			OldestDate: aws.Time(time.Now()), // Required
-			LatestDate: aws.Time(time.Now()),
+			OldestDate: aws.TimePtr(time.Now()), // Required
+			LatestDate: aws.TimePtr(time.Now()),
 		},
 		TagFilter: &swf.TagFilter{
-			Tag: aws.String("Tag"), // Required
+			Tag: aws.StringPtr("Tag"), // Required
 		},
 		TypeFilter: &swf.WorkflowTypeFilter{
-			Name:    aws.String("Name"), // Required
-			Version: aws.String("VersionOptional"),
+			Name:    aws.StringPtr("Name"), // Required
+			Version: aws.StringPtr("VersionOptional"),
 		},
 	}
 	resp, err := svc.CountClosedWorkflowExecutions(params)
@@ -68,20 +68,20 @@ func ExampleSWF_CountOpenWorkflowExecutions() {
 	svc := swf.New(nil)
 
 	params := &swf.CountOpenWorkflowExecutionsInput{
-		Domain: aws.String("DomainName"), // Required
+		Domain: aws.StringPtr("DomainName"), // Required
 		StartTimeFilter: &swf.ExecutionTimeFilter{ // Required
-			OldestDate: aws.Time(time.Now()), // Required
-			LatestDate: aws.Time(time.Now()),
+			OldestDate: aws.TimePtr(time.Now()), // Required
+			LatestDate: aws.TimePtr(time.Now()),
 		},
 		ExecutionFilter: &swf.WorkflowExecutionFilter{
-			WorkflowID: aws.String("WorkflowId"), // Required
+			WorkflowID: aws.StringPtr("WorkflowId"), // Required
 		},
 		TagFilter: &swf.TagFilter{
-			Tag: aws.String("Tag"), // Required
+			Tag: aws.StringPtr("Tag"), // Required
 		},
 		TypeFilter: &swf.WorkflowTypeFilter{
-			Name:    aws.String("Name"), // Required
-			Version: aws.String("VersionOptional"),
+			Name:    aws.StringPtr("Name"), // Required
+			Version: aws.StringPtr("VersionOptional"),
 		},
 	}
 	resp, err := svc.CountOpenWorkflowExecutions(params)
@@ -109,9 +109,9 @@ func ExampleSWF_CountPendingActivityTasks() {
 	svc := swf.New(nil)
 
 	params := &swf.CountPendingActivityTasksInput{
-		Domain: aws.String("DomainName"), // Required
+		Domain: aws.StringPtr("DomainName"), // Required
 		TaskList: &swf.TaskList{ // Required
-			Name: aws.String("Name"), // Required
+			Name: aws.StringPtr("Name"), // Required
 		},
 	}
 	resp, err := svc.CountPendingActivityTasks(params)
@@ -139,9 +139,9 @@ func ExampleSWF_CountPendingDecisionTasks() {
 	svc := swf.New(nil)
 
 	params := &swf.CountPendingDecisionTasksInput{
-		Domain: aws.String("DomainName"), // Required
+		Domain: aws.StringPtr("DomainName"), // Required
 		TaskList: &swf.TaskList{ // Required
-			Name: aws.String("Name"), // Required
+			Name: aws.StringPtr("Name"), // Required
 		},
 	}
 	resp, err := svc.CountPendingDecisionTasks(params)
@@ -170,10 +170,10 @@ func ExampleSWF_DeprecateActivityType() {
 
 	params := &swf.DeprecateActivityTypeInput{
 		ActivityType: &swf.ActivityType{ // Required
-			Name:    aws.String("Name"),    // Required
-			Version: aws.String("Version"), // Required
+			Name:    aws.StringPtr("Name"),    // Required
+			Version: aws.StringPtr("Version"), // Required
 		},
-		Domain: aws.String("DomainName"), // Required
+		Domain: aws.StringPtr("DomainName"), // Required
 	}
 	resp, err := svc.DeprecateActivityType(params)
 
@@ -200,7 +200,7 @@ func ExampleSWF_DeprecateDomain() {
 	svc := swf.New(nil)
 
 	params := &swf.DeprecateDomainInput{
-		Name: aws.String("DomainName"), // Required
+		Name: aws.StringPtr("DomainName"), // Required
 	}
 	resp, err := svc.DeprecateDomain(params)
 
@@ -227,10 +227,10 @@ func ExampleSWF_DeprecateWorkflowType() {
 	svc := swf.New(nil)
 
 	params := &swf.DeprecateWorkflowTypeInput{
-		Domain: aws.String("DomainName"), // Required
+		Domain: aws.StringPtr("DomainName"), // Required
 		WorkflowType: &swf.WorkflowType{ // Required
-			Name:    aws.String("Name"),    // Required
-			Version: aws.String("Version"), // Required
+			Name:    aws.StringPtr("Name"),    // Required
+			Version: aws.StringPtr("Version"), // Required
 		},
 	}
 	resp, err := svc.DeprecateWorkflowType(params)
@@ -259,10 +259,10 @@ func ExampleSWF_DescribeActivityType() {
 
 	params := &swf.DescribeActivityTypeInput{
 		ActivityType: &swf.ActivityType{ // Required
-			Name:    aws.String("Name"),    // Required
-			Version: aws.String("Version"), // Required
+			Name:    aws.StringPtr("Name"),    // Required
+			Version: aws.StringPtr("Version"), // Required
 		},
-		Domain: aws.String("DomainName"), // Required
+		Domain: aws.StringPtr("DomainName"), // Required
 	}
 	resp, err := svc.DescribeActivityType(params)
 
@@ -289,7 +289,7 @@ func ExampleSWF_DescribeDomain() {
 	svc := swf.New(nil)
 
 	params := &swf.DescribeDomainInput{
-		Name: aws.String("DomainName"), // Required
+		Name: aws.StringPtr("DomainName"), // Required
 	}
 	resp, err := svc.DescribeDomain(params)
 
@@ -316,10 +316,10 @@ func ExampleSWF_DescribeWorkflowExecution() {
 	svc := swf.New(nil)
 
 	params := &swf.DescribeWorkflowExecutionInput{
-		Domain: aws.String("DomainName"), // Required
+		Domain: aws.StringPtr("DomainName"), // Required
 		Execution: &swf.WorkflowExecution{ // Required
-			RunID:      aws.String("RunId"),      // Required
-			WorkflowID: aws.String("WorkflowId"), // Required
+			RunID:      aws.StringPtr("RunId"),      // Required
+			WorkflowID: aws.StringPtr("WorkflowId"), // Required
 		},
 	}
 	resp, err := svc.DescribeWorkflowExecution(params)
@@ -347,10 +347,10 @@ func ExampleSWF_DescribeWorkflowType() {
 	svc := swf.New(nil)
 
 	params := &swf.DescribeWorkflowTypeInput{
-		Domain: aws.String("DomainName"), // Required
+		Domain: aws.StringPtr("DomainName"), // Required
 		WorkflowType: &swf.WorkflowType{ // Required
-			Name:    aws.String("Name"),    // Required
-			Version: aws.String("Version"), // Required
+			Name:    aws.StringPtr("Name"),    // Required
+			Version: aws.StringPtr("Version"), // Required
 		},
 	}
 	resp, err := svc.DescribeWorkflowType(params)
@@ -378,14 +378,14 @@ func ExampleSWF_GetWorkflowExecutionHistory() {
 	svc := swf.New(nil)
 
 	params := &swf.GetWorkflowExecutionHistoryInput{
-		Domain: aws.String("DomainName"), // Required
+		Domain: aws.StringPtr("DomainName"), // Required
 		Execution: &swf.WorkflowExecution{ // Required
-			RunID:      aws.String("RunId"),      // Required
-			WorkflowID: aws.String("WorkflowId"), // Required
+			RunID:      aws.StringPtr("RunId"),      // Required
+			WorkflowID: aws.StringPtr("WorkflowId"), // Required
 		},
-		MaximumPageSize: aws.Long(1),
-		NextPageToken:   aws.String("PageToken"),
-		ReverseOrder:    aws.Boolean(true),
+		MaximumPageSize: aws.Int64Ptr(1),
+		NextPageToken:   aws.StringPtr("PageToken"),
+		ReverseOrder:    aws.BoolPtr(true),
 	}
 	resp, err := svc.GetWorkflowExecutionHistory(params)
 
@@ -412,12 +412,12 @@ func ExampleSWF_ListActivityTypes() {
 	svc := swf.New(nil)
 
 	params := &swf.ListActivityTypesInput{
-		Domain:             aws.String("DomainName"),         // Required
-		RegistrationStatus: aws.String("RegistrationStatus"), // Required
-		MaximumPageSize:    aws.Long(1),
-		Name:               aws.String("Name"),
-		NextPageToken:      aws.String("PageToken"),
-		ReverseOrder:       aws.Boolean(true),
+		Domain:             aws.StringPtr("DomainName"),         // Required
+		RegistrationStatus: aws.StringPtr("RegistrationStatus"), // Required
+		MaximumPageSize:    aws.Int64Ptr(1),
+		Name:               aws.StringPtr("Name"),
+		NextPageToken:      aws.StringPtr("PageToken"),
+		ReverseOrder:       aws.BoolPtr(true),
 	}
 	resp, err := svc.ListActivityTypes(params)
 
@@ -444,30 +444,30 @@ func ExampleSWF_ListClosedWorkflowExecutions() {
 	svc := swf.New(nil)
 
 	params := &swf.ListClosedWorkflowExecutionsInput{
-		Domain: aws.String("DomainName"), // Required
+		Domain: aws.StringPtr("DomainName"), // Required
 		CloseStatusFilter: &swf.CloseStatusFilter{
-			Status: aws.String("CloseStatus"), // Required
+			Status: aws.StringPtr("CloseStatus"), // Required
 		},
 		CloseTimeFilter: &swf.ExecutionTimeFilter{
-			OldestDate: aws.Time(time.Now()), // Required
-			LatestDate: aws.Time(time.Now()),
+			OldestDate: aws.TimePtr(time.Now()), // Required
+			LatestDate: aws.TimePtr(time.Now()),
 		},
 		ExecutionFilter: &swf.WorkflowExecutionFilter{
-			WorkflowID: aws.String("WorkflowId"), // Required
+			WorkflowID: aws.StringPtr("WorkflowId"), // Required
 		},
-		MaximumPageSize: aws.Long(1),
-		NextPageToken:   aws.String("PageToken"),
-		ReverseOrder:    aws.Boolean(true),
+		MaximumPageSize: aws.Int64Ptr(1),
+		NextPageToken:   aws.StringPtr("PageToken"),
+		ReverseOrder:    aws.BoolPtr(true),
 		StartTimeFilter: &swf.ExecutionTimeFilter{
-			OldestDate: aws.Time(time.Now()), // Required
-			LatestDate: aws.Time(time.Now()),
+			OldestDate: aws.TimePtr(time.Now()), // Required
+			LatestDate: aws.TimePtr(time.Now()),
 		},
 		TagFilter: &swf.TagFilter{
-			Tag: aws.String("Tag"), // Required
+			Tag: aws.StringPtr("Tag"), // Required
 		},
 		TypeFilter: &swf.WorkflowTypeFilter{
-			Name:    aws.String("Name"), // Required
-			Version: aws.String("VersionOptional"),
+			Name:    aws.StringPtr("Name"), // Required
+			Version: aws.StringPtr("VersionOptional"),
 		},
 	}
 	resp, err := svc.ListClosedWorkflowExecutions(params)
@@ -495,10 +495,10 @@ func ExampleSWF_ListDomains() {
 	svc := swf.New(nil)
 
 	params := &swf.ListDomainsInput{
-		RegistrationStatus: aws.String("RegistrationStatus"), // Required
-		MaximumPageSize:    aws.Long(1),
-		NextPageToken:      aws.String("PageToken"),
-		ReverseOrder:       aws.Boolean(true),
+		RegistrationStatus: aws.StringPtr("RegistrationStatus"), // Required
+		MaximumPageSize:    aws.Int64Ptr(1),
+		NextPageToken:      aws.StringPtr("PageToken"),
+		ReverseOrder:       aws.BoolPtr(true),
 	}
 	resp, err := svc.ListDomains(params)
 
@@ -525,23 +525,23 @@ func ExampleSWF_ListOpenWorkflowExecutions() {
 	svc := swf.New(nil)
 
 	params := &swf.ListOpenWorkflowExecutionsInput{
-		Domain: aws.String("DomainName"), // Required
+		Domain: aws.StringPtr("DomainName"), // Required
 		StartTimeFilter: &swf.ExecutionTimeFilter{ // Required
-			OldestDate: aws.Time(time.Now()), // Required
-			LatestDate: aws.Time(time.Now()),
+			OldestDate: aws.TimePtr(time.Now()), // Required
+			LatestDate: aws.TimePtr(time.Now()),
 		},
 		ExecutionFilter: &swf.WorkflowExecutionFilter{
-			WorkflowID: aws.String("WorkflowId"), // Required
+			WorkflowID: aws.StringPtr("WorkflowId"), // Required
 		},
-		MaximumPageSize: aws.Long(1),
-		NextPageToken:   aws.String("PageToken"),
-		ReverseOrder:    aws.Boolean(true),
+		MaximumPageSize: aws.Int64Ptr(1),
+		NextPageToken:   aws.StringPtr("PageToken"),
+		ReverseOrder:    aws.BoolPtr(true),
 		TagFilter: &swf.TagFilter{
-			Tag: aws.String("Tag"), // Required
+			Tag: aws.StringPtr("Tag"), // Required
 		},
 		TypeFilter: &swf.WorkflowTypeFilter{
-			Name:    aws.String("Name"), // Required
-			Version: aws.String("VersionOptional"),
+			Name:    aws.StringPtr("Name"), // Required
+			Version: aws.StringPtr("VersionOptional"),
 		},
 	}
 	resp, err := svc.ListOpenWorkflowExecutions(params)
@@ -569,12 +569,12 @@ func ExampleSWF_ListWorkflowTypes() {
 	svc := swf.New(nil)
 
 	params := &swf.ListWorkflowTypesInput{
-		Domain:             aws.String("DomainName"),         // Required
-		RegistrationStatus: aws.String("RegistrationStatus"), // Required
-		MaximumPageSize:    aws.Long(1),
-		Name:               aws.String("Name"),
-		NextPageToken:      aws.String("PageToken"),
-		ReverseOrder:       aws.Boolean(true),
+		Domain:             aws.StringPtr("DomainName"),         // Required
+		RegistrationStatus: aws.StringPtr("RegistrationStatus"), // Required
+		MaximumPageSize:    aws.Int64Ptr(1),
+		Name:               aws.StringPtr("Name"),
+		NextPageToken:      aws.StringPtr("PageToken"),
+		ReverseOrder:       aws.BoolPtr(true),
 	}
 	resp, err := svc.ListWorkflowTypes(params)
 
@@ -601,11 +601,11 @@ func ExampleSWF_PollForActivityTask() {
 	svc := swf.New(nil)
 
 	params := &swf.PollForActivityTaskInput{
-		Domain: aws.String("DomainName"), // Required
+		Domain: aws.StringPtr("DomainName"), // Required
 		TaskList: &swf.TaskList{ // Required
-			Name: aws.String("Name"), // Required
+			Name: aws.StringPtr("Name"), // Required
 		},
-		Identity: aws.String("Identity"),
+		Identity: aws.StringPtr("Identity"),
 	}
 	resp, err := svc.PollForActivityTask(params)
 
@@ -632,14 +632,14 @@ func ExampleSWF_PollForDecisionTask() {
 	svc := swf.New(nil)
 
 	params := &swf.PollForDecisionTaskInput{
-		Domain: aws.String("DomainName"), // Required
+		Domain: aws.StringPtr("DomainName"), // Required
 		TaskList: &swf.TaskList{ // Required
-			Name: aws.String("Name"), // Required
+			Name: aws.StringPtr("Name"), // Required
 		},
-		Identity:        aws.String("Identity"),
-		MaximumPageSize: aws.Long(1),
-		NextPageToken:   aws.String("PageToken"),
-		ReverseOrder:    aws.Boolean(true),
+		Identity:        aws.StringPtr("Identity"),
+		MaximumPageSize: aws.Int64Ptr(1),
+		NextPageToken:   aws.StringPtr("PageToken"),
+		ReverseOrder:    aws.BoolPtr(true),
 	}
 	resp, err := svc.PollForDecisionTask(params)
 
@@ -666,8 +666,8 @@ func ExampleSWF_RecordActivityTaskHeartbeat() {
 	svc := swf.New(nil)
 
 	params := &swf.RecordActivityTaskHeartbeatInput{
-		TaskToken: aws.String("TaskToken"), // Required
-		Details:   aws.String("LimitedData"),
+		TaskToken: aws.StringPtr("TaskToken"), // Required
+		Details:   aws.StringPtr("LimitedData"),
 	}
 	resp, err := svc.RecordActivityTaskHeartbeat(params)
 
@@ -694,18 +694,18 @@ func ExampleSWF_RegisterActivityType() {
 	svc := swf.New(nil)
 
 	params := &swf.RegisterActivityTypeInput{
-		Domain:                      aws.String("DomainName"), // Required
-		Name:                        aws.String("Name"),       // Required
-		Version:                     aws.String("Version"),    // Required
-		DefaultTaskHeartbeatTimeout: aws.String("DurationInSecondsOptional"),
+		Domain:                      aws.StringPtr("DomainName"), // Required
+		Name:                        aws.StringPtr("Name"),       // Required
+		Version:                     aws.StringPtr("Version"),    // Required
+		DefaultTaskHeartbeatTimeout: aws.StringPtr("DurationInSecondsOptional"),
 		DefaultTaskList: &swf.TaskList{
-			Name: aws.String("Name"), // Required
+			Name: aws.StringPtr("Name"), // Required
 		},
-		DefaultTaskPriority:               aws.String("TaskPriority"),
-		DefaultTaskScheduleToCloseTimeout: aws.String("DurationInSecondsOptional"),
-		DefaultTaskScheduleToStartTimeout: aws.String("DurationInSecondsOptional"),
-		DefaultTaskStartToCloseTimeout:    aws.String("DurationInSecondsOptional"),
-		Description:                       aws.String("Description"),
+		DefaultTaskPriority:               aws.StringPtr("TaskPriority"),
+		DefaultTaskScheduleToCloseTimeout: aws.StringPtr("DurationInSecondsOptional"),
+		DefaultTaskScheduleToStartTimeout: aws.StringPtr("DurationInSecondsOptional"),
+		DefaultTaskStartToCloseTimeout:    aws.StringPtr("DurationInSecondsOptional"),
+		Description:                       aws.StringPtr("Description"),
 	}
 	resp, err := svc.RegisterActivityType(params)
 
@@ -732,9 +732,9 @@ func ExampleSWF_RegisterDomain() {
 	svc := swf.New(nil)
 
 	params := &swf.RegisterDomainInput{
-		Name: aws.String("DomainName"), // Required
-		WorkflowExecutionRetentionPeriodInDays: aws.String("DurationInDays"), // Required
-		Description:                            aws.String("Description"),
+		Name: aws.StringPtr("DomainName"), // Required
+		WorkflowExecutionRetentionPeriodInDays: aws.StringPtr("DurationInDays"), // Required
+		Description:                            aws.StringPtr("Description"),
 	}
 	resp, err := svc.RegisterDomain(params)
 
@@ -761,17 +761,17 @@ func ExampleSWF_RegisterWorkflowType() {
 	svc := swf.New(nil)
 
 	params := &swf.RegisterWorkflowTypeInput{
-		Domain:                              aws.String("DomainName"), // Required
-		Name:                                aws.String("Name"),       // Required
-		Version:                             aws.String("Version"),    // Required
-		DefaultChildPolicy:                  aws.String("ChildPolicy"),
-		DefaultExecutionStartToCloseTimeout: aws.String("DurationInSecondsOptional"),
+		Domain:                              aws.StringPtr("DomainName"), // Required
+		Name:                                aws.StringPtr("Name"),       // Required
+		Version:                             aws.StringPtr("Version"),    // Required
+		DefaultChildPolicy:                  aws.StringPtr("ChildPolicy"),
+		DefaultExecutionStartToCloseTimeout: aws.StringPtr("DurationInSecondsOptional"),
 		DefaultTaskList: &swf.TaskList{
-			Name: aws.String("Name"), // Required
+			Name: aws.StringPtr("Name"), // Required
 		},
-		DefaultTaskPriority:            aws.String("TaskPriority"),
-		DefaultTaskStartToCloseTimeout: aws.String("DurationInSecondsOptional"),
-		Description:                    aws.String("Description"),
+		DefaultTaskPriority:            aws.StringPtr("TaskPriority"),
+		DefaultTaskStartToCloseTimeout: aws.StringPtr("DurationInSecondsOptional"),
+		Description:                    aws.StringPtr("Description"),
 	}
 	resp, err := svc.RegisterWorkflowType(params)
 
@@ -798,9 +798,9 @@ func ExampleSWF_RequestCancelWorkflowExecution() {
 	svc := swf.New(nil)
 
 	params := &swf.RequestCancelWorkflowExecutionInput{
-		Domain:     aws.String("DomainName"), // Required
-		WorkflowID: aws.String("WorkflowId"), // Required
-		RunID:      aws.String("RunIdOptional"),
+		Domain:     aws.StringPtr("DomainName"), // Required
+		WorkflowID: aws.StringPtr("WorkflowId"), // Required
+		RunID:      aws.StringPtr("RunIdOptional"),
 	}
 	resp, err := svc.RequestCancelWorkflowExecution(params)
 
@@ -827,8 +827,8 @@ func ExampleSWF_RespondActivityTaskCanceled() {
 	svc := swf.New(nil)
 
 	params := &swf.RespondActivityTaskCanceledInput{
-		TaskToken: aws.String("TaskToken"), // Required
-		Details:   aws.String("Data"),
+		TaskToken: aws.StringPtr("TaskToken"), // Required
+		Details:   aws.StringPtr("Data"),
 	}
 	resp, err := svc.RespondActivityTaskCanceled(params)
 
@@ -855,8 +855,8 @@ func ExampleSWF_RespondActivityTaskCompleted() {
 	svc := swf.New(nil)
 
 	params := &swf.RespondActivityTaskCompletedInput{
-		TaskToken: aws.String("TaskToken"), // Required
-		Result:    aws.String("Data"),
+		TaskToken: aws.StringPtr("TaskToken"), // Required
+		Result:    aws.StringPtr("Data"),
 	}
 	resp, err := svc.RespondActivityTaskCompleted(params)
 
@@ -883,9 +883,9 @@ func ExampleSWF_RespondActivityTaskFailed() {
 	svc := swf.New(nil)
 
 	params := &swf.RespondActivityTaskFailedInput{
-		TaskToken: aws.String("TaskToken"), // Required
-		Details:   aws.String("Data"),
-		Reason:    aws.String("FailureReason"),
+		TaskToken: aws.StringPtr("TaskToken"), // Required
+		Details:   aws.StringPtr("Data"),
+		Reason:    aws.StringPtr("FailureReason"),
 	}
 	resp, err := svc.RespondActivityTaskFailed(params)
 
@@ -912,103 +912,103 @@ func ExampleSWF_RespondDecisionTaskCompleted() {
 	svc := swf.New(nil)
 
 	params := &swf.RespondDecisionTaskCompletedInput{
-		TaskToken: aws.String("TaskToken"), // Required
+		TaskToken: aws.StringPtr("TaskToken"), // Required
 		Decisions: []*swf.Decision{
 			{ // Required
-				DecisionType: aws.String("DecisionType"), // Required
+				DecisionType: aws.StringPtr("DecisionType"), // Required
 				CancelTimerDecisionAttributes: &swf.CancelTimerDecisionAttributes{
-					TimerID: aws.String("TimerId"), // Required
+					TimerID: aws.StringPtr("TimerId"), // Required
 				},
 				CancelWorkflowExecutionDecisionAttributes: &swf.CancelWorkflowExecutionDecisionAttributes{
-					Details: aws.String("Data"),
+					Details: aws.StringPtr("Data"),
 				},
 				CompleteWorkflowExecutionDecisionAttributes: &swf.CompleteWorkflowExecutionDecisionAttributes{
-					Result: aws.String("Data"),
+					Result: aws.StringPtr("Data"),
 				},
 				ContinueAsNewWorkflowExecutionDecisionAttributes: &swf.ContinueAsNewWorkflowExecutionDecisionAttributes{
-					ChildPolicy:                  aws.String("ChildPolicy"),
-					ExecutionStartToCloseTimeout: aws.String("DurationInSecondsOptional"),
-					Input: aws.String("Data"),
+					ChildPolicy:                  aws.StringPtr("ChildPolicy"),
+					ExecutionStartToCloseTimeout: aws.StringPtr("DurationInSecondsOptional"),
+					Input: aws.StringPtr("Data"),
 					TagList: []*string{
-						aws.String("Tag"), // Required
+						aws.StringPtr("Tag"), // Required
 						// More values...
 					},
 					TaskList: &swf.TaskList{
-						Name: aws.String("Name"), // Required
+						Name: aws.StringPtr("Name"), // Required
 					},
-					TaskPriority:            aws.String("TaskPriority"),
-					TaskStartToCloseTimeout: aws.String("DurationInSecondsOptional"),
-					WorkflowTypeVersion:     aws.String("Version"),
+					TaskPriority:            aws.StringPtr("TaskPriority"),
+					TaskStartToCloseTimeout: aws.StringPtr("DurationInSecondsOptional"),
+					WorkflowTypeVersion:     aws.StringPtr("Version"),
 				},
 				FailWorkflowExecutionDecisionAttributes: &swf.FailWorkflowExecutionDecisionAttributes{
-					Details: aws.String("Data"),
-					Reason:  aws.String("FailureReason"),
+					Details: aws.StringPtr("Data"),
+					Reason:  aws.StringPtr("FailureReason"),
 				},
 				RecordMarkerDecisionAttributes: &swf.RecordMarkerDecisionAttributes{
-					MarkerName: aws.String("MarkerName"), // Required
-					Details:    aws.String("Data"),
+					MarkerName: aws.StringPtr("MarkerName"), // Required
+					Details:    aws.StringPtr("Data"),
 				},
 				RequestCancelActivityTaskDecisionAttributes: &swf.RequestCancelActivityTaskDecisionAttributes{
-					ActivityID: aws.String("ActivityId"), // Required
+					ActivityID: aws.StringPtr("ActivityId"), // Required
 				},
 				RequestCancelExternalWorkflowExecutionDecisionAttributes: &swf.RequestCancelExternalWorkflowExecutionDecisionAttributes{
-					WorkflowID: aws.String("WorkflowId"), // Required
-					Control:    aws.String("Data"),
-					RunID:      aws.String("RunIdOptional"),
+					WorkflowID: aws.StringPtr("WorkflowId"), // Required
+					Control:    aws.StringPtr("Data"),
+					RunID:      aws.StringPtr("RunIdOptional"),
 				},
 				ScheduleActivityTaskDecisionAttributes: &swf.ScheduleActivityTaskDecisionAttributes{
-					ActivityID: aws.String("ActivityId"), // Required
+					ActivityID: aws.StringPtr("ActivityId"), // Required
 					ActivityType: &swf.ActivityType{ // Required
-						Name:    aws.String("Name"),    // Required
-						Version: aws.String("Version"), // Required
+						Name:    aws.StringPtr("Name"),    // Required
+						Version: aws.StringPtr("Version"), // Required
 					},
-					Control:          aws.String("Data"),
-					HeartbeatTimeout: aws.String("DurationInSecondsOptional"),
-					Input:            aws.String("Data"),
-					ScheduleToCloseTimeout: aws.String("DurationInSecondsOptional"),
-					ScheduleToStartTimeout: aws.String("DurationInSecondsOptional"),
-					StartToCloseTimeout:    aws.String("DurationInSecondsOptional"),
+					Control:          aws.StringPtr("Data"),
+					HeartbeatTimeout: aws.StringPtr("DurationInSecondsOptional"),
+					Input:            aws.StringPtr("Data"),
+					ScheduleToCloseTimeout: aws.StringPtr("DurationInSecondsOptional"),
+					ScheduleToStartTimeout: aws.StringPtr("DurationInSecondsOptional"),
+					StartToCloseTimeout:    aws.StringPtr("DurationInSecondsOptional"),
 					TaskList: &swf.TaskList{
-						Name: aws.String("Name"), // Required
+						Name: aws.StringPtr("Name"), // Required
 					},
-					TaskPriority: aws.String("TaskPriority"),
+					TaskPriority: aws.StringPtr("TaskPriority"),
 				},
 				SignalExternalWorkflowExecutionDecisionAttributes: &swf.SignalExternalWorkflowExecutionDecisionAttributes{
-					SignalName: aws.String("SignalName"), // Required
-					WorkflowID: aws.String("WorkflowId"), // Required
-					Control:    aws.String("Data"),
-					Input:      aws.String("Data"),
-					RunID:      aws.String("RunIdOptional"),
+					SignalName: aws.StringPtr("SignalName"), // Required
+					WorkflowID: aws.StringPtr("WorkflowId"), // Required
+					Control:    aws.StringPtr("Data"),
+					Input:      aws.StringPtr("Data"),
+					RunID:      aws.StringPtr("RunIdOptional"),
 				},
 				StartChildWorkflowExecutionDecisionAttributes: &swf.StartChildWorkflowExecutionDecisionAttributes{
-					WorkflowID: aws.String("WorkflowId"), // Required
+					WorkflowID: aws.StringPtr("WorkflowId"), // Required
 					WorkflowType: &swf.WorkflowType{ // Required
-						Name:    aws.String("Name"),    // Required
-						Version: aws.String("Version"), // Required
+						Name:    aws.StringPtr("Name"),    // Required
+						Version: aws.StringPtr("Version"), // Required
 					},
-					ChildPolicy: aws.String("ChildPolicy"),
-					Control:     aws.String("Data"),
-					ExecutionStartToCloseTimeout: aws.String("DurationInSecondsOptional"),
-					Input: aws.String("Data"),
+					ChildPolicy: aws.StringPtr("ChildPolicy"),
+					Control:     aws.StringPtr("Data"),
+					ExecutionStartToCloseTimeout: aws.StringPtr("DurationInSecondsOptional"),
+					Input: aws.StringPtr("Data"),
 					TagList: []*string{
-						aws.String("Tag"), // Required
+						aws.StringPtr("Tag"), // Required
 						// More values...
 					},
 					TaskList: &swf.TaskList{
-						Name: aws.String("Name"), // Required
+						Name: aws.StringPtr("Name"), // Required
 					},
-					TaskPriority:            aws.String("TaskPriority"),
-					TaskStartToCloseTimeout: aws.String("DurationInSecondsOptional"),
+					TaskPriority:            aws.StringPtr("TaskPriority"),
+					TaskStartToCloseTimeout: aws.StringPtr("DurationInSecondsOptional"),
 				},
 				StartTimerDecisionAttributes: &swf.StartTimerDecisionAttributes{
-					StartToFireTimeout: aws.String("DurationInSeconds"), // Required
-					TimerID:            aws.String("TimerId"),           // Required
-					Control:            aws.String("Data"),
+					StartToFireTimeout: aws.StringPtr("DurationInSeconds"), // Required
+					TimerID:            aws.StringPtr("TimerId"),           // Required
+					Control:            aws.StringPtr("Data"),
 				},
 			},
 			// More values...
 		},
-		ExecutionContext: aws.String("Data"),
+		ExecutionContext: aws.StringPtr("Data"),
 	}
 	resp, err := svc.RespondDecisionTaskCompleted(params)
 
@@ -1035,11 +1035,11 @@ func ExampleSWF_SignalWorkflowExecution() {
 	svc := swf.New(nil)
 
 	params := &swf.SignalWorkflowExecutionInput{
-		Domain:     aws.String("DomainName"), // Required
-		SignalName: aws.String("SignalName"), // Required
-		WorkflowID: aws.String("WorkflowId"), // Required
-		Input:      aws.String("Data"),
-		RunID:      aws.String("RunIdOptional"),
+		Domain:     aws.StringPtr("DomainName"), // Required
+		SignalName: aws.StringPtr("SignalName"), // Required
+		WorkflowID: aws.StringPtr("WorkflowId"), // Required
+		Input:      aws.StringPtr("Data"),
+		RunID:      aws.StringPtr("RunIdOptional"),
 	}
 	resp, err := svc.SignalWorkflowExecution(params)
 
@@ -1066,24 +1066,24 @@ func ExampleSWF_StartWorkflowExecution() {
 	svc := swf.New(nil)
 
 	params := &swf.StartWorkflowExecutionInput{
-		Domain:     aws.String("DomainName"), // Required
-		WorkflowID: aws.String("WorkflowId"), // Required
+		Domain:     aws.StringPtr("DomainName"), // Required
+		WorkflowID: aws.StringPtr("WorkflowId"), // Required
 		WorkflowType: &swf.WorkflowType{ // Required
-			Name:    aws.String("Name"),    // Required
-			Version: aws.String("Version"), // Required
+			Name:    aws.StringPtr("Name"),    // Required
+			Version: aws.StringPtr("Version"), // Required
 		},
-		ChildPolicy:                  aws.String("ChildPolicy"),
-		ExecutionStartToCloseTimeout: aws.String("DurationInSecondsOptional"),
-		Input: aws.String("Data"),
+		ChildPolicy:                  aws.StringPtr("ChildPolicy"),
+		ExecutionStartToCloseTimeout: aws.StringPtr("DurationInSecondsOptional"),
+		Input: aws.StringPtr("Data"),
 		TagList: []*string{
-			aws.String("Tag"), // Required
+			aws.StringPtr("Tag"), // Required
 			// More values...
 		},
 		TaskList: &swf.TaskList{
-			Name: aws.String("Name"), // Required
+			Name: aws.StringPtr("Name"), // Required
 		},
-		TaskPriority:            aws.String("TaskPriority"),
-		TaskStartToCloseTimeout: aws.String("DurationInSecondsOptional"),
+		TaskPriority:            aws.StringPtr("TaskPriority"),
+		TaskStartToCloseTimeout: aws.StringPtr("DurationInSecondsOptional"),
 	}
 	resp, err := svc.StartWorkflowExecution(params)
 
@@ -1110,12 +1110,12 @@ func ExampleSWF_TerminateWorkflowExecution() {
 	svc := swf.New(nil)
 
 	params := &swf.TerminateWorkflowExecutionInput{
-		Domain:      aws.String("DomainName"), // Required
-		WorkflowID:  aws.String("WorkflowId"), // Required
-		ChildPolicy: aws.String("ChildPolicy"),
-		Details:     aws.String("Data"),
-		Reason:      aws.String("TerminateReason"),
-		RunID:       aws.String("RunIdOptional"),
+		Domain:      aws.StringPtr("DomainName"), // Required
+		WorkflowID:  aws.StringPtr("WorkflowId"), // Required
+		ChildPolicy: aws.StringPtr("ChildPolicy"),
+		Details:     aws.StringPtr("Data"),
+		Reason:      aws.StringPtr("TerminateReason"),
+		RunID:       aws.StringPtr("RunIdOptional"),
 	}
 	resp, err := svc.TerminateWorkflowExecution(params)
 

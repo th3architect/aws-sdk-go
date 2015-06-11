@@ -20,13 +20,13 @@ func ExampleCloudTrail_CreateTrail() {
 	svc := cloudtrail.New(nil)
 
 	params := &cloudtrail.CreateTrailInput{
-		Name:                       aws.String("String"), // Required
-		S3BucketName:               aws.String("String"), // Required
-		CloudWatchLogsLogGroupARN:  aws.String("String"),
-		CloudWatchLogsRoleARN:      aws.String("String"),
-		IncludeGlobalServiceEvents: aws.Boolean(true),
-		S3KeyPrefix:                aws.String("String"),
-		SNSTopicName:               aws.String("String"),
+		Name:                       aws.StringPtr("String"), // Required
+		S3BucketName:               aws.StringPtr("String"), // Required
+		CloudWatchLogsLogGroupARN:  aws.StringPtr("String"),
+		CloudWatchLogsRoleARN:      aws.StringPtr("String"),
+		IncludeGlobalServiceEvents: aws.BoolPtr(true),
+		S3KeyPrefix:                aws.StringPtr("String"),
+		SNSTopicName:               aws.StringPtr("String"),
 	}
 	resp, err := svc.CreateTrail(params)
 
@@ -53,7 +53,7 @@ func ExampleCloudTrail_DeleteTrail() {
 	svc := cloudtrail.New(nil)
 
 	params := &cloudtrail.DeleteTrailInput{
-		Name: aws.String("String"), // Required
+		Name: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.DeleteTrail(params)
 
@@ -81,7 +81,7 @@ func ExampleCloudTrail_DescribeTrails() {
 
 	params := &cloudtrail.DescribeTrailsInput{
 		TrailNameList: []*string{
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
 	}
@@ -110,7 +110,7 @@ func ExampleCloudTrail_GetTrailStatus() {
 	svc := cloudtrail.New(nil)
 
 	params := &cloudtrail.GetTrailStatusInput{
-		Name: aws.String("String"), // Required
+		Name: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.GetTrailStatus(params)
 
@@ -137,17 +137,17 @@ func ExampleCloudTrail_LookupEvents() {
 	svc := cloudtrail.New(nil)
 
 	params := &cloudtrail.LookupEventsInput{
-		EndTime: aws.Time(time.Now()),
+		EndTime: aws.TimePtr(time.Now()),
 		LookupAttributes: []*cloudtrail.LookupAttribute{
 			{ // Required
-				AttributeKey:   aws.String("LookupAttributeKey"), // Required
-				AttributeValue: aws.String("String"),             // Required
+				AttributeKey:   aws.StringPtr("LookupAttributeKey"), // Required
+				AttributeValue: aws.StringPtr("String"),             // Required
 			},
 			// More values...
 		},
-		MaxResults: aws.Long(1),
-		NextToken:  aws.String("NextToken"),
-		StartTime:  aws.Time(time.Now()),
+		MaxResults: aws.Int64Ptr(1),
+		NextToken:  aws.StringPtr("NextToken"),
+		StartTime:  aws.TimePtr(time.Now()),
 	}
 	resp, err := svc.LookupEvents(params)
 
@@ -174,7 +174,7 @@ func ExampleCloudTrail_StartLogging() {
 	svc := cloudtrail.New(nil)
 
 	params := &cloudtrail.StartLoggingInput{
-		Name: aws.String("String"), // Required
+		Name: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.StartLogging(params)
 
@@ -201,7 +201,7 @@ func ExampleCloudTrail_StopLogging() {
 	svc := cloudtrail.New(nil)
 
 	params := &cloudtrail.StopLoggingInput{
-		Name: aws.String("String"), // Required
+		Name: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.StopLogging(params)
 
@@ -228,13 +228,13 @@ func ExampleCloudTrail_UpdateTrail() {
 	svc := cloudtrail.New(nil)
 
 	params := &cloudtrail.UpdateTrailInput{
-		Name: aws.String("String"), // Required
-		CloudWatchLogsLogGroupARN:  aws.String("String"),
-		CloudWatchLogsRoleARN:      aws.String("String"),
-		IncludeGlobalServiceEvents: aws.Boolean(true),
-		S3BucketName:               aws.String("String"),
-		S3KeyPrefix:                aws.String("String"),
-		SNSTopicName:               aws.String("String"),
+		Name: aws.StringPtr("String"), // Required
+		CloudWatchLogsLogGroupARN:  aws.StringPtr("String"),
+		CloudWatchLogsRoleARN:      aws.StringPtr("String"),
+		IncludeGlobalServiceEvents: aws.BoolPtr(true),
+		S3BucketName:               aws.StringPtr("String"),
+		S3KeyPrefix:                aws.StringPtr("String"),
+		SNSTopicName:               aws.StringPtr("String"),
 	}
 	resp, err := svc.UpdateTrail(params)
 

@@ -6,29 +6,88 @@ import (
 	"time"
 )
 
-// String converts a Go string into a string pointer.
-func String(v string) *string {
+// StringPtr returns a pointer of the string value passed in.
+func StringPtr(v string) *string {
 	return &v
 }
 
-// Boolean converts a Go bool into a boolean pointer.
-func Boolean(v bool) *bool {
+// StringPtrValue returns the value of the string pointer passed in or empty
+// string if the pointer is nil.
+func StringPtrValue(a *string) string {
+	if a != nil {
+		return *a
+	}
+	return ""
+}
+
+// BoolPtr returns a pointer of the bool value passed in.
+func BoolPtr(v bool) *bool {
 	return &v
 }
 
-// Long converts a Go int64 into a long pointer.
-func Long(v int64) *int64 {
+// BoolPtrValue returns the value of the bool pointer passed in or false if the
+// pointer is nil.
+func BoolPtrValue(a *bool) bool {
+	if a != nil {
+		return *a
+	}
+	return false
+}
+
+// IntPtr returns a pointer of the int value passed in.
+func IntPtr(v int) *int {
 	return &v
 }
 
-// Double converts a Go float64 into a double pointer.
-func Double(v float64) *float64 {
+// IntPtrValue returns the value of the int pointer passed in or zero if the
+// pointer is nil.
+func IntPtrValue(a *int) int {
+	if a != nil {
+		return *a
+	}
+	return 0
+}
+
+// Int64Ptr returns a pointer of the int64 value passed in.
+func Int64Ptr(v int64) *int64 {
 	return &v
 }
 
-// Time converts a Go Time into a Time pointer
-func Time(t time.Time) *time.Time {
+// Int64PtrValue returns the value of the int64 pointer passed in or zero if the
+// pointer is nil.
+func Int64PtrValue(a *int64) int64 {
+	if a != nil {
+		return *a
+	}
+	return 0
+}
+
+// Float64Ptr returns a pointer of the float64 value passed in.
+func Float64Ptr(v float64) *float64 {
+	return &v
+}
+
+// Float64PtrValue returns the value of the float64 pointer passed in or zero if the
+// pointer is nil.
+func Float64PtrValue(a *float64) float64 {
+	if a != nil {
+		return *a
+	}
+	return 0
+}
+
+// TimePtr returns a pointer of the Time value passed in.
+func TimePtr(t time.Time) *time.Time {
 	return &t
+}
+
+// TimePtrValue returns the value of the float64 pointer passed in or zero
+// time if the pointer is nil.
+func TimePtrValue(a *time.Time) time.Time {
+	if a != nil {
+		return *a
+	}
+	return time.Time{}
 }
 
 // ReadSeekCloser wraps a io.Reader returning a ReaderSeakerCloser

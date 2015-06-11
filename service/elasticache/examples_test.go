@@ -20,11 +20,11 @@ func ExampleElastiCache_AddTagsToResource() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.AddTagsToResourceInput{
-		ResourceName: aws.String("String"), // Required
+		ResourceName: aws.StringPtr("String"), // Required
 		Tags: []*elasticache.Tag{ // Required
 			{ // Required
-				Key:   aws.String("String"),
-				Value: aws.String("String"),
+				Key:   aws.StringPtr("String"),
+				Value: aws.StringPtr("String"),
 			},
 			// More values...
 		},
@@ -54,9 +54,9 @@ func ExampleElastiCache_AuthorizeCacheSecurityGroupIngress() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.AuthorizeCacheSecurityGroupIngressInput{
-		CacheSecurityGroupName:  aws.String("String"), // Required
-		EC2SecurityGroupName:    aws.String("String"), // Required
-		EC2SecurityGroupOwnerID: aws.String("String"), // Required
+		CacheSecurityGroupName:  aws.StringPtr("String"), // Required
+		EC2SecurityGroupName:    aws.StringPtr("String"), // Required
+		EC2SecurityGroupOwnerID: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.AuthorizeCacheSecurityGroupIngress(params)
 
@@ -83,8 +83,8 @@ func ExampleElastiCache_CopySnapshot() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.CopySnapshotInput{
-		SourceSnapshotName: aws.String("String"), // Required
-		TargetSnapshotName: aws.String("String"), // Required
+		SourceSnapshotName: aws.StringPtr("String"), // Required
+		TargetSnapshotName: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.CopySnapshot(params)
 
@@ -111,43 +111,43 @@ func ExampleElastiCache_CreateCacheCluster() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.CreateCacheClusterInput{
-		CacheClusterID:          aws.String("String"), // Required
-		AZMode:                  aws.String("AZMode"),
-		AutoMinorVersionUpgrade: aws.Boolean(true),
-		CacheNodeType:           aws.String("String"),
-		CacheParameterGroupName: aws.String("String"),
+		CacheClusterID:          aws.StringPtr("String"), // Required
+		AZMode:                  aws.StringPtr("AZMode"),
+		AutoMinorVersionUpgrade: aws.BoolPtr(true),
+		CacheNodeType:           aws.StringPtr("String"),
+		CacheParameterGroupName: aws.StringPtr("String"),
 		CacheSecurityGroupNames: []*string{
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
-		CacheSubnetGroupName: aws.String("String"),
-		Engine:               aws.String("String"),
-		EngineVersion:        aws.String("String"),
-		NotificationTopicARN: aws.String("String"),
-		NumCacheNodes:        aws.Long(1),
-		Port:                 aws.Long(1),
-		PreferredAvailabilityZone: aws.String("String"),
+		CacheSubnetGroupName: aws.StringPtr("String"),
+		Engine:               aws.StringPtr("String"),
+		EngineVersion:        aws.StringPtr("String"),
+		NotificationTopicARN: aws.StringPtr("String"),
+		NumCacheNodes:        aws.Int64Ptr(1),
+		Port:                 aws.Int64Ptr(1),
+		PreferredAvailabilityZone: aws.StringPtr("String"),
 		PreferredAvailabilityZones: []*string{
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
-		PreferredMaintenanceWindow: aws.String("String"),
-		ReplicationGroupID:         aws.String("String"),
+		PreferredMaintenanceWindow: aws.StringPtr("String"),
+		ReplicationGroupID:         aws.StringPtr("String"),
 		SecurityGroupIDs: []*string{
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
 		SnapshotARNs: []*string{
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
-		SnapshotName:           aws.String("String"),
-		SnapshotRetentionLimit: aws.Long(1),
-		SnapshotWindow:         aws.String("String"),
+		SnapshotName:           aws.StringPtr("String"),
+		SnapshotRetentionLimit: aws.Int64Ptr(1),
+		SnapshotWindow:         aws.StringPtr("String"),
 		Tags: []*elasticache.Tag{
 			{ // Required
-				Key:   aws.String("String"),
-				Value: aws.String("String"),
+				Key:   aws.StringPtr("String"),
+				Value: aws.StringPtr("String"),
 			},
 			// More values...
 		},
@@ -177,9 +177,9 @@ func ExampleElastiCache_CreateCacheParameterGroup() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.CreateCacheParameterGroupInput{
-		CacheParameterGroupFamily: aws.String("String"), // Required
-		CacheParameterGroupName:   aws.String("String"), // Required
-		Description:               aws.String("String"), // Required
+		CacheParameterGroupFamily: aws.StringPtr("String"), // Required
+		CacheParameterGroupName:   aws.StringPtr("String"), // Required
+		Description:               aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.CreateCacheParameterGroup(params)
 
@@ -206,8 +206,8 @@ func ExampleElastiCache_CreateCacheSecurityGroup() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.CreateCacheSecurityGroupInput{
-		CacheSecurityGroupName: aws.String("String"), // Required
-		Description:            aws.String("String"), // Required
+		CacheSecurityGroupName: aws.StringPtr("String"), // Required
+		Description:            aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.CreateCacheSecurityGroup(params)
 
@@ -234,10 +234,10 @@ func ExampleElastiCache_CreateCacheSubnetGroup() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.CreateCacheSubnetGroupInput{
-		CacheSubnetGroupDescription: aws.String("String"), // Required
-		CacheSubnetGroupName:        aws.String("String"), // Required
+		CacheSubnetGroupDescription: aws.StringPtr("String"), // Required
+		CacheSubnetGroupName:        aws.StringPtr("String"), // Required
 		SubnetIDs: []*string{ // Required
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
 	}
@@ -266,43 +266,43 @@ func ExampleElastiCache_CreateReplicationGroup() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.CreateReplicationGroupInput{
-		ReplicationGroupDescription: aws.String("String"), // Required
-		ReplicationGroupID:          aws.String("String"), // Required
-		AutoMinorVersionUpgrade:     aws.Boolean(true),
-		AutomaticFailoverEnabled:    aws.Boolean(true),
-		CacheNodeType:               aws.String("String"),
-		CacheParameterGroupName:     aws.String("String"),
+		ReplicationGroupDescription: aws.StringPtr("String"), // Required
+		ReplicationGroupID:          aws.StringPtr("String"), // Required
+		AutoMinorVersionUpgrade:     aws.BoolPtr(true),
+		AutomaticFailoverEnabled:    aws.BoolPtr(true),
+		CacheNodeType:               aws.StringPtr("String"),
+		CacheParameterGroupName:     aws.StringPtr("String"),
 		CacheSecurityGroupNames: []*string{
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
-		CacheSubnetGroupName: aws.String("String"),
-		Engine:               aws.String("String"),
-		EngineVersion:        aws.String("String"),
-		NotificationTopicARN: aws.String("String"),
-		NumCacheClusters:     aws.Long(1),
-		Port:                 aws.Long(1),
+		CacheSubnetGroupName: aws.StringPtr("String"),
+		Engine:               aws.StringPtr("String"),
+		EngineVersion:        aws.StringPtr("String"),
+		NotificationTopicARN: aws.StringPtr("String"),
+		NumCacheClusters:     aws.Int64Ptr(1),
+		Port:                 aws.Int64Ptr(1),
 		PreferredCacheClusterAZs: []*string{
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
-		PreferredMaintenanceWindow: aws.String("String"),
-		PrimaryClusterID:           aws.String("String"),
+		PreferredMaintenanceWindow: aws.StringPtr("String"),
+		PrimaryClusterID:           aws.StringPtr("String"),
 		SecurityGroupIDs: []*string{
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
 		SnapshotARNs: []*string{
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
-		SnapshotName:           aws.String("String"),
-		SnapshotRetentionLimit: aws.Long(1),
-		SnapshotWindow:         aws.String("String"),
+		SnapshotName:           aws.StringPtr("String"),
+		SnapshotRetentionLimit: aws.Int64Ptr(1),
+		SnapshotWindow:         aws.StringPtr("String"),
 		Tags: []*elasticache.Tag{
 			{ // Required
-				Key:   aws.String("String"),
-				Value: aws.String("String"),
+				Key:   aws.StringPtr("String"),
+				Value: aws.StringPtr("String"),
 			},
 			// More values...
 		},
@@ -332,8 +332,8 @@ func ExampleElastiCache_CreateSnapshot() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.CreateSnapshotInput{
-		CacheClusterID: aws.String("String"), // Required
-		SnapshotName:   aws.String("String"), // Required
+		CacheClusterID: aws.StringPtr("String"), // Required
+		SnapshotName:   aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.CreateSnapshot(params)
 
@@ -360,8 +360,8 @@ func ExampleElastiCache_DeleteCacheCluster() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DeleteCacheClusterInput{
-		CacheClusterID:          aws.String("String"), // Required
-		FinalSnapshotIdentifier: aws.String("String"),
+		CacheClusterID:          aws.StringPtr("String"), // Required
+		FinalSnapshotIdentifier: aws.StringPtr("String"),
 	}
 	resp, err := svc.DeleteCacheCluster(params)
 
@@ -388,7 +388,7 @@ func ExampleElastiCache_DeleteCacheParameterGroup() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DeleteCacheParameterGroupInput{
-		CacheParameterGroupName: aws.String("String"), // Required
+		CacheParameterGroupName: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.DeleteCacheParameterGroup(params)
 
@@ -415,7 +415,7 @@ func ExampleElastiCache_DeleteCacheSecurityGroup() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DeleteCacheSecurityGroupInput{
-		CacheSecurityGroupName: aws.String("String"), // Required
+		CacheSecurityGroupName: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.DeleteCacheSecurityGroup(params)
 
@@ -442,7 +442,7 @@ func ExampleElastiCache_DeleteCacheSubnetGroup() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DeleteCacheSubnetGroupInput{
-		CacheSubnetGroupName: aws.String("String"), // Required
+		CacheSubnetGroupName: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.DeleteCacheSubnetGroup(params)
 
@@ -469,9 +469,9 @@ func ExampleElastiCache_DeleteReplicationGroup() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DeleteReplicationGroupInput{
-		ReplicationGroupID:      aws.String("String"), // Required
-		FinalSnapshotIdentifier: aws.String("String"),
-		RetainPrimaryCluster:    aws.Boolean(true),
+		ReplicationGroupID:      aws.StringPtr("String"), // Required
+		FinalSnapshotIdentifier: aws.StringPtr("String"),
+		RetainPrimaryCluster:    aws.BoolPtr(true),
 	}
 	resp, err := svc.DeleteReplicationGroup(params)
 
@@ -498,7 +498,7 @@ func ExampleElastiCache_DeleteSnapshot() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DeleteSnapshotInput{
-		SnapshotName: aws.String("String"), // Required
+		SnapshotName: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.DeleteSnapshot(params)
 
@@ -525,10 +525,10 @@ func ExampleElastiCache_DescribeCacheClusters() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DescribeCacheClustersInput{
-		CacheClusterID:    aws.String("String"),
-		Marker:            aws.String("String"),
-		MaxRecords:        aws.Long(1),
-		ShowCacheNodeInfo: aws.Boolean(true),
+		CacheClusterID:    aws.StringPtr("String"),
+		Marker:            aws.StringPtr("String"),
+		MaxRecords:        aws.Int64Ptr(1),
+		ShowCacheNodeInfo: aws.BoolPtr(true),
 	}
 	resp, err := svc.DescribeCacheClusters(params)
 
@@ -555,12 +555,12 @@ func ExampleElastiCache_DescribeCacheEngineVersions() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DescribeCacheEngineVersionsInput{
-		CacheParameterGroupFamily: aws.String("String"),
-		DefaultOnly:               aws.Boolean(true),
-		Engine:                    aws.String("String"),
-		EngineVersion:             aws.String("String"),
-		Marker:                    aws.String("String"),
-		MaxRecords:                aws.Long(1),
+		CacheParameterGroupFamily: aws.StringPtr("String"),
+		DefaultOnly:               aws.BoolPtr(true),
+		Engine:                    aws.StringPtr("String"),
+		EngineVersion:             aws.StringPtr("String"),
+		Marker:                    aws.StringPtr("String"),
+		MaxRecords:                aws.Int64Ptr(1),
 	}
 	resp, err := svc.DescribeCacheEngineVersions(params)
 
@@ -587,9 +587,9 @@ func ExampleElastiCache_DescribeCacheParameterGroups() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DescribeCacheParameterGroupsInput{
-		CacheParameterGroupName: aws.String("String"),
-		Marker:                  aws.String("String"),
-		MaxRecords:              aws.Long(1),
+		CacheParameterGroupName: aws.StringPtr("String"),
+		Marker:                  aws.StringPtr("String"),
+		MaxRecords:              aws.Int64Ptr(1),
 	}
 	resp, err := svc.DescribeCacheParameterGroups(params)
 
@@ -616,10 +616,10 @@ func ExampleElastiCache_DescribeCacheParameters() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DescribeCacheParametersInput{
-		CacheParameterGroupName: aws.String("String"), // Required
-		Marker:                  aws.String("String"),
-		MaxRecords:              aws.Long(1),
-		Source:                  aws.String("String"),
+		CacheParameterGroupName: aws.StringPtr("String"), // Required
+		Marker:                  aws.StringPtr("String"),
+		MaxRecords:              aws.Int64Ptr(1),
+		Source:                  aws.StringPtr("String"),
 	}
 	resp, err := svc.DescribeCacheParameters(params)
 
@@ -646,9 +646,9 @@ func ExampleElastiCache_DescribeCacheSecurityGroups() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DescribeCacheSecurityGroupsInput{
-		CacheSecurityGroupName: aws.String("String"),
-		Marker:                 aws.String("String"),
-		MaxRecords:             aws.Long(1),
+		CacheSecurityGroupName: aws.StringPtr("String"),
+		Marker:                 aws.StringPtr("String"),
+		MaxRecords:             aws.Int64Ptr(1),
 	}
 	resp, err := svc.DescribeCacheSecurityGroups(params)
 
@@ -675,9 +675,9 @@ func ExampleElastiCache_DescribeCacheSubnetGroups() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DescribeCacheSubnetGroupsInput{
-		CacheSubnetGroupName: aws.String("String"),
-		Marker:               aws.String("String"),
-		MaxRecords:           aws.Long(1),
+		CacheSubnetGroupName: aws.StringPtr("String"),
+		Marker:               aws.StringPtr("String"),
+		MaxRecords:           aws.Int64Ptr(1),
 	}
 	resp, err := svc.DescribeCacheSubnetGroups(params)
 
@@ -704,9 +704,9 @@ func ExampleElastiCache_DescribeEngineDefaultParameters() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DescribeEngineDefaultParametersInput{
-		CacheParameterGroupFamily: aws.String("String"), // Required
-		Marker:     aws.String("String"),
-		MaxRecords: aws.Long(1),
+		CacheParameterGroupFamily: aws.StringPtr("String"), // Required
+		Marker:     aws.StringPtr("String"),
+		MaxRecords: aws.Int64Ptr(1),
 	}
 	resp, err := svc.DescribeEngineDefaultParameters(params)
 
@@ -733,13 +733,13 @@ func ExampleElastiCache_DescribeEvents() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DescribeEventsInput{
-		Duration:         aws.Long(1),
-		EndTime:          aws.Time(time.Now()),
-		Marker:           aws.String("String"),
-		MaxRecords:       aws.Long(1),
-		SourceIdentifier: aws.String("String"),
-		SourceType:       aws.String("SourceType"),
-		StartTime:        aws.Time(time.Now()),
+		Duration:         aws.Int64Ptr(1),
+		EndTime:          aws.TimePtr(time.Now()),
+		Marker:           aws.StringPtr("String"),
+		MaxRecords:       aws.Int64Ptr(1),
+		SourceIdentifier: aws.StringPtr("String"),
+		SourceType:       aws.StringPtr("SourceType"),
+		StartTime:        aws.TimePtr(time.Now()),
 	}
 	resp, err := svc.DescribeEvents(params)
 
@@ -766,9 +766,9 @@ func ExampleElastiCache_DescribeReplicationGroups() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DescribeReplicationGroupsInput{
-		Marker:             aws.String("String"),
-		MaxRecords:         aws.Long(1),
-		ReplicationGroupID: aws.String("String"),
+		Marker:             aws.StringPtr("String"),
+		MaxRecords:         aws.Int64Ptr(1),
+		ReplicationGroupID: aws.StringPtr("String"),
 	}
 	resp, err := svc.DescribeReplicationGroups(params)
 
@@ -795,14 +795,14 @@ func ExampleElastiCache_DescribeReservedCacheNodes() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DescribeReservedCacheNodesInput{
-		CacheNodeType:                aws.String("String"),
-		Duration:                     aws.String("String"),
-		Marker:                       aws.String("String"),
-		MaxRecords:                   aws.Long(1),
-		OfferingType:                 aws.String("String"),
-		ProductDescription:           aws.String("String"),
-		ReservedCacheNodeID:          aws.String("String"),
-		ReservedCacheNodesOfferingID: aws.String("String"),
+		CacheNodeType:                aws.StringPtr("String"),
+		Duration:                     aws.StringPtr("String"),
+		Marker:                       aws.StringPtr("String"),
+		MaxRecords:                   aws.Int64Ptr(1),
+		OfferingType:                 aws.StringPtr("String"),
+		ProductDescription:           aws.StringPtr("String"),
+		ReservedCacheNodeID:          aws.StringPtr("String"),
+		ReservedCacheNodesOfferingID: aws.StringPtr("String"),
 	}
 	resp, err := svc.DescribeReservedCacheNodes(params)
 
@@ -829,13 +829,13 @@ func ExampleElastiCache_DescribeReservedCacheNodesOfferings() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DescribeReservedCacheNodesOfferingsInput{
-		CacheNodeType:                aws.String("String"),
-		Duration:                     aws.String("String"),
-		Marker:                       aws.String("String"),
-		MaxRecords:                   aws.Long(1),
-		OfferingType:                 aws.String("String"),
-		ProductDescription:           aws.String("String"),
-		ReservedCacheNodesOfferingID: aws.String("String"),
+		CacheNodeType:                aws.StringPtr("String"),
+		Duration:                     aws.StringPtr("String"),
+		Marker:                       aws.StringPtr("String"),
+		MaxRecords:                   aws.Int64Ptr(1),
+		OfferingType:                 aws.StringPtr("String"),
+		ProductDescription:           aws.StringPtr("String"),
+		ReservedCacheNodesOfferingID: aws.StringPtr("String"),
 	}
 	resp, err := svc.DescribeReservedCacheNodesOfferings(params)
 
@@ -862,11 +862,11 @@ func ExampleElastiCache_DescribeSnapshots() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DescribeSnapshotsInput{
-		CacheClusterID: aws.String("String"),
-		Marker:         aws.String("String"),
-		MaxRecords:     aws.Long(1),
-		SnapshotName:   aws.String("String"),
-		SnapshotSource: aws.String("String"),
+		CacheClusterID: aws.StringPtr("String"),
+		Marker:         aws.StringPtr("String"),
+		MaxRecords:     aws.Int64Ptr(1),
+		SnapshotName:   aws.StringPtr("String"),
+		SnapshotSource: aws.StringPtr("String"),
 	}
 	resp, err := svc.DescribeSnapshots(params)
 
@@ -893,7 +893,7 @@ func ExampleElastiCache_ListTagsForResource() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.ListTagsForResourceInput{
-		ResourceName: aws.String("String"), // Required
+		ResourceName: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.ListTagsForResource(params)
 
@@ -920,34 +920,34 @@ func ExampleElastiCache_ModifyCacheCluster() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.ModifyCacheClusterInput{
-		CacheClusterID:          aws.String("String"), // Required
-		AZMode:                  aws.String("AZMode"),
-		ApplyImmediately:        aws.Boolean(true),
-		AutoMinorVersionUpgrade: aws.Boolean(true),
+		CacheClusterID:          aws.StringPtr("String"), // Required
+		AZMode:                  aws.StringPtr("AZMode"),
+		ApplyImmediately:        aws.BoolPtr(true),
+		AutoMinorVersionUpgrade: aws.BoolPtr(true),
 		CacheNodeIDsToRemove: []*string{
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
-		CacheParameterGroupName: aws.String("String"),
+		CacheParameterGroupName: aws.StringPtr("String"),
 		CacheSecurityGroupNames: []*string{
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
-		EngineVersion: aws.String("String"),
+		EngineVersion: aws.StringPtr("String"),
 		NewAvailabilityZones: []*string{
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
-		NotificationTopicARN:       aws.String("String"),
-		NotificationTopicStatus:    aws.String("String"),
-		NumCacheNodes:              aws.Long(1),
-		PreferredMaintenanceWindow: aws.String("String"),
+		NotificationTopicARN:       aws.StringPtr("String"),
+		NotificationTopicStatus:    aws.StringPtr("String"),
+		NumCacheNodes:              aws.Int64Ptr(1),
+		PreferredMaintenanceWindow: aws.StringPtr("String"),
 		SecurityGroupIDs: []*string{
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
-		SnapshotRetentionLimit: aws.Long(1),
-		SnapshotWindow:         aws.String("String"),
+		SnapshotRetentionLimit: aws.Int64Ptr(1),
+		SnapshotWindow:         aws.StringPtr("String"),
 	}
 	resp, err := svc.ModifyCacheCluster(params)
 
@@ -974,11 +974,11 @@ func ExampleElastiCache_ModifyCacheParameterGroup() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.ModifyCacheParameterGroupInput{
-		CacheParameterGroupName: aws.String("String"), // Required
+		CacheParameterGroupName: aws.StringPtr("String"), // Required
 		ParameterNameValues: []*elasticache.ParameterNameValue{ // Required
 			{ // Required
-				ParameterName:  aws.String("String"),
-				ParameterValue: aws.String("String"),
+				ParameterName:  aws.StringPtr("String"),
+				ParameterValue: aws.StringPtr("String"),
 			},
 			// More values...
 		},
@@ -1008,10 +1008,10 @@ func ExampleElastiCache_ModifyCacheSubnetGroup() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.ModifyCacheSubnetGroupInput{
-		CacheSubnetGroupName:        aws.String("String"), // Required
-		CacheSubnetGroupDescription: aws.String("String"),
+		CacheSubnetGroupName:        aws.StringPtr("String"), // Required
+		CacheSubnetGroupDescription: aws.StringPtr("String"),
 		SubnetIDs: []*string{
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
 	}
@@ -1040,28 +1040,28 @@ func ExampleElastiCache_ModifyReplicationGroup() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.ModifyReplicationGroupInput{
-		ReplicationGroupID:       aws.String("String"), // Required
-		ApplyImmediately:         aws.Boolean(true),
-		AutoMinorVersionUpgrade:  aws.Boolean(true),
-		AutomaticFailoverEnabled: aws.Boolean(true),
-		CacheParameterGroupName:  aws.String("String"),
+		ReplicationGroupID:       aws.StringPtr("String"), // Required
+		ApplyImmediately:         aws.BoolPtr(true),
+		AutoMinorVersionUpgrade:  aws.BoolPtr(true),
+		AutomaticFailoverEnabled: aws.BoolPtr(true),
+		CacheParameterGroupName:  aws.StringPtr("String"),
 		CacheSecurityGroupNames: []*string{
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
-		EngineVersion:               aws.String("String"),
-		NotificationTopicARN:        aws.String("String"),
-		NotificationTopicStatus:     aws.String("String"),
-		PreferredMaintenanceWindow:  aws.String("String"),
-		PrimaryClusterID:            aws.String("String"),
-		ReplicationGroupDescription: aws.String("String"),
+		EngineVersion:               aws.StringPtr("String"),
+		NotificationTopicARN:        aws.StringPtr("String"),
+		NotificationTopicStatus:     aws.StringPtr("String"),
+		PreferredMaintenanceWindow:  aws.StringPtr("String"),
+		PrimaryClusterID:            aws.StringPtr("String"),
+		ReplicationGroupDescription: aws.StringPtr("String"),
 		SecurityGroupIDs: []*string{
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
-		SnapshotRetentionLimit: aws.Long(1),
-		SnapshotWindow:         aws.String("String"),
-		SnapshottingClusterID:  aws.String("String"),
+		SnapshotRetentionLimit: aws.Int64Ptr(1),
+		SnapshotWindow:         aws.StringPtr("String"),
+		SnapshottingClusterID:  aws.StringPtr("String"),
 	}
 	resp, err := svc.ModifyReplicationGroup(params)
 
@@ -1088,9 +1088,9 @@ func ExampleElastiCache_PurchaseReservedCacheNodesOffering() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.PurchaseReservedCacheNodesOfferingInput{
-		ReservedCacheNodesOfferingID: aws.String("String"), // Required
-		CacheNodeCount:               aws.Long(1),
-		ReservedCacheNodeID:          aws.String("String"),
+		ReservedCacheNodesOfferingID: aws.StringPtr("String"), // Required
+		CacheNodeCount:               aws.Int64Ptr(1),
+		ReservedCacheNodeID:          aws.StringPtr("String"),
 	}
 	resp, err := svc.PurchaseReservedCacheNodesOffering(params)
 
@@ -1117,9 +1117,9 @@ func ExampleElastiCache_RebootCacheCluster() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.RebootCacheClusterInput{
-		CacheClusterID: aws.String("String"), // Required
+		CacheClusterID: aws.StringPtr("String"), // Required
 		CacheNodeIDsToReboot: []*string{ // Required
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
 	}
@@ -1148,9 +1148,9 @@ func ExampleElastiCache_RemoveTagsFromResource() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.RemoveTagsFromResourceInput{
-		ResourceName: aws.String("String"), // Required
+		ResourceName: aws.StringPtr("String"), // Required
 		TagKeys: []*string{ // Required
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
 	}
@@ -1179,15 +1179,15 @@ func ExampleElastiCache_ResetCacheParameterGroup() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.ResetCacheParameterGroupInput{
-		CacheParameterGroupName: aws.String("String"), // Required
+		CacheParameterGroupName: aws.StringPtr("String"), // Required
 		ParameterNameValues: []*elasticache.ParameterNameValue{ // Required
 			{ // Required
-				ParameterName:  aws.String("String"),
-				ParameterValue: aws.String("String"),
+				ParameterName:  aws.StringPtr("String"),
+				ParameterValue: aws.StringPtr("String"),
 			},
 			// More values...
 		},
-		ResetAllParameters: aws.Boolean(true),
+		ResetAllParameters: aws.BoolPtr(true),
 	}
 	resp, err := svc.ResetCacheParameterGroup(params)
 
@@ -1214,9 +1214,9 @@ func ExampleElastiCache_RevokeCacheSecurityGroupIngress() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.RevokeCacheSecurityGroupIngressInput{
-		CacheSecurityGroupName:  aws.String("String"), // Required
-		EC2SecurityGroupName:    aws.String("String"), // Required
-		EC2SecurityGroupOwnerID: aws.String("String"), // Required
+		CacheSecurityGroupName:  aws.StringPtr("String"), // Required
+		EC2SecurityGroupName:    aws.StringPtr("String"), // Required
+		EC2SecurityGroupOwnerID: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.RevokeCacheSecurityGroupIngress(params)
 

@@ -20,8 +20,8 @@ func ExampleKMS_CreateAlias() {
 	svc := kms.New(nil)
 
 	params := &kms.CreateAliasInput{
-		AliasName:   aws.String("AliasNameType"), // Required
-		TargetKeyID: aws.String("KeyIdType"),     // Required
+		AliasName:   aws.StringPtr("AliasNameType"), // Required
+		TargetKeyID: aws.StringPtr("KeyIdType"),     // Required
 	}
 	resp, err := svc.CreateAlias(params)
 
@@ -48,27 +48,27 @@ func ExampleKMS_CreateGrant() {
 	svc := kms.New(nil)
 
 	params := &kms.CreateGrantInput{
-		GranteePrincipal: aws.String("PrincipalIdType"), // Required
-		KeyID:            aws.String("KeyIdType"),       // Required
+		GranteePrincipal: aws.StringPtr("PrincipalIdType"), // Required
+		KeyID:            aws.StringPtr("KeyIdType"),       // Required
 		Constraints: &kms.GrantConstraints{
 			EncryptionContextEquals: map[string]*string{
-				"Key": aws.String("EncryptionContextValue"), // Required
+				"Key": aws.StringPtr("EncryptionContextValue"), // Required
 				// More values...
 			},
 			EncryptionContextSubset: map[string]*string{
-				"Key": aws.String("EncryptionContextValue"), // Required
+				"Key": aws.StringPtr("EncryptionContextValue"), // Required
 				// More values...
 			},
 		},
 		GrantTokens: []*string{
-			aws.String("GrantTokenType"), // Required
+			aws.StringPtr("GrantTokenType"), // Required
 			// More values...
 		},
 		Operations: []*string{
-			aws.String("GrantOperation"), // Required
+			aws.StringPtr("GrantOperation"), // Required
 			// More values...
 		},
-		RetiringPrincipal: aws.String("PrincipalIdType"),
+		RetiringPrincipal: aws.StringPtr("PrincipalIdType"),
 	}
 	resp, err := svc.CreateGrant(params)
 
@@ -95,9 +95,9 @@ func ExampleKMS_CreateKey() {
 	svc := kms.New(nil)
 
 	params := &kms.CreateKeyInput{
-		Description: aws.String("DescriptionType"),
-		KeyUsage:    aws.String("KeyUsageType"),
-		Policy:      aws.String("PolicyType"),
+		Description: aws.StringPtr("DescriptionType"),
+		KeyUsage:    aws.StringPtr("KeyUsageType"),
+		Policy:      aws.StringPtr("PolicyType"),
 	}
 	resp, err := svc.CreateKey(params)
 
@@ -126,11 +126,11 @@ func ExampleKMS_Decrypt() {
 	params := &kms.DecryptInput{
 		CiphertextBlob: []byte("PAYLOAD"), // Required
 		EncryptionContext: map[string]*string{
-			"Key": aws.String("EncryptionContextValue"), // Required
+			"Key": aws.StringPtr("EncryptionContextValue"), // Required
 			// More values...
 		},
 		GrantTokens: []*string{
-			aws.String("GrantTokenType"), // Required
+			aws.StringPtr("GrantTokenType"), // Required
 			// More values...
 		},
 	}
@@ -159,7 +159,7 @@ func ExampleKMS_DeleteAlias() {
 	svc := kms.New(nil)
 
 	params := &kms.DeleteAliasInput{
-		AliasName: aws.String("AliasNameType"), // Required
+		AliasName: aws.StringPtr("AliasNameType"), // Required
 	}
 	resp, err := svc.DeleteAlias(params)
 
@@ -186,7 +186,7 @@ func ExampleKMS_DescribeKey() {
 	svc := kms.New(nil)
 
 	params := &kms.DescribeKeyInput{
-		KeyID: aws.String("KeyIdType"), // Required
+		KeyID: aws.StringPtr("KeyIdType"), // Required
 	}
 	resp, err := svc.DescribeKey(params)
 
@@ -213,7 +213,7 @@ func ExampleKMS_DisableKey() {
 	svc := kms.New(nil)
 
 	params := &kms.DisableKeyInput{
-		KeyID: aws.String("KeyIdType"), // Required
+		KeyID: aws.StringPtr("KeyIdType"), // Required
 	}
 	resp, err := svc.DisableKey(params)
 
@@ -240,7 +240,7 @@ func ExampleKMS_DisableKeyRotation() {
 	svc := kms.New(nil)
 
 	params := &kms.DisableKeyRotationInput{
-		KeyID: aws.String("KeyIdType"), // Required
+		KeyID: aws.StringPtr("KeyIdType"), // Required
 	}
 	resp, err := svc.DisableKeyRotation(params)
 
@@ -267,7 +267,7 @@ func ExampleKMS_EnableKey() {
 	svc := kms.New(nil)
 
 	params := &kms.EnableKeyInput{
-		KeyID: aws.String("KeyIdType"), // Required
+		KeyID: aws.StringPtr("KeyIdType"), // Required
 	}
 	resp, err := svc.EnableKey(params)
 
@@ -294,7 +294,7 @@ func ExampleKMS_EnableKeyRotation() {
 	svc := kms.New(nil)
 
 	params := &kms.EnableKeyRotationInput{
-		KeyID: aws.String("KeyIdType"), // Required
+		KeyID: aws.StringPtr("KeyIdType"), // Required
 	}
 	resp, err := svc.EnableKeyRotation(params)
 
@@ -321,14 +321,14 @@ func ExampleKMS_Encrypt() {
 	svc := kms.New(nil)
 
 	params := &kms.EncryptInput{
-		KeyID:     aws.String("KeyIdType"), // Required
-		Plaintext: []byte("PAYLOAD"),       // Required
+		KeyID:     aws.StringPtr("KeyIdType"), // Required
+		Plaintext: []byte("PAYLOAD"),          // Required
 		EncryptionContext: map[string]*string{
-			"Key": aws.String("EncryptionContextValue"), // Required
+			"Key": aws.StringPtr("EncryptionContextValue"), // Required
 			// More values...
 		},
 		GrantTokens: []*string{
-			aws.String("GrantTokenType"), // Required
+			aws.StringPtr("GrantTokenType"), // Required
 			// More values...
 		},
 	}
@@ -357,17 +357,17 @@ func ExampleKMS_GenerateDataKey() {
 	svc := kms.New(nil)
 
 	params := &kms.GenerateDataKeyInput{
-		KeyID: aws.String("KeyIdType"), // Required
+		KeyID: aws.StringPtr("KeyIdType"), // Required
 		EncryptionContext: map[string]*string{
-			"Key": aws.String("EncryptionContextValue"), // Required
+			"Key": aws.StringPtr("EncryptionContextValue"), // Required
 			// More values...
 		},
 		GrantTokens: []*string{
-			aws.String("GrantTokenType"), // Required
+			aws.StringPtr("GrantTokenType"), // Required
 			// More values...
 		},
-		KeySpec:       aws.String("DataKeySpec"),
-		NumberOfBytes: aws.Long(1),
+		KeySpec:       aws.StringPtr("DataKeySpec"),
+		NumberOfBytes: aws.Int64Ptr(1),
 	}
 	resp, err := svc.GenerateDataKey(params)
 
@@ -394,17 +394,17 @@ func ExampleKMS_GenerateDataKeyWithoutPlaintext() {
 	svc := kms.New(nil)
 
 	params := &kms.GenerateDataKeyWithoutPlaintextInput{
-		KeyID: aws.String("KeyIdType"), // Required
+		KeyID: aws.StringPtr("KeyIdType"), // Required
 		EncryptionContext: map[string]*string{
-			"Key": aws.String("EncryptionContextValue"), // Required
+			"Key": aws.StringPtr("EncryptionContextValue"), // Required
 			// More values...
 		},
 		GrantTokens: []*string{
-			aws.String("GrantTokenType"), // Required
+			aws.StringPtr("GrantTokenType"), // Required
 			// More values...
 		},
-		KeySpec:       aws.String("DataKeySpec"),
-		NumberOfBytes: aws.Long(1),
+		KeySpec:       aws.StringPtr("DataKeySpec"),
+		NumberOfBytes: aws.Int64Ptr(1),
 	}
 	resp, err := svc.GenerateDataKeyWithoutPlaintext(params)
 
@@ -431,7 +431,7 @@ func ExampleKMS_GenerateRandom() {
 	svc := kms.New(nil)
 
 	params := &kms.GenerateRandomInput{
-		NumberOfBytes: aws.Long(1),
+		NumberOfBytes: aws.Int64Ptr(1),
 	}
 	resp, err := svc.GenerateRandom(params)
 
@@ -458,8 +458,8 @@ func ExampleKMS_GetKeyPolicy() {
 	svc := kms.New(nil)
 
 	params := &kms.GetKeyPolicyInput{
-		KeyID:      aws.String("KeyIdType"),      // Required
-		PolicyName: aws.String("PolicyNameType"), // Required
+		KeyID:      aws.StringPtr("KeyIdType"),      // Required
+		PolicyName: aws.StringPtr("PolicyNameType"), // Required
 	}
 	resp, err := svc.GetKeyPolicy(params)
 
@@ -486,7 +486,7 @@ func ExampleKMS_GetKeyRotationStatus() {
 	svc := kms.New(nil)
 
 	params := &kms.GetKeyRotationStatusInput{
-		KeyID: aws.String("KeyIdType"), // Required
+		KeyID: aws.StringPtr("KeyIdType"), // Required
 	}
 	resp, err := svc.GetKeyRotationStatus(params)
 
@@ -513,8 +513,8 @@ func ExampleKMS_ListAliases() {
 	svc := kms.New(nil)
 
 	params := &kms.ListAliasesInput{
-		Limit:  aws.Long(1),
-		Marker: aws.String("MarkerType"),
+		Limit:  aws.Int64Ptr(1),
+		Marker: aws.StringPtr("MarkerType"),
 	}
 	resp, err := svc.ListAliases(params)
 
@@ -541,9 +541,9 @@ func ExampleKMS_ListGrants() {
 	svc := kms.New(nil)
 
 	params := &kms.ListGrantsInput{
-		KeyID:  aws.String("KeyIdType"), // Required
-		Limit:  aws.Long(1),
-		Marker: aws.String("MarkerType"),
+		KeyID:  aws.StringPtr("KeyIdType"), // Required
+		Limit:  aws.Int64Ptr(1),
+		Marker: aws.StringPtr("MarkerType"),
 	}
 	resp, err := svc.ListGrants(params)
 
@@ -570,9 +570,9 @@ func ExampleKMS_ListKeyPolicies() {
 	svc := kms.New(nil)
 
 	params := &kms.ListKeyPoliciesInput{
-		KeyID:  aws.String("KeyIdType"), // Required
-		Limit:  aws.Long(1),
-		Marker: aws.String("MarkerType"),
+		KeyID:  aws.StringPtr("KeyIdType"), // Required
+		Limit:  aws.Int64Ptr(1),
+		Marker: aws.StringPtr("MarkerType"),
 	}
 	resp, err := svc.ListKeyPolicies(params)
 
@@ -599,8 +599,8 @@ func ExampleKMS_ListKeys() {
 	svc := kms.New(nil)
 
 	params := &kms.ListKeysInput{
-		Limit:  aws.Long(1),
-		Marker: aws.String("MarkerType"),
+		Limit:  aws.Int64Ptr(1),
+		Marker: aws.StringPtr("MarkerType"),
 	}
 	resp, err := svc.ListKeys(params)
 
@@ -627,9 +627,9 @@ func ExampleKMS_PutKeyPolicy() {
 	svc := kms.New(nil)
 
 	params := &kms.PutKeyPolicyInput{
-		KeyID:      aws.String("KeyIdType"),      // Required
-		Policy:     aws.String("PolicyType"),     // Required
-		PolicyName: aws.String("PolicyNameType"), // Required
+		KeyID:      aws.StringPtr("KeyIdType"),      // Required
+		Policy:     aws.StringPtr("PolicyType"),     // Required
+		PolicyName: aws.StringPtr("PolicyNameType"), // Required
 	}
 	resp, err := svc.PutKeyPolicy(params)
 
@@ -656,18 +656,18 @@ func ExampleKMS_ReEncrypt() {
 	svc := kms.New(nil)
 
 	params := &kms.ReEncryptInput{
-		CiphertextBlob:   []byte("PAYLOAD"),       // Required
-		DestinationKeyID: aws.String("KeyIdType"), // Required
+		CiphertextBlob:   []byte("PAYLOAD"),          // Required
+		DestinationKeyID: aws.StringPtr("KeyIdType"), // Required
 		DestinationEncryptionContext: map[string]*string{
-			"Key": aws.String("EncryptionContextValue"), // Required
+			"Key": aws.StringPtr("EncryptionContextValue"), // Required
 			// More values...
 		},
 		GrantTokens: []*string{
-			aws.String("GrantTokenType"), // Required
+			aws.StringPtr("GrantTokenType"), // Required
 			// More values...
 		},
 		SourceEncryptionContext: map[string]*string{
-			"Key": aws.String("EncryptionContextValue"), // Required
+			"Key": aws.StringPtr("EncryptionContextValue"), // Required
 			// More values...
 		},
 	}
@@ -696,9 +696,9 @@ func ExampleKMS_RetireGrant() {
 	svc := kms.New(nil)
 
 	params := &kms.RetireGrantInput{
-		GrantID:    aws.String("GrantIdType"),
-		GrantToken: aws.String("GrantTokenType"),
-		KeyID:      aws.String("KeyIdType"),
+		GrantID:    aws.StringPtr("GrantIdType"),
+		GrantToken: aws.StringPtr("GrantTokenType"),
+		KeyID:      aws.StringPtr("KeyIdType"),
 	}
 	resp, err := svc.RetireGrant(params)
 
@@ -725,8 +725,8 @@ func ExampleKMS_RevokeGrant() {
 	svc := kms.New(nil)
 
 	params := &kms.RevokeGrantInput{
-		GrantID: aws.String("GrantIdType"), // Required
-		KeyID:   aws.String("KeyIdType"),   // Required
+		GrantID: aws.StringPtr("GrantIdType"), // Required
+		KeyID:   aws.StringPtr("KeyIdType"),   // Required
 	}
 	resp, err := svc.RevokeGrant(params)
 
@@ -753,8 +753,8 @@ func ExampleKMS_UpdateAlias() {
 	svc := kms.New(nil)
 
 	params := &kms.UpdateAliasInput{
-		AliasName:   aws.String("AliasNameType"), // Required
-		TargetKeyID: aws.String("KeyIdType"),     // Required
+		AliasName:   aws.StringPtr("AliasNameType"), // Required
+		TargetKeyID: aws.StringPtr("KeyIdType"),     // Required
 	}
 	resp, err := svc.UpdateAlias(params)
 
@@ -781,8 +781,8 @@ func ExampleKMS_UpdateKeyDescription() {
 	svc := kms.New(nil)
 
 	params := &kms.UpdateKeyDescriptionInput{
-		Description: aws.String("DescriptionType"), // Required
-		KeyID:       aws.String("KeyIdType"),       // Required
+		Description: aws.StringPtr("DescriptionType"), // Required
+		KeyID:       aws.StringPtr("KeyIdType"),       // Required
 	}
 	resp, err := svc.UpdateKeyDescription(params)
 

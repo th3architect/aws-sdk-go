@@ -21,15 +21,15 @@ func ExampleSNS_AddPermission() {
 
 	params := &sns.AddPermissionInput{
 		AWSAccountID: []*string{ // Required
-			aws.String("delegate"), // Required
+			aws.StringPtr("delegate"), // Required
 			// More values...
 		},
 		ActionName: []*string{ // Required
-			aws.String("action"), // Required
+			aws.StringPtr("action"), // Required
 			// More values...
 		},
-		Label:    aws.String("label"),    // Required
-		TopicARN: aws.String("topicARN"), // Required
+		Label:    aws.StringPtr("label"),    // Required
+		TopicARN: aws.StringPtr("topicARN"), // Required
 	}
 	resp, err := svc.AddPermission(params)
 
@@ -56,9 +56,9 @@ func ExampleSNS_ConfirmSubscription() {
 	svc := sns.New(nil)
 
 	params := &sns.ConfirmSubscriptionInput{
-		Token:                     aws.String("token"),    // Required
-		TopicARN:                  aws.String("topicARN"), // Required
-		AuthenticateOnUnsubscribe: aws.String("authenticateOnUnsubscribe"),
+		Token:                     aws.StringPtr("token"),    // Required
+		TopicARN:                  aws.StringPtr("topicARN"), // Required
+		AuthenticateOnUnsubscribe: aws.StringPtr("authenticateOnUnsubscribe"),
 	}
 	resp, err := svc.ConfirmSubscription(params)
 
@@ -86,11 +86,11 @@ func ExampleSNS_CreatePlatformApplication() {
 
 	params := &sns.CreatePlatformApplicationInput{
 		Attributes: map[string]*string{ // Required
-			"Key": aws.String("String"), // Required
+			"Key": aws.StringPtr("String"), // Required
 			// More values...
 		},
-		Name:     aws.String("String"), // Required
-		Platform: aws.String("String"), // Required
+		Name:     aws.StringPtr("String"), // Required
+		Platform: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.CreatePlatformApplication(params)
 
@@ -117,13 +117,13 @@ func ExampleSNS_CreatePlatformEndpoint() {
 	svc := sns.New(nil)
 
 	params := &sns.CreatePlatformEndpointInput{
-		PlatformApplicationARN: aws.String("String"), // Required
-		Token: aws.String("String"), // Required
+		PlatformApplicationARN: aws.StringPtr("String"), // Required
+		Token: aws.StringPtr("String"), // Required
 		Attributes: map[string]*string{
-			"Key": aws.String("String"), // Required
+			"Key": aws.StringPtr("String"), // Required
 			// More values...
 		},
-		CustomUserData: aws.String("String"),
+		CustomUserData: aws.StringPtr("String"),
 	}
 	resp, err := svc.CreatePlatformEndpoint(params)
 
@@ -150,7 +150,7 @@ func ExampleSNS_CreateTopic() {
 	svc := sns.New(nil)
 
 	params := &sns.CreateTopicInput{
-		Name: aws.String("topicName"), // Required
+		Name: aws.StringPtr("topicName"), // Required
 	}
 	resp, err := svc.CreateTopic(params)
 
@@ -177,7 +177,7 @@ func ExampleSNS_DeleteEndpoint() {
 	svc := sns.New(nil)
 
 	params := &sns.DeleteEndpointInput{
-		EndpointARN: aws.String("String"), // Required
+		EndpointARN: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.DeleteEndpoint(params)
 
@@ -204,7 +204,7 @@ func ExampleSNS_DeletePlatformApplication() {
 	svc := sns.New(nil)
 
 	params := &sns.DeletePlatformApplicationInput{
-		PlatformApplicationARN: aws.String("String"), // Required
+		PlatformApplicationARN: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.DeletePlatformApplication(params)
 
@@ -231,7 +231,7 @@ func ExampleSNS_DeleteTopic() {
 	svc := sns.New(nil)
 
 	params := &sns.DeleteTopicInput{
-		TopicARN: aws.String("topicARN"), // Required
+		TopicARN: aws.StringPtr("topicARN"), // Required
 	}
 	resp, err := svc.DeleteTopic(params)
 
@@ -258,7 +258,7 @@ func ExampleSNS_GetEndpointAttributes() {
 	svc := sns.New(nil)
 
 	params := &sns.GetEndpointAttributesInput{
-		EndpointARN: aws.String("String"), // Required
+		EndpointARN: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.GetEndpointAttributes(params)
 
@@ -285,7 +285,7 @@ func ExampleSNS_GetPlatformApplicationAttributes() {
 	svc := sns.New(nil)
 
 	params := &sns.GetPlatformApplicationAttributesInput{
-		PlatformApplicationARN: aws.String("String"), // Required
+		PlatformApplicationARN: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.GetPlatformApplicationAttributes(params)
 
@@ -312,7 +312,7 @@ func ExampleSNS_GetSubscriptionAttributes() {
 	svc := sns.New(nil)
 
 	params := &sns.GetSubscriptionAttributesInput{
-		SubscriptionARN: aws.String("subscriptionARN"), // Required
+		SubscriptionARN: aws.StringPtr("subscriptionARN"), // Required
 	}
 	resp, err := svc.GetSubscriptionAttributes(params)
 
@@ -339,7 +339,7 @@ func ExampleSNS_GetTopicAttributes() {
 	svc := sns.New(nil)
 
 	params := &sns.GetTopicAttributesInput{
-		TopicARN: aws.String("topicARN"), // Required
+		TopicARN: aws.StringPtr("topicARN"), // Required
 	}
 	resp, err := svc.GetTopicAttributes(params)
 
@@ -366,8 +366,8 @@ func ExampleSNS_ListEndpointsByPlatformApplication() {
 	svc := sns.New(nil)
 
 	params := &sns.ListEndpointsByPlatformApplicationInput{
-		PlatformApplicationARN: aws.String("String"), // Required
-		NextToken:              aws.String("String"),
+		PlatformApplicationARN: aws.StringPtr("String"), // Required
+		NextToken:              aws.StringPtr("String"),
 	}
 	resp, err := svc.ListEndpointsByPlatformApplication(params)
 
@@ -394,7 +394,7 @@ func ExampleSNS_ListPlatformApplications() {
 	svc := sns.New(nil)
 
 	params := &sns.ListPlatformApplicationsInput{
-		NextToken: aws.String("String"),
+		NextToken: aws.StringPtr("String"),
 	}
 	resp, err := svc.ListPlatformApplications(params)
 
@@ -421,7 +421,7 @@ func ExampleSNS_ListSubscriptions() {
 	svc := sns.New(nil)
 
 	params := &sns.ListSubscriptionsInput{
-		NextToken: aws.String("nextToken"),
+		NextToken: aws.StringPtr("nextToken"),
 	}
 	resp, err := svc.ListSubscriptions(params)
 
@@ -448,8 +448,8 @@ func ExampleSNS_ListSubscriptionsByTopic() {
 	svc := sns.New(nil)
 
 	params := &sns.ListSubscriptionsByTopicInput{
-		TopicARN:  aws.String("topicARN"), // Required
-		NextToken: aws.String("nextToken"),
+		TopicARN:  aws.StringPtr("topicARN"), // Required
+		NextToken: aws.StringPtr("nextToken"),
 	}
 	resp, err := svc.ListSubscriptionsByTopic(params)
 
@@ -476,7 +476,7 @@ func ExampleSNS_ListTopics() {
 	svc := sns.New(nil)
 
 	params := &sns.ListTopicsInput{
-		NextToken: aws.String("nextToken"),
+		NextToken: aws.StringPtr("nextToken"),
 	}
 	resp, err := svc.ListTopics(params)
 
@@ -503,19 +503,19 @@ func ExampleSNS_Publish() {
 	svc := sns.New(nil)
 
 	params := &sns.PublishInput{
-		Message: aws.String("message"), // Required
+		Message: aws.StringPtr("message"), // Required
 		MessageAttributes: map[string]*sns.MessageAttributeValue{
 			"Key": { // Required
-				DataType:    aws.String("String"), // Required
+				DataType:    aws.StringPtr("String"), // Required
 				BinaryValue: []byte("PAYLOAD"),
-				StringValue: aws.String("String"),
+				StringValue: aws.StringPtr("String"),
 			},
 			// More values...
 		},
-		MessageStructure: aws.String("messageStructure"),
-		Subject:          aws.String("subject"),
-		TargetARN:        aws.String("String"),
-		TopicARN:         aws.String("topicARN"),
+		MessageStructure: aws.StringPtr("messageStructure"),
+		Subject:          aws.StringPtr("subject"),
+		TargetARN:        aws.StringPtr("String"),
+		TopicARN:         aws.StringPtr("topicARN"),
 	}
 	resp, err := svc.Publish(params)
 
@@ -542,8 +542,8 @@ func ExampleSNS_RemovePermission() {
 	svc := sns.New(nil)
 
 	params := &sns.RemovePermissionInput{
-		Label:    aws.String("label"),    // Required
-		TopicARN: aws.String("topicARN"), // Required
+		Label:    aws.StringPtr("label"),    // Required
+		TopicARN: aws.StringPtr("topicARN"), // Required
 	}
 	resp, err := svc.RemovePermission(params)
 
@@ -571,10 +571,10 @@ func ExampleSNS_SetEndpointAttributes() {
 
 	params := &sns.SetEndpointAttributesInput{
 		Attributes: map[string]*string{ // Required
-			"Key": aws.String("String"), // Required
+			"Key": aws.StringPtr("String"), // Required
 			// More values...
 		},
-		EndpointARN: aws.String("String"), // Required
+		EndpointARN: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.SetEndpointAttributes(params)
 
@@ -602,10 +602,10 @@ func ExampleSNS_SetPlatformApplicationAttributes() {
 
 	params := &sns.SetPlatformApplicationAttributesInput{
 		Attributes: map[string]*string{ // Required
-			"Key": aws.String("String"), // Required
+			"Key": aws.StringPtr("String"), // Required
 			// More values...
 		},
-		PlatformApplicationARN: aws.String("String"), // Required
+		PlatformApplicationARN: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.SetPlatformApplicationAttributes(params)
 
@@ -632,9 +632,9 @@ func ExampleSNS_SetSubscriptionAttributes() {
 	svc := sns.New(nil)
 
 	params := &sns.SetSubscriptionAttributesInput{
-		AttributeName:   aws.String("attributeName"),   // Required
-		SubscriptionARN: aws.String("subscriptionARN"), // Required
-		AttributeValue:  aws.String("attributeValue"),
+		AttributeName:   aws.StringPtr("attributeName"),   // Required
+		SubscriptionARN: aws.StringPtr("subscriptionARN"), // Required
+		AttributeValue:  aws.StringPtr("attributeValue"),
 	}
 	resp, err := svc.SetSubscriptionAttributes(params)
 
@@ -661,9 +661,9 @@ func ExampleSNS_SetTopicAttributes() {
 	svc := sns.New(nil)
 
 	params := &sns.SetTopicAttributesInput{
-		AttributeName:  aws.String("attributeName"), // Required
-		TopicARN:       aws.String("topicARN"),      // Required
-		AttributeValue: aws.String("attributeValue"),
+		AttributeName:  aws.StringPtr("attributeName"), // Required
+		TopicARN:       aws.StringPtr("topicARN"),      // Required
+		AttributeValue: aws.StringPtr("attributeValue"),
 	}
 	resp, err := svc.SetTopicAttributes(params)
 
@@ -690,9 +690,9 @@ func ExampleSNS_Subscribe() {
 	svc := sns.New(nil)
 
 	params := &sns.SubscribeInput{
-		Protocol: aws.String("protocol"), // Required
-		TopicARN: aws.String("topicARN"), // Required
-		Endpoint: aws.String("endpoint"),
+		Protocol: aws.StringPtr("protocol"), // Required
+		TopicARN: aws.StringPtr("topicARN"), // Required
+		Endpoint: aws.StringPtr("endpoint"),
 	}
 	resp, err := svc.Subscribe(params)
 
@@ -719,7 +719,7 @@ func ExampleSNS_Unsubscribe() {
 	svc := sns.New(nil)
 
 	params := &sns.UnsubscribeInput{
-		SubscriptionARN: aws.String("subscriptionARN"), // Required
+		SubscriptionARN: aws.StringPtr("subscriptionARN"), // Required
 	}
 	resp, err := svc.Unsubscribe(params)
 

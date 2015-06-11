@@ -20,7 +20,7 @@ func ExampleCloudFormation_CancelUpdateStack() {
 	svc := cloudformation.New(nil)
 
 	params := &cloudformation.CancelUpdateStackInput{
-		StackName: aws.String("StackName"), // Required
+		StackName: aws.StringPtr("StackName"), // Required
 	}
 	resp, err := svc.CancelUpdateStack(params)
 
@@ -47,37 +47,37 @@ func ExampleCloudFormation_CreateStack() {
 	svc := cloudformation.New(nil)
 
 	params := &cloudformation.CreateStackInput{
-		StackName: aws.String("StackName"), // Required
+		StackName: aws.StringPtr("StackName"), // Required
 		Capabilities: []*string{
-			aws.String("Capability"), // Required
+			aws.StringPtr("Capability"), // Required
 			// More values...
 		},
-		DisableRollback: aws.Boolean(true),
+		DisableRollback: aws.BoolPtr(true),
 		NotificationARNs: []*string{
-			aws.String("NotificationARN"), // Required
+			aws.StringPtr("NotificationARN"), // Required
 			// More values...
 		},
-		OnFailure: aws.String("OnFailure"),
+		OnFailure: aws.StringPtr("OnFailure"),
 		Parameters: []*cloudformation.Parameter{
 			{ // Required
-				ParameterKey:     aws.String("ParameterKey"),
-				ParameterValue:   aws.String("ParameterValue"),
-				UsePreviousValue: aws.Boolean(true),
+				ParameterKey:     aws.StringPtr("ParameterKey"),
+				ParameterValue:   aws.StringPtr("ParameterValue"),
+				UsePreviousValue: aws.BoolPtr(true),
 			},
 			// More values...
 		},
-		StackPolicyBody: aws.String("StackPolicyBody"),
-		StackPolicyURL:  aws.String("StackPolicyURL"),
+		StackPolicyBody: aws.StringPtr("StackPolicyBody"),
+		StackPolicyURL:  aws.StringPtr("StackPolicyURL"),
 		Tags: []*cloudformation.Tag{
 			{ // Required
-				Key:   aws.String("TagKey"),
-				Value: aws.String("TagValue"),
+				Key:   aws.StringPtr("TagKey"),
+				Value: aws.StringPtr("TagValue"),
 			},
 			// More values...
 		},
-		TemplateBody:     aws.String("TemplateBody"),
-		TemplateURL:      aws.String("TemplateURL"),
-		TimeoutInMinutes: aws.Long(1),
+		TemplateBody:     aws.StringPtr("TemplateBody"),
+		TemplateURL:      aws.StringPtr("TemplateURL"),
+		TimeoutInMinutes: aws.Int64Ptr(1),
 	}
 	resp, err := svc.CreateStack(params)
 
@@ -104,7 +104,7 @@ func ExampleCloudFormation_DeleteStack() {
 	svc := cloudformation.New(nil)
 
 	params := &cloudformation.DeleteStackInput{
-		StackName: aws.String("StackName"), // Required
+		StackName: aws.StringPtr("StackName"), // Required
 	}
 	resp, err := svc.DeleteStack(params)
 
@@ -131,8 +131,8 @@ func ExampleCloudFormation_DescribeStackEvents() {
 	svc := cloudformation.New(nil)
 
 	params := &cloudformation.DescribeStackEventsInput{
-		NextToken: aws.String("NextToken"),
-		StackName: aws.String("StackName"),
+		NextToken: aws.StringPtr("NextToken"),
+		StackName: aws.StringPtr("StackName"),
 	}
 	resp, err := svc.DescribeStackEvents(params)
 
@@ -159,8 +159,8 @@ func ExampleCloudFormation_DescribeStackResource() {
 	svc := cloudformation.New(nil)
 
 	params := &cloudformation.DescribeStackResourceInput{
-		LogicalResourceID: aws.String("LogicalResourceId"), // Required
-		StackName:         aws.String("StackName"),         // Required
+		LogicalResourceID: aws.StringPtr("LogicalResourceId"), // Required
+		StackName:         aws.StringPtr("StackName"),         // Required
 	}
 	resp, err := svc.DescribeStackResource(params)
 
@@ -187,9 +187,9 @@ func ExampleCloudFormation_DescribeStackResources() {
 	svc := cloudformation.New(nil)
 
 	params := &cloudformation.DescribeStackResourcesInput{
-		LogicalResourceID:  aws.String("LogicalResourceId"),
-		PhysicalResourceID: aws.String("PhysicalResourceId"),
-		StackName:          aws.String("StackName"),
+		LogicalResourceID:  aws.StringPtr("LogicalResourceId"),
+		PhysicalResourceID: aws.StringPtr("PhysicalResourceId"),
+		StackName:          aws.StringPtr("StackName"),
 	}
 	resp, err := svc.DescribeStackResources(params)
 
@@ -216,8 +216,8 @@ func ExampleCloudFormation_DescribeStacks() {
 	svc := cloudformation.New(nil)
 
 	params := &cloudformation.DescribeStacksInput{
-		NextToken: aws.String("NextToken"),
-		StackName: aws.String("StackName"),
+		NextToken: aws.StringPtr("NextToken"),
+		StackName: aws.StringPtr("StackName"),
 	}
 	resp, err := svc.DescribeStacks(params)
 
@@ -246,14 +246,14 @@ func ExampleCloudFormation_EstimateTemplateCost() {
 	params := &cloudformation.EstimateTemplateCostInput{
 		Parameters: []*cloudformation.Parameter{
 			{ // Required
-				ParameterKey:     aws.String("ParameterKey"),
-				ParameterValue:   aws.String("ParameterValue"),
-				UsePreviousValue: aws.Boolean(true),
+				ParameterKey:     aws.StringPtr("ParameterKey"),
+				ParameterValue:   aws.StringPtr("ParameterValue"),
+				UsePreviousValue: aws.BoolPtr(true),
 			},
 			// More values...
 		},
-		TemplateBody: aws.String("TemplateBody"),
-		TemplateURL:  aws.String("TemplateURL"),
+		TemplateBody: aws.StringPtr("TemplateBody"),
+		TemplateURL:  aws.StringPtr("TemplateURL"),
 	}
 	resp, err := svc.EstimateTemplateCost(params)
 
@@ -280,7 +280,7 @@ func ExampleCloudFormation_GetStackPolicy() {
 	svc := cloudformation.New(nil)
 
 	params := &cloudformation.GetStackPolicyInput{
-		StackName: aws.String("StackName"), // Required
+		StackName: aws.StringPtr("StackName"), // Required
 	}
 	resp, err := svc.GetStackPolicy(params)
 
@@ -307,7 +307,7 @@ func ExampleCloudFormation_GetTemplate() {
 	svc := cloudformation.New(nil)
 
 	params := &cloudformation.GetTemplateInput{
-		StackName: aws.String("StackName"), // Required
+		StackName: aws.StringPtr("StackName"), // Required
 	}
 	resp, err := svc.GetTemplate(params)
 
@@ -334,9 +334,9 @@ func ExampleCloudFormation_GetTemplateSummary() {
 	svc := cloudformation.New(nil)
 
 	params := &cloudformation.GetTemplateSummaryInput{
-		StackName:    aws.String("StackNameOrId"),
-		TemplateBody: aws.String("TemplateBody"),
-		TemplateURL:  aws.String("TemplateURL"),
+		StackName:    aws.StringPtr("StackNameOrId"),
+		TemplateBody: aws.StringPtr("TemplateBody"),
+		TemplateURL:  aws.StringPtr("TemplateURL"),
 	}
 	resp, err := svc.GetTemplateSummary(params)
 
@@ -363,8 +363,8 @@ func ExampleCloudFormation_ListStackResources() {
 	svc := cloudformation.New(nil)
 
 	params := &cloudformation.ListStackResourcesInput{
-		StackName: aws.String("StackName"), // Required
-		NextToken: aws.String("NextToken"),
+		StackName: aws.StringPtr("StackName"), // Required
+		NextToken: aws.StringPtr("NextToken"),
 	}
 	resp, err := svc.ListStackResources(params)
 
@@ -391,9 +391,9 @@ func ExampleCloudFormation_ListStacks() {
 	svc := cloudformation.New(nil)
 
 	params := &cloudformation.ListStacksInput{
-		NextToken: aws.String("NextToken"),
+		NextToken: aws.StringPtr("NextToken"),
 		StackStatusFilter: []*string{
-			aws.String("StackStatus"), // Required
+			aws.StringPtr("StackStatus"), // Required
 			// More values...
 		},
 	}
@@ -422,9 +422,9 @@ func ExampleCloudFormation_SetStackPolicy() {
 	svc := cloudformation.New(nil)
 
 	params := &cloudformation.SetStackPolicyInput{
-		StackName:       aws.String("StackName"), // Required
-		StackPolicyBody: aws.String("StackPolicyBody"),
-		StackPolicyURL:  aws.String("StackPolicyURL"),
+		StackName:       aws.StringPtr("StackName"), // Required
+		StackPolicyBody: aws.StringPtr("StackPolicyBody"),
+		StackPolicyURL:  aws.StringPtr("StackPolicyURL"),
 	}
 	resp, err := svc.SetStackPolicy(params)
 
@@ -451,10 +451,10 @@ func ExampleCloudFormation_SignalResource() {
 	svc := cloudformation.New(nil)
 
 	params := &cloudformation.SignalResourceInput{
-		LogicalResourceID: aws.String("LogicalResourceId"),      // Required
-		StackName:         aws.String("StackNameOrId"),          // Required
-		Status:            aws.String("ResourceSignalStatus"),   // Required
-		UniqueID:          aws.String("ResourceSignalUniqueId"), // Required
+		LogicalResourceID: aws.StringPtr("LogicalResourceId"),      // Required
+		StackName:         aws.StringPtr("StackNameOrId"),          // Required
+		Status:            aws.StringPtr("ResourceSignalStatus"),   // Required
+		UniqueID:          aws.StringPtr("ResourceSignalUniqueId"), // Required
 	}
 	resp, err := svc.SignalResource(params)
 
@@ -481,30 +481,30 @@ func ExampleCloudFormation_UpdateStack() {
 	svc := cloudformation.New(nil)
 
 	params := &cloudformation.UpdateStackInput{
-		StackName: aws.String("StackName"), // Required
+		StackName: aws.StringPtr("StackName"), // Required
 		Capabilities: []*string{
-			aws.String("Capability"), // Required
+			aws.StringPtr("Capability"), // Required
 			// More values...
 		},
 		NotificationARNs: []*string{
-			aws.String("NotificationARN"), // Required
+			aws.StringPtr("NotificationARN"), // Required
 			// More values...
 		},
 		Parameters: []*cloudformation.Parameter{
 			{ // Required
-				ParameterKey:     aws.String("ParameterKey"),
-				ParameterValue:   aws.String("ParameterValue"),
-				UsePreviousValue: aws.Boolean(true),
+				ParameterKey:     aws.StringPtr("ParameterKey"),
+				ParameterValue:   aws.StringPtr("ParameterValue"),
+				UsePreviousValue: aws.BoolPtr(true),
 			},
 			// More values...
 		},
-		StackPolicyBody:             aws.String("StackPolicyBody"),
-		StackPolicyDuringUpdateBody: aws.String("StackPolicyDuringUpdateBody"),
-		StackPolicyDuringUpdateURL:  aws.String("StackPolicyDuringUpdateURL"),
-		StackPolicyURL:              aws.String("StackPolicyURL"),
-		TemplateBody:                aws.String("TemplateBody"),
-		TemplateURL:                 aws.String("TemplateURL"),
-		UsePreviousTemplate:         aws.Boolean(true),
+		StackPolicyBody:             aws.StringPtr("StackPolicyBody"),
+		StackPolicyDuringUpdateBody: aws.StringPtr("StackPolicyDuringUpdateBody"),
+		StackPolicyDuringUpdateURL:  aws.StringPtr("StackPolicyDuringUpdateURL"),
+		StackPolicyURL:              aws.StringPtr("StackPolicyURL"),
+		TemplateBody:                aws.StringPtr("TemplateBody"),
+		TemplateURL:                 aws.StringPtr("TemplateURL"),
+		UsePreviousTemplate:         aws.BoolPtr(true),
 	}
 	resp, err := svc.UpdateStack(params)
 
@@ -531,8 +531,8 @@ func ExampleCloudFormation_ValidateTemplate() {
 	svc := cloudformation.New(nil)
 
 	params := &cloudformation.ValidateTemplateInput{
-		TemplateBody: aws.String("TemplateBody"),
-		TemplateURL:  aws.String("TemplateURL"),
+		TemplateBody: aws.StringPtr("TemplateBody"),
+		TemplateURL:  aws.StringPtr("TemplateURL"),
 	}
 	resp, err := svc.ValidateTemplate(params)
 

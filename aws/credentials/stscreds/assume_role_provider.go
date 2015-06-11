@@ -100,9 +100,9 @@ func (p *AssumeRoleProvider) Retrieve() (credentials.Value, error) {
 	}
 
 	roleOutput, err := p.Client.AssumeRole(&sts.AssumeRoleInput{
-		DurationSeconds: aws.Long(int64(p.Duration / time.Second)),
-		RoleARN:         aws.String(p.RoleARN),
-		RoleSessionName: aws.String(p.RoleSessionName),
+		DurationSeconds: aws.Int64Ptr(int64(p.Duration / time.Second)),
+		RoleARN:         aws.StringPtr(p.RoleARN),
+		RoleSessionName: aws.StringPtr(p.RoleSessionName),
 	})
 
 	if err != nil {

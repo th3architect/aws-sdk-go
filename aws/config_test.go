@@ -18,55 +18,22 @@ var testCredentials = credentials.NewChainCredentials([]credentials.Provider{
 	&credentials.EC2RoleProvider{ExpiryWindow: 5 * time.Minute},
 })
 
-var copyTestConfig = Config{
-	Credentials:             testCredentials,
-	Endpoint:                "CopyTestEndpoint",
-	Region:                  "COPY_TEST_AWS_REGION",
-	DisableSSL:              true,
-	ManualSend:              true,
-	HTTPClient:              http.DefaultClient,
-	LogHTTPBody:             true,
-	LogLevel:                2,
-	Logger:                  os.Stdout,
-	MaxRetries:              DefaultRetries,
-	DisableParamValidation:  true,
-	DisableComputeChecksums: true,
-	S3ForcePathStyle:        true,
-}
-
-func TestCopy(t *testing.T) {
-	want := copyTestConfig
-	got := copyTestConfig.Copy()
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("Copy() = %+v", got)
-		t.Errorf("    want %+v", want)
-	}
-}
-
-func TestCopyReturnsNewInstance(t *testing.T) {
-	want := copyTestConfig
-	got := copyTestConfig.Copy()
-	if &got == &want {
-		t.Errorf("Copy() = %p; want different instance as source %p", &got, &want)
-	}
-}
-
-var mergeTestZeroValueConfig = Config{MaxRetries: DefaultRetries}
+var mergeTestZeroValueConfig = Config{}
 
 var mergeTestConfig = Config{
 	Credentials:             testCredentials,
-	Endpoint:                "MergeTestEndpoint",
-	Region:                  "MERGE_TEST_AWS_REGION",
-	DisableSSL:              true,
-	ManualSend:              true,
+	Endpoint:                StringPtr("MergeTestEndpoint"),
+	Region:                  StringPtr("MERGE_TEST_AWS_REGION"),
+	DisableSSL:              BoolPtr(true),
+	ManualSend:              BoolPtr(true),
 	HTTPClient:              http.DefaultClient,
-	LogHTTPBody:             true,
-	LogLevel:                2,
+	LogHTTPBody:             BoolPtr(true),
+	LogLevel:                IntPtr(2),
 	Logger:                  os.Stdout,
-	MaxRetries:              10,
-	DisableParamValidation:  true,
-	DisableComputeChecksums: true,
-	S3ForcePathStyle:        true,
+	MaxRetries:              IntPtr(10),
+	DisableParamValidation:  BoolPtr(true),
+	DisableComputeChecksums: BoolPtr(true),
+	S3ForcePathStyle:        BoolPtr(true),
 }
 
 var mergeTests = []struct {
@@ -79,14 +46,19 @@ var mergeTests = []struct {
 	{&Config{}, &mergeTestConfig, &mergeTestConfig},
 }
 
+var mergeErrorFmt = `
+Merge Failed [%d]
+  Config  %+v
+    Merge(%+v)
+      got %+v
+     want %+v
+`
+
 func TestMerge(t *testing.T) {
-	for _, tt := range mergeTests {
+	for i, tt := range mergeTests {
 		got := tt.cfg.Merge(tt.in)
 		if !reflect.DeepEqual(got, tt.want) {
-			t.Errorf("Config %+v", tt.cfg)
-			t.Errorf(" Merge(%+v)", tt.in)
-			t.Errorf("   got %+v", got)
-			t.Errorf("  want %+v", tt.want)
+			t.Errorf(mergeErrorFmt, i, tt.cfg, tt.in, got, tt.want)
 		}
 	}
 }

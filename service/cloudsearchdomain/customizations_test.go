@@ -10,8 +10,8 @@ import (
 
 func TestRequireEndpointIfRegionProvided(t *testing.T) {
 	svc := cloudsearchdomain.New(&aws.Config{
-		Region:                 "mock-region",
-		DisableParamValidation: true,
+		Region:                 aws.StringPtr("mock-region"),
+		DisableParamValidation: aws.BoolPtr(true),
 	})
 	req, _ := svc.SearchRequest(nil)
 	err := req.Build()
@@ -23,8 +23,8 @@ func TestRequireEndpointIfRegionProvided(t *testing.T) {
 
 func TestRequireEndpointIfNoRegionProvided(t *testing.T) {
 	svc := cloudsearchdomain.New(&aws.Config{
-		Region:                 "",
-		DisableParamValidation: true,
+		Region:                 aws.StringPtr(""),
+		DisableParamValidation: aws.BoolPtr(true),
 	})
 	req, _ := svc.SearchRequest(nil)
 	err := req.Build()
@@ -36,9 +36,9 @@ func TestRequireEndpointIfNoRegionProvided(t *testing.T) {
 
 func TestRequireEndpointUsed(t *testing.T) {
 	svc := cloudsearchdomain.New(&aws.Config{
-		Region:                 "mock-region",
-		DisableParamValidation: true,
-		Endpoint:               "https://endpoint",
+		Region:                 aws.StringPtr("mock-region"),
+		DisableParamValidation: aws.BoolPtr(true),
+		Endpoint:               aws.StringPtr("https://endpoint"),
 	})
 	req, _ := svc.SearchRequest(nil)
 	err := req.Build()

@@ -631,7 +631,7 @@ func TestInputService1ProtocolTestScalarMembersCase1(t *testing.T) {
 	svc.Endpoint = "https://test"
 
 	input := &InputService1TestShapeInputShape{
-		Name: aws.String("myname"),
+		Name: aws.StringPtr("myname"),
 	}
 	req, _ := svc.InputService1TestCaseOperation1Request(input)
 	r := req.HTTPRequest
@@ -659,7 +659,7 @@ func TestInputService2ProtocolTestTimestampValuesCase1(t *testing.T) {
 	svc.Endpoint = "https://test"
 
 	input := &InputService2TestShapeInputShape{
-		TimeArg: aws.Time(time.Unix(1422172800, 0)),
+		TimeArg: aws.TimePtr(time.Unix(1422172800, 0)),
 	}
 	req, _ := svc.InputService2TestCaseOperation1Request(input)
 	r := req.HTTPRequest
@@ -778,7 +778,7 @@ func TestInputService5ProtocolTestRecursiveShapesCase1(t *testing.T) {
 
 	input := &InputService5TestShapeInputShape{
 		RecursiveStruct: &InputService5TestShapeRecursiveStructType{
-			NoRecurse: aws.String("foo"),
+			NoRecurse: aws.StringPtr("foo"),
 		},
 	}
 	req, _ := svc.InputService5TestCaseOperation1Request(input)
@@ -809,7 +809,7 @@ func TestInputService5ProtocolTestRecursiveShapesCase2(t *testing.T) {
 	input := &InputService5TestShapeInputShape{
 		RecursiveStruct: &InputService5TestShapeRecursiveStructType{
 			RecursiveStruct: &InputService5TestShapeRecursiveStructType{
-				NoRecurse: aws.String("foo"),
+				NoRecurse: aws.StringPtr("foo"),
 			},
 		},
 	}
@@ -843,7 +843,7 @@ func TestInputService5ProtocolTestRecursiveShapesCase3(t *testing.T) {
 			RecursiveStruct: &InputService5TestShapeRecursiveStructType{
 				RecursiveStruct: &InputService5TestShapeRecursiveStructType{
 					RecursiveStruct: &InputService5TestShapeRecursiveStructType{
-						NoRecurse: aws.String("foo"),
+						NoRecurse: aws.StringPtr("foo"),
 					},
 				},
 			},
@@ -878,10 +878,10 @@ func TestInputService5ProtocolTestRecursiveShapesCase4(t *testing.T) {
 		RecursiveStruct: &InputService5TestShapeRecursiveStructType{
 			RecursiveList: []*InputService5TestShapeRecursiveStructType{
 				{
-					NoRecurse: aws.String("foo"),
+					NoRecurse: aws.StringPtr("foo"),
 				},
 				{
-					NoRecurse: aws.String("bar"),
+					NoRecurse: aws.StringPtr("bar"),
 				},
 			},
 		},
@@ -915,11 +915,11 @@ func TestInputService5ProtocolTestRecursiveShapesCase5(t *testing.T) {
 		RecursiveStruct: &InputService5TestShapeRecursiveStructType{
 			RecursiveList: []*InputService5TestShapeRecursiveStructType{
 				{
-					NoRecurse: aws.String("foo"),
+					NoRecurse: aws.StringPtr("foo"),
 				},
 				{
 					RecursiveStruct: &InputService5TestShapeRecursiveStructType{
-						NoRecurse: aws.String("bar"),
+						NoRecurse: aws.StringPtr("bar"),
 					},
 				},
 			},
@@ -954,10 +954,10 @@ func TestInputService5ProtocolTestRecursiveShapesCase6(t *testing.T) {
 		RecursiveStruct: &InputService5TestShapeRecursiveStructType{
 			RecursiveMap: map[string]*InputService5TestShapeRecursiveStructType{
 				"bar": {
-					NoRecurse: aws.String("bar"),
+					NoRecurse: aws.StringPtr("bar"),
 				},
 				"foo": {
-					NoRecurse: aws.String("foo"),
+					NoRecurse: aws.StringPtr("foo"),
 				},
 			},
 		},

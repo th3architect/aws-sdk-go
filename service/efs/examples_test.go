@@ -20,7 +20,7 @@ func ExampleEFS_CreateFileSystem() {
 	svc := efs.New(nil)
 
 	params := &efs.CreateFileSystemInput{
-		CreationToken: aws.String("CreationToken"), // Required
+		CreationToken: aws.StringPtr("CreationToken"), // Required
 	}
 	resp, err := svc.CreateFileSystem(params)
 
@@ -47,11 +47,11 @@ func ExampleEFS_CreateMountTarget() {
 	svc := efs.New(nil)
 
 	params := &efs.CreateMountTargetInput{
-		FileSystemID: aws.String("FileSystemId"), // Required
-		SubnetID:     aws.String("SubnetId"),     // Required
-		IPAddress:    aws.String("IpAddress"),
+		FileSystemID: aws.StringPtr("FileSystemId"), // Required
+		SubnetID:     aws.StringPtr("SubnetId"),     // Required
+		IPAddress:    aws.StringPtr("IpAddress"),
 		SecurityGroups: []*string{
-			aws.String("SecurityGroup"), // Required
+			aws.StringPtr("SecurityGroup"), // Required
 			// More values...
 		},
 	}
@@ -80,11 +80,11 @@ func ExampleEFS_CreateTags() {
 	svc := efs.New(nil)
 
 	params := &efs.CreateTagsInput{
-		FileSystemID: aws.String("FileSystemId"), // Required
+		FileSystemID: aws.StringPtr("FileSystemId"), // Required
 		Tags: []*efs.Tag{ // Required
 			{ // Required
-				Key:   aws.String("TagKey"),   // Required
-				Value: aws.String("TagValue"), // Required
+				Key:   aws.StringPtr("TagKey"),   // Required
+				Value: aws.StringPtr("TagValue"), // Required
 			},
 			// More values...
 		},
@@ -114,7 +114,7 @@ func ExampleEFS_DeleteFileSystem() {
 	svc := efs.New(nil)
 
 	params := &efs.DeleteFileSystemInput{
-		FileSystemID: aws.String("FileSystemId"), // Required
+		FileSystemID: aws.StringPtr("FileSystemId"), // Required
 	}
 	resp, err := svc.DeleteFileSystem(params)
 
@@ -141,7 +141,7 @@ func ExampleEFS_DeleteMountTarget() {
 	svc := efs.New(nil)
 
 	params := &efs.DeleteMountTargetInput{
-		MountTargetID: aws.String("MountTargetId"), // Required
+		MountTargetID: aws.StringPtr("MountTargetId"), // Required
 	}
 	resp, err := svc.DeleteMountTarget(params)
 
@@ -168,9 +168,9 @@ func ExampleEFS_DeleteTags() {
 	svc := efs.New(nil)
 
 	params := &efs.DeleteTagsInput{
-		FileSystemID: aws.String("FileSystemId"), // Required
+		FileSystemID: aws.StringPtr("FileSystemId"), // Required
 		TagKeys: []*string{ // Required
-			aws.String("TagKey"), // Required
+			aws.StringPtr("TagKey"), // Required
 			// More values...
 		},
 	}
@@ -199,10 +199,10 @@ func ExampleEFS_DescribeFileSystems() {
 	svc := efs.New(nil)
 
 	params := &efs.DescribeFileSystemsInput{
-		CreationToken: aws.String("CreationToken"),
-		FileSystemID:  aws.String("FileSystemId"),
-		Marker:        aws.String("Marker"),
-		MaxItems:      aws.Long(1),
+		CreationToken: aws.StringPtr("CreationToken"),
+		FileSystemID:  aws.StringPtr("FileSystemId"),
+		Marker:        aws.StringPtr("Marker"),
+		MaxItems:      aws.Int64Ptr(1),
 	}
 	resp, err := svc.DescribeFileSystems(params)
 
@@ -229,7 +229,7 @@ func ExampleEFS_DescribeMountTargetSecurityGroups() {
 	svc := efs.New(nil)
 
 	params := &efs.DescribeMountTargetSecurityGroupsInput{
-		MountTargetID: aws.String("MountTargetId"), // Required
+		MountTargetID: aws.StringPtr("MountTargetId"), // Required
 	}
 	resp, err := svc.DescribeMountTargetSecurityGroups(params)
 
@@ -256,9 +256,9 @@ func ExampleEFS_DescribeMountTargets() {
 	svc := efs.New(nil)
 
 	params := &efs.DescribeMountTargetsInput{
-		FileSystemID: aws.String("FileSystemId"), // Required
-		Marker:       aws.String("Marker"),
-		MaxItems:     aws.Long(1),
+		FileSystemID: aws.StringPtr("FileSystemId"), // Required
+		Marker:       aws.StringPtr("Marker"),
+		MaxItems:     aws.Int64Ptr(1),
 	}
 	resp, err := svc.DescribeMountTargets(params)
 
@@ -285,9 +285,9 @@ func ExampleEFS_DescribeTags() {
 	svc := efs.New(nil)
 
 	params := &efs.DescribeTagsInput{
-		FileSystemID: aws.String("FileSystemId"), // Required
-		Marker:       aws.String("Marker"),
-		MaxItems:     aws.Long(1),
+		FileSystemID: aws.StringPtr("FileSystemId"), // Required
+		Marker:       aws.StringPtr("Marker"),
+		MaxItems:     aws.Int64Ptr(1),
 	}
 	resp, err := svc.DescribeTags(params)
 
@@ -314,9 +314,9 @@ func ExampleEFS_ModifyMountTargetSecurityGroups() {
 	svc := efs.New(nil)
 
 	params := &efs.ModifyMountTargetSecurityGroupsInput{
-		MountTargetID: aws.String("MountTargetId"), // Required
+		MountTargetID: aws.StringPtr("MountTargetId"), // Required
 		SecurityGroups: []*string{
-			aws.String("SecurityGroup"), // Required
+			aws.StringPtr("SecurityGroup"), // Required
 			// More values...
 		},
 	}
