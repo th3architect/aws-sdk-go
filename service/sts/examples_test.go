@@ -20,13 +20,13 @@ func ExampleSTS_AssumeRole() {
 	svc := sts.New(nil)
 
 	params := &sts.AssumeRoleInput{
-		RoleARN:         aws.String("arnType"),      // Required
-		RoleSessionName: aws.String("userNameType"), // Required
-		DurationSeconds: aws.Long(1),
-		ExternalID:      aws.String("externalIdType"),
-		Policy:          aws.String("sessionPolicyDocumentType"),
-		SerialNumber:    aws.String("serialNumberType"),
-		TokenCode:       aws.String("tokenCodeType"),
+		RoleARN:         aws.StringPtr("arnType"),      // Required
+		RoleSessionName: aws.StringPtr("userNameType"), // Required
+		DurationSeconds: aws.Int64Ptr(1),
+		ExternalID:      aws.StringPtr("externalIdType"),
+		Policy:          aws.StringPtr("sessionPolicyDocumentType"),
+		SerialNumber:    aws.StringPtr("serialNumberType"),
+		TokenCode:       aws.StringPtr("tokenCodeType"),
 	}
 	resp, err := svc.AssumeRole(params)
 
@@ -53,11 +53,11 @@ func ExampleSTS_AssumeRoleWithSAML() {
 	svc := sts.New(nil)
 
 	params := &sts.AssumeRoleWithSAMLInput{
-		PrincipalARN:    aws.String("arnType"),           // Required
-		RoleARN:         aws.String("arnType"),           // Required
-		SAMLAssertion:   aws.String("SAMLAssertionType"), // Required
-		DurationSeconds: aws.Long(1),
-		Policy:          aws.String("sessionPolicyDocumentType"),
+		PrincipalARN:    aws.StringPtr("arnType"),           // Required
+		RoleARN:         aws.StringPtr("arnType"),           // Required
+		SAMLAssertion:   aws.StringPtr("SAMLAssertionType"), // Required
+		DurationSeconds: aws.Int64Ptr(1),
+		Policy:          aws.StringPtr("sessionPolicyDocumentType"),
 	}
 	resp, err := svc.AssumeRoleWithSAML(params)
 
@@ -84,12 +84,12 @@ func ExampleSTS_AssumeRoleWithWebIdentity() {
 	svc := sts.New(nil)
 
 	params := &sts.AssumeRoleWithWebIdentityInput{
-		RoleARN:          aws.String("arnType"),         // Required
-		RoleSessionName:  aws.String("userNameType"),    // Required
-		WebIdentityToken: aws.String("clientTokenType"), // Required
-		DurationSeconds:  aws.Long(1),
-		Policy:           aws.String("sessionPolicyDocumentType"),
-		ProviderID:       aws.String("urlType"),
+		RoleARN:          aws.StringPtr("arnType"),         // Required
+		RoleSessionName:  aws.StringPtr("userNameType"),    // Required
+		WebIdentityToken: aws.StringPtr("clientTokenType"), // Required
+		DurationSeconds:  aws.Int64Ptr(1),
+		Policy:           aws.StringPtr("sessionPolicyDocumentType"),
+		ProviderID:       aws.StringPtr("urlType"),
 	}
 	resp, err := svc.AssumeRoleWithWebIdentity(params)
 
@@ -116,7 +116,7 @@ func ExampleSTS_DecodeAuthorizationMessage() {
 	svc := sts.New(nil)
 
 	params := &sts.DecodeAuthorizationMessageInput{
-		EncodedMessage: aws.String("encodedMessageType"), // Required
+		EncodedMessage: aws.StringPtr("encodedMessageType"), // Required
 	}
 	resp, err := svc.DecodeAuthorizationMessage(params)
 
@@ -143,9 +143,9 @@ func ExampleSTS_GetFederationToken() {
 	svc := sts.New(nil)
 
 	params := &sts.GetFederationTokenInput{
-		Name:            aws.String("userNameType"), // Required
-		DurationSeconds: aws.Long(1),
-		Policy:          aws.String("sessionPolicyDocumentType"),
+		Name:            aws.StringPtr("userNameType"), // Required
+		DurationSeconds: aws.Int64Ptr(1),
+		Policy:          aws.StringPtr("sessionPolicyDocumentType"),
 	}
 	resp, err := svc.GetFederationToken(params)
 
@@ -172,9 +172,9 @@ func ExampleSTS_GetSessionToken() {
 	svc := sts.New(nil)
 
 	params := &sts.GetSessionTokenInput{
-		DurationSeconds: aws.Long(1),
-		SerialNumber:    aws.String("serialNumberType"),
-		TokenCode:       aws.String("tokenCodeType"),
+		DurationSeconds: aws.Int64Ptr(1),
+		SerialNumber:    aws.StringPtr("serialNumberType"),
+		TokenCode:       aws.StringPtr("tokenCodeType"),
 	}
 	resp, err := svc.GetSessionToken(params)
 

@@ -17,8 +17,8 @@ func (s *stubSTS) AssumeRole(input *sts.AssumeRoleInput) (*sts.AssumeRoleOutput,
 		Credentials: &sts.Credentials{
 			// Just reflect the role arn to the provider.
 			AccessKeyID:     input.RoleARN,
-			SecretAccessKey: aws.String("assumedSecretAccessKey"),
-			SessionToken:    aws.String("assumedSessionToken"),
+			SecretAccessKey: aws.StringPtr("assumedSecretAccessKey"),
+			SessionToken:    aws.StringPtr("assumedSessionToken"),
 			Expiration:      &expiry,
 		},
 	}, nil

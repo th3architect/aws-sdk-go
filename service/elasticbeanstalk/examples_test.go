@@ -20,8 +20,8 @@ func ExampleElasticBeanstalk_AbortEnvironmentUpdate() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.AbortEnvironmentUpdateInput{
-		EnvironmentID:   aws.String("EnvironmentId"),
-		EnvironmentName: aws.String("EnvironmentName"),
+		EnvironmentID:   aws.StringPtr("EnvironmentId"),
+		EnvironmentName: aws.StringPtr("EnvironmentName"),
 	}
 	resp, err := svc.AbortEnvironmentUpdate(params)
 
@@ -48,7 +48,7 @@ func ExampleElasticBeanstalk_CheckDNSAvailability() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.CheckDNSAvailabilityInput{
-		CNAMEPrefix: aws.String("DNSCnamePrefix"), // Required
+		CNAMEPrefix: aws.StringPtr("DNSCnamePrefix"), // Required
 	}
 	resp, err := svc.CheckDNSAvailability(params)
 
@@ -75,8 +75,8 @@ func ExampleElasticBeanstalk_CreateApplication() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.CreateApplicationInput{
-		ApplicationName: aws.String("ApplicationName"), // Required
-		Description:     aws.String("Description"),
+		ApplicationName: aws.StringPtr("ApplicationName"), // Required
+		Description:     aws.StringPtr("Description"),
 	}
 	resp, err := svc.CreateApplication(params)
 
@@ -103,13 +103,13 @@ func ExampleElasticBeanstalk_CreateApplicationVersion() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.CreateApplicationVersionInput{
-		ApplicationName:       aws.String("ApplicationName"), // Required
-		VersionLabel:          aws.String("VersionLabel"),    // Required
-		AutoCreateApplication: aws.Boolean(true),
-		Description:           aws.String("Description"),
+		ApplicationName:       aws.StringPtr("ApplicationName"), // Required
+		VersionLabel:          aws.StringPtr("VersionLabel"),    // Required
+		AutoCreateApplication: aws.BoolPtr(true),
+		Description:           aws.StringPtr("Description"),
 		SourceBundle: &elasticbeanstalk.S3Location{
-			S3Bucket: aws.String("S3Bucket"),
-			S3Key:    aws.String("S3Key"),
+			S3Bucket: aws.StringPtr("S3Bucket"),
+			S3Key:    aws.StringPtr("S3Key"),
 		},
 	}
 	resp, err := svc.CreateApplicationVersion(params)
@@ -137,23 +137,23 @@ func ExampleElasticBeanstalk_CreateConfigurationTemplate() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.CreateConfigurationTemplateInput{
-		ApplicationName: aws.String("ApplicationName"),           // Required
-		TemplateName:    aws.String("ConfigurationTemplateName"), // Required
-		Description:     aws.String("Description"),
-		EnvironmentID:   aws.String("EnvironmentId"),
+		ApplicationName: aws.StringPtr("ApplicationName"),           // Required
+		TemplateName:    aws.StringPtr("ConfigurationTemplateName"), // Required
+		Description:     aws.StringPtr("Description"),
+		EnvironmentID:   aws.StringPtr("EnvironmentId"),
 		OptionSettings: []*elasticbeanstalk.ConfigurationOptionSetting{
 			{ // Required
-				Namespace:    aws.String("OptionNamespace"),
-				OptionName:   aws.String("ConfigurationOptionName"),
-				ResourceName: aws.String("ResourceName"),
-				Value:        aws.String("ConfigurationOptionValue"),
+				Namespace:    aws.StringPtr("OptionNamespace"),
+				OptionName:   aws.StringPtr("ConfigurationOptionName"),
+				ResourceName: aws.StringPtr("ResourceName"),
+				Value:        aws.StringPtr("ConfigurationOptionValue"),
 			},
 			// More values...
 		},
-		SolutionStackName: aws.String("SolutionStackName"),
+		SolutionStackName: aws.StringPtr("SolutionStackName"),
 		SourceConfiguration: &elasticbeanstalk.SourceConfiguration{
-			ApplicationName: aws.String("ApplicationName"),
-			TemplateName:    aws.String("ConfigurationTemplateName"),
+			ApplicationName: aws.StringPtr("ApplicationName"),
+			TemplateName:    aws.StringPtr("ConfigurationTemplateName"),
 		},
 	}
 	resp, err := svc.CreateConfigurationTemplate(params)
@@ -181,42 +181,42 @@ func ExampleElasticBeanstalk_CreateEnvironment() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.CreateEnvironmentInput{
-		ApplicationName: aws.String("ApplicationName"), // Required
-		EnvironmentName: aws.String("EnvironmentName"), // Required
-		CNAMEPrefix:     aws.String("DNSCnamePrefix"),
-		Description:     aws.String("Description"),
+		ApplicationName: aws.StringPtr("ApplicationName"), // Required
+		EnvironmentName: aws.StringPtr("EnvironmentName"), // Required
+		CNAMEPrefix:     aws.StringPtr("DNSCnamePrefix"),
+		Description:     aws.StringPtr("Description"),
 		OptionSettings: []*elasticbeanstalk.ConfigurationOptionSetting{
 			{ // Required
-				Namespace:    aws.String("OptionNamespace"),
-				OptionName:   aws.String("ConfigurationOptionName"),
-				ResourceName: aws.String("ResourceName"),
-				Value:        aws.String("ConfigurationOptionValue"),
+				Namespace:    aws.StringPtr("OptionNamespace"),
+				OptionName:   aws.StringPtr("ConfigurationOptionName"),
+				ResourceName: aws.StringPtr("ResourceName"),
+				Value:        aws.StringPtr("ConfigurationOptionValue"),
 			},
 			// More values...
 		},
 		OptionsToRemove: []*elasticbeanstalk.OptionSpecification{
 			{ // Required
-				Namespace:    aws.String("OptionNamespace"),
-				OptionName:   aws.String("ConfigurationOptionName"),
-				ResourceName: aws.String("ResourceName"),
+				Namespace:    aws.StringPtr("OptionNamespace"),
+				OptionName:   aws.StringPtr("ConfigurationOptionName"),
+				ResourceName: aws.StringPtr("ResourceName"),
 			},
 			// More values...
 		},
-		SolutionStackName: aws.String("SolutionStackName"),
+		SolutionStackName: aws.StringPtr("SolutionStackName"),
 		Tags: []*elasticbeanstalk.Tag{
 			{ // Required
-				Key:   aws.String("TagKey"),
-				Value: aws.String("TagValue"),
+				Key:   aws.StringPtr("TagKey"),
+				Value: aws.StringPtr("TagValue"),
 			},
 			// More values...
 		},
-		TemplateName: aws.String("ConfigurationTemplateName"),
+		TemplateName: aws.StringPtr("ConfigurationTemplateName"),
 		Tier: &elasticbeanstalk.EnvironmentTier{
-			Name:    aws.String("String"),
-			Type:    aws.String("String"),
-			Version: aws.String("String"),
+			Name:    aws.StringPtr("String"),
+			Type:    aws.StringPtr("String"),
+			Version: aws.StringPtr("String"),
 		},
-		VersionLabel: aws.String("VersionLabel"),
+		VersionLabel: aws.StringPtr("VersionLabel"),
 	}
 	resp, err := svc.CreateEnvironment(params)
 
@@ -268,8 +268,8 @@ func ExampleElasticBeanstalk_DeleteApplication() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.DeleteApplicationInput{
-		ApplicationName:     aws.String("ApplicationName"), // Required
-		TerminateEnvByForce: aws.Boolean(true),
+		ApplicationName:     aws.StringPtr("ApplicationName"), // Required
+		TerminateEnvByForce: aws.BoolPtr(true),
 	}
 	resp, err := svc.DeleteApplication(params)
 
@@ -296,9 +296,9 @@ func ExampleElasticBeanstalk_DeleteApplicationVersion() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.DeleteApplicationVersionInput{
-		ApplicationName:    aws.String("ApplicationName"), // Required
-		VersionLabel:       aws.String("VersionLabel"),    // Required
-		DeleteSourceBundle: aws.Boolean(true),
+		ApplicationName:    aws.StringPtr("ApplicationName"), // Required
+		VersionLabel:       aws.StringPtr("VersionLabel"),    // Required
+		DeleteSourceBundle: aws.BoolPtr(true),
 	}
 	resp, err := svc.DeleteApplicationVersion(params)
 
@@ -325,8 +325,8 @@ func ExampleElasticBeanstalk_DeleteConfigurationTemplate() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.DeleteConfigurationTemplateInput{
-		ApplicationName: aws.String("ApplicationName"),           // Required
-		TemplateName:    aws.String("ConfigurationTemplateName"), // Required
+		ApplicationName: aws.StringPtr("ApplicationName"),           // Required
+		TemplateName:    aws.StringPtr("ConfigurationTemplateName"), // Required
 	}
 	resp, err := svc.DeleteConfigurationTemplate(params)
 
@@ -353,8 +353,8 @@ func ExampleElasticBeanstalk_DeleteEnvironmentConfiguration() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.DeleteEnvironmentConfigurationInput{
-		ApplicationName: aws.String("ApplicationName"), // Required
-		EnvironmentName: aws.String("EnvironmentName"), // Required
+		ApplicationName: aws.StringPtr("ApplicationName"), // Required
+		EnvironmentName: aws.StringPtr("EnvironmentName"), // Required
 	}
 	resp, err := svc.DeleteEnvironmentConfiguration(params)
 
@@ -381,9 +381,9 @@ func ExampleElasticBeanstalk_DescribeApplicationVersions() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.DescribeApplicationVersionsInput{
-		ApplicationName: aws.String("ApplicationName"),
+		ApplicationName: aws.StringPtr("ApplicationName"),
 		VersionLabels: []*string{
-			aws.String("VersionLabel"), // Required
+			aws.StringPtr("VersionLabel"), // Required
 			// More values...
 		},
 	}
@@ -413,7 +413,7 @@ func ExampleElasticBeanstalk_DescribeApplications() {
 
 	params := &elasticbeanstalk.DescribeApplicationsInput{
 		ApplicationNames: []*string{
-			aws.String("ApplicationName"), // Required
+			aws.StringPtr("ApplicationName"), // Required
 			// More values...
 		},
 	}
@@ -442,18 +442,18 @@ func ExampleElasticBeanstalk_DescribeConfigurationOptions() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.DescribeConfigurationOptionsInput{
-		ApplicationName: aws.String("ApplicationName"),
-		EnvironmentName: aws.String("EnvironmentName"),
+		ApplicationName: aws.StringPtr("ApplicationName"),
+		EnvironmentName: aws.StringPtr("EnvironmentName"),
 		Options: []*elasticbeanstalk.OptionSpecification{
 			{ // Required
-				Namespace:    aws.String("OptionNamespace"),
-				OptionName:   aws.String("ConfigurationOptionName"),
-				ResourceName: aws.String("ResourceName"),
+				Namespace:    aws.StringPtr("OptionNamespace"),
+				OptionName:   aws.StringPtr("ConfigurationOptionName"),
+				ResourceName: aws.StringPtr("ResourceName"),
 			},
 			// More values...
 		},
-		SolutionStackName: aws.String("SolutionStackName"),
-		TemplateName:      aws.String("ConfigurationTemplateName"),
+		SolutionStackName: aws.StringPtr("SolutionStackName"),
+		TemplateName:      aws.StringPtr("ConfigurationTemplateName"),
 	}
 	resp, err := svc.DescribeConfigurationOptions(params)
 
@@ -480,9 +480,9 @@ func ExampleElasticBeanstalk_DescribeConfigurationSettings() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.DescribeConfigurationSettingsInput{
-		ApplicationName: aws.String("ApplicationName"), // Required
-		EnvironmentName: aws.String("EnvironmentName"),
-		TemplateName:    aws.String("ConfigurationTemplateName"),
+		ApplicationName: aws.StringPtr("ApplicationName"), // Required
+		EnvironmentName: aws.StringPtr("EnvironmentName"),
+		TemplateName:    aws.StringPtr("ConfigurationTemplateName"),
 	}
 	resp, err := svc.DescribeConfigurationSettings(params)
 
@@ -509,8 +509,8 @@ func ExampleElasticBeanstalk_DescribeEnvironmentResources() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.DescribeEnvironmentResourcesInput{
-		EnvironmentID:   aws.String("EnvironmentId"),
-		EnvironmentName: aws.String("EnvironmentName"),
+		EnvironmentID:   aws.StringPtr("EnvironmentId"),
+		EnvironmentName: aws.StringPtr("EnvironmentName"),
 	}
 	resp, err := svc.DescribeEnvironmentResources(params)
 
@@ -537,18 +537,18 @@ func ExampleElasticBeanstalk_DescribeEnvironments() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.DescribeEnvironmentsInput{
-		ApplicationName: aws.String("ApplicationName"),
+		ApplicationName: aws.StringPtr("ApplicationName"),
 		EnvironmentIDs: []*string{
-			aws.String("EnvironmentId"), // Required
+			aws.StringPtr("EnvironmentId"), // Required
 			// More values...
 		},
 		EnvironmentNames: []*string{
-			aws.String("EnvironmentName"), // Required
+			aws.StringPtr("EnvironmentName"), // Required
 			// More values...
 		},
-		IncludeDeleted:        aws.Boolean(true),
-		IncludedDeletedBackTo: aws.Time(time.Now()),
-		VersionLabel:          aws.String("VersionLabel"),
+		IncludeDeleted:        aws.BoolPtr(true),
+		IncludedDeletedBackTo: aws.TimePtr(time.Now()),
+		VersionLabel:          aws.StringPtr("VersionLabel"),
 	}
 	resp, err := svc.DescribeEnvironments(params)
 
@@ -575,17 +575,17 @@ func ExampleElasticBeanstalk_DescribeEvents() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.DescribeEventsInput{
-		ApplicationName: aws.String("ApplicationName"),
-		EndTime:         aws.Time(time.Now()),
-		EnvironmentID:   aws.String("EnvironmentId"),
-		EnvironmentName: aws.String("EnvironmentName"),
-		MaxRecords:      aws.Long(1),
-		NextToken:       aws.String("Token"),
-		RequestID:       aws.String("RequestId"),
-		Severity:        aws.String("EventSeverity"),
-		StartTime:       aws.Time(time.Now()),
-		TemplateName:    aws.String("ConfigurationTemplateName"),
-		VersionLabel:    aws.String("VersionLabel"),
+		ApplicationName: aws.StringPtr("ApplicationName"),
+		EndTime:         aws.TimePtr(time.Now()),
+		EnvironmentID:   aws.StringPtr("EnvironmentId"),
+		EnvironmentName: aws.StringPtr("EnvironmentName"),
+		MaxRecords:      aws.Int64Ptr(1),
+		NextToken:       aws.StringPtr("Token"),
+		RequestID:       aws.StringPtr("RequestId"),
+		Severity:        aws.StringPtr("EventSeverity"),
+		StartTime:       aws.TimePtr(time.Now()),
+		TemplateName:    aws.StringPtr("ConfigurationTemplateName"),
+		VersionLabel:    aws.StringPtr("VersionLabel"),
 	}
 	resp, err := svc.DescribeEvents(params)
 
@@ -637,8 +637,8 @@ func ExampleElasticBeanstalk_RebuildEnvironment() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.RebuildEnvironmentInput{
-		EnvironmentID:   aws.String("EnvironmentId"),
-		EnvironmentName: aws.String("EnvironmentName"),
+		EnvironmentID:   aws.StringPtr("EnvironmentId"),
+		EnvironmentName: aws.StringPtr("EnvironmentName"),
 	}
 	resp, err := svc.RebuildEnvironment(params)
 
@@ -665,9 +665,9 @@ func ExampleElasticBeanstalk_RequestEnvironmentInfo() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.RequestEnvironmentInfoInput{
-		InfoType:        aws.String("EnvironmentInfoType"), // Required
-		EnvironmentID:   aws.String("EnvironmentId"),
-		EnvironmentName: aws.String("EnvironmentName"),
+		InfoType:        aws.StringPtr("EnvironmentInfoType"), // Required
+		EnvironmentID:   aws.StringPtr("EnvironmentId"),
+		EnvironmentName: aws.StringPtr("EnvironmentName"),
 	}
 	resp, err := svc.RequestEnvironmentInfo(params)
 
@@ -694,8 +694,8 @@ func ExampleElasticBeanstalk_RestartAppServer() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.RestartAppServerInput{
-		EnvironmentID:   aws.String("EnvironmentId"),
-		EnvironmentName: aws.String("EnvironmentName"),
+		EnvironmentID:   aws.StringPtr("EnvironmentId"),
+		EnvironmentName: aws.StringPtr("EnvironmentName"),
 	}
 	resp, err := svc.RestartAppServer(params)
 
@@ -722,9 +722,9 @@ func ExampleElasticBeanstalk_RetrieveEnvironmentInfo() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.RetrieveEnvironmentInfoInput{
-		InfoType:        aws.String("EnvironmentInfoType"), // Required
-		EnvironmentID:   aws.String("EnvironmentId"),
-		EnvironmentName: aws.String("EnvironmentName"),
+		InfoType:        aws.StringPtr("EnvironmentInfoType"), // Required
+		EnvironmentID:   aws.StringPtr("EnvironmentId"),
+		EnvironmentName: aws.StringPtr("EnvironmentName"),
 	}
 	resp, err := svc.RetrieveEnvironmentInfo(params)
 
@@ -751,10 +751,10 @@ func ExampleElasticBeanstalk_SwapEnvironmentCNAMEs() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.SwapEnvironmentCNAMEsInput{
-		DestinationEnvironmentID:   aws.String("EnvironmentId"),
-		DestinationEnvironmentName: aws.String("EnvironmentName"),
-		SourceEnvironmentID:        aws.String("EnvironmentId"),
-		SourceEnvironmentName:      aws.String("EnvironmentName"),
+		DestinationEnvironmentID:   aws.StringPtr("EnvironmentId"),
+		DestinationEnvironmentName: aws.StringPtr("EnvironmentName"),
+		SourceEnvironmentID:        aws.StringPtr("EnvironmentId"),
+		SourceEnvironmentName:      aws.StringPtr("EnvironmentName"),
 	}
 	resp, err := svc.SwapEnvironmentCNAMEs(params)
 
@@ -781,9 +781,9 @@ func ExampleElasticBeanstalk_TerminateEnvironment() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.TerminateEnvironmentInput{
-		EnvironmentID:      aws.String("EnvironmentId"),
-		EnvironmentName:    aws.String("EnvironmentName"),
-		TerminateResources: aws.Boolean(true),
+		EnvironmentID:      aws.StringPtr("EnvironmentId"),
+		EnvironmentName:    aws.StringPtr("EnvironmentName"),
+		TerminateResources: aws.BoolPtr(true),
 	}
 	resp, err := svc.TerminateEnvironment(params)
 
@@ -810,8 +810,8 @@ func ExampleElasticBeanstalk_UpdateApplication() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.UpdateApplicationInput{
-		ApplicationName: aws.String("ApplicationName"), // Required
-		Description:     aws.String("Description"),
+		ApplicationName: aws.StringPtr("ApplicationName"), // Required
+		Description:     aws.StringPtr("Description"),
 	}
 	resp, err := svc.UpdateApplication(params)
 
@@ -838,9 +838,9 @@ func ExampleElasticBeanstalk_UpdateApplicationVersion() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.UpdateApplicationVersionInput{
-		ApplicationName: aws.String("ApplicationName"), // Required
-		VersionLabel:    aws.String("VersionLabel"),    // Required
-		Description:     aws.String("Description"),
+		ApplicationName: aws.StringPtr("ApplicationName"), // Required
+		VersionLabel:    aws.StringPtr("VersionLabel"),    // Required
+		Description:     aws.StringPtr("Description"),
 	}
 	resp, err := svc.UpdateApplicationVersion(params)
 
@@ -867,23 +867,23 @@ func ExampleElasticBeanstalk_UpdateConfigurationTemplate() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.UpdateConfigurationTemplateInput{
-		ApplicationName: aws.String("ApplicationName"),           // Required
-		TemplateName:    aws.String("ConfigurationTemplateName"), // Required
-		Description:     aws.String("Description"),
+		ApplicationName: aws.StringPtr("ApplicationName"),           // Required
+		TemplateName:    aws.StringPtr("ConfigurationTemplateName"), // Required
+		Description:     aws.StringPtr("Description"),
 		OptionSettings: []*elasticbeanstalk.ConfigurationOptionSetting{
 			{ // Required
-				Namespace:    aws.String("OptionNamespace"),
-				OptionName:   aws.String("ConfigurationOptionName"),
-				ResourceName: aws.String("ResourceName"),
-				Value:        aws.String("ConfigurationOptionValue"),
+				Namespace:    aws.StringPtr("OptionNamespace"),
+				OptionName:   aws.StringPtr("ConfigurationOptionName"),
+				ResourceName: aws.StringPtr("ResourceName"),
+				Value:        aws.StringPtr("ConfigurationOptionValue"),
 			},
 			// More values...
 		},
 		OptionsToRemove: []*elasticbeanstalk.OptionSpecification{
 			{ // Required
-				Namespace:    aws.String("OptionNamespace"),
-				OptionName:   aws.String("ConfigurationOptionName"),
-				ResourceName: aws.String("ResourceName"),
+				Namespace:    aws.StringPtr("OptionNamespace"),
+				OptionName:   aws.StringPtr("ConfigurationOptionName"),
+				ResourceName: aws.StringPtr("ResourceName"),
 			},
 			// More values...
 		},
@@ -913,34 +913,34 @@ func ExampleElasticBeanstalk_UpdateEnvironment() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.UpdateEnvironmentInput{
-		Description:     aws.String("Description"),
-		EnvironmentID:   aws.String("EnvironmentId"),
-		EnvironmentName: aws.String("EnvironmentName"),
+		Description:     aws.StringPtr("Description"),
+		EnvironmentID:   aws.StringPtr("EnvironmentId"),
+		EnvironmentName: aws.StringPtr("EnvironmentName"),
 		OptionSettings: []*elasticbeanstalk.ConfigurationOptionSetting{
 			{ // Required
-				Namespace:    aws.String("OptionNamespace"),
-				OptionName:   aws.String("ConfigurationOptionName"),
-				ResourceName: aws.String("ResourceName"),
-				Value:        aws.String("ConfigurationOptionValue"),
+				Namespace:    aws.StringPtr("OptionNamespace"),
+				OptionName:   aws.StringPtr("ConfigurationOptionName"),
+				ResourceName: aws.StringPtr("ResourceName"),
+				Value:        aws.StringPtr("ConfigurationOptionValue"),
 			},
 			// More values...
 		},
 		OptionsToRemove: []*elasticbeanstalk.OptionSpecification{
 			{ // Required
-				Namespace:    aws.String("OptionNamespace"),
-				OptionName:   aws.String("ConfigurationOptionName"),
-				ResourceName: aws.String("ResourceName"),
+				Namespace:    aws.StringPtr("OptionNamespace"),
+				OptionName:   aws.StringPtr("ConfigurationOptionName"),
+				ResourceName: aws.StringPtr("ResourceName"),
 			},
 			// More values...
 		},
-		SolutionStackName: aws.String("SolutionStackName"),
-		TemplateName:      aws.String("ConfigurationTemplateName"),
+		SolutionStackName: aws.StringPtr("SolutionStackName"),
+		TemplateName:      aws.StringPtr("ConfigurationTemplateName"),
 		Tier: &elasticbeanstalk.EnvironmentTier{
-			Name:    aws.String("String"),
-			Type:    aws.String("String"),
-			Version: aws.String("String"),
+			Name:    aws.StringPtr("String"),
+			Type:    aws.StringPtr("String"),
+			Version: aws.StringPtr("String"),
 		},
-		VersionLabel: aws.String("VersionLabel"),
+		VersionLabel: aws.StringPtr("VersionLabel"),
 	}
 	resp, err := svc.UpdateEnvironment(params)
 
@@ -967,18 +967,18 @@ func ExampleElasticBeanstalk_ValidateConfigurationSettings() {
 	svc := elasticbeanstalk.New(nil)
 
 	params := &elasticbeanstalk.ValidateConfigurationSettingsInput{
-		ApplicationName: aws.String("ApplicationName"), // Required
+		ApplicationName: aws.StringPtr("ApplicationName"), // Required
 		OptionSettings: []*elasticbeanstalk.ConfigurationOptionSetting{ // Required
 			{ // Required
-				Namespace:    aws.String("OptionNamespace"),
-				OptionName:   aws.String("ConfigurationOptionName"),
-				ResourceName: aws.String("ResourceName"),
-				Value:        aws.String("ConfigurationOptionValue"),
+				Namespace:    aws.StringPtr("OptionNamespace"),
+				OptionName:   aws.StringPtr("ConfigurationOptionName"),
+				ResourceName: aws.StringPtr("ResourceName"),
+				Value:        aws.StringPtr("ConfigurationOptionValue"),
 			},
 			// More values...
 		},
-		EnvironmentName: aws.String("EnvironmentName"),
-		TemplateName:    aws.String("ConfigurationTemplateName"),
+		EnvironmentName: aws.StringPtr("EnvironmentName"),
+		TemplateName:    aws.StringPtr("ConfigurationTemplateName"),
 	}
 	resp, err := svc.ValidateConfigurationSettings(params)
 

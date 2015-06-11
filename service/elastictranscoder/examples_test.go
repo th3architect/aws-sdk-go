@@ -20,7 +20,7 @@ func ExampleElasticTranscoder_CancelJob() {
 	svc := elastictranscoder.New(nil)
 
 	params := &elastictranscoder.CancelJobInput{
-		ID: aws.String("Id"), // Required
+		ID: aws.StringPtr("Id"), // Required
 	}
 	resp, err := svc.CancelJob(params)
 
@@ -48,209 +48,209 @@ func ExampleElasticTranscoder_CreateJob() {
 
 	params := &elastictranscoder.CreateJobInput{
 		Input: &elastictranscoder.JobInput{ // Required
-			AspectRatio: aws.String("AspectRatio"),
-			Container:   aws.String("JobContainer"),
+			AspectRatio: aws.StringPtr("AspectRatio"),
+			Container:   aws.StringPtr("JobContainer"),
 			DetectedProperties: &elastictranscoder.DetectedProperties{
-				DurationMillis: aws.Long(1),
-				FileSize:       aws.Long(1),
-				FrameRate:      aws.String("FloatString"),
-				Height:         aws.Long(1),
-				Width:          aws.Long(1),
+				DurationMillis: aws.Int64Ptr(1),
+				FileSize:       aws.Int64Ptr(1),
+				FrameRate:      aws.StringPtr("FloatString"),
+				Height:         aws.Int64Ptr(1),
+				Width:          aws.Int64Ptr(1),
 			},
 			Encryption: &elastictranscoder.Encryption{
-				InitializationVector: aws.String("ZeroTo255String"),
-				Key:                  aws.String("Base64EncodedString"),
-				KeyMD5:               aws.String("Base64EncodedString"),
-				Mode:                 aws.String("EncryptionMode"),
+				InitializationVector: aws.StringPtr("ZeroTo255String"),
+				Key:                  aws.StringPtr("Base64EncodedString"),
+				KeyMD5:               aws.StringPtr("Base64EncodedString"),
+				Mode:                 aws.StringPtr("EncryptionMode"),
 			},
-			FrameRate:  aws.String("FrameRate"),
-			Interlaced: aws.String("Interlaced"),
-			Key:        aws.String("Key"),
-			Resolution: aws.String("Resolution"),
+			FrameRate:  aws.StringPtr("FrameRate"),
+			Interlaced: aws.StringPtr("Interlaced"),
+			Key:        aws.StringPtr("Key"),
+			Resolution: aws.StringPtr("Resolution"),
 		},
-		PipelineID: aws.String("Id"), // Required
+		PipelineID: aws.StringPtr("Id"), // Required
 		Output: &elastictranscoder.CreateJobOutput{
 			AlbumArt: &elastictranscoder.JobAlbumArt{
 				Artwork: []*elastictranscoder.Artwork{
 					{ // Required
-						AlbumArtFormat: aws.String("JpgOrPng"),
+						AlbumArtFormat: aws.StringPtr("JpgOrPng"),
 						Encryption: &elastictranscoder.Encryption{
-							InitializationVector: aws.String("ZeroTo255String"),
-							Key:                  aws.String("Base64EncodedString"),
-							KeyMD5:               aws.String("Base64EncodedString"),
-							Mode:                 aws.String("EncryptionMode"),
+							InitializationVector: aws.StringPtr("ZeroTo255String"),
+							Key:                  aws.StringPtr("Base64EncodedString"),
+							KeyMD5:               aws.StringPtr("Base64EncodedString"),
+							Mode:                 aws.StringPtr("EncryptionMode"),
 						},
-						InputKey:      aws.String("WatermarkKey"),
-						MaxHeight:     aws.String("DigitsOrAuto"),
-						MaxWidth:      aws.String("DigitsOrAuto"),
-						PaddingPolicy: aws.String("PaddingPolicy"),
-						SizingPolicy:  aws.String("SizingPolicy"),
+						InputKey:      aws.StringPtr("WatermarkKey"),
+						MaxHeight:     aws.StringPtr("DigitsOrAuto"),
+						MaxWidth:      aws.StringPtr("DigitsOrAuto"),
+						PaddingPolicy: aws.StringPtr("PaddingPolicy"),
+						SizingPolicy:  aws.StringPtr("SizingPolicy"),
 					},
 					// More values...
 				},
-				MergePolicy: aws.String("MergePolicy"),
+				MergePolicy: aws.StringPtr("MergePolicy"),
 			},
 			Captions: &elastictranscoder.Captions{
 				CaptionFormats: []*elastictranscoder.CaptionFormat{
 					{ // Required
 						Encryption: &elastictranscoder.Encryption{
-							InitializationVector: aws.String("ZeroTo255String"),
-							Key:                  aws.String("Base64EncodedString"),
-							KeyMD5:               aws.String("Base64EncodedString"),
-							Mode:                 aws.String("EncryptionMode"),
+							InitializationVector: aws.StringPtr("ZeroTo255String"),
+							Key:                  aws.StringPtr("Base64EncodedString"),
+							KeyMD5:               aws.StringPtr("Base64EncodedString"),
+							Mode:                 aws.StringPtr("EncryptionMode"),
 						},
-						Format:  aws.String("CaptionFormatFormat"),
-						Pattern: aws.String("CaptionFormatPattern"),
+						Format:  aws.StringPtr("CaptionFormatFormat"),
+						Pattern: aws.StringPtr("CaptionFormatPattern"),
 					},
 					// More values...
 				},
 				CaptionSources: []*elastictranscoder.CaptionSource{
 					{ // Required
 						Encryption: &elastictranscoder.Encryption{
-							InitializationVector: aws.String("ZeroTo255String"),
-							Key:                  aws.String("Base64EncodedString"),
-							KeyMD5:               aws.String("Base64EncodedString"),
-							Mode:                 aws.String("EncryptionMode"),
+							InitializationVector: aws.StringPtr("ZeroTo255String"),
+							Key:                  aws.StringPtr("Base64EncodedString"),
+							KeyMD5:               aws.StringPtr("Base64EncodedString"),
+							Mode:                 aws.StringPtr("EncryptionMode"),
 						},
-						Key:        aws.String("Key"),
-						Label:      aws.String("Name"),
-						Language:   aws.String("Key"),
-						TimeOffset: aws.String("TimeOffset"),
+						Key:        aws.StringPtr("Key"),
+						Label:      aws.StringPtr("Name"),
+						Language:   aws.StringPtr("Key"),
+						TimeOffset: aws.StringPtr("TimeOffset"),
 					},
 					// More values...
 				},
-				MergePolicy: aws.String("CaptionMergePolicy"),
+				MergePolicy: aws.StringPtr("CaptionMergePolicy"),
 			},
 			Composition: []*elastictranscoder.Clip{
 				{ // Required
 					TimeSpan: &elastictranscoder.TimeSpan{
-						Duration:  aws.String("Time"),
-						StartTime: aws.String("Time"),
+						Duration:  aws.StringPtr("Time"),
+						StartTime: aws.StringPtr("Time"),
 					},
 				},
 				// More values...
 			},
 			Encryption: &elastictranscoder.Encryption{
-				InitializationVector: aws.String("ZeroTo255String"),
-				Key:                  aws.String("Base64EncodedString"),
-				KeyMD5:               aws.String("Base64EncodedString"),
-				Mode:                 aws.String("EncryptionMode"),
+				InitializationVector: aws.StringPtr("ZeroTo255String"),
+				Key:                  aws.StringPtr("Base64EncodedString"),
+				KeyMD5:               aws.StringPtr("Base64EncodedString"),
+				Mode:                 aws.StringPtr("EncryptionMode"),
 			},
-			Key:             aws.String("Key"),
-			PresetID:        aws.String("Id"),
-			Rotate:          aws.String("Rotate"),
-			SegmentDuration: aws.String("FloatString"),
+			Key:             aws.StringPtr("Key"),
+			PresetID:        aws.StringPtr("Id"),
+			Rotate:          aws.StringPtr("Rotate"),
+			SegmentDuration: aws.StringPtr("FloatString"),
 			ThumbnailEncryption: &elastictranscoder.Encryption{
-				InitializationVector: aws.String("ZeroTo255String"),
-				Key:                  aws.String("Base64EncodedString"),
-				KeyMD5:               aws.String("Base64EncodedString"),
-				Mode:                 aws.String("EncryptionMode"),
+				InitializationVector: aws.StringPtr("ZeroTo255String"),
+				Key:                  aws.StringPtr("Base64EncodedString"),
+				KeyMD5:               aws.StringPtr("Base64EncodedString"),
+				Mode:                 aws.StringPtr("EncryptionMode"),
 			},
-			ThumbnailPattern: aws.String("ThumbnailPattern"),
+			ThumbnailPattern: aws.StringPtr("ThumbnailPattern"),
 			Watermarks: []*elastictranscoder.JobWatermark{
 				{ // Required
 					Encryption: &elastictranscoder.Encryption{
-						InitializationVector: aws.String("ZeroTo255String"),
-						Key:                  aws.String("Base64EncodedString"),
-						KeyMD5:               aws.String("Base64EncodedString"),
-						Mode:                 aws.String("EncryptionMode"),
+						InitializationVector: aws.StringPtr("ZeroTo255String"),
+						Key:                  aws.StringPtr("Base64EncodedString"),
+						KeyMD5:               aws.StringPtr("Base64EncodedString"),
+						Mode:                 aws.StringPtr("EncryptionMode"),
 					},
-					InputKey:          aws.String("WatermarkKey"),
-					PresetWatermarkID: aws.String("PresetWatermarkId"),
+					InputKey:          aws.StringPtr("WatermarkKey"),
+					PresetWatermarkID: aws.StringPtr("PresetWatermarkId"),
 				},
 				// More values...
 			},
 		},
-		OutputKeyPrefix: aws.String("Key"),
+		OutputKeyPrefix: aws.StringPtr("Key"),
 		Outputs: []*elastictranscoder.CreateJobOutput{
 			{ // Required
 				AlbumArt: &elastictranscoder.JobAlbumArt{
 					Artwork: []*elastictranscoder.Artwork{
 						{ // Required
-							AlbumArtFormat: aws.String("JpgOrPng"),
+							AlbumArtFormat: aws.StringPtr("JpgOrPng"),
 							Encryption: &elastictranscoder.Encryption{
-								InitializationVector: aws.String("ZeroTo255String"),
-								Key:                  aws.String("Base64EncodedString"),
-								KeyMD5:               aws.String("Base64EncodedString"),
-								Mode:                 aws.String("EncryptionMode"),
+								InitializationVector: aws.StringPtr("ZeroTo255String"),
+								Key:                  aws.StringPtr("Base64EncodedString"),
+								KeyMD5:               aws.StringPtr("Base64EncodedString"),
+								Mode:                 aws.StringPtr("EncryptionMode"),
 							},
-							InputKey:      aws.String("WatermarkKey"),
-							MaxHeight:     aws.String("DigitsOrAuto"),
-							MaxWidth:      aws.String("DigitsOrAuto"),
-							PaddingPolicy: aws.String("PaddingPolicy"),
-							SizingPolicy:  aws.String("SizingPolicy"),
+							InputKey:      aws.StringPtr("WatermarkKey"),
+							MaxHeight:     aws.StringPtr("DigitsOrAuto"),
+							MaxWidth:      aws.StringPtr("DigitsOrAuto"),
+							PaddingPolicy: aws.StringPtr("PaddingPolicy"),
+							SizingPolicy:  aws.StringPtr("SizingPolicy"),
 						},
 						// More values...
 					},
-					MergePolicy: aws.String("MergePolicy"),
+					MergePolicy: aws.StringPtr("MergePolicy"),
 				},
 				Captions: &elastictranscoder.Captions{
 					CaptionFormats: []*elastictranscoder.CaptionFormat{
 						{ // Required
 							Encryption: &elastictranscoder.Encryption{
-								InitializationVector: aws.String("ZeroTo255String"),
-								Key:                  aws.String("Base64EncodedString"),
-								KeyMD5:               aws.String("Base64EncodedString"),
-								Mode:                 aws.String("EncryptionMode"),
+								InitializationVector: aws.StringPtr("ZeroTo255String"),
+								Key:                  aws.StringPtr("Base64EncodedString"),
+								KeyMD5:               aws.StringPtr("Base64EncodedString"),
+								Mode:                 aws.StringPtr("EncryptionMode"),
 							},
-							Format:  aws.String("CaptionFormatFormat"),
-							Pattern: aws.String("CaptionFormatPattern"),
+							Format:  aws.StringPtr("CaptionFormatFormat"),
+							Pattern: aws.StringPtr("CaptionFormatPattern"),
 						},
 						// More values...
 					},
 					CaptionSources: []*elastictranscoder.CaptionSource{
 						{ // Required
 							Encryption: &elastictranscoder.Encryption{
-								InitializationVector: aws.String("ZeroTo255String"),
-								Key:                  aws.String("Base64EncodedString"),
-								KeyMD5:               aws.String("Base64EncodedString"),
-								Mode:                 aws.String("EncryptionMode"),
+								InitializationVector: aws.StringPtr("ZeroTo255String"),
+								Key:                  aws.StringPtr("Base64EncodedString"),
+								KeyMD5:               aws.StringPtr("Base64EncodedString"),
+								Mode:                 aws.StringPtr("EncryptionMode"),
 							},
-							Key:        aws.String("Key"),
-							Label:      aws.String("Name"),
-							Language:   aws.String("Key"),
-							TimeOffset: aws.String("TimeOffset"),
+							Key:        aws.StringPtr("Key"),
+							Label:      aws.StringPtr("Name"),
+							Language:   aws.StringPtr("Key"),
+							TimeOffset: aws.StringPtr("TimeOffset"),
 						},
 						// More values...
 					},
-					MergePolicy: aws.String("CaptionMergePolicy"),
+					MergePolicy: aws.StringPtr("CaptionMergePolicy"),
 				},
 				Composition: []*elastictranscoder.Clip{
 					{ // Required
 						TimeSpan: &elastictranscoder.TimeSpan{
-							Duration:  aws.String("Time"),
-							StartTime: aws.String("Time"),
+							Duration:  aws.StringPtr("Time"),
+							StartTime: aws.StringPtr("Time"),
 						},
 					},
 					// More values...
 				},
 				Encryption: &elastictranscoder.Encryption{
-					InitializationVector: aws.String("ZeroTo255String"),
-					Key:                  aws.String("Base64EncodedString"),
-					KeyMD5:               aws.String("Base64EncodedString"),
-					Mode:                 aws.String("EncryptionMode"),
+					InitializationVector: aws.StringPtr("ZeroTo255String"),
+					Key:                  aws.StringPtr("Base64EncodedString"),
+					KeyMD5:               aws.StringPtr("Base64EncodedString"),
+					Mode:                 aws.StringPtr("EncryptionMode"),
 				},
-				Key:             aws.String("Key"),
-				PresetID:        aws.String("Id"),
-				Rotate:          aws.String("Rotate"),
-				SegmentDuration: aws.String("FloatString"),
+				Key:             aws.StringPtr("Key"),
+				PresetID:        aws.StringPtr("Id"),
+				Rotate:          aws.StringPtr("Rotate"),
+				SegmentDuration: aws.StringPtr("FloatString"),
 				ThumbnailEncryption: &elastictranscoder.Encryption{
-					InitializationVector: aws.String("ZeroTo255String"),
-					Key:                  aws.String("Base64EncodedString"),
-					KeyMD5:               aws.String("Base64EncodedString"),
-					Mode:                 aws.String("EncryptionMode"),
+					InitializationVector: aws.StringPtr("ZeroTo255String"),
+					Key:                  aws.StringPtr("Base64EncodedString"),
+					KeyMD5:               aws.StringPtr("Base64EncodedString"),
+					Mode:                 aws.StringPtr("EncryptionMode"),
 				},
-				ThumbnailPattern: aws.String("ThumbnailPattern"),
+				ThumbnailPattern: aws.StringPtr("ThumbnailPattern"),
 				Watermarks: []*elastictranscoder.JobWatermark{
 					{ // Required
 						Encryption: &elastictranscoder.Encryption{
-							InitializationVector: aws.String("ZeroTo255String"),
-							Key:                  aws.String("Base64EncodedString"),
-							KeyMD5:               aws.String("Base64EncodedString"),
-							Mode:                 aws.String("EncryptionMode"),
+							InitializationVector: aws.StringPtr("ZeroTo255String"),
+							Key:                  aws.StringPtr("Base64EncodedString"),
+							KeyMD5:               aws.StringPtr("Base64EncodedString"),
+							Mode:                 aws.StringPtr("EncryptionMode"),
 						},
-						InputKey:          aws.String("WatermarkKey"),
-						PresetWatermarkID: aws.String("PresetWatermarkId"),
+						InputKey:          aws.StringPtr("WatermarkKey"),
+						PresetWatermarkID: aws.StringPtr("PresetWatermarkId"),
 					},
 					// More values...
 				},
@@ -259,33 +259,33 @@ func ExampleElasticTranscoder_CreateJob() {
 		},
 		Playlists: []*elastictranscoder.CreateJobPlaylist{
 			{ // Required
-				Format: aws.String("PlaylistFormat"),
+				Format: aws.StringPtr("PlaylistFormat"),
 				HLSContentProtection: &elastictranscoder.HLSContentProtection{
-					InitializationVector:  aws.String("ZeroTo255String"),
-					Key:                   aws.String("Base64EncodedString"),
-					KeyMD5:                aws.String("Base64EncodedString"),
-					KeyStoragePolicy:      aws.String("KeyStoragePolicy"),
-					LicenseAcquisitionURL: aws.String("ZeroTo512String"),
-					Method:                aws.String("HlsContentProtectionMethod"),
+					InitializationVector:  aws.StringPtr("ZeroTo255String"),
+					Key:                   aws.StringPtr("Base64EncodedString"),
+					KeyMD5:                aws.StringPtr("Base64EncodedString"),
+					KeyStoragePolicy:      aws.StringPtr("KeyStoragePolicy"),
+					LicenseAcquisitionURL: aws.StringPtr("ZeroTo512String"),
+					Method:                aws.StringPtr("HlsContentProtectionMethod"),
 				},
-				Name: aws.String("Filename"),
+				Name: aws.StringPtr("Filename"),
 				OutputKeys: []*string{
-					aws.String("Key"), // Required
+					aws.StringPtr("Key"), // Required
 					// More values...
 				},
 				PlayReadyDRM: &elastictranscoder.PlayReadyDRM{
-					Format:                aws.String("PlayReadyDrmFormatString"),
-					InitializationVector:  aws.String("ZeroTo255String"),
-					Key:                   aws.String("NonEmptyBase64EncodedString"),
-					KeyID:                 aws.String("KeyIdGuid"),
-					KeyMD5:                aws.String("NonEmptyBase64EncodedString"),
-					LicenseAcquisitionURL: aws.String("OneTo512String"),
+					Format:                aws.StringPtr("PlayReadyDrmFormatString"),
+					InitializationVector:  aws.StringPtr("ZeroTo255String"),
+					Key:                   aws.StringPtr("NonEmptyBase64EncodedString"),
+					KeyID:                 aws.StringPtr("KeyIdGuid"),
+					KeyMD5:                aws.StringPtr("NonEmptyBase64EncodedString"),
+					LicenseAcquisitionURL: aws.StringPtr("OneTo512String"),
 				},
 			},
 			// More values...
 		},
 		UserMetadata: map[string]*string{
-			"Key": aws.String("String"), // Required
+			"Key": aws.StringPtr("String"), // Required
 			// More values...
 		},
 	}
@@ -314,46 +314,46 @@ func ExampleElasticTranscoder_CreatePipeline() {
 	svc := elastictranscoder.New(nil)
 
 	params := &elastictranscoder.CreatePipelineInput{
-		InputBucket:  aws.String("BucketName"), // Required
-		Name:         aws.String("Name"),       // Required
-		Role:         aws.String("Role"),       // Required
-		AWSKMSKeyARN: aws.String("KeyArn"),
+		InputBucket:  aws.StringPtr("BucketName"), // Required
+		Name:         aws.StringPtr("Name"),       // Required
+		Role:         aws.StringPtr("Role"),       // Required
+		AWSKMSKeyARN: aws.StringPtr("KeyArn"),
 		ContentConfig: &elastictranscoder.PipelineOutputConfig{
-			Bucket: aws.String("BucketName"),
+			Bucket: aws.StringPtr("BucketName"),
 			Permissions: []*elastictranscoder.Permission{
 				{ // Required
 					Access: []*string{
-						aws.String("AccessControl"), // Required
+						aws.StringPtr("AccessControl"), // Required
 						// More values...
 					},
-					Grantee:     aws.String("Grantee"),
-					GranteeType: aws.String("GranteeType"),
+					Grantee:     aws.StringPtr("Grantee"),
+					GranteeType: aws.StringPtr("GranteeType"),
 				},
 				// More values...
 			},
-			StorageClass: aws.String("StorageClass"),
+			StorageClass: aws.StringPtr("StorageClass"),
 		},
 		Notifications: &elastictranscoder.Notifications{
-			Completed:   aws.String("SnsTopic"),
-			Error:       aws.String("SnsTopic"),
-			Progressing: aws.String("SnsTopic"),
-			Warning:     aws.String("SnsTopic"),
+			Completed:   aws.StringPtr("SnsTopic"),
+			Error:       aws.StringPtr("SnsTopic"),
+			Progressing: aws.StringPtr("SnsTopic"),
+			Warning:     aws.StringPtr("SnsTopic"),
 		},
-		OutputBucket: aws.String("BucketName"),
+		OutputBucket: aws.StringPtr("BucketName"),
 		ThumbnailConfig: &elastictranscoder.PipelineOutputConfig{
-			Bucket: aws.String("BucketName"),
+			Bucket: aws.StringPtr("BucketName"),
 			Permissions: []*elastictranscoder.Permission{
 				{ // Required
 					Access: []*string{
-						aws.String("AccessControl"), // Required
+						aws.StringPtr("AccessControl"), // Required
 						// More values...
 					},
-					Grantee:     aws.String("Grantee"),
-					GranteeType: aws.String("GranteeType"),
+					Grantee:     aws.StringPtr("Grantee"),
+					GranteeType: aws.StringPtr("GranteeType"),
 				},
 				// More values...
 			},
-			StorageClass: aws.String("StorageClass"),
+			StorageClass: aws.StringPtr("StorageClass"),
 		},
 	}
 	resp, err := svc.CreatePipeline(params)
@@ -381,62 +381,62 @@ func ExampleElasticTranscoder_CreatePreset() {
 	svc := elastictranscoder.New(nil)
 
 	params := &elastictranscoder.CreatePresetInput{
-		Container: aws.String("PresetContainer"), // Required
-		Name:      aws.String("Name"),            // Required
+		Container: aws.StringPtr("PresetContainer"), // Required
+		Name:      aws.StringPtr("Name"),            // Required
 		Audio: &elastictranscoder.AudioParameters{
-			AudioPackingMode: aws.String("AudioPackingMode"),
-			BitRate:          aws.String("AudioBitRate"),
-			Channels:         aws.String("AudioChannels"),
-			Codec:            aws.String("AudioCodec"),
+			AudioPackingMode: aws.StringPtr("AudioPackingMode"),
+			BitRate:          aws.StringPtr("AudioBitRate"),
+			Channels:         aws.StringPtr("AudioChannels"),
+			Codec:            aws.StringPtr("AudioCodec"),
 			CodecOptions: &elastictranscoder.AudioCodecOptions{
-				BitDepth: aws.String("AudioBitDepth"),
-				BitOrder: aws.String("AudioBitOrder"),
-				Profile:  aws.String("AudioCodecProfile"),
-				Signed:   aws.String("AudioSigned"),
+				BitDepth: aws.StringPtr("AudioBitDepth"),
+				BitOrder: aws.StringPtr("AudioBitOrder"),
+				Profile:  aws.StringPtr("AudioCodecProfile"),
+				Signed:   aws.StringPtr("AudioSigned"),
 			},
-			SampleRate: aws.String("AudioSampleRate"),
+			SampleRate: aws.StringPtr("AudioSampleRate"),
 		},
-		Description: aws.String("Description"),
+		Description: aws.StringPtr("Description"),
 		Thumbnails: &elastictranscoder.Thumbnails{
-			AspectRatio:   aws.String("AspectRatio"),
-			Format:        aws.String("JpgOrPng"),
-			Interval:      aws.String("Digits"),
-			MaxHeight:     aws.String("DigitsOrAuto"),
-			MaxWidth:      aws.String("DigitsOrAuto"),
-			PaddingPolicy: aws.String("PaddingPolicy"),
-			Resolution:    aws.String("ThumbnailResolution"),
-			SizingPolicy:  aws.String("SizingPolicy"),
+			AspectRatio:   aws.StringPtr("AspectRatio"),
+			Format:        aws.StringPtr("JpgOrPng"),
+			Interval:      aws.StringPtr("Digits"),
+			MaxHeight:     aws.StringPtr("DigitsOrAuto"),
+			MaxWidth:      aws.StringPtr("DigitsOrAuto"),
+			PaddingPolicy: aws.StringPtr("PaddingPolicy"),
+			Resolution:    aws.StringPtr("ThumbnailResolution"),
+			SizingPolicy:  aws.StringPtr("SizingPolicy"),
 		},
 		Video: &elastictranscoder.VideoParameters{
-			AspectRatio: aws.String("AspectRatio"),
-			BitRate:     aws.String("VideoBitRate"),
-			Codec:       aws.String("VideoCodec"),
+			AspectRatio: aws.StringPtr("AspectRatio"),
+			BitRate:     aws.StringPtr("VideoBitRate"),
+			Codec:       aws.StringPtr("VideoCodec"),
 			CodecOptions: map[string]*string{
-				"Key": aws.String("CodecOption"), // Required
+				"Key": aws.StringPtr("CodecOption"), // Required
 				// More values...
 			},
-			DisplayAspectRatio: aws.String("AspectRatio"),
-			FixedGOP:           aws.String("FixedGOP"),
-			FrameRate:          aws.String("FrameRate"),
-			KeyframesMaxDist:   aws.String("KeyframesMaxDist"),
-			MaxFrameRate:       aws.String("MaxFrameRate"),
-			MaxHeight:          aws.String("DigitsOrAuto"),
-			MaxWidth:           aws.String("DigitsOrAuto"),
-			PaddingPolicy:      aws.String("PaddingPolicy"),
-			Resolution:         aws.String("Resolution"),
-			SizingPolicy:       aws.String("SizingPolicy"),
+			DisplayAspectRatio: aws.StringPtr("AspectRatio"),
+			FixedGOP:           aws.StringPtr("FixedGOP"),
+			FrameRate:          aws.StringPtr("FrameRate"),
+			KeyframesMaxDist:   aws.StringPtr("KeyframesMaxDist"),
+			MaxFrameRate:       aws.StringPtr("MaxFrameRate"),
+			MaxHeight:          aws.StringPtr("DigitsOrAuto"),
+			MaxWidth:           aws.StringPtr("DigitsOrAuto"),
+			PaddingPolicy:      aws.StringPtr("PaddingPolicy"),
+			Resolution:         aws.StringPtr("Resolution"),
+			SizingPolicy:       aws.StringPtr("SizingPolicy"),
 			Watermarks: []*elastictranscoder.PresetWatermark{
 				{ // Required
-					HorizontalAlign:  aws.String("HorizontalAlign"),
-					HorizontalOffset: aws.String("PixelsOrPercent"),
-					ID:               aws.String("PresetWatermarkId"),
-					MaxHeight:        aws.String("PixelsOrPercent"),
-					MaxWidth:         aws.String("PixelsOrPercent"),
-					Opacity:          aws.String("Opacity"),
-					SizingPolicy:     aws.String("WatermarkSizingPolicy"),
-					Target:           aws.String("Target"),
-					VerticalAlign:    aws.String("VerticalAlign"),
-					VerticalOffset:   aws.String("PixelsOrPercent"),
+					HorizontalAlign:  aws.StringPtr("HorizontalAlign"),
+					HorizontalOffset: aws.StringPtr("PixelsOrPercent"),
+					ID:               aws.StringPtr("PresetWatermarkId"),
+					MaxHeight:        aws.StringPtr("PixelsOrPercent"),
+					MaxWidth:         aws.StringPtr("PixelsOrPercent"),
+					Opacity:          aws.StringPtr("Opacity"),
+					SizingPolicy:     aws.StringPtr("WatermarkSizingPolicy"),
+					Target:           aws.StringPtr("Target"),
+					VerticalAlign:    aws.StringPtr("VerticalAlign"),
+					VerticalOffset:   aws.StringPtr("PixelsOrPercent"),
 				},
 				// More values...
 			},
@@ -467,7 +467,7 @@ func ExampleElasticTranscoder_DeletePipeline() {
 	svc := elastictranscoder.New(nil)
 
 	params := &elastictranscoder.DeletePipelineInput{
-		ID: aws.String("Id"), // Required
+		ID: aws.StringPtr("Id"), // Required
 	}
 	resp, err := svc.DeletePipeline(params)
 
@@ -494,7 +494,7 @@ func ExampleElasticTranscoder_DeletePreset() {
 	svc := elastictranscoder.New(nil)
 
 	params := &elastictranscoder.DeletePresetInput{
-		ID: aws.String("Id"), // Required
+		ID: aws.StringPtr("Id"), // Required
 	}
 	resp, err := svc.DeletePreset(params)
 
@@ -521,9 +521,9 @@ func ExampleElasticTranscoder_ListJobsByPipeline() {
 	svc := elastictranscoder.New(nil)
 
 	params := &elastictranscoder.ListJobsByPipelineInput{
-		PipelineID: aws.String("Id"), // Required
-		Ascending:  aws.String("Ascending"),
-		PageToken:  aws.String("Id"),
+		PipelineID: aws.StringPtr("Id"), // Required
+		Ascending:  aws.StringPtr("Ascending"),
+		PageToken:  aws.StringPtr("Id"),
 	}
 	resp, err := svc.ListJobsByPipeline(params)
 
@@ -550,9 +550,9 @@ func ExampleElasticTranscoder_ListJobsByStatus() {
 	svc := elastictranscoder.New(nil)
 
 	params := &elastictranscoder.ListJobsByStatusInput{
-		Status:    aws.String("JobStatus"), // Required
-		Ascending: aws.String("Ascending"),
-		PageToken: aws.String("Id"),
+		Status:    aws.StringPtr("JobStatus"), // Required
+		Ascending: aws.StringPtr("Ascending"),
+		PageToken: aws.StringPtr("Id"),
 	}
 	resp, err := svc.ListJobsByStatus(params)
 
@@ -579,8 +579,8 @@ func ExampleElasticTranscoder_ListPipelines() {
 	svc := elastictranscoder.New(nil)
 
 	params := &elastictranscoder.ListPipelinesInput{
-		Ascending: aws.String("Ascending"),
-		PageToken: aws.String("Id"),
+		Ascending: aws.StringPtr("Ascending"),
+		PageToken: aws.StringPtr("Id"),
 	}
 	resp, err := svc.ListPipelines(params)
 
@@ -607,8 +607,8 @@ func ExampleElasticTranscoder_ListPresets() {
 	svc := elastictranscoder.New(nil)
 
 	params := &elastictranscoder.ListPresetsInput{
-		Ascending: aws.String("Ascending"),
-		PageToken: aws.String("Id"),
+		Ascending: aws.StringPtr("Ascending"),
+		PageToken: aws.StringPtr("Id"),
 	}
 	resp, err := svc.ListPresets(params)
 
@@ -635,7 +635,7 @@ func ExampleElasticTranscoder_ReadJob() {
 	svc := elastictranscoder.New(nil)
 
 	params := &elastictranscoder.ReadJobInput{
-		ID: aws.String("Id"), // Required
+		ID: aws.StringPtr("Id"), // Required
 	}
 	resp, err := svc.ReadJob(params)
 
@@ -662,7 +662,7 @@ func ExampleElasticTranscoder_ReadPipeline() {
 	svc := elastictranscoder.New(nil)
 
 	params := &elastictranscoder.ReadPipelineInput{
-		ID: aws.String("Id"), // Required
+		ID: aws.StringPtr("Id"), // Required
 	}
 	resp, err := svc.ReadPipeline(params)
 
@@ -689,7 +689,7 @@ func ExampleElasticTranscoder_ReadPreset() {
 	svc := elastictranscoder.New(nil)
 
 	params := &elastictranscoder.ReadPresetInput{
-		ID: aws.String("Id"), // Required
+		ID: aws.StringPtr("Id"), // Required
 	}
 	resp, err := svc.ReadPreset(params)
 
@@ -716,11 +716,11 @@ func ExampleElasticTranscoder_TestRole() {
 	svc := elastictranscoder.New(nil)
 
 	params := &elastictranscoder.TestRoleInput{
-		InputBucket:  aws.String("BucketName"), // Required
-		OutputBucket: aws.String("BucketName"), // Required
-		Role:         aws.String("Role"),       // Required
+		InputBucket:  aws.StringPtr("BucketName"), // Required
+		OutputBucket: aws.StringPtr("BucketName"), // Required
+		Role:         aws.StringPtr("Role"),       // Required
 		Topics: []*string{ // Required
-			aws.String("SnsTopic"), // Required
+			aws.StringPtr("SnsTopic"), // Required
 			// More values...
 		},
 	}
@@ -749,46 +749,46 @@ func ExampleElasticTranscoder_UpdatePipeline() {
 	svc := elastictranscoder.New(nil)
 
 	params := &elastictranscoder.UpdatePipelineInput{
-		ID:           aws.String("Id"), // Required
-		AWSKMSKeyARN: aws.String("KeyArn"),
+		ID:           aws.StringPtr("Id"), // Required
+		AWSKMSKeyARN: aws.StringPtr("KeyArn"),
 		ContentConfig: &elastictranscoder.PipelineOutputConfig{
-			Bucket: aws.String("BucketName"),
+			Bucket: aws.StringPtr("BucketName"),
 			Permissions: []*elastictranscoder.Permission{
 				{ // Required
 					Access: []*string{
-						aws.String("AccessControl"), // Required
+						aws.StringPtr("AccessControl"), // Required
 						// More values...
 					},
-					Grantee:     aws.String("Grantee"),
-					GranteeType: aws.String("GranteeType"),
+					Grantee:     aws.StringPtr("Grantee"),
+					GranteeType: aws.StringPtr("GranteeType"),
 				},
 				// More values...
 			},
-			StorageClass: aws.String("StorageClass"),
+			StorageClass: aws.StringPtr("StorageClass"),
 		},
-		InputBucket: aws.String("BucketName"),
-		Name:        aws.String("Name"),
+		InputBucket: aws.StringPtr("BucketName"),
+		Name:        aws.StringPtr("Name"),
 		Notifications: &elastictranscoder.Notifications{
-			Completed:   aws.String("SnsTopic"),
-			Error:       aws.String("SnsTopic"),
-			Progressing: aws.String("SnsTopic"),
-			Warning:     aws.String("SnsTopic"),
+			Completed:   aws.StringPtr("SnsTopic"),
+			Error:       aws.StringPtr("SnsTopic"),
+			Progressing: aws.StringPtr("SnsTopic"),
+			Warning:     aws.StringPtr("SnsTopic"),
 		},
-		Role: aws.String("Role"),
+		Role: aws.StringPtr("Role"),
 		ThumbnailConfig: &elastictranscoder.PipelineOutputConfig{
-			Bucket: aws.String("BucketName"),
+			Bucket: aws.StringPtr("BucketName"),
 			Permissions: []*elastictranscoder.Permission{
 				{ // Required
 					Access: []*string{
-						aws.String("AccessControl"), // Required
+						aws.StringPtr("AccessControl"), // Required
 						// More values...
 					},
-					Grantee:     aws.String("Grantee"),
-					GranteeType: aws.String("GranteeType"),
+					Grantee:     aws.StringPtr("Grantee"),
+					GranteeType: aws.StringPtr("GranteeType"),
 				},
 				// More values...
 			},
-			StorageClass: aws.String("StorageClass"),
+			StorageClass: aws.StringPtr("StorageClass"),
 		},
 	}
 	resp, err := svc.UpdatePipeline(params)
@@ -816,12 +816,12 @@ func ExampleElasticTranscoder_UpdatePipelineNotifications() {
 	svc := elastictranscoder.New(nil)
 
 	params := &elastictranscoder.UpdatePipelineNotificationsInput{
-		ID: aws.String("Id"), // Required
+		ID: aws.StringPtr("Id"), // Required
 		Notifications: &elastictranscoder.Notifications{ // Required
-			Completed:   aws.String("SnsTopic"),
-			Error:       aws.String("SnsTopic"),
-			Progressing: aws.String("SnsTopic"),
-			Warning:     aws.String("SnsTopic"),
+			Completed:   aws.StringPtr("SnsTopic"),
+			Error:       aws.StringPtr("SnsTopic"),
+			Progressing: aws.StringPtr("SnsTopic"),
+			Warning:     aws.StringPtr("SnsTopic"),
 		},
 	}
 	resp, err := svc.UpdatePipelineNotifications(params)
@@ -849,8 +849,8 @@ func ExampleElasticTranscoder_UpdatePipelineStatus() {
 	svc := elastictranscoder.New(nil)
 
 	params := &elastictranscoder.UpdatePipelineStatusInput{
-		ID:     aws.String("Id"),             // Required
-		Status: aws.String("PipelineStatus"), // Required
+		ID:     aws.StringPtr("Id"),             // Required
+		Status: aws.StringPtr("PipelineStatus"), // Required
 	}
 	resp, err := svc.UpdatePipelineStatus(params)
 

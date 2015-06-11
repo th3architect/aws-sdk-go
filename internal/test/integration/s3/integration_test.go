@@ -33,7 +33,7 @@ func TestMain(m *testing.M) {
 // Create a bucket for testing
 func setup() {
 	svc = s3.New(nil)
-	bucketName = aws.String(
+	bucketName = aws.StringPtr(
 		fmt.Sprintf("aws-sdk-go-integration-%d-%s", time.Now().Unix(), integration.UniqueID()))
 
 	for i := 0; i < 10; i++ {
@@ -64,14 +64,14 @@ func teardown() {
 func TestWriteToObject(t *testing.T) {
 	_, err := svc.PutObject(&s3.PutObjectInput{
 		Bucket: bucketName,
-		Key:    aws.String("key name"),
+		Key:    aws.StringPtr("key name"),
 		Body:   bytes.NewReader([]byte("hello world")),
 	})
 	assert.NoError(t, err)
 
 	resp, err := svc.GetObject(&s3.GetObjectInput{
 		Bucket: bucketName,
-		Key:    aws.String("key name"),
+		Key:    aws.StringPtr("key name"),
 	})
 	assert.NoError(t, err)
 
@@ -82,7 +82,7 @@ func TestWriteToObject(t *testing.T) {
 func TestPresignedGetPut(t *testing.T) {
 	putreq, _ := svc.PutObjectRequest(&s3.PutObjectInput{
 		Bucket: bucketName,
-		Key:    aws.String("presigned-key"),
+		Key:    aws.StringPtr("presigned-key"),
 	})
 	var err error
 
@@ -105,7 +105,7 @@ func TestPresignedGetPut(t *testing.T) {
 	// Presign a GET on the same URL
 	getreq, _ := svc.GetObjectRequest(&s3.GetObjectInput{
 		Bucket: bucketName,
-		Key:    aws.String("presigned-key"),
+		Key:    aws.StringPtr("presigned-key"),
 	})
 
 	var geturl string

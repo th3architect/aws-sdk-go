@@ -20,7 +20,7 @@ func ExampleCloudSearch_BuildSuggesters() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.BuildSuggestersInput{
-		DomainName: aws.String("DomainName"), // Required
+		DomainName: aws.StringPtr("DomainName"), // Required
 	}
 	resp, err := svc.BuildSuggesters(params)
 
@@ -47,7 +47,7 @@ func ExampleCloudSearch_CreateDomain() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.CreateDomainInput{
-		DomainName: aws.String("DomainName"), // Required
+		DomainName: aws.StringPtr("DomainName"), // Required
 	}
 	resp, err := svc.CreateDomain(params)
 
@@ -75,17 +75,17 @@ func ExampleCloudSearch_DefineAnalysisScheme() {
 
 	params := &cloudsearch.DefineAnalysisSchemeInput{
 		AnalysisScheme: &cloudsearch.AnalysisScheme{ // Required
-			AnalysisSchemeLanguage: aws.String("AnalysisSchemeLanguage"), // Required
-			AnalysisSchemeName:     aws.String("StandardName"),           // Required
+			AnalysisSchemeLanguage: aws.StringPtr("AnalysisSchemeLanguage"), // Required
+			AnalysisSchemeName:     aws.StringPtr("StandardName"),           // Required
 			AnalysisOptions: &cloudsearch.AnalysisOptions{
-				AlgorithmicStemming:            aws.String("AlgorithmicStemming"),
-				JapaneseTokenizationDictionary: aws.String("String"),
-				StemmingDictionary:             aws.String("String"),
-				Stopwords:                      aws.String("String"),
-				Synonyms:                       aws.String("String"),
+				AlgorithmicStemming:            aws.StringPtr("AlgorithmicStemming"),
+				JapaneseTokenizationDictionary: aws.StringPtr("String"),
+				StemmingDictionary:             aws.StringPtr("String"),
+				Stopwords:                      aws.StringPtr("String"),
+				Synonyms:                       aws.StringPtr("String"),
 			},
 		},
-		DomainName: aws.String("DomainName"), // Required
+		DomainName: aws.StringPtr("DomainName"), // Required
 	}
 	resp, err := svc.DefineAnalysisScheme(params)
 
@@ -112,10 +112,10 @@ func ExampleCloudSearch_DefineExpression() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.DefineExpressionInput{
-		DomainName: aws.String("DomainName"), // Required
+		DomainName: aws.StringPtr("DomainName"), // Required
 		Expression: &cloudsearch.Expression{ // Required
-			ExpressionName:  aws.String("StandardName"),    // Required
-			ExpressionValue: aws.String("ExpressionValue"), // Required
+			ExpressionName:  aws.StringPtr("StandardName"),    // Required
+			ExpressionValue: aws.StringPtr("ExpressionValue"), // Required
 		},
 	}
 	resp, err := svc.DefineExpression(params)
@@ -143,92 +143,92 @@ func ExampleCloudSearch_DefineIndexField() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.DefineIndexFieldInput{
-		DomainName: aws.String("DomainName"), // Required
+		DomainName: aws.StringPtr("DomainName"), // Required
 		IndexField: &cloudsearch.IndexField{ // Required
-			IndexFieldName: aws.String("DynamicFieldName"), // Required
-			IndexFieldType: aws.String("IndexFieldType"),   // Required
+			IndexFieldName: aws.StringPtr("DynamicFieldName"), // Required
+			IndexFieldType: aws.StringPtr("IndexFieldType"),   // Required
 			DateArrayOptions: &cloudsearch.DateArrayOptions{
-				DefaultValue:  aws.String("FieldValue"),
-				FacetEnabled:  aws.Boolean(true),
-				ReturnEnabled: aws.Boolean(true),
-				SearchEnabled: aws.Boolean(true),
-				SourceFields:  aws.String("FieldNameCommaList"),
+				DefaultValue:  aws.StringPtr("FieldValue"),
+				FacetEnabled:  aws.BoolPtr(true),
+				ReturnEnabled: aws.BoolPtr(true),
+				SearchEnabled: aws.BoolPtr(true),
+				SourceFields:  aws.StringPtr("FieldNameCommaList"),
 			},
 			DateOptions: &cloudsearch.DateOptions{
-				DefaultValue:  aws.String("FieldValue"),
-				FacetEnabled:  aws.Boolean(true),
-				ReturnEnabled: aws.Boolean(true),
-				SearchEnabled: aws.Boolean(true),
-				SortEnabled:   aws.Boolean(true),
-				SourceField:   aws.String("FieldName"),
+				DefaultValue:  aws.StringPtr("FieldValue"),
+				FacetEnabled:  aws.BoolPtr(true),
+				ReturnEnabled: aws.BoolPtr(true),
+				SearchEnabled: aws.BoolPtr(true),
+				SortEnabled:   aws.BoolPtr(true),
+				SourceField:   aws.StringPtr("FieldName"),
 			},
 			DoubleArrayOptions: &cloudsearch.DoubleArrayOptions{
-				DefaultValue:  aws.Double(1.0),
-				FacetEnabled:  aws.Boolean(true),
-				ReturnEnabled: aws.Boolean(true),
-				SearchEnabled: aws.Boolean(true),
-				SourceFields:  aws.String("FieldNameCommaList"),
+				DefaultValue:  aws.Float64Ptr(1.0),
+				FacetEnabled:  aws.BoolPtr(true),
+				ReturnEnabled: aws.BoolPtr(true),
+				SearchEnabled: aws.BoolPtr(true),
+				SourceFields:  aws.StringPtr("FieldNameCommaList"),
 			},
 			DoubleOptions: &cloudsearch.DoubleOptions{
-				DefaultValue:  aws.Double(1.0),
-				FacetEnabled:  aws.Boolean(true),
-				ReturnEnabled: aws.Boolean(true),
-				SearchEnabled: aws.Boolean(true),
-				SortEnabled:   aws.Boolean(true),
-				SourceField:   aws.String("FieldName"),
+				DefaultValue:  aws.Float64Ptr(1.0),
+				FacetEnabled:  aws.BoolPtr(true),
+				ReturnEnabled: aws.BoolPtr(true),
+				SearchEnabled: aws.BoolPtr(true),
+				SortEnabled:   aws.BoolPtr(true),
+				SourceField:   aws.StringPtr("FieldName"),
 			},
 			IntArrayOptions: &cloudsearch.IntArrayOptions{
-				DefaultValue:  aws.Long(1),
-				FacetEnabled:  aws.Boolean(true),
-				ReturnEnabled: aws.Boolean(true),
-				SearchEnabled: aws.Boolean(true),
-				SourceFields:  aws.String("FieldNameCommaList"),
+				DefaultValue:  aws.Int64Ptr(1),
+				FacetEnabled:  aws.BoolPtr(true),
+				ReturnEnabled: aws.BoolPtr(true),
+				SearchEnabled: aws.BoolPtr(true),
+				SourceFields:  aws.StringPtr("FieldNameCommaList"),
 			},
 			IntOptions: &cloudsearch.IntOptions{
-				DefaultValue:  aws.Long(1),
-				FacetEnabled:  aws.Boolean(true),
-				ReturnEnabled: aws.Boolean(true),
-				SearchEnabled: aws.Boolean(true),
-				SortEnabled:   aws.Boolean(true),
-				SourceField:   aws.String("FieldName"),
+				DefaultValue:  aws.Int64Ptr(1),
+				FacetEnabled:  aws.BoolPtr(true),
+				ReturnEnabled: aws.BoolPtr(true),
+				SearchEnabled: aws.BoolPtr(true),
+				SortEnabled:   aws.BoolPtr(true),
+				SourceField:   aws.StringPtr("FieldName"),
 			},
 			LatLonOptions: &cloudsearch.LatLonOptions{
-				DefaultValue:  aws.String("FieldValue"),
-				FacetEnabled:  aws.Boolean(true),
-				ReturnEnabled: aws.Boolean(true),
-				SearchEnabled: aws.Boolean(true),
-				SortEnabled:   aws.Boolean(true),
-				SourceField:   aws.String("FieldName"),
+				DefaultValue:  aws.StringPtr("FieldValue"),
+				FacetEnabled:  aws.BoolPtr(true),
+				ReturnEnabled: aws.BoolPtr(true),
+				SearchEnabled: aws.BoolPtr(true),
+				SortEnabled:   aws.BoolPtr(true),
+				SourceField:   aws.StringPtr("FieldName"),
 			},
 			LiteralArrayOptions: &cloudsearch.LiteralArrayOptions{
-				DefaultValue:  aws.String("FieldValue"),
-				FacetEnabled:  aws.Boolean(true),
-				ReturnEnabled: aws.Boolean(true),
-				SearchEnabled: aws.Boolean(true),
-				SourceFields:  aws.String("FieldNameCommaList"),
+				DefaultValue:  aws.StringPtr("FieldValue"),
+				FacetEnabled:  aws.BoolPtr(true),
+				ReturnEnabled: aws.BoolPtr(true),
+				SearchEnabled: aws.BoolPtr(true),
+				SourceFields:  aws.StringPtr("FieldNameCommaList"),
 			},
 			LiteralOptions: &cloudsearch.LiteralOptions{
-				DefaultValue:  aws.String("FieldValue"),
-				FacetEnabled:  aws.Boolean(true),
-				ReturnEnabled: aws.Boolean(true),
-				SearchEnabled: aws.Boolean(true),
-				SortEnabled:   aws.Boolean(true),
-				SourceField:   aws.String("FieldName"),
+				DefaultValue:  aws.StringPtr("FieldValue"),
+				FacetEnabled:  aws.BoolPtr(true),
+				ReturnEnabled: aws.BoolPtr(true),
+				SearchEnabled: aws.BoolPtr(true),
+				SortEnabled:   aws.BoolPtr(true),
+				SourceField:   aws.StringPtr("FieldName"),
 			},
 			TextArrayOptions: &cloudsearch.TextArrayOptions{
-				AnalysisScheme:   aws.String("Word"),
-				DefaultValue:     aws.String("FieldValue"),
-				HighlightEnabled: aws.Boolean(true),
-				ReturnEnabled:    aws.Boolean(true),
-				SourceFields:     aws.String("FieldNameCommaList"),
+				AnalysisScheme:   aws.StringPtr("Word"),
+				DefaultValue:     aws.StringPtr("FieldValue"),
+				HighlightEnabled: aws.BoolPtr(true),
+				ReturnEnabled:    aws.BoolPtr(true),
+				SourceFields:     aws.StringPtr("FieldNameCommaList"),
 			},
 			TextOptions: &cloudsearch.TextOptions{
-				AnalysisScheme:   aws.String("Word"),
-				DefaultValue:     aws.String("FieldValue"),
-				HighlightEnabled: aws.Boolean(true),
-				ReturnEnabled:    aws.Boolean(true),
-				SortEnabled:      aws.Boolean(true),
-				SourceField:      aws.String("FieldName"),
+				AnalysisScheme:   aws.StringPtr("Word"),
+				DefaultValue:     aws.StringPtr("FieldValue"),
+				HighlightEnabled: aws.BoolPtr(true),
+				ReturnEnabled:    aws.BoolPtr(true),
+				SortEnabled:      aws.BoolPtr(true),
+				SourceField:      aws.StringPtr("FieldName"),
 			},
 		},
 	}
@@ -257,14 +257,14 @@ func ExampleCloudSearch_DefineSuggester() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.DefineSuggesterInput{
-		DomainName: aws.String("DomainName"), // Required
+		DomainName: aws.StringPtr("DomainName"), // Required
 		Suggester: &cloudsearch.Suggester{ // Required
 			DocumentSuggesterOptions: &cloudsearch.DocumentSuggesterOptions{ // Required
-				SourceField:    aws.String("FieldName"), // Required
-				FuzzyMatching:  aws.String("SuggesterFuzzyMatching"),
-				SortExpression: aws.String("String"),
+				SourceField:    aws.StringPtr("FieldName"), // Required
+				FuzzyMatching:  aws.StringPtr("SuggesterFuzzyMatching"),
+				SortExpression: aws.StringPtr("String"),
 			},
-			SuggesterName: aws.String("StandardName"), // Required
+			SuggesterName: aws.StringPtr("StandardName"), // Required
 		},
 	}
 	resp, err := svc.DefineSuggester(params)
@@ -292,8 +292,8 @@ func ExampleCloudSearch_DeleteAnalysisScheme() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.DeleteAnalysisSchemeInput{
-		AnalysisSchemeName: aws.String("StandardName"), // Required
-		DomainName:         aws.String("DomainName"),   // Required
+		AnalysisSchemeName: aws.StringPtr("StandardName"), // Required
+		DomainName:         aws.StringPtr("DomainName"),   // Required
 	}
 	resp, err := svc.DeleteAnalysisScheme(params)
 
@@ -320,7 +320,7 @@ func ExampleCloudSearch_DeleteDomain() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.DeleteDomainInput{
-		DomainName: aws.String("DomainName"), // Required
+		DomainName: aws.StringPtr("DomainName"), // Required
 	}
 	resp, err := svc.DeleteDomain(params)
 
@@ -347,8 +347,8 @@ func ExampleCloudSearch_DeleteExpression() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.DeleteExpressionInput{
-		DomainName:     aws.String("DomainName"),   // Required
-		ExpressionName: aws.String("StandardName"), // Required
+		DomainName:     aws.StringPtr("DomainName"),   // Required
+		ExpressionName: aws.StringPtr("StandardName"), // Required
 	}
 	resp, err := svc.DeleteExpression(params)
 
@@ -375,8 +375,8 @@ func ExampleCloudSearch_DeleteIndexField() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.DeleteIndexFieldInput{
-		DomainName:     aws.String("DomainName"),       // Required
-		IndexFieldName: aws.String("DynamicFieldName"), // Required
+		DomainName:     aws.StringPtr("DomainName"),       // Required
+		IndexFieldName: aws.StringPtr("DynamicFieldName"), // Required
 	}
 	resp, err := svc.DeleteIndexField(params)
 
@@ -403,8 +403,8 @@ func ExampleCloudSearch_DeleteSuggester() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.DeleteSuggesterInput{
-		DomainName:    aws.String("DomainName"),   // Required
-		SuggesterName: aws.String("StandardName"), // Required
+		DomainName:    aws.StringPtr("DomainName"),   // Required
+		SuggesterName: aws.StringPtr("StandardName"), // Required
 	}
 	resp, err := svc.DeleteSuggester(params)
 
@@ -431,12 +431,12 @@ func ExampleCloudSearch_DescribeAnalysisSchemes() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.DescribeAnalysisSchemesInput{
-		DomainName: aws.String("DomainName"), // Required
+		DomainName: aws.StringPtr("DomainName"), // Required
 		AnalysisSchemeNames: []*string{
-			aws.String("StandardName"), // Required
+			aws.StringPtr("StandardName"), // Required
 			// More values...
 		},
-		Deployed: aws.Boolean(true),
+		Deployed: aws.BoolPtr(true),
 	}
 	resp, err := svc.DescribeAnalysisSchemes(params)
 
@@ -463,8 +463,8 @@ func ExampleCloudSearch_DescribeAvailabilityOptions() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.DescribeAvailabilityOptionsInput{
-		DomainName: aws.String("DomainName"), // Required
-		Deployed:   aws.Boolean(true),
+		DomainName: aws.StringPtr("DomainName"), // Required
+		Deployed:   aws.BoolPtr(true),
 	}
 	resp, err := svc.DescribeAvailabilityOptions(params)
 
@@ -492,7 +492,7 @@ func ExampleCloudSearch_DescribeDomains() {
 
 	params := &cloudsearch.DescribeDomainsInput{
 		DomainNames: []*string{
-			aws.String("DomainName"), // Required
+			aws.StringPtr("DomainName"), // Required
 			// More values...
 		},
 	}
@@ -521,10 +521,10 @@ func ExampleCloudSearch_DescribeExpressions() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.DescribeExpressionsInput{
-		DomainName: aws.String("DomainName"), // Required
-		Deployed:   aws.Boolean(true),
+		DomainName: aws.StringPtr("DomainName"), // Required
+		Deployed:   aws.BoolPtr(true),
 		ExpressionNames: []*string{
-			aws.String("StandardName"), // Required
+			aws.StringPtr("StandardName"), // Required
 			// More values...
 		},
 	}
@@ -553,10 +553,10 @@ func ExampleCloudSearch_DescribeIndexFields() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.DescribeIndexFieldsInput{
-		DomainName: aws.String("DomainName"), // Required
-		Deployed:   aws.Boolean(true),
+		DomainName: aws.StringPtr("DomainName"), // Required
+		Deployed:   aws.BoolPtr(true),
 		FieldNames: []*string{
-			aws.String("DynamicFieldName"), // Required
+			aws.StringPtr("DynamicFieldName"), // Required
 			// More values...
 		},
 	}
@@ -585,7 +585,7 @@ func ExampleCloudSearch_DescribeScalingParameters() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.DescribeScalingParametersInput{
-		DomainName: aws.String("DomainName"), // Required
+		DomainName: aws.StringPtr("DomainName"), // Required
 	}
 	resp, err := svc.DescribeScalingParameters(params)
 
@@ -612,8 +612,8 @@ func ExampleCloudSearch_DescribeServiceAccessPolicies() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.DescribeServiceAccessPoliciesInput{
-		DomainName: aws.String("DomainName"), // Required
-		Deployed:   aws.Boolean(true),
+		DomainName: aws.StringPtr("DomainName"), // Required
+		Deployed:   aws.BoolPtr(true),
 	}
 	resp, err := svc.DescribeServiceAccessPolicies(params)
 
@@ -640,10 +640,10 @@ func ExampleCloudSearch_DescribeSuggesters() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.DescribeSuggestersInput{
-		DomainName: aws.String("DomainName"), // Required
-		Deployed:   aws.Boolean(true),
+		DomainName: aws.StringPtr("DomainName"), // Required
+		Deployed:   aws.BoolPtr(true),
 		SuggesterNames: []*string{
-			aws.String("StandardName"), // Required
+			aws.StringPtr("StandardName"), // Required
 			// More values...
 		},
 	}
@@ -672,7 +672,7 @@ func ExampleCloudSearch_IndexDocuments() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.IndexDocumentsInput{
-		DomainName: aws.String("DomainName"), // Required
+		DomainName: aws.StringPtr("DomainName"), // Required
 	}
 	resp, err := svc.IndexDocuments(params)
 
@@ -724,8 +724,8 @@ func ExampleCloudSearch_UpdateAvailabilityOptions() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.UpdateAvailabilityOptionsInput{
-		DomainName: aws.String("DomainName"), // Required
-		MultiAZ:    aws.Boolean(true),        // Required
+		DomainName: aws.StringPtr("DomainName"), // Required
+		MultiAZ:    aws.BoolPtr(true),           // Required
 	}
 	resp, err := svc.UpdateAvailabilityOptions(params)
 
@@ -752,11 +752,11 @@ func ExampleCloudSearch_UpdateScalingParameters() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.UpdateScalingParametersInput{
-		DomainName: aws.String("DomainName"), // Required
+		DomainName: aws.StringPtr("DomainName"), // Required
 		ScalingParameters: &cloudsearch.ScalingParameters{ // Required
-			DesiredInstanceType:     aws.String("PartitionInstanceType"),
-			DesiredPartitionCount:   aws.Long(1),
-			DesiredReplicationCount: aws.Long(1),
+			DesiredInstanceType:     aws.StringPtr("PartitionInstanceType"),
+			DesiredPartitionCount:   aws.Int64Ptr(1),
+			DesiredReplicationCount: aws.Int64Ptr(1),
 		},
 	}
 	resp, err := svc.UpdateScalingParameters(params)
@@ -784,8 +784,8 @@ func ExampleCloudSearch_UpdateServiceAccessPolicies() {
 	svc := cloudsearch.New(nil)
 
 	params := &cloudsearch.UpdateServiceAccessPoliciesInput{
-		AccessPolicies: aws.String("PolicyDocument"), // Required
-		DomainName:     aws.String("DomainName"),     // Required
+		AccessPolicies: aws.StringPtr("PolicyDocument"), // Required
+		DomainName:     aws.StringPtr("DomainName"),     // Required
 	}
 	resp, err := svc.UpdateServiceAccessPolicies(params)
 

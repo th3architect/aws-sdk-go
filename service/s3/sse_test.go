@@ -13,12 +13,12 @@ import (
 var _ = unit.Imported
 
 func TestSSECustomerKeyOverHTTPError(t *testing.T) {
-	s := s3.New(&aws.Config{DisableSSL: true})
+	s := s3.New(&aws.Config{DisableSSL: aws.NewBool(true)})
 	req, _ := s.CopyObjectRequest(&s3.CopyObjectInput{
-		Bucket:         aws.String("bucket"),
-		CopySource:     aws.String("bucket/source"),
-		Key:            aws.String("dest"),
-		SSECustomerKey: aws.String("key"),
+		Bucket:         aws.StringPtr("bucket"),
+		CopySource:     aws.StringPtr("bucket/source"),
+		Key:            aws.StringPtr("dest"),
+		SSECustomerKey: aws.StringPtr("key"),
 	})
 	err := req.Build()
 
@@ -28,12 +28,12 @@ func TestSSECustomerKeyOverHTTPError(t *testing.T) {
 }
 
 func TestCopySourceSSECustomerKeyOverHTTPError(t *testing.T) {
-	s := s3.New(&aws.Config{DisableSSL: true})
+	s := s3.New(&aws.Config{DisableSSL: aws.NewBool(true)})
 	req, _ := s.CopyObjectRequest(&s3.CopyObjectInput{
-		Bucket:     aws.String("bucket"),
-		CopySource: aws.String("bucket/source"),
-		Key:        aws.String("dest"),
-		CopySourceSSECustomerKey: aws.String("key"),
+		Bucket:     aws.StringPtr("bucket"),
+		CopySource: aws.StringPtr("bucket/source"),
+		Key:        aws.StringPtr("dest"),
+		CopySourceSSECustomerKey: aws.StringPtr("key"),
 	})
 	err := req.Build()
 
@@ -45,11 +45,11 @@ func TestCopySourceSSECustomerKeyOverHTTPError(t *testing.T) {
 func TestComputeSSEKeys(t *testing.T) {
 	s := s3.New(nil)
 	req, _ := s.CopyObjectRequest(&s3.CopyObjectInput{
-		Bucket:                   aws.String("bucket"),
-		CopySource:               aws.String("bucket/source"),
-		Key:                      aws.String("dest"),
-		SSECustomerKey:           aws.String("key"),
-		CopySourceSSECustomerKey: aws.String("key"),
+		Bucket:                   aws.StringPtr("bucket"),
+		CopySource:               aws.StringPtr("bucket/source"),
+		Key:                      aws.StringPtr("dest"),
+		SSECustomerKey:           aws.StringPtr("key"),
+		CopySourceSSECustomerKey: aws.StringPtr("key"),
 	})
 	err := req.Build()
 
@@ -63,13 +63,13 @@ func TestComputeSSEKeys(t *testing.T) {
 func TestComputeSSEKeysShortcircuit(t *testing.T) {
 	s := s3.New(nil)
 	req, _ := s.CopyObjectRequest(&s3.CopyObjectInput{
-		Bucket:                      aws.String("bucket"),
-		CopySource:                  aws.String("bucket/source"),
-		Key:                         aws.String("dest"),
-		SSECustomerKey:              aws.String("key"),
-		CopySourceSSECustomerKey:    aws.String("key"),
-		SSECustomerKeyMD5:           aws.String("MD5"),
-		CopySourceSSECustomerKeyMD5: aws.String("MD5"),
+		Bucket:                      aws.StringPtr("bucket"),
+		CopySource:                  aws.StringPtr("bucket/source"),
+		Key:                         aws.StringPtr("dest"),
+		SSECustomerKey:              aws.StringPtr("key"),
+		CopySourceSSECustomerKey:    aws.StringPtr("key"),
+		SSECustomerKeyMD5:           aws.StringPtr("MD5"),
+		CopySourceSSECustomerKeyMD5: aws.StringPtr("MD5"),
 	})
 	err := req.Build()
 

@@ -20,7 +20,7 @@ func ExampleECS_CreateCluster() {
 	svc := ecs.New(nil)
 
 	params := &ecs.CreateClusterInput{
-		ClusterName: aws.String("String"),
+		ClusterName: aws.StringPtr("String"),
 	}
 	resp, err := svc.CreateCluster(params)
 
@@ -47,20 +47,20 @@ func ExampleECS_CreateService() {
 	svc := ecs.New(nil)
 
 	params := &ecs.CreateServiceInput{
-		DesiredCount:   aws.Long(1),          // Required
-		ServiceName:    aws.String("String"), // Required
-		TaskDefinition: aws.String("String"), // Required
-		ClientToken:    aws.String("String"),
-		Cluster:        aws.String("String"),
+		DesiredCount:   aws.Int64Ptr(1),         // Required
+		ServiceName:    aws.StringPtr("String"), // Required
+		TaskDefinition: aws.StringPtr("String"), // Required
+		ClientToken:    aws.StringPtr("String"),
+		Cluster:        aws.StringPtr("String"),
 		LoadBalancers: []*ecs.LoadBalancer{
 			{ // Required
-				ContainerName:    aws.String("String"),
-				ContainerPort:    aws.Long(1),
-				LoadBalancerName: aws.String("String"),
+				ContainerName:    aws.StringPtr("String"),
+				ContainerPort:    aws.Int64Ptr(1),
+				LoadBalancerName: aws.StringPtr("String"),
 			},
 			// More values...
 		},
-		Role: aws.String("String"),
+		Role: aws.StringPtr("String"),
 	}
 	resp, err := svc.CreateService(params)
 
@@ -87,7 +87,7 @@ func ExampleECS_DeleteCluster() {
 	svc := ecs.New(nil)
 
 	params := &ecs.DeleteClusterInput{
-		Cluster: aws.String("String"), // Required
+		Cluster: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.DeleteCluster(params)
 
@@ -114,8 +114,8 @@ func ExampleECS_DeleteService() {
 	svc := ecs.New(nil)
 
 	params := &ecs.DeleteServiceInput{
-		Service: aws.String("String"), // Required
-		Cluster: aws.String("String"),
+		Service: aws.StringPtr("String"), // Required
+		Cluster: aws.StringPtr("String"),
 	}
 	resp, err := svc.DeleteService(params)
 
@@ -142,9 +142,9 @@ func ExampleECS_DeregisterContainerInstance() {
 	svc := ecs.New(nil)
 
 	params := &ecs.DeregisterContainerInstanceInput{
-		ContainerInstance: aws.String("String"), // Required
-		Cluster:           aws.String("String"),
-		Force:             aws.Boolean(true),
+		ContainerInstance: aws.StringPtr("String"), // Required
+		Cluster:           aws.StringPtr("String"),
+		Force:             aws.BoolPtr(true),
 	}
 	resp, err := svc.DeregisterContainerInstance(params)
 
@@ -171,7 +171,7 @@ func ExampleECS_DeregisterTaskDefinition() {
 	svc := ecs.New(nil)
 
 	params := &ecs.DeregisterTaskDefinitionInput{
-		TaskDefinition: aws.String("String"), // Required
+		TaskDefinition: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.DeregisterTaskDefinition(params)
 
@@ -199,7 +199,7 @@ func ExampleECS_DescribeClusters() {
 
 	params := &ecs.DescribeClustersInput{
 		Clusters: []*string{
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
 	}
@@ -229,10 +229,10 @@ func ExampleECS_DescribeContainerInstances() {
 
 	params := &ecs.DescribeContainerInstancesInput{
 		ContainerInstances: []*string{ // Required
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
-		Cluster: aws.String("String"),
+		Cluster: aws.StringPtr("String"),
 	}
 	resp, err := svc.DescribeContainerInstances(params)
 
@@ -260,10 +260,10 @@ func ExampleECS_DescribeServices() {
 
 	params := &ecs.DescribeServicesInput{
 		Services: []*string{ // Required
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
-		Cluster: aws.String("String"),
+		Cluster: aws.StringPtr("String"),
 	}
 	resp, err := svc.DescribeServices(params)
 
@@ -290,7 +290,7 @@ func ExampleECS_DescribeTaskDefinition() {
 	svc := ecs.New(nil)
 
 	params := &ecs.DescribeTaskDefinitionInput{
-		TaskDefinition: aws.String("String"), // Required
+		TaskDefinition: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.DescribeTaskDefinition(params)
 
@@ -318,10 +318,10 @@ func ExampleECS_DescribeTasks() {
 
 	params := &ecs.DescribeTasksInput{
 		Tasks: []*string{ // Required
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
-		Cluster: aws.String("String"),
+		Cluster: aws.StringPtr("String"),
 	}
 	resp, err := svc.DescribeTasks(params)
 
@@ -348,8 +348,8 @@ func ExampleECS_DiscoverPollEndpoint() {
 	svc := ecs.New(nil)
 
 	params := &ecs.DiscoverPollEndpointInput{
-		Cluster:           aws.String("String"),
-		ContainerInstance: aws.String("String"),
+		Cluster:           aws.StringPtr("String"),
+		ContainerInstance: aws.StringPtr("String"),
 	}
 	resp, err := svc.DiscoverPollEndpoint(params)
 
@@ -376,8 +376,8 @@ func ExampleECS_ListClusters() {
 	svc := ecs.New(nil)
 
 	params := &ecs.ListClustersInput{
-		MaxResults: aws.Long(1),
-		NextToken:  aws.String("String"),
+		MaxResults: aws.Int64Ptr(1),
+		NextToken:  aws.StringPtr("String"),
 	}
 	resp, err := svc.ListClusters(params)
 
@@ -404,9 +404,9 @@ func ExampleECS_ListContainerInstances() {
 	svc := ecs.New(nil)
 
 	params := &ecs.ListContainerInstancesInput{
-		Cluster:    aws.String("String"),
-		MaxResults: aws.Long(1),
-		NextToken:  aws.String("String"),
+		Cluster:    aws.StringPtr("String"),
+		MaxResults: aws.Int64Ptr(1),
+		NextToken:  aws.StringPtr("String"),
 	}
 	resp, err := svc.ListContainerInstances(params)
 
@@ -433,9 +433,9 @@ func ExampleECS_ListServices() {
 	svc := ecs.New(nil)
 
 	params := &ecs.ListServicesInput{
-		Cluster:    aws.String("String"),
-		MaxResults: aws.Long(1),
-		NextToken:  aws.String("String"),
+		Cluster:    aws.StringPtr("String"),
+		MaxResults: aws.Int64Ptr(1),
+		NextToken:  aws.StringPtr("String"),
 	}
 	resp, err := svc.ListServices(params)
 
@@ -462,9 +462,9 @@ func ExampleECS_ListTaskDefinitionFamilies() {
 	svc := ecs.New(nil)
 
 	params := &ecs.ListTaskDefinitionFamiliesInput{
-		FamilyPrefix: aws.String("String"),
-		MaxResults:   aws.Long(1),
-		NextToken:    aws.String("String"),
+		FamilyPrefix: aws.StringPtr("String"),
+		MaxResults:   aws.Int64Ptr(1),
+		NextToken:    aws.StringPtr("String"),
 	}
 	resp, err := svc.ListTaskDefinitionFamilies(params)
 
@@ -491,11 +491,11 @@ func ExampleECS_ListTaskDefinitions() {
 	svc := ecs.New(nil)
 
 	params := &ecs.ListTaskDefinitionsInput{
-		FamilyPrefix: aws.String("String"),
-		MaxResults:   aws.Long(1),
-		NextToken:    aws.String("String"),
-		Sort:         aws.String("SortOrder"),
-		Status:       aws.String("TaskDefinitionStatus"),
+		FamilyPrefix: aws.StringPtr("String"),
+		MaxResults:   aws.Int64Ptr(1),
+		NextToken:    aws.StringPtr("String"),
+		Sort:         aws.StringPtr("SortOrder"),
+		Status:       aws.StringPtr("TaskDefinitionStatus"),
 	}
 	resp, err := svc.ListTaskDefinitions(params)
 
@@ -522,14 +522,14 @@ func ExampleECS_ListTasks() {
 	svc := ecs.New(nil)
 
 	params := &ecs.ListTasksInput{
-		Cluster:           aws.String("String"),
-		ContainerInstance: aws.String("String"),
-		DesiredStatus:     aws.String("DesiredStatus"),
-		Family:            aws.String("String"),
-		MaxResults:        aws.Long(1),
-		NextToken:         aws.String("String"),
-		ServiceName:       aws.String("String"),
-		StartedBy:         aws.String("String"),
+		Cluster:           aws.StringPtr("String"),
+		ContainerInstance: aws.StringPtr("String"),
+		DesiredStatus:     aws.StringPtr("DesiredStatus"),
+		Family:            aws.StringPtr("String"),
+		MaxResults:        aws.Int64Ptr(1),
+		NextToken:         aws.StringPtr("String"),
+		ServiceName:       aws.StringPtr("String"),
+		StartedBy:         aws.StringPtr("String"),
 	}
 	resp, err := svc.ListTasks(params)
 
@@ -556,27 +556,27 @@ func ExampleECS_RegisterContainerInstance() {
 	svc := ecs.New(nil)
 
 	params := &ecs.RegisterContainerInstanceInput{
-		Cluster:                           aws.String("String"),
-		InstanceIdentityDocument:          aws.String("String"),
-		InstanceIdentityDocumentSignature: aws.String("String"),
+		Cluster:                           aws.StringPtr("String"),
+		InstanceIdentityDocument:          aws.StringPtr("String"),
+		InstanceIdentityDocumentSignature: aws.StringPtr("String"),
 		TotalResources: []*ecs.Resource{
 			{ // Required
-				DoubleValue:  aws.Double(1.0),
-				IntegerValue: aws.Long(1),
-				LongValue:    aws.Long(1),
-				Name:         aws.String("String"),
+				DoubleValue:  aws.Float64Ptr(1.0),
+				IntegerValue: aws.Int64Ptr(1),
+				LongValue:    aws.Int64Ptr(1),
+				Name:         aws.StringPtr("String"),
 				StringSetValue: []*string{
-					aws.String("String"), // Required
+					aws.StringPtr("String"), // Required
 					// More values...
 				},
-				Type: aws.String("String"),
+				Type: aws.StringPtr("String"),
 			},
 			// More values...
 		},
 		VersionInfo: &ecs.VersionInfo{
-			AgentHash:     aws.String("String"),
-			AgentVersion:  aws.String("String"),
-			DockerVersion: aws.String("String"),
+			AgentHash:     aws.StringPtr("String"),
+			AgentVersion:  aws.StringPtr("String"),
+			DockerVersion: aws.StringPtr("String"),
 		},
 	}
 	resp, err := svc.RegisterContainerInstance(params)
@@ -606,63 +606,63 @@ func ExampleECS_RegisterTaskDefinition() {
 	params := &ecs.RegisterTaskDefinitionInput{
 		ContainerDefinitions: []*ecs.ContainerDefinition{ // Required
 			{ // Required
-				CPU: aws.Long(1),
+				CPU: aws.Int64Ptr(1),
 				Command: []*string{
-					aws.String("String"), // Required
+					aws.StringPtr("String"), // Required
 					// More values...
 				},
 				EntryPoint: []*string{
-					aws.String("String"), // Required
+					aws.StringPtr("String"), // Required
 					// More values...
 				},
 				Environment: []*ecs.KeyValuePair{
 					{ // Required
-						Name:  aws.String("String"),
-						Value: aws.String("String"),
+						Name:  aws.StringPtr("String"),
+						Value: aws.StringPtr("String"),
 					},
 					// More values...
 				},
-				Essential: aws.Boolean(true),
-				Image:     aws.String("String"),
+				Essential: aws.BoolPtr(true),
+				Image:     aws.StringPtr("String"),
 				Links: []*string{
-					aws.String("String"), // Required
+					aws.StringPtr("String"), // Required
 					// More values...
 				},
-				Memory: aws.Long(1),
+				Memory: aws.Int64Ptr(1),
 				MountPoints: []*ecs.MountPoint{
 					{ // Required
-						ContainerPath: aws.String("String"),
-						ReadOnly:      aws.Boolean(true),
-						SourceVolume:  aws.String("String"),
+						ContainerPath: aws.StringPtr("String"),
+						ReadOnly:      aws.BoolPtr(true),
+						SourceVolume:  aws.StringPtr("String"),
 					},
 					// More values...
 				},
-				Name: aws.String("String"),
+				Name: aws.StringPtr("String"),
 				PortMappings: []*ecs.PortMapping{
 					{ // Required
-						ContainerPort: aws.Long(1),
-						HostPort:      aws.Long(1),
-						Protocol:      aws.String("TransportProtocol"),
+						ContainerPort: aws.Int64Ptr(1),
+						HostPort:      aws.Int64Ptr(1),
+						Protocol:      aws.StringPtr("TransportProtocol"),
 					},
 					// More values...
 				},
 				VolumesFrom: []*ecs.VolumeFrom{
 					{ // Required
-						ReadOnly:        aws.Boolean(true),
-						SourceContainer: aws.String("String"),
+						ReadOnly:        aws.BoolPtr(true),
+						SourceContainer: aws.StringPtr("String"),
 					},
 					// More values...
 				},
 			},
 			// More values...
 		},
-		Family: aws.String("String"), // Required
+		Family: aws.StringPtr("String"), // Required
 		Volumes: []*ecs.Volume{
 			{ // Required
 				Host: &ecs.HostVolumeProperties{
-					SourcePath: aws.String("String"),
+					SourcePath: aws.StringPtr("String"),
 				},
-				Name: aws.String("String"),
+				Name: aws.StringPtr("String"),
 			},
 			// More values...
 		},
@@ -692,29 +692,29 @@ func ExampleECS_RunTask() {
 	svc := ecs.New(nil)
 
 	params := &ecs.RunTaskInput{
-		TaskDefinition: aws.String("String"), // Required
-		Cluster:        aws.String("String"),
-		Count:          aws.Long(1),
+		TaskDefinition: aws.StringPtr("String"), // Required
+		Cluster:        aws.StringPtr("String"),
+		Count:          aws.Int64Ptr(1),
 		Overrides: &ecs.TaskOverride{
 			ContainerOverrides: []*ecs.ContainerOverride{
 				{ // Required
 					Command: []*string{
-						aws.String("String"), // Required
+						aws.StringPtr("String"), // Required
 						// More values...
 					},
 					Environment: []*ecs.KeyValuePair{
 						{ // Required
-							Name:  aws.String("String"),
-							Value: aws.String("String"),
+							Name:  aws.StringPtr("String"),
+							Value: aws.StringPtr("String"),
 						},
 						// More values...
 					},
-					Name: aws.String("String"),
+					Name: aws.StringPtr("String"),
 				},
 				// More values...
 			},
 		},
-		StartedBy: aws.String("String"),
+		StartedBy: aws.StringPtr("String"),
 	}
 	resp, err := svc.RunTask(params)
 
@@ -742,31 +742,31 @@ func ExampleECS_StartTask() {
 
 	params := &ecs.StartTaskInput{
 		ContainerInstances: []*string{ // Required
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
-		TaskDefinition: aws.String("String"), // Required
-		Cluster:        aws.String("String"),
+		TaskDefinition: aws.StringPtr("String"), // Required
+		Cluster:        aws.StringPtr("String"),
 		Overrides: &ecs.TaskOverride{
 			ContainerOverrides: []*ecs.ContainerOverride{
 				{ // Required
 					Command: []*string{
-						aws.String("String"), // Required
+						aws.StringPtr("String"), // Required
 						// More values...
 					},
 					Environment: []*ecs.KeyValuePair{
 						{ // Required
-							Name:  aws.String("String"),
-							Value: aws.String("String"),
+							Name:  aws.StringPtr("String"),
+							Value: aws.StringPtr("String"),
 						},
 						// More values...
 					},
-					Name: aws.String("String"),
+					Name: aws.StringPtr("String"),
 				},
 				// More values...
 			},
 		},
-		StartedBy: aws.String("String"),
+		StartedBy: aws.StringPtr("String"),
 	}
 	resp, err := svc.StartTask(params)
 
@@ -793,8 +793,8 @@ func ExampleECS_StopTask() {
 	svc := ecs.New(nil)
 
 	params := &ecs.StopTaskInput{
-		Task:    aws.String("String"), // Required
-		Cluster: aws.String("String"),
+		Task:    aws.StringPtr("String"), // Required
+		Cluster: aws.StringPtr("String"),
 	}
 	resp, err := svc.StopTask(params)
 
@@ -821,21 +821,21 @@ func ExampleECS_SubmitContainerStateChange() {
 	svc := ecs.New(nil)
 
 	params := &ecs.SubmitContainerStateChangeInput{
-		Cluster:       aws.String("String"),
-		ContainerName: aws.String("String"),
-		ExitCode:      aws.Long(1),
+		Cluster:       aws.StringPtr("String"),
+		ContainerName: aws.StringPtr("String"),
+		ExitCode:      aws.Int64Ptr(1),
 		NetworkBindings: []*ecs.NetworkBinding{
 			{ // Required
-				BindIP:        aws.String("String"),
-				ContainerPort: aws.Long(1),
-				HostPort:      aws.Long(1),
-				Protocol:      aws.String("TransportProtocol"),
+				BindIP:        aws.StringPtr("String"),
+				ContainerPort: aws.Int64Ptr(1),
+				HostPort:      aws.Int64Ptr(1),
+				Protocol:      aws.StringPtr("TransportProtocol"),
 			},
 			// More values...
 		},
-		Reason: aws.String("String"),
-		Status: aws.String("String"),
-		Task:   aws.String("String"),
+		Reason: aws.StringPtr("String"),
+		Status: aws.StringPtr("String"),
+		Task:   aws.StringPtr("String"),
 	}
 	resp, err := svc.SubmitContainerStateChange(params)
 
@@ -862,10 +862,10 @@ func ExampleECS_SubmitTaskStateChange() {
 	svc := ecs.New(nil)
 
 	params := &ecs.SubmitTaskStateChangeInput{
-		Cluster: aws.String("String"),
-		Reason:  aws.String("String"),
-		Status:  aws.String("String"),
-		Task:    aws.String("String"),
+		Cluster: aws.StringPtr("String"),
+		Reason:  aws.StringPtr("String"),
+		Status:  aws.StringPtr("String"),
+		Task:    aws.StringPtr("String"),
 	}
 	resp, err := svc.SubmitTaskStateChange(params)
 
@@ -892,8 +892,8 @@ func ExampleECS_UpdateContainerAgent() {
 	svc := ecs.New(nil)
 
 	params := &ecs.UpdateContainerAgentInput{
-		ContainerInstance: aws.String("String"), // Required
-		Cluster:           aws.String("String"),
+		ContainerInstance: aws.StringPtr("String"), // Required
+		Cluster:           aws.StringPtr("String"),
 	}
 	resp, err := svc.UpdateContainerAgent(params)
 
@@ -920,10 +920,10 @@ func ExampleECS_UpdateService() {
 	svc := ecs.New(nil)
 
 	params := &ecs.UpdateServiceInput{
-		Service:        aws.String("String"), // Required
-		Cluster:        aws.String("String"),
-		DesiredCount:   aws.Long(1),
-		TaskDefinition: aws.String("String"),
+		Service:        aws.StringPtr("String"), // Required
+		Cluster:        aws.StringPtr("String"),
+		DesiredCount:   aws.Int64Ptr(1),
+		TaskDefinition: aws.StringPtr("String"),
 	}
 	resp, err := svc.UpdateService(params)
 

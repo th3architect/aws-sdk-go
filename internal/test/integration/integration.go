@@ -21,14 +21,14 @@ const Imported = true
 
 func init() {
 	if os.Getenv("DEBUG") != "" {
-		aws.DefaultConfig.LogLevel = 1
+		aws.DefaultConfig.LogLevel.Set(1)
 	}
 	if os.Getenv("DEBUG_BODY") != "" {
-		aws.DefaultConfig.LogLevel = 1
-		aws.DefaultConfig.LogHTTPBody = true
+		aws.DefaultConfig.LogLevel.Set(1)
+		aws.DefaultConfig.LogHTTPBody.Set(true)
 	}
 
-	if aws.DefaultConfig.Region == "" {
+	if aws.DefaultConfig.Region.Get() == "" {
 		panic("AWS_REGION must be configured to run integration tests")
 	}
 }

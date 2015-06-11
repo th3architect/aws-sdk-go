@@ -43,7 +43,7 @@ type signer struct {
 	Credentials *credentials.Credentials
 	Query       url.Values
 	Body        io.ReadSeeker
-	Debug       uint
+	Debug       int
 	Logger      io.Writer
 
 	isPresign          bool
@@ -73,7 +73,7 @@ func Sign(req *aws.Request) {
 
 	region := req.Service.SigningRegion
 	if region == "" {
-		region = req.Service.Config.Region
+		region = req.Service.Config.Region.Get()
 	}
 
 	name := req.Service.SigningName
@@ -90,7 +90,7 @@ func Sign(req *aws.Request) {
 		ServiceName: name,
 		Region:      region,
 		Credentials: req.Service.Config.Credentials,
-		Debug:       req.Service.Config.LogLevel,
+		Debug:       req.Service.Config.LogLevel.Get(),
 		Logger:      req.Service.Config.Logger,
 	}
 

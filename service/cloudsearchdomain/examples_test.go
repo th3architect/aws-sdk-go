@@ -20,19 +20,19 @@ func ExampleCloudSearchDomain_Search() {
 	svc := cloudsearchdomain.New(nil)
 
 	params := &cloudsearchdomain.SearchInput{
-		Query:        aws.String("Query"), // Required
-		Cursor:       aws.String("Cursor"),
-		Expr:         aws.String("Expr"),
-		Facet:        aws.String("Facet"),
-		FilterQuery:  aws.String("FilterQuery"),
-		Highlight:    aws.String("Highlight"),
-		Partial:      aws.Boolean(true),
-		QueryOptions: aws.String("QueryOptions"),
-		QueryParser:  aws.String("QueryParser"),
-		Return:       aws.String("Return"),
-		Size:         aws.Long(1),
-		Sort:         aws.String("Sort"),
-		Start:        aws.Long(1),
+		Query:        aws.StringPtr("Query"), // Required
+		Cursor:       aws.StringPtr("Cursor"),
+		Expr:         aws.StringPtr("Expr"),
+		Facet:        aws.StringPtr("Facet"),
+		FilterQuery:  aws.StringPtr("FilterQuery"),
+		Highlight:    aws.StringPtr("Highlight"),
+		Partial:      aws.BoolPtr(true),
+		QueryOptions: aws.StringPtr("QueryOptions"),
+		QueryParser:  aws.StringPtr("QueryParser"),
+		Return:       aws.StringPtr("Return"),
+		Size:         aws.Int64Ptr(1),
+		Sort:         aws.StringPtr("Sort"),
+		Start:        aws.Int64Ptr(1),
 	}
 	resp, err := svc.Search(params)
 
@@ -59,9 +59,9 @@ func ExampleCloudSearchDomain_Suggest() {
 	svc := cloudsearchdomain.New(nil)
 
 	params := &cloudsearchdomain.SuggestInput{
-		Query:     aws.String("Query"),     // Required
-		Suggester: aws.String("Suggester"), // Required
-		Size:      aws.Long(1),
+		Query:     aws.StringPtr("Query"),     // Required
+		Suggester: aws.StringPtr("Suggester"), // Required
+		Size:      aws.Int64Ptr(1),
 	}
 	resp, err := svc.Suggest(params)
 
@@ -88,7 +88,7 @@ func ExampleCloudSearchDomain_UploadDocuments() {
 	svc := cloudsearchdomain.New(nil)
 
 	params := &cloudsearchdomain.UploadDocumentsInput{
-		ContentType: aws.String("ContentType"),          // Required
+		ContentType: aws.StringPtr("ContentType"),       // Required
 		Documents:   bytes.NewReader([]byte("PAYLOAD")), // Required
 	}
 	resp, err := svc.UploadDocuments(params)

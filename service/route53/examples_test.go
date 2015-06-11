@@ -20,12 +20,12 @@ func ExampleRoute53_AssociateVPCWithHostedZone() {
 	svc := route53.New(nil)
 
 	params := &route53.AssociateVPCWithHostedZoneInput{
-		HostedZoneID: aws.String("ResourceId"), // Required
+		HostedZoneID: aws.StringPtr("ResourceId"), // Required
 		VPC: &route53.VPC{ // Required
-			VPCID:     aws.String("VPCId"),
-			VPCRegion: aws.String("VPCRegion"),
+			VPCID:     aws.StringPtr("VPCId"),
+			VPCRegion: aws.StringPtr("VPCRegion"),
 		},
-		Comment: aws.String("AssociateVPCComment"),
+		Comment: aws.StringPtr("AssociateVPCComment"),
 	}
 	resp, err := svc.AssociateVPCWithHostedZone(params)
 
@@ -55,39 +55,39 @@ func ExampleRoute53_ChangeResourceRecordSets() {
 		ChangeBatch: &route53.ChangeBatch{ // Required
 			Changes: []*route53.Change{ // Required
 				{ // Required
-					Action: aws.String("ChangeAction"), // Required
+					Action: aws.StringPtr("ChangeAction"), // Required
 					ResourceRecordSet: &route53.ResourceRecordSet{ // Required
-						Name: aws.String("DNSName"), // Required
-						Type: aws.String("RRType"),  // Required
+						Name: aws.StringPtr("DNSName"), // Required
+						Type: aws.StringPtr("RRType"),  // Required
 						AliasTarget: &route53.AliasTarget{
-							DNSName:              aws.String("DNSName"),    // Required
-							EvaluateTargetHealth: aws.Boolean(true),        // Required
-							HostedZoneID:         aws.String("ResourceId"), // Required
+							DNSName:              aws.StringPtr("DNSName"),    // Required
+							EvaluateTargetHealth: aws.BoolPtr(true),           // Required
+							HostedZoneID:         aws.StringPtr("ResourceId"), // Required
 						},
-						Failover: aws.String("ResourceRecordSetFailover"),
+						Failover: aws.StringPtr("ResourceRecordSetFailover"),
 						GeoLocation: &route53.GeoLocation{
-							ContinentCode:   aws.String("GeoLocationContinentCode"),
-							CountryCode:     aws.String("GeoLocationCountryCode"),
-							SubdivisionCode: aws.String("GeoLocationSubdivisionCode"),
+							ContinentCode:   aws.StringPtr("GeoLocationContinentCode"),
+							CountryCode:     aws.StringPtr("GeoLocationCountryCode"),
+							SubdivisionCode: aws.StringPtr("GeoLocationSubdivisionCode"),
 						},
-						HealthCheckID: aws.String("HealthCheckId"),
-						Region:        aws.String("ResourceRecordSetRegion"),
+						HealthCheckID: aws.StringPtr("HealthCheckId"),
+						Region:        aws.StringPtr("ResourceRecordSetRegion"),
 						ResourceRecords: []*route53.ResourceRecord{
 							{ // Required
-								Value: aws.String("RData"), // Required
+								Value: aws.StringPtr("RData"), // Required
 							},
 							// More values...
 						},
-						SetIdentifier: aws.String("ResourceRecordSetIdentifier"),
-						TTL:           aws.Long(1),
-						Weight:        aws.Long(1),
+						SetIdentifier: aws.StringPtr("ResourceRecordSetIdentifier"),
+						TTL:           aws.Int64Ptr(1),
+						Weight:        aws.Int64Ptr(1),
 					},
 				},
 				// More values...
 			},
-			Comment: aws.String("ResourceDescription"),
+			Comment: aws.StringPtr("ResourceDescription"),
 		},
-		HostedZoneID: aws.String("ResourceId"), // Required
+		HostedZoneID: aws.StringPtr("ResourceId"), // Required
 	}
 	resp, err := svc.ChangeResourceRecordSets(params)
 
@@ -114,17 +114,17 @@ func ExampleRoute53_ChangeTagsForResource() {
 	svc := route53.New(nil)
 
 	params := &route53.ChangeTagsForResourceInput{
-		ResourceID:   aws.String("TagResourceId"),   // Required
-		ResourceType: aws.String("TagResourceType"), // Required
+		ResourceID:   aws.StringPtr("TagResourceId"),   // Required
+		ResourceType: aws.StringPtr("TagResourceType"), // Required
 		AddTags: []*route53.Tag{
 			{ // Required
-				Key:   aws.String("TagKey"),
-				Value: aws.String("TagValue"),
+				Key:   aws.StringPtr("TagKey"),
+				Value: aws.StringPtr("TagValue"),
 			},
 			// More values...
 		},
 		RemoveTagKeys: []*string{
-			aws.String("TagKey"), // Required
+			aws.StringPtr("TagKey"), // Required
 			// More values...
 		},
 	}
@@ -153,16 +153,16 @@ func ExampleRoute53_CreateHealthCheck() {
 	svc := route53.New(nil)
 
 	params := &route53.CreateHealthCheckInput{
-		CallerReference: aws.String("HealthCheckNonce"), // Required
+		CallerReference: aws.StringPtr("HealthCheckNonce"), // Required
 		HealthCheckConfig: &route53.HealthCheckConfig{ // Required
-			Type:                     aws.String("HealthCheckType"), // Required
-			FailureThreshold:         aws.Long(1),
-			FullyQualifiedDomainName: aws.String("FullyQualifiedDomainName"),
-			IPAddress:                aws.String("IPAddress"),
-			Port:                     aws.Long(1),
-			RequestInterval:          aws.Long(1),
-			ResourcePath:             aws.String("ResourcePath"),
-			SearchString:             aws.String("SearchString"),
+			Type:                     aws.StringPtr("HealthCheckType"), // Required
+			FailureThreshold:         aws.Int64Ptr(1),
+			FullyQualifiedDomainName: aws.StringPtr("FullyQualifiedDomainName"),
+			IPAddress:                aws.StringPtr("IPAddress"),
+			Port:                     aws.Int64Ptr(1),
+			RequestInterval:          aws.Int64Ptr(1),
+			ResourcePath:             aws.StringPtr("ResourcePath"),
+			SearchString:             aws.StringPtr("SearchString"),
 		},
 	}
 	resp, err := svc.CreateHealthCheck(params)
@@ -190,16 +190,16 @@ func ExampleRoute53_CreateHostedZone() {
 	svc := route53.New(nil)
 
 	params := &route53.CreateHostedZoneInput{
-		CallerReference: aws.String("Nonce"),   // Required
-		Name:            aws.String("DNSName"), // Required
-		DelegationSetID: aws.String("ResourceId"),
+		CallerReference: aws.StringPtr("Nonce"),   // Required
+		Name:            aws.StringPtr("DNSName"), // Required
+		DelegationSetID: aws.StringPtr("ResourceId"),
 		HostedZoneConfig: &route53.HostedZoneConfig{
-			Comment:     aws.String("ResourceDescription"),
-			PrivateZone: aws.Boolean(true),
+			Comment:     aws.StringPtr("ResourceDescription"),
+			PrivateZone: aws.BoolPtr(true),
 		},
 		VPC: &route53.VPC{
-			VPCID:     aws.String("VPCId"),
-			VPCRegion: aws.String("VPCRegion"),
+			VPCID:     aws.StringPtr("VPCId"),
+			VPCRegion: aws.StringPtr("VPCRegion"),
 		},
 	}
 	resp, err := svc.CreateHostedZone(params)
@@ -227,8 +227,8 @@ func ExampleRoute53_CreateReusableDelegationSet() {
 	svc := route53.New(nil)
 
 	params := &route53.CreateReusableDelegationSetInput{
-		CallerReference: aws.String("Nonce"), // Required
-		HostedZoneID:    aws.String("ResourceId"),
+		CallerReference: aws.StringPtr("Nonce"), // Required
+		HostedZoneID:    aws.StringPtr("ResourceId"),
 	}
 	resp, err := svc.CreateReusableDelegationSet(params)
 
@@ -255,7 +255,7 @@ func ExampleRoute53_DeleteHealthCheck() {
 	svc := route53.New(nil)
 
 	params := &route53.DeleteHealthCheckInput{
-		HealthCheckID: aws.String("HealthCheckId"), // Required
+		HealthCheckID: aws.StringPtr("HealthCheckId"), // Required
 	}
 	resp, err := svc.DeleteHealthCheck(params)
 
@@ -282,7 +282,7 @@ func ExampleRoute53_DeleteHostedZone() {
 	svc := route53.New(nil)
 
 	params := &route53.DeleteHostedZoneInput{
-		ID: aws.String("ResourceId"), // Required
+		ID: aws.StringPtr("ResourceId"), // Required
 	}
 	resp, err := svc.DeleteHostedZone(params)
 
@@ -309,7 +309,7 @@ func ExampleRoute53_DeleteReusableDelegationSet() {
 	svc := route53.New(nil)
 
 	params := &route53.DeleteReusableDelegationSetInput{
-		ID: aws.String("ResourceId"), // Required
+		ID: aws.StringPtr("ResourceId"), // Required
 	}
 	resp, err := svc.DeleteReusableDelegationSet(params)
 
@@ -336,12 +336,12 @@ func ExampleRoute53_DisassociateVPCFromHostedZone() {
 	svc := route53.New(nil)
 
 	params := &route53.DisassociateVPCFromHostedZoneInput{
-		HostedZoneID: aws.String("ResourceId"), // Required
+		HostedZoneID: aws.StringPtr("ResourceId"), // Required
 		VPC: &route53.VPC{ // Required
-			VPCID:     aws.String("VPCId"),
-			VPCRegion: aws.String("VPCRegion"),
+			VPCID:     aws.StringPtr("VPCId"),
+			VPCRegion: aws.StringPtr("VPCRegion"),
 		},
-		Comment: aws.String("DisassociateVPCComment"),
+		Comment: aws.StringPtr("DisassociateVPCComment"),
 	}
 	resp, err := svc.DisassociateVPCFromHostedZone(params)
 
@@ -368,7 +368,7 @@ func ExampleRoute53_GetChange() {
 	svc := route53.New(nil)
 
 	params := &route53.GetChangeInput{
-		ID: aws.String("ResourceId"), // Required
+		ID: aws.StringPtr("ResourceId"), // Required
 	}
 	resp, err := svc.GetChange(params)
 
@@ -420,9 +420,9 @@ func ExampleRoute53_GetGeoLocation() {
 	svc := route53.New(nil)
 
 	params := &route53.GetGeoLocationInput{
-		ContinentCode:   aws.String("GeoLocationContinentCode"),
-		CountryCode:     aws.String("GeoLocationCountryCode"),
-		SubdivisionCode: aws.String("GeoLocationSubdivisionCode"),
+		ContinentCode:   aws.StringPtr("GeoLocationContinentCode"),
+		CountryCode:     aws.StringPtr("GeoLocationCountryCode"),
+		SubdivisionCode: aws.StringPtr("GeoLocationSubdivisionCode"),
 	}
 	resp, err := svc.GetGeoLocation(params)
 
@@ -449,7 +449,7 @@ func ExampleRoute53_GetHealthCheck() {
 	svc := route53.New(nil)
 
 	params := &route53.GetHealthCheckInput{
-		HealthCheckID: aws.String("HealthCheckId"), // Required
+		HealthCheckID: aws.StringPtr("HealthCheckId"), // Required
 	}
 	resp, err := svc.GetHealthCheck(params)
 
@@ -501,7 +501,7 @@ func ExampleRoute53_GetHealthCheckLastFailureReason() {
 	svc := route53.New(nil)
 
 	params := &route53.GetHealthCheckLastFailureReasonInput{
-		HealthCheckID: aws.String("HealthCheckId"), // Required
+		HealthCheckID: aws.StringPtr("HealthCheckId"), // Required
 	}
 	resp, err := svc.GetHealthCheckLastFailureReason(params)
 
@@ -528,7 +528,7 @@ func ExampleRoute53_GetHealthCheckStatus() {
 	svc := route53.New(nil)
 
 	params := &route53.GetHealthCheckStatusInput{
-		HealthCheckID: aws.String("HealthCheckId"), // Required
+		HealthCheckID: aws.StringPtr("HealthCheckId"), // Required
 	}
 	resp, err := svc.GetHealthCheckStatus(params)
 
@@ -555,7 +555,7 @@ func ExampleRoute53_GetHostedZone() {
 	svc := route53.New(nil)
 
 	params := &route53.GetHostedZoneInput{
-		ID: aws.String("ResourceId"), // Required
+		ID: aws.StringPtr("ResourceId"), // Required
 	}
 	resp, err := svc.GetHostedZone(params)
 
@@ -607,7 +607,7 @@ func ExampleRoute53_GetReusableDelegationSet() {
 	svc := route53.New(nil)
 
 	params := &route53.GetReusableDelegationSetInput{
-		ID: aws.String("ResourceId"), // Required
+		ID: aws.StringPtr("ResourceId"), // Required
 	}
 	resp, err := svc.GetReusableDelegationSet(params)
 
@@ -634,10 +634,10 @@ func ExampleRoute53_ListGeoLocations() {
 	svc := route53.New(nil)
 
 	params := &route53.ListGeoLocationsInput{
-		MaxItems:             aws.String("PageMaxItems"),
-		StartContinentCode:   aws.String("GeoLocationContinentCode"),
-		StartCountryCode:     aws.String("GeoLocationCountryCode"),
-		StartSubdivisionCode: aws.String("GeoLocationSubdivisionCode"),
+		MaxItems:             aws.StringPtr("PageMaxItems"),
+		StartContinentCode:   aws.StringPtr("GeoLocationContinentCode"),
+		StartCountryCode:     aws.StringPtr("GeoLocationCountryCode"),
+		StartSubdivisionCode: aws.StringPtr("GeoLocationSubdivisionCode"),
 	}
 	resp, err := svc.ListGeoLocations(params)
 
@@ -664,8 +664,8 @@ func ExampleRoute53_ListHealthChecks() {
 	svc := route53.New(nil)
 
 	params := &route53.ListHealthChecksInput{
-		Marker:   aws.String("PageMarker"),
-		MaxItems: aws.String("PageMaxItems"),
+		Marker:   aws.StringPtr("PageMarker"),
+		MaxItems: aws.StringPtr("PageMaxItems"),
 	}
 	resp, err := svc.ListHealthChecks(params)
 
@@ -692,9 +692,9 @@ func ExampleRoute53_ListHostedZones() {
 	svc := route53.New(nil)
 
 	params := &route53.ListHostedZonesInput{
-		DelegationSetID: aws.String("ResourceId"),
-		Marker:          aws.String("PageMarker"),
-		MaxItems:        aws.String("PageMaxItems"),
+		DelegationSetID: aws.StringPtr("ResourceId"),
+		Marker:          aws.StringPtr("PageMarker"),
+		MaxItems:        aws.StringPtr("PageMaxItems"),
 	}
 	resp, err := svc.ListHostedZones(params)
 
@@ -721,9 +721,9 @@ func ExampleRoute53_ListHostedZonesByName() {
 	svc := route53.New(nil)
 
 	params := &route53.ListHostedZonesByNameInput{
-		DNSName:      aws.String("DNSName"),
-		HostedZoneID: aws.String("ResourceId"),
-		MaxItems:     aws.String("PageMaxItems"),
+		DNSName:      aws.StringPtr("DNSName"),
+		HostedZoneID: aws.StringPtr("ResourceId"),
+		MaxItems:     aws.StringPtr("PageMaxItems"),
 	}
 	resp, err := svc.ListHostedZonesByName(params)
 
@@ -750,11 +750,11 @@ func ExampleRoute53_ListResourceRecordSets() {
 	svc := route53.New(nil)
 
 	params := &route53.ListResourceRecordSetsInput{
-		HostedZoneID:          aws.String("ResourceId"), // Required
-		MaxItems:              aws.String("PageMaxItems"),
-		StartRecordIdentifier: aws.String("ResourceRecordSetIdentifier"),
-		StartRecordName:       aws.String("DNSName"),
-		StartRecordType:       aws.String("RRType"),
+		HostedZoneID:          aws.StringPtr("ResourceId"), // Required
+		MaxItems:              aws.StringPtr("PageMaxItems"),
+		StartRecordIdentifier: aws.StringPtr("ResourceRecordSetIdentifier"),
+		StartRecordName:       aws.StringPtr("DNSName"),
+		StartRecordType:       aws.StringPtr("RRType"),
 	}
 	resp, err := svc.ListResourceRecordSets(params)
 
@@ -781,8 +781,8 @@ func ExampleRoute53_ListReusableDelegationSets() {
 	svc := route53.New(nil)
 
 	params := &route53.ListReusableDelegationSetsInput{
-		Marker:   aws.String("PageMarker"),
-		MaxItems: aws.String("PageMaxItems"),
+		Marker:   aws.StringPtr("PageMarker"),
+		MaxItems: aws.StringPtr("PageMaxItems"),
 	}
 	resp, err := svc.ListReusableDelegationSets(params)
 
@@ -809,8 +809,8 @@ func ExampleRoute53_ListTagsForResource() {
 	svc := route53.New(nil)
 
 	params := &route53.ListTagsForResourceInput{
-		ResourceID:   aws.String("TagResourceId"),   // Required
-		ResourceType: aws.String("TagResourceType"), // Required
+		ResourceID:   aws.StringPtr("TagResourceId"),   // Required
+		ResourceType: aws.StringPtr("TagResourceType"), // Required
 	}
 	resp, err := svc.ListTagsForResource(params)
 
@@ -838,10 +838,10 @@ func ExampleRoute53_ListTagsForResources() {
 
 	params := &route53.ListTagsForResourcesInput{
 		ResourceIDs: []*string{ // Required
-			aws.String("TagResourceId"), // Required
+			aws.StringPtr("TagResourceId"), // Required
 			// More values...
 		},
-		ResourceType: aws.String("TagResourceType"), // Required
+		ResourceType: aws.StringPtr("TagResourceType"), // Required
 	}
 	resp, err := svc.ListTagsForResources(params)
 
@@ -868,14 +868,14 @@ func ExampleRoute53_UpdateHealthCheck() {
 	svc := route53.New(nil)
 
 	params := &route53.UpdateHealthCheckInput{
-		HealthCheckID:            aws.String("HealthCheckId"), // Required
-		FailureThreshold:         aws.Long(1),
-		FullyQualifiedDomainName: aws.String("FullyQualifiedDomainName"),
-		HealthCheckVersion:       aws.Long(1),
-		IPAddress:                aws.String("IPAddress"),
-		Port:                     aws.Long(1),
-		ResourcePath:             aws.String("ResourcePath"),
-		SearchString:             aws.String("SearchString"),
+		HealthCheckID:            aws.StringPtr("HealthCheckId"), // Required
+		FailureThreshold:         aws.Int64Ptr(1),
+		FullyQualifiedDomainName: aws.StringPtr("FullyQualifiedDomainName"),
+		HealthCheckVersion:       aws.Int64Ptr(1),
+		IPAddress:                aws.StringPtr("IPAddress"),
+		Port:                     aws.Int64Ptr(1),
+		ResourcePath:             aws.StringPtr("ResourcePath"),
+		SearchString:             aws.StringPtr("SearchString"),
 	}
 	resp, err := svc.UpdateHealthCheck(params)
 
@@ -902,8 +902,8 @@ func ExampleRoute53_UpdateHostedZoneComment() {
 	svc := route53.New(nil)
 
 	params := &route53.UpdateHostedZoneCommentInput{
-		ID:      aws.String("ResourceId"), // Required
-		Comment: aws.String("ResourceDescription"),
+		ID:      aws.StringPtr("ResourceId"), // Required
+		Comment: aws.StringPtr("ResourceDescription"),
 	}
 	resp, err := svc.UpdateHostedZoneComment(params)
 

@@ -20,15 +20,15 @@ func ExampleDataPipeline_ActivatePipeline() {
 	svc := datapipeline.New(nil)
 
 	params := &datapipeline.ActivatePipelineInput{
-		PipelineID: aws.String("id"), // Required
+		PipelineID: aws.StringPtr("id"), // Required
 		ParameterValues: []*datapipeline.ParameterValue{
 			{ // Required
-				ID:          aws.String("fieldNameString"),  // Required
-				StringValue: aws.String("fieldStringValue"), // Required
+				ID:          aws.StringPtr("fieldNameString"),  // Required
+				StringValue: aws.StringPtr("fieldStringValue"), // Required
 			},
 			// More values...
 		},
-		StartTimestamp: aws.Time(time.Now()),
+		StartTimestamp: aws.TimePtr(time.Now()),
 	}
 	resp, err := svc.ActivatePipeline(params)
 
@@ -55,11 +55,11 @@ func ExampleDataPipeline_AddTags() {
 	svc := datapipeline.New(nil)
 
 	params := &datapipeline.AddTagsInput{
-		PipelineID: aws.String("id"), // Required
+		PipelineID: aws.StringPtr("id"), // Required
 		Tags: []*datapipeline.Tag{ // Required
 			{ // Required
-				Key:   aws.String("tagKey"),   // Required
-				Value: aws.String("tagValue"), // Required
+				Key:   aws.StringPtr("tagKey"),   // Required
+				Value: aws.StringPtr("tagValue"), // Required
 			},
 			// More values...
 		},
@@ -89,13 +89,13 @@ func ExampleDataPipeline_CreatePipeline() {
 	svc := datapipeline.New(nil)
 
 	params := &datapipeline.CreatePipelineInput{
-		Name:        aws.String("id"), // Required
-		UniqueID:    aws.String("id"), // Required
-		Description: aws.String("string"),
+		Name:        aws.StringPtr("id"), // Required
+		UniqueID:    aws.StringPtr("id"), // Required
+		Description: aws.StringPtr("string"),
 		Tags: []*datapipeline.Tag{
 			{ // Required
-				Key:   aws.String("tagKey"),   // Required
-				Value: aws.String("tagValue"), // Required
+				Key:   aws.StringPtr("tagKey"),   // Required
+				Value: aws.StringPtr("tagValue"), // Required
 			},
 			// More values...
 		},
@@ -125,8 +125,8 @@ func ExampleDataPipeline_DeactivatePipeline() {
 	svc := datapipeline.New(nil)
 
 	params := &datapipeline.DeactivatePipelineInput{
-		PipelineID:   aws.String("id"), // Required
-		CancelActive: aws.Boolean(true),
+		PipelineID:   aws.StringPtr("id"), // Required
+		CancelActive: aws.BoolPtr(true),
 	}
 	resp, err := svc.DeactivatePipeline(params)
 
@@ -153,7 +153,7 @@ func ExampleDataPipeline_DeletePipeline() {
 	svc := datapipeline.New(nil)
 
 	params := &datapipeline.DeletePipelineInput{
-		PipelineID: aws.String("id"), // Required
+		PipelineID: aws.StringPtr("id"), // Required
 	}
 	resp, err := svc.DeletePipeline(params)
 
@@ -181,12 +181,12 @@ func ExampleDataPipeline_DescribeObjects() {
 
 	params := &datapipeline.DescribeObjectsInput{
 		ObjectIDs: []*string{ // Required
-			aws.String("id"), // Required
+			aws.StringPtr("id"), // Required
 			// More values...
 		},
-		PipelineID:          aws.String("id"), // Required
-		EvaluateExpressions: aws.Boolean(true),
-		Marker:              aws.String("string"),
+		PipelineID:          aws.StringPtr("id"), // Required
+		EvaluateExpressions: aws.BoolPtr(true),
+		Marker:              aws.StringPtr("string"),
 	}
 	resp, err := svc.DescribeObjects(params)
 
@@ -214,7 +214,7 @@ func ExampleDataPipeline_DescribePipelines() {
 
 	params := &datapipeline.DescribePipelinesInput{
 		PipelineIDs: []*string{ // Required
-			aws.String("id"), // Required
+			aws.StringPtr("id"), // Required
 			// More values...
 		},
 	}
@@ -243,9 +243,9 @@ func ExampleDataPipeline_EvaluateExpression() {
 	svc := datapipeline.New(nil)
 
 	params := &datapipeline.EvaluateExpressionInput{
-		Expression: aws.String("longString"), // Required
-		ObjectID:   aws.String("id"),         // Required
-		PipelineID: aws.String("id"),         // Required
+		Expression: aws.StringPtr("longString"), // Required
+		ObjectID:   aws.StringPtr("id"),         // Required
+		PipelineID: aws.StringPtr("id"),         // Required
 	}
 	resp, err := svc.EvaluateExpression(params)
 
@@ -272,8 +272,8 @@ func ExampleDataPipeline_GetPipelineDefinition() {
 	svc := datapipeline.New(nil)
 
 	params := &datapipeline.GetPipelineDefinitionInput{
-		PipelineID: aws.String("id"), // Required
-		Version:    aws.String("string"),
+		PipelineID: aws.StringPtr("id"), // Required
+		Version:    aws.StringPtr("string"),
 	}
 	resp, err := svc.GetPipelineDefinition(params)
 
@@ -300,7 +300,7 @@ func ExampleDataPipeline_ListPipelines() {
 	svc := datapipeline.New(nil)
 
 	params := &datapipeline.ListPipelinesInput{
-		Marker: aws.String("string"),
+		Marker: aws.StringPtr("string"),
 	}
 	resp, err := svc.ListPipelines(params)
 
@@ -327,11 +327,11 @@ func ExampleDataPipeline_PollForTask() {
 	svc := datapipeline.New(nil)
 
 	params := &datapipeline.PollForTaskInput{
-		WorkerGroup: aws.String("string"), // Required
-		Hostname:    aws.String("id"),
+		WorkerGroup: aws.StringPtr("string"), // Required
+		Hostname:    aws.StringPtr("id"),
 		InstanceIdentity: &datapipeline.InstanceIdentity{
-			Document:  aws.String("string"),
-			Signature: aws.String("string"),
+			Document:  aws.StringPtr("string"),
+			Signature: aws.StringPtr("string"),
 		},
 	}
 	resp, err := svc.PollForTask(params)
@@ -359,19 +359,19 @@ func ExampleDataPipeline_PutPipelineDefinition() {
 	svc := datapipeline.New(nil)
 
 	params := &datapipeline.PutPipelineDefinitionInput{
-		PipelineID: aws.String("id"), // Required
+		PipelineID: aws.StringPtr("id"), // Required
 		PipelineObjects: []*datapipeline.PipelineObject{ // Required
 			{ // Required
 				Fields: []*datapipeline.Field{ // Required
 					{ // Required
-						Key:         aws.String("fieldNameString"), // Required
-						RefValue:    aws.String("fieldNameString"),
-						StringValue: aws.String("fieldStringValue"),
+						Key:         aws.StringPtr("fieldNameString"), // Required
+						RefValue:    aws.StringPtr("fieldNameString"),
+						StringValue: aws.StringPtr("fieldStringValue"),
 					},
 					// More values...
 				},
-				ID:   aws.String("id"), // Required
-				Name: aws.String("id"), // Required
+				ID:   aws.StringPtr("id"), // Required
+				Name: aws.StringPtr("id"), // Required
 			},
 			// More values...
 		},
@@ -379,19 +379,19 @@ func ExampleDataPipeline_PutPipelineDefinition() {
 			{ // Required
 				Attributes: []*datapipeline.ParameterAttribute{ // Required
 					{ // Required
-						Key:         aws.String("attributeNameString"),  // Required
-						StringValue: aws.String("attributeValueString"), // Required
+						Key:         aws.StringPtr("attributeNameString"),  // Required
+						StringValue: aws.StringPtr("attributeValueString"), // Required
 					},
 					// More values...
 				},
-				ID: aws.String("fieldNameString"), // Required
+				ID: aws.StringPtr("fieldNameString"), // Required
 			},
 			// More values...
 		},
 		ParameterValues: []*datapipeline.ParameterValue{
 			{ // Required
-				ID:          aws.String("fieldNameString"),  // Required
-				StringValue: aws.String("fieldStringValue"), // Required
+				ID:          aws.StringPtr("fieldNameString"),  // Required
+				StringValue: aws.StringPtr("fieldStringValue"), // Required
 			},
 			// More values...
 		},
@@ -421,18 +421,18 @@ func ExampleDataPipeline_QueryObjects() {
 	svc := datapipeline.New(nil)
 
 	params := &datapipeline.QueryObjectsInput{
-		PipelineID: aws.String("id"),     // Required
-		Sphere:     aws.String("string"), // Required
-		Limit:      aws.Long(1),
-		Marker:     aws.String("string"),
+		PipelineID: aws.StringPtr("id"),     // Required
+		Sphere:     aws.StringPtr("string"), // Required
+		Limit:      aws.Int64Ptr(1),
+		Marker:     aws.StringPtr("string"),
 		Query: &datapipeline.Query{
 			Selectors: []*datapipeline.Selector{
 				{ // Required
-					FieldName: aws.String("string"),
+					FieldName: aws.StringPtr("string"),
 					Operator: &datapipeline.Operator{
-						Type: aws.String("OperatorType"),
+						Type: aws.StringPtr("OperatorType"),
 						Values: []*string{
-							aws.String("string"), // Required
+							aws.StringPtr("string"), // Required
 							// More values...
 						},
 					},
@@ -466,9 +466,9 @@ func ExampleDataPipeline_RemoveTags() {
 	svc := datapipeline.New(nil)
 
 	params := &datapipeline.RemoveTagsInput{
-		PipelineID: aws.String("id"), // Required
+		PipelineID: aws.StringPtr("id"), // Required
 		TagKeys: []*string{ // Required
-			aws.String("string"), // Required
+			aws.StringPtr("string"), // Required
 			// More values...
 		},
 	}
@@ -497,12 +497,12 @@ func ExampleDataPipeline_ReportTaskProgress() {
 	svc := datapipeline.New(nil)
 
 	params := &datapipeline.ReportTaskProgressInput{
-		TaskID: aws.String("taskId"), // Required
+		TaskID: aws.StringPtr("taskId"), // Required
 		Fields: []*datapipeline.Field{
 			{ // Required
-				Key:         aws.String("fieldNameString"), // Required
-				RefValue:    aws.String("fieldNameString"),
-				StringValue: aws.String("fieldStringValue"),
+				Key:         aws.StringPtr("fieldNameString"), // Required
+				RefValue:    aws.StringPtr("fieldNameString"),
+				StringValue: aws.StringPtr("fieldStringValue"),
 			},
 			// More values...
 		},
@@ -532,9 +532,9 @@ func ExampleDataPipeline_ReportTaskRunnerHeartbeat() {
 	svc := datapipeline.New(nil)
 
 	params := &datapipeline.ReportTaskRunnerHeartbeatInput{
-		TaskRunnerID: aws.String("id"), // Required
-		Hostname:     aws.String("id"),
-		WorkerGroup:  aws.String("string"),
+		TaskRunnerID: aws.StringPtr("id"), // Required
+		Hostname:     aws.StringPtr("id"),
+		WorkerGroup:  aws.StringPtr("string"),
 	}
 	resp, err := svc.ReportTaskRunnerHeartbeat(params)
 
@@ -562,11 +562,11 @@ func ExampleDataPipeline_SetStatus() {
 
 	params := &datapipeline.SetStatusInput{
 		ObjectIDs: []*string{ // Required
-			aws.String("id"), // Required
+			aws.StringPtr("id"), // Required
 			// More values...
 		},
-		PipelineID: aws.String("id"),     // Required
-		Status:     aws.String("string"), // Required
+		PipelineID: aws.StringPtr("id"),     // Required
+		Status:     aws.StringPtr("string"), // Required
 	}
 	resp, err := svc.SetStatus(params)
 
@@ -593,11 +593,11 @@ func ExampleDataPipeline_SetTaskStatus() {
 	svc := datapipeline.New(nil)
 
 	params := &datapipeline.SetTaskStatusInput{
-		TaskID:          aws.String("taskId"),     // Required
-		TaskStatus:      aws.String("TaskStatus"), // Required
-		ErrorID:         aws.String("string"),
-		ErrorMessage:    aws.String("errorMessage"),
-		ErrorStackTrace: aws.String("string"),
+		TaskID:          aws.StringPtr("taskId"),     // Required
+		TaskStatus:      aws.StringPtr("TaskStatus"), // Required
+		ErrorID:         aws.StringPtr("string"),
+		ErrorMessage:    aws.StringPtr("errorMessage"),
+		ErrorStackTrace: aws.StringPtr("string"),
 	}
 	resp, err := svc.SetTaskStatus(params)
 
@@ -624,19 +624,19 @@ func ExampleDataPipeline_ValidatePipelineDefinition() {
 	svc := datapipeline.New(nil)
 
 	params := &datapipeline.ValidatePipelineDefinitionInput{
-		PipelineID: aws.String("id"), // Required
+		PipelineID: aws.StringPtr("id"), // Required
 		PipelineObjects: []*datapipeline.PipelineObject{ // Required
 			{ // Required
 				Fields: []*datapipeline.Field{ // Required
 					{ // Required
-						Key:         aws.String("fieldNameString"), // Required
-						RefValue:    aws.String("fieldNameString"),
-						StringValue: aws.String("fieldStringValue"),
+						Key:         aws.StringPtr("fieldNameString"), // Required
+						RefValue:    aws.StringPtr("fieldNameString"),
+						StringValue: aws.StringPtr("fieldStringValue"),
 					},
 					// More values...
 				},
-				ID:   aws.String("id"), // Required
-				Name: aws.String("id"), // Required
+				ID:   aws.StringPtr("id"), // Required
+				Name: aws.StringPtr("id"), // Required
 			},
 			// More values...
 		},
@@ -644,19 +644,19 @@ func ExampleDataPipeline_ValidatePipelineDefinition() {
 			{ // Required
 				Attributes: []*datapipeline.ParameterAttribute{ // Required
 					{ // Required
-						Key:         aws.String("attributeNameString"),  // Required
-						StringValue: aws.String("attributeValueString"), // Required
+						Key:         aws.StringPtr("attributeNameString"),  // Required
+						StringValue: aws.StringPtr("attributeValueString"), // Required
 					},
 					// More values...
 				},
-				ID: aws.String("fieldNameString"), // Required
+				ID: aws.StringPtr("fieldNameString"), // Required
 			},
 			// More values...
 		},
 		ParameterValues: []*datapipeline.ParameterValue{
 			{ // Required
-				ID:          aws.String("fieldNameString"),  // Required
-				StringValue: aws.String("fieldStringValue"), // Required
+				ID:          aws.StringPtr("fieldNameString"),  // Required
+				StringValue: aws.StringPtr("fieldStringValue"), // Required
 			},
 			// More values...
 		},

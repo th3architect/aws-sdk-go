@@ -23,11 +23,11 @@ func ExampleSupport_AddAttachmentsToSet() {
 		Attachments: []*support.Attachment{ // Required
 			{ // Required
 				Data:     []byte("PAYLOAD"),
-				FileName: aws.String("FileName"),
+				FileName: aws.StringPtr("FileName"),
 			},
 			// More values...
 		},
-		AttachmentSetID: aws.String("AttachmentSetId"),
+		AttachmentSetID: aws.StringPtr("AttachmentSetId"),
 	}
 	resp, err := svc.AddAttachmentsToSet(params)
 
@@ -54,13 +54,13 @@ func ExampleSupport_AddCommunicationToCase() {
 	svc := support.New(nil)
 
 	params := &support.AddCommunicationToCaseInput{
-		CommunicationBody: aws.String("CommunicationBody"), // Required
-		AttachmentSetID:   aws.String("AttachmentSetId"),
+		CommunicationBody: aws.StringPtr("CommunicationBody"), // Required
+		AttachmentSetID:   aws.StringPtr("AttachmentSetId"),
 		CCEmailAddresses: []*string{
-			aws.String("CcEmailAddress"), // Required
+			aws.StringPtr("CcEmailAddress"), // Required
 			// More values...
 		},
-		CaseID: aws.String("CaseId"),
+		CaseID: aws.StringPtr("CaseId"),
 	}
 	resp, err := svc.AddCommunicationToCase(params)
 
@@ -87,18 +87,18 @@ func ExampleSupport_CreateCase() {
 	svc := support.New(nil)
 
 	params := &support.CreateCaseInput{
-		CommunicationBody: aws.String("CommunicationBody"), // Required
-		Subject:           aws.String("Subject"),           // Required
-		AttachmentSetID:   aws.String("AttachmentSetId"),
+		CommunicationBody: aws.StringPtr("CommunicationBody"), // Required
+		Subject:           aws.StringPtr("Subject"),           // Required
+		AttachmentSetID:   aws.StringPtr("AttachmentSetId"),
 		CCEmailAddresses: []*string{
-			aws.String("CcEmailAddress"), // Required
+			aws.StringPtr("CcEmailAddress"), // Required
 			// More values...
 		},
-		CategoryCode: aws.String("CategoryCode"),
-		IssueType:    aws.String("IssueType"),
-		Language:     aws.String("Language"),
-		ServiceCode:  aws.String("ServiceCode"),
-		SeverityCode: aws.String("SeverityCode"),
+		CategoryCode: aws.StringPtr("CategoryCode"),
+		IssueType:    aws.StringPtr("IssueType"),
+		Language:     aws.StringPtr("Language"),
+		ServiceCode:  aws.StringPtr("ServiceCode"),
+		SeverityCode: aws.StringPtr("SeverityCode"),
 	}
 	resp, err := svc.CreateCase(params)
 
@@ -125,7 +125,7 @@ func ExampleSupport_DescribeAttachment() {
 	svc := support.New(nil)
 
 	params := &support.DescribeAttachmentInput{
-		AttachmentID: aws.String("AttachmentId"), // Required
+		AttachmentID: aws.StringPtr("AttachmentId"), // Required
 	}
 	resp, err := svc.DescribeAttachment(params)
 
@@ -152,18 +152,18 @@ func ExampleSupport_DescribeCases() {
 	svc := support.New(nil)
 
 	params := &support.DescribeCasesInput{
-		AfterTime:  aws.String("AfterTime"),
-		BeforeTime: aws.String("BeforeTime"),
+		AfterTime:  aws.StringPtr("AfterTime"),
+		BeforeTime: aws.StringPtr("BeforeTime"),
 		CaseIDList: []*string{
-			aws.String("CaseId"), // Required
+			aws.StringPtr("CaseId"), // Required
 			// More values...
 		},
-		DisplayID:             aws.String("DisplayId"),
-		IncludeCommunications: aws.Boolean(true),
-		IncludeResolvedCases:  aws.Boolean(true),
-		Language:              aws.String("Language"),
-		MaxResults:            aws.Long(1),
-		NextToken:             aws.String("NextToken"),
+		DisplayID:             aws.StringPtr("DisplayId"),
+		IncludeCommunications: aws.BoolPtr(true),
+		IncludeResolvedCases:  aws.BoolPtr(true),
+		Language:              aws.StringPtr("Language"),
+		MaxResults:            aws.Int64Ptr(1),
+		NextToken:             aws.StringPtr("NextToken"),
 	}
 	resp, err := svc.DescribeCases(params)
 
@@ -190,11 +190,11 @@ func ExampleSupport_DescribeCommunications() {
 	svc := support.New(nil)
 
 	params := &support.DescribeCommunicationsInput{
-		CaseID:     aws.String("CaseId"), // Required
-		AfterTime:  aws.String("AfterTime"),
-		BeforeTime: aws.String("BeforeTime"),
-		MaxResults: aws.Long(1),
-		NextToken:  aws.String("NextToken"),
+		CaseID:     aws.StringPtr("CaseId"), // Required
+		AfterTime:  aws.StringPtr("AfterTime"),
+		BeforeTime: aws.StringPtr("BeforeTime"),
+		MaxResults: aws.Int64Ptr(1),
+		NextToken:  aws.StringPtr("NextToken"),
 	}
 	resp, err := svc.DescribeCommunications(params)
 
@@ -221,9 +221,9 @@ func ExampleSupport_DescribeServices() {
 	svc := support.New(nil)
 
 	params := &support.DescribeServicesInput{
-		Language: aws.String("Language"),
+		Language: aws.StringPtr("Language"),
 		ServiceCodeList: []*string{
-			aws.String("ServiceCode"), // Required
+			aws.StringPtr("ServiceCode"), // Required
 			// More values...
 		},
 	}
@@ -252,7 +252,7 @@ func ExampleSupport_DescribeSeverityLevels() {
 	svc := support.New(nil)
 
 	params := &support.DescribeSeverityLevelsInput{
-		Language: aws.String("Language"),
+		Language: aws.StringPtr("Language"),
 	}
 	resp, err := svc.DescribeSeverityLevels(params)
 
@@ -280,7 +280,7 @@ func ExampleSupport_DescribeTrustedAdvisorCheckRefreshStatuses() {
 
 	params := &support.DescribeTrustedAdvisorCheckRefreshStatusesInput{
 		CheckIDs: []*string{ // Required
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
 	}
@@ -309,8 +309,8 @@ func ExampleSupport_DescribeTrustedAdvisorCheckResult() {
 	svc := support.New(nil)
 
 	params := &support.DescribeTrustedAdvisorCheckResultInput{
-		CheckID:  aws.String("String"), // Required
-		Language: aws.String("String"),
+		CheckID:  aws.StringPtr("String"), // Required
+		Language: aws.StringPtr("String"),
 	}
 	resp, err := svc.DescribeTrustedAdvisorCheckResult(params)
 
@@ -338,7 +338,7 @@ func ExampleSupport_DescribeTrustedAdvisorCheckSummaries() {
 
 	params := &support.DescribeTrustedAdvisorCheckSummariesInput{
 		CheckIDs: []*string{ // Required
-			aws.String("String"), // Required
+			aws.StringPtr("String"), // Required
 			// More values...
 		},
 	}
@@ -367,7 +367,7 @@ func ExampleSupport_DescribeTrustedAdvisorChecks() {
 	svc := support.New(nil)
 
 	params := &support.DescribeTrustedAdvisorChecksInput{
-		Language: aws.String("String"), // Required
+		Language: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.DescribeTrustedAdvisorChecks(params)
 
@@ -394,7 +394,7 @@ func ExampleSupport_RefreshTrustedAdvisorCheck() {
 	svc := support.New(nil)
 
 	params := &support.RefreshTrustedAdvisorCheckInput{
-		CheckID: aws.String("String"), // Required
+		CheckID: aws.StringPtr("String"), // Required
 	}
 	resp, err := svc.RefreshTrustedAdvisorCheck(params)
 
@@ -421,7 +421,7 @@ func ExampleSupport_ResolveCase() {
 	svc := support.New(nil)
 
 	params := &support.ResolveCaseInput{
-		CaseID: aws.String("CaseId"),
+		CaseID: aws.StringPtr("CaseId"),
 	}
 	resp, err := svc.ResolveCase(params)
 

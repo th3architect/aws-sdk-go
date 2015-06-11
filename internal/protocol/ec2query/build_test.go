@@ -647,8 +647,8 @@ func TestInputService1ProtocolTestScalarMembersCase1(t *testing.T) {
 	svc.Endpoint = "https://test"
 
 	input := &InputService1TestShapeInputShape{
-		Bar: aws.String("val2"),
-		Foo: aws.String("val1"),
+		Bar: aws.StringPtr("val2"),
+		Foo: aws.StringPtr("val1"),
 	}
 	req, _ := svc.InputService1TestCaseOperation1Request(input)
 	r := req.HTTPRequest
@@ -674,9 +674,9 @@ func TestInputService2ProtocolTestStructureWithLocationNameAndQueryNameAppliedTo
 	svc.Endpoint = "https://test"
 
 	input := &InputService2TestShapeInputShape{
-		Bar:  aws.String("val2"),
-		Foo:  aws.String("val1"),
-		Yuck: aws.String("val3"),
+		Bar:  aws.StringPtr("val2"),
+		Foo:  aws.StringPtr("val1"),
+		Yuck: aws.StringPtr("val3"),
 	}
 	req, _ := svc.InputService2TestCaseOperation1Request(input)
 	r := req.HTTPRequest
@@ -703,7 +703,7 @@ func TestInputService3ProtocolTestNestedStructureMembersCase1(t *testing.T) {
 
 	input := &InputService3TestShapeInputShape{
 		StructArg: &InputService3TestShapeStructType{
-			ScalarArg: aws.String("foo"),
+			ScalarArg: aws.StringPtr("foo"),
 		},
 	}
 	req, _ := svc.InputService3TestCaseOperation1Request(input)
@@ -731,9 +731,9 @@ func TestInputService4ProtocolTestListTypesCase1(t *testing.T) {
 
 	input := &InputService4TestShapeInputShape{
 		ListArg: []*string{
-			aws.String("foo"),
-			aws.String("bar"),
-			aws.String("baz"),
+			aws.StringPtr("foo"),
+			aws.StringPtr("bar"),
+			aws.StringPtr("baz"),
 		},
 	}
 	req, _ := svc.InputService4TestCaseOperation1Request(input)
@@ -761,9 +761,9 @@ func TestInputService5ProtocolTestListWithLocationNameAppliedToMemberCase1(t *te
 
 	input := &InputService5TestShapeInputShape{
 		ListArg: []*string{
-			aws.String("a"),
-			aws.String("b"),
-			aws.String("c"),
+			aws.StringPtr("a"),
+			aws.StringPtr("b"),
+			aws.StringPtr("c"),
 		},
 	}
 	req, _ := svc.InputService5TestCaseOperation1Request(input)
@@ -791,9 +791,9 @@ func TestInputService6ProtocolTestListWithLocationNameAndQueryNameCase1(t *testi
 
 	input := &InputService6TestShapeInputShape{
 		ListArg: []*string{
-			aws.String("a"),
-			aws.String("b"),
-			aws.String("c"),
+			aws.StringPtr("a"),
+			aws.StringPtr("b"),
+			aws.StringPtr("c"),
 		},
 	}
 	req, _ := svc.InputService6TestCaseOperation1Request(input)
@@ -846,7 +846,7 @@ func TestInputService8ProtocolTestTimestampValuesCase1(t *testing.T) {
 	svc.Endpoint = "https://test"
 
 	input := &InputService8TestShapeInputShape{
-		TimeArg: aws.Time(time.Unix(1422172800, 0)),
+		TimeArg: aws.TimePtr(time.Unix(1422172800, 0)),
 	}
 	req, _ := svc.InputService8TestCaseOperation1Request(input)
 	r := req.HTTPRequest

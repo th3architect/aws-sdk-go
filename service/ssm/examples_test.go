@@ -20,8 +20,8 @@ func ExampleSSM_CreateAssociation() {
 	svc := ssm.New(nil)
 
 	params := &ssm.CreateAssociationInput{
-		InstanceID: aws.String("InstanceId"),   // Required
-		Name:       aws.String("DocumentName"), // Required
+		InstanceID: aws.StringPtr("InstanceId"),   // Required
+		Name:       aws.StringPtr("DocumentName"), // Required
 	}
 	resp, err := svc.CreateAssociation(params)
 
@@ -50,8 +50,8 @@ func ExampleSSM_CreateAssociationBatch() {
 	params := &ssm.CreateAssociationBatchInput{
 		Entries: []*ssm.CreateAssociationBatchRequestEntry{ // Required
 			{ // Required
-				InstanceID: aws.String("InstanceId"),
-				Name:       aws.String("DocumentName"),
+				InstanceID: aws.StringPtr("InstanceId"),
+				Name:       aws.StringPtr("DocumentName"),
 			},
 			// More values...
 		},
@@ -81,8 +81,8 @@ func ExampleSSM_CreateDocument() {
 	svc := ssm.New(nil)
 
 	params := &ssm.CreateDocumentInput{
-		Content: aws.String("DocumentContent"), // Required
-		Name:    aws.String("DocumentName"),    // Required
+		Content: aws.StringPtr("DocumentContent"), // Required
+		Name:    aws.StringPtr("DocumentName"),    // Required
 	}
 	resp, err := svc.CreateDocument(params)
 
@@ -109,8 +109,8 @@ func ExampleSSM_DeleteAssociation() {
 	svc := ssm.New(nil)
 
 	params := &ssm.DeleteAssociationInput{
-		InstanceID: aws.String("InstanceId"),   // Required
-		Name:       aws.String("DocumentName"), // Required
+		InstanceID: aws.StringPtr("InstanceId"),   // Required
+		Name:       aws.StringPtr("DocumentName"), // Required
 	}
 	resp, err := svc.DeleteAssociation(params)
 
@@ -137,7 +137,7 @@ func ExampleSSM_DeleteDocument() {
 	svc := ssm.New(nil)
 
 	params := &ssm.DeleteDocumentInput{
-		Name: aws.String("DocumentName"), // Required
+		Name: aws.StringPtr("DocumentName"), // Required
 	}
 	resp, err := svc.DeleteDocument(params)
 
@@ -164,8 +164,8 @@ func ExampleSSM_DescribeAssociation() {
 	svc := ssm.New(nil)
 
 	params := &ssm.DescribeAssociationInput{
-		InstanceID: aws.String("InstanceId"),   // Required
-		Name:       aws.String("DocumentName"), // Required
+		InstanceID: aws.StringPtr("InstanceId"),   // Required
+		Name:       aws.StringPtr("DocumentName"), // Required
 	}
 	resp, err := svc.DescribeAssociation(params)
 
@@ -192,7 +192,7 @@ func ExampleSSM_DescribeDocument() {
 	svc := ssm.New(nil)
 
 	params := &ssm.DescribeDocumentInput{
-		Name: aws.String("DocumentName"), // Required
+		Name: aws.StringPtr("DocumentName"), // Required
 	}
 	resp, err := svc.DescribeDocument(params)
 
@@ -219,7 +219,7 @@ func ExampleSSM_GetDocument() {
 	svc := ssm.New(nil)
 
 	params := &ssm.GetDocumentInput{
-		Name: aws.String("DocumentName"), // Required
+		Name: aws.StringPtr("DocumentName"), // Required
 	}
 	resp, err := svc.GetDocument(params)
 
@@ -248,13 +248,13 @@ func ExampleSSM_ListAssociations() {
 	params := &ssm.ListAssociationsInput{
 		AssociationFilterList: []*ssm.AssociationFilter{ // Required
 			{ // Required
-				Key:   aws.String("AssociationFilterKey"),   // Required
-				Value: aws.String("AssociationFilterValue"), // Required
+				Key:   aws.StringPtr("AssociationFilterKey"),   // Required
+				Value: aws.StringPtr("AssociationFilterValue"), // Required
 			},
 			// More values...
 		},
-		MaxResults: aws.Long(1),
-		NextToken:  aws.String("NextToken"),
+		MaxResults: aws.Int64Ptr(1),
+		NextToken:  aws.StringPtr("NextToken"),
 	}
 	resp, err := svc.ListAssociations(params)
 
@@ -283,13 +283,13 @@ func ExampleSSM_ListDocuments() {
 	params := &ssm.ListDocumentsInput{
 		DocumentFilterList: []*ssm.DocumentFilter{
 			{ // Required
-				Key:   aws.String("DocumentFilterKey"),   // Required
-				Value: aws.String("DocumentFilterValue"), // Required
+				Key:   aws.StringPtr("DocumentFilterKey"),   // Required
+				Value: aws.StringPtr("DocumentFilterValue"), // Required
 			},
 			// More values...
 		},
-		MaxResults: aws.Long(1),
-		NextToken:  aws.String("NextToken"),
+		MaxResults: aws.Int64Ptr(1),
+		NextToken:  aws.StringPtr("NextToken"),
 	}
 	resp, err := svc.ListDocuments(params)
 
@@ -317,13 +317,13 @@ func ExampleSSM_UpdateAssociationStatus() {
 
 	params := &ssm.UpdateAssociationStatusInput{
 		AssociationStatus: &ssm.AssociationStatus{ // Required
-			Date:           aws.Time(time.Now()),                // Required
-			Message:        aws.String("StatusMessage"),         // Required
-			Name:           aws.String("AssociationStatusName"), // Required
-			AdditionalInfo: aws.String("StatusAdditionalInfo"),
+			Date:           aws.TimePtr(time.Now()),                // Required
+			Message:        aws.StringPtr("StatusMessage"),         // Required
+			Name:           aws.StringPtr("AssociationStatusName"), // Required
+			AdditionalInfo: aws.StringPtr("StatusAdditionalInfo"),
 		},
-		InstanceID: aws.String("InstanceId"),   // Required
-		Name:       aws.String("DocumentName"), // Required
+		InstanceID: aws.StringPtr("InstanceId"),   // Required
+		Name:       aws.StringPtr("DocumentName"), // Required
 	}
 	resp, err := svc.UpdateAssociationStatus(params)
 

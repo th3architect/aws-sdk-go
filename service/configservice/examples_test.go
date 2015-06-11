@@ -20,7 +20,7 @@ func ExampleConfigService_DeleteDeliveryChannel() {
 	svc := configservice.New(nil)
 
 	params := &configservice.DeleteDeliveryChannelInput{
-		DeliveryChannelName: aws.String("ChannelName"), // Required
+		DeliveryChannelName: aws.StringPtr("ChannelName"), // Required
 	}
 	resp, err := svc.DeleteDeliveryChannel(params)
 
@@ -47,7 +47,7 @@ func ExampleConfigService_DeliverConfigSnapshot() {
 	svc := configservice.New(nil)
 
 	params := &configservice.DeliverConfigSnapshotInput{
-		DeliveryChannelName: aws.String("ChannelName"), // Required
+		DeliveryChannelName: aws.StringPtr("ChannelName"), // Required
 	}
 	resp, err := svc.DeliverConfigSnapshot(params)
 
@@ -75,7 +75,7 @@ func ExampleConfigService_DescribeConfigurationRecorderStatus() {
 
 	params := &configservice.DescribeConfigurationRecorderStatusInput{
 		ConfigurationRecorderNames: []*string{
-			aws.String("RecorderName"), // Required
+			aws.StringPtr("RecorderName"), // Required
 			// More values...
 		},
 	}
@@ -105,7 +105,7 @@ func ExampleConfigService_DescribeConfigurationRecorders() {
 
 	params := &configservice.DescribeConfigurationRecordersInput{
 		ConfigurationRecorderNames: []*string{
-			aws.String("RecorderName"), // Required
+			aws.StringPtr("RecorderName"), // Required
 			// More values...
 		},
 	}
@@ -135,7 +135,7 @@ func ExampleConfigService_DescribeDeliveryChannelStatus() {
 
 	params := &configservice.DescribeDeliveryChannelStatusInput{
 		DeliveryChannelNames: []*string{
-			aws.String("ChannelName"), // Required
+			aws.StringPtr("ChannelName"), // Required
 			// More values...
 		},
 	}
@@ -165,7 +165,7 @@ func ExampleConfigService_DescribeDeliveryChannels() {
 
 	params := &configservice.DescribeDeliveryChannelsInput{
 		DeliveryChannelNames: []*string{
-			aws.String("ChannelName"), // Required
+			aws.StringPtr("ChannelName"), // Required
 			// More values...
 		},
 	}
@@ -194,13 +194,13 @@ func ExampleConfigService_GetResourceConfigHistory() {
 	svc := configservice.New(nil)
 
 	params := &configservice.GetResourceConfigHistoryInput{
-		ResourceID:         aws.String("ResourceId"),   // Required
-		ResourceType:       aws.String("ResourceType"), // Required
-		ChronologicalOrder: aws.String("ChronologicalOrder"),
-		EarlierTime:        aws.Time(time.Now()),
-		LaterTime:          aws.Time(time.Now()),
-		Limit:              aws.Long(1),
-		NextToken:          aws.String("NextToken"),
+		ResourceID:         aws.StringPtr("ResourceId"),   // Required
+		ResourceType:       aws.StringPtr("ResourceType"), // Required
+		ChronologicalOrder: aws.StringPtr("ChronologicalOrder"),
+		EarlierTime:        aws.TimePtr(time.Now()),
+		LaterTime:          aws.TimePtr(time.Now()),
+		Limit:              aws.Int64Ptr(1),
+		NextToken:          aws.StringPtr("NextToken"),
 	}
 	resp, err := svc.GetResourceConfigHistory(params)
 
@@ -228,15 +228,15 @@ func ExampleConfigService_PutConfigurationRecorder() {
 
 	params := &configservice.PutConfigurationRecorderInput{
 		ConfigurationRecorder: &configservice.ConfigurationRecorder{ // Required
-			Name: aws.String("RecorderName"),
+			Name: aws.StringPtr("RecorderName"),
 			RecordingGroup: &configservice.RecordingGroup{
-				AllSupported: aws.Boolean(true),
+				AllSupported: aws.BoolPtr(true),
 				ResourceTypes: []*string{
-					aws.String("ResourceType"), // Required
+					aws.StringPtr("ResourceType"), // Required
 					// More values...
 				},
 			},
-			RoleARN: aws.String("String"),
+			RoleARN: aws.StringPtr("String"),
 		},
 	}
 	resp, err := svc.PutConfigurationRecorder(params)
@@ -265,10 +265,10 @@ func ExampleConfigService_PutDeliveryChannel() {
 
 	params := &configservice.PutDeliveryChannelInput{
 		DeliveryChannel: &configservice.DeliveryChannel{ // Required
-			Name:         aws.String("ChannelName"),
-			S3BucketName: aws.String("String"),
-			S3KeyPrefix:  aws.String("String"),
-			SNSTopicARN:  aws.String("String"),
+			Name:         aws.StringPtr("ChannelName"),
+			S3BucketName: aws.StringPtr("String"),
+			S3KeyPrefix:  aws.StringPtr("String"),
+			SNSTopicARN:  aws.StringPtr("String"),
 		},
 	}
 	resp, err := svc.PutDeliveryChannel(params)
@@ -296,7 +296,7 @@ func ExampleConfigService_StartConfigurationRecorder() {
 	svc := configservice.New(nil)
 
 	params := &configservice.StartConfigurationRecorderInput{
-		ConfigurationRecorderName: aws.String("RecorderName"), // Required
+		ConfigurationRecorderName: aws.StringPtr("RecorderName"), // Required
 	}
 	resp, err := svc.StartConfigurationRecorder(params)
 
@@ -323,7 +323,7 @@ func ExampleConfigService_StopConfigurationRecorder() {
 	svc := configservice.New(nil)
 
 	params := &configservice.StopConfigurationRecorderInput{
-		ConfigurationRecorderName: aws.String("RecorderName"), // Required
+		ConfigurationRecorderName: aws.StringPtr("RecorderName"), // Required
 	}
 	resp, err := svc.StopConfigurationRecorder(params)
 

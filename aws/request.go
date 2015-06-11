@@ -29,7 +29,7 @@ type Request struct {
 	Data         interface{}
 	RequestID    string
 	RetryCount   uint
-	Retryable    SettableBool
+	Retryable    Bool
 	RetryDelay   time.Duration
 
 	built bool

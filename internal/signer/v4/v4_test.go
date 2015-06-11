@@ -143,7 +143,7 @@ func TestIgnoreResignRequestWithValidCreds(t *testing.T) {
 	r := aws.NewRequest(
 		aws.NewService(&aws.Config{
 			Credentials: credentials.NewStaticCredentials("AKID", "SECRET", "SESSION"),
-			Region:      "us-west-2",
+			Region:      aws.NewString("us-west-2"),
 		}),
 		&aws.Operation{
 			Name:       "BatchGetItem",
@@ -165,7 +165,7 @@ func TestIgnorePreResignRequestWithValidCreds(t *testing.T) {
 	r := aws.NewRequest(
 		aws.NewService(&aws.Config{
 			Credentials: credentials.NewStaticCredentials("AKID", "SECRET", "SESSION"),
-			Region:      "us-west-2",
+			Region:      aws.NewString("us-west-2"),
 		}),
 		&aws.Operation{
 			Name:       "BatchGetItem",

@@ -29,7 +29,7 @@ var (
 
 func TestCustomizations(t *testing.T) {
 	req, _ := svc.UploadArchiveRequest(&glacier.UploadArchiveInput{
-		VaultName: aws.String("vault"),
+		VaultName: aws.StringPtr("vault"),
 		Body:      payloadBuf,
 	})
 	err := req.Build()
@@ -51,9 +51,9 @@ func TestCustomizations(t *testing.T) {
 
 func TestShortcircuitTreehash(t *testing.T) {
 	req, _ := svc.UploadArchiveRequest(&glacier.UploadArchiveInput{
-		VaultName: aws.String("vault"),
+		VaultName: aws.StringPtr("vault"),
 		Body:      payloadBuf,
-		Checksum:  aws.String("000"),
+		Checksum:  aws.StringPtr("000"),
 	})
 	err := req.Build()
 	assert.NoError(t, err)

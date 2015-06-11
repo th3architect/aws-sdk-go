@@ -6,29 +6,88 @@ import (
 	"time"
 )
 
-// String converts a Go string into a string pointer.
-func String(v string) *string {
+// StringPtr returns a pointer of the string value passed in.
+func StringPtr(v string) *string {
 	return &v
 }
 
-// Boolean converts a Go bool into a boolean pointer.
-func Boolean(v bool) *bool {
+// StringPtrValue returns the value of the string pointer passed in or empty
+// string if the pointer is nil.
+func StringPtrValue(a *string) string {
+	if a != nil {
+		return *a
+	}
+	return ""
+}
+
+// BoolPtr returns a pointer of the bool value passed in.
+func BoolPtr(v bool) *bool {
 	return &v
 }
 
-// Long converts a Go int64 into a long pointer.
-func Long(v int64) *int64 {
+// BoolPtrValue returns the value of the bool pointer passed in or false if the
+// pointer is nil.
+func BoolPtrValue(a *bool) bool {
+	if a != nil {
+		return *a
+	}
+	return false
+}
+
+// IntPtr returns a pointer of the int value passed in.
+func IntPtr(v int) *int {
 	return &v
 }
 
-// Double converts a Go float64 into a double pointer.
-func Double(v float64) *float64 {
+// IntPtrValue returns the value of the int pointer passed in or zero if the
+// pointer is nil.
+func IntPtrValue(a *int) int {
+	if a != nil {
+		return *a
+	}
+	return 0
+}
+
+// Int64Ptr returns a pointer of the int64 value passed in.
+func Int64Ptr(v int64) *int64 {
 	return &v
 }
 
-// Time converts a Go Time into a Time pointer
-func Time(t time.Time) *time.Time {
+// Int64PtrValue returns the value of the int64 pointer passed in or zero if the
+// pointer is nil.
+func Int64PtrValue(a *int64) int64 {
+	if a != nil {
+		return *a
+	}
+	return 0
+}
+
+// Float64Ptr returns a pointer of the float64 value passed in.
+func Float64Ptr(v float64) *float64 {
+	return &v
+}
+
+// Float64PtrValue returns the value of the float64 pointer passed in or zero if the
+// pointer is nil.
+func Float64PtrValue(a *float64) float64 {
+	if a != nil {
+		return *a
+	}
+	return 0
+}
+
+// TimePtr returns a pointer of the Time value passed in.
+func TimePtr(t time.Time) *time.Time {
 	return &t
+}
+
+// TimePtrValue returns the value of the float64 pointer passed in or zero
+// time if the pointer is nil.
+func TimePtrValue(a *time.Time) time.Time {
+	if a != nil {
+		return *a
+	}
+	return time.Time{}
 }
 
 // ReadSeekCloser wraps a io.Reader returning a ReaderSeakerCloser
@@ -81,51 +140,175 @@ func (r ReaderSeekerCloser) Close() error {
 	return nil
 }
 
-// A SettableBool provides a boolean value which includes the state if
-// the value was set or unset.  The set state is in addition to the value's
-// value(true|false)
-type SettableBool struct {
+// A setState provides accessor methods for the set vs unset state.
+type setState bool
+
+// IsSet returns the set state.
+func (s setState) IsSet() bool {
+	return bool(s)
+}
+
+// Reset resets the set state to not set.
+func (s *setState) Reset() {
+	*s = false
+}
+
+// String returns the string value of the setState.
+func (s setState) String() string {
+	return fmt.Sprintf("%t", s)
+}
+
+// A String represents the wrapped Go string and also will maintain the state
+// if the value was set or not.
+type String struct {
+	setState
+	value string
+}
+
+// NewString returns a String initialized to the passed in value, and its state set.
+func NewString(value string) String {
+	return String{value: value, setState: true}
+}
+
+// Set sets the string value and updates the wrapper to be set.
+func (s *String) Set(value string) {
+	s.value = value
+	s.setState = true
+}
+
+// Get returns the string value, or empty string if no value was set.
+func (s String) Get() string {
+	if !s.setState {
+		return ""
+	}
+	return s.value
+}
+
+// String returns the string value. See String.Get()
+func (s String) String() string {
+	return s.Get()
+}
+
+// A Bool represents the wrapped Go bool and also will maintain the state
+// if the value was set or not.
+type Bool struct {
+	setState
 	value bool
-	set   bool
 }
 
-// SetBool returns a SettableBool with a value set
-func SetBool(value bool) SettableBool {
-	return SettableBool{value: value, set: true}
+// NewBool returns a Bool initialized to the passed in value, and its state set.
+func NewBool(value bool) Bool {
+	return Bool{value: value, setState: true}
 }
 
-// Get returns the value. Will always be false if the SettableBool was not set.
-func (b *SettableBool) Get() bool {
-	if !b.set {
+// Set sets the bool value and updates the wrapper to be set.
+func (b *Bool) Set(value bool) {
+	b.value = value
+	b.setState = true
+}
+
+// Get returns the bool value, or false if no value was set.
+func (b Bool) Get() bool {
+	if !b.setState {
 		return false
 	}
 	return b.value
 }
 
-// Set sets the value and updates the state that the value has been set.
-func (b *SettableBool) Set(value bool) {
-	b.value = value
-	b.set = true
-}
-
-// IsSet returns if the value has been set
-func (b *SettableBool) IsSet() bool {
-	return b.set
-}
-
-// Reset resets the state and value of the SettableBool to its initial default
-// state of not set and zero value.
-func (b *SettableBool) Reset() {
-	b.value = false
-	b.set = false
-}
-
-// String returns the string representation of the value if set. Zero if not set.
-func (b *SettableBool) String() string {
+// String returns the string form of the bool value. See Bool.Get()
+func (b Bool) String() string {
 	return fmt.Sprintf("%t", b.Get())
 }
 
-// GoString returns the string representation of the SettableBool value and state
-func (b *SettableBool) GoString() string {
-	return fmt.Sprintf("Bool{value:%t, set:%t}", b.value, b.set)
+// An Int represents the wrapped Go int and also will maintain the state
+// if the value was set or not.
+type Int struct {
+	setState
+	value int
+}
+
+// NewInt returns a Int initialized to the passed in value, and its state set.
+func NewInt(value int) Int {
+	return Int{value: value, setState: true}
+}
+
+// Set sets the int value and updates the wrapper to be set.
+func (i *Int) Set(value int) {
+	i.value = value
+	i.setState = true
+}
+
+// Get returns the int value, or zero if no value was set.
+func (i Int) Get() int {
+	if !i.setState {
+		return 0
+	}
+	return i.value
+}
+
+// String returns the string form of the int value. See Int.Get()
+func (i Int) String() string {
+	return fmt.Sprintf("%d", i.Get())
+}
+
+// An Int64 represents the wrapped Go int64 and also will maintain the state
+// if the value was set or not.
+type Int64 struct {
+	setState
+	value int64
+}
+
+// NewInt64 returns a Int64 initialized to the passed in value, and its state set.
+func NewInt64(value int64) Int64 {
+	return Int64{value: value, setState: true}
+}
+
+// Set sets the int64 value and updates the wrapper to be set.
+func (i *Int64) Set(value int64) {
+	i.value = value
+	i.setState = true
+}
+
+// Get returns the int64 value, or zero if no value was set.
+func (i Int64) Get() int64 {
+	if !i.setState {
+		return 0
+	}
+	return i.value
+}
+
+// String returns the string form of the int64 value. See Int64.Get()
+func (i Int64) String() string {
+	return fmt.Sprintf("%d", i.Get())
+}
+
+// A Float64 represents the wrapped Go float64 and also will maintain the state
+// if the value was set or not.
+type Float64 struct {
+	setState
+	value float64
+}
+
+// NewFloat64 returns a Float64 initialized to the passed in value, and its state set.
+func NewFloat64(value float64) Float64 {
+	return Float64{value: value, setState: true}
+}
+
+// Set sets the float64 value and updates the wrapper to be set.
+func (f *Float64) Set(value float64) {
+	f.value = value
+	f.setState = true
+}
+
+// Get returns the float64 value, or zero if no value was set.
+func (f Float64) Get() float64 {
+	if !f.setState {
+		return 0
+	}
+	return f.value
+}
+
+// String returns the string form of the float64 value. See Float64.Get()
+func (f Float64) String() string {
+	return fmt.Sprintf("%f", f.Get())
 }

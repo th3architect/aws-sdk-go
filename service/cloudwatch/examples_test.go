@@ -21,7 +21,7 @@ func ExampleCloudWatch_DeleteAlarms() {
 
 	params := &cloudwatch.DeleteAlarmsInput{
 		AlarmNames: []*string{ // Required
-			aws.String("AlarmName"), // Required
+			aws.StringPtr("AlarmName"), // Required
 			// More values...
 		},
 	}
@@ -50,12 +50,12 @@ func ExampleCloudWatch_DescribeAlarmHistory() {
 	svc := cloudwatch.New(nil)
 
 	params := &cloudwatch.DescribeAlarmHistoryInput{
-		AlarmName:       aws.String("AlarmName"),
-		EndDate:         aws.Time(time.Now()),
-		HistoryItemType: aws.String("HistoryItemType"),
-		MaxRecords:      aws.Long(1),
-		NextToken:       aws.String("NextToken"),
-		StartDate:       aws.Time(time.Now()),
+		AlarmName:       aws.StringPtr("AlarmName"),
+		EndDate:         aws.TimePtr(time.Now()),
+		HistoryItemType: aws.StringPtr("HistoryItemType"),
+		MaxRecords:      aws.Int64Ptr(1),
+		NextToken:       aws.StringPtr("NextToken"),
+		StartDate:       aws.TimePtr(time.Now()),
 	}
 	resp, err := svc.DescribeAlarmHistory(params)
 
@@ -82,15 +82,15 @@ func ExampleCloudWatch_DescribeAlarms() {
 	svc := cloudwatch.New(nil)
 
 	params := &cloudwatch.DescribeAlarmsInput{
-		ActionPrefix:    aws.String("ActionPrefix"),
-		AlarmNamePrefix: aws.String("AlarmNamePrefix"),
+		ActionPrefix:    aws.StringPtr("ActionPrefix"),
+		AlarmNamePrefix: aws.StringPtr("AlarmNamePrefix"),
 		AlarmNames: []*string{
-			aws.String("AlarmName"), // Required
+			aws.StringPtr("AlarmName"), // Required
 			// More values...
 		},
-		MaxRecords: aws.Long(1),
-		NextToken:  aws.String("NextToken"),
-		StateValue: aws.String("StateValue"),
+		MaxRecords: aws.Int64Ptr(1),
+		NextToken:  aws.StringPtr("NextToken"),
+		StateValue: aws.StringPtr("StateValue"),
 	}
 	resp, err := svc.DescribeAlarms(params)
 
@@ -117,18 +117,18 @@ func ExampleCloudWatch_DescribeAlarmsForMetric() {
 	svc := cloudwatch.New(nil)
 
 	params := &cloudwatch.DescribeAlarmsForMetricInput{
-		MetricName: aws.String("MetricName"), // Required
-		Namespace:  aws.String("Namespace"),  // Required
+		MetricName: aws.StringPtr("MetricName"), // Required
+		Namespace:  aws.StringPtr("Namespace"),  // Required
 		Dimensions: []*cloudwatch.Dimension{
 			{ // Required
-				Name:  aws.String("DimensionName"),  // Required
-				Value: aws.String("DimensionValue"), // Required
+				Name:  aws.StringPtr("DimensionName"),  // Required
+				Value: aws.StringPtr("DimensionValue"), // Required
 			},
 			// More values...
 		},
-		Period:    aws.Long(1),
-		Statistic: aws.String("Statistic"),
-		Unit:      aws.String("StandardUnit"),
+		Period:    aws.Int64Ptr(1),
+		Statistic: aws.StringPtr("Statistic"),
+		Unit:      aws.StringPtr("StandardUnit"),
 	}
 	resp, err := svc.DescribeAlarmsForMetric(params)
 
@@ -156,7 +156,7 @@ func ExampleCloudWatch_DisableAlarmActions() {
 
 	params := &cloudwatch.DisableAlarmActionsInput{
 		AlarmNames: []*string{ // Required
-			aws.String("AlarmName"), // Required
+			aws.StringPtr("AlarmName"), // Required
 			// More values...
 		},
 	}
@@ -186,7 +186,7 @@ func ExampleCloudWatch_EnableAlarmActions() {
 
 	params := &cloudwatch.EnableAlarmActionsInput{
 		AlarmNames: []*string{ // Required
-			aws.String("AlarmName"), // Required
+			aws.StringPtr("AlarmName"), // Required
 			// More values...
 		},
 	}
@@ -215,23 +215,23 @@ func ExampleCloudWatch_GetMetricStatistics() {
 	svc := cloudwatch.New(nil)
 
 	params := &cloudwatch.GetMetricStatisticsInput{
-		EndTime:    aws.Time(time.Now()),     // Required
-		MetricName: aws.String("MetricName"), // Required
-		Namespace:  aws.String("Namespace"),  // Required
-		Period:     aws.Long(1),              // Required
-		StartTime:  aws.Time(time.Now()),     // Required
+		EndTime:    aws.TimePtr(time.Now()),     // Required
+		MetricName: aws.StringPtr("MetricName"), // Required
+		Namespace:  aws.StringPtr("Namespace"),  // Required
+		Period:     aws.Int64Ptr(1),             // Required
+		StartTime:  aws.TimePtr(time.Now()),     // Required
 		Statistics: []*string{ // Required
-			aws.String("Statistic"), // Required
+			aws.StringPtr("Statistic"), // Required
 			// More values...
 		},
 		Dimensions: []*cloudwatch.Dimension{
 			{ // Required
-				Name:  aws.String("DimensionName"),  // Required
-				Value: aws.String("DimensionValue"), // Required
+				Name:  aws.StringPtr("DimensionName"),  // Required
+				Value: aws.StringPtr("DimensionValue"), // Required
 			},
 			// More values...
 		},
-		Unit: aws.String("StandardUnit"),
+		Unit: aws.StringPtr("StandardUnit"),
 	}
 	resp, err := svc.GetMetricStatistics(params)
 
@@ -260,14 +260,14 @@ func ExampleCloudWatch_ListMetrics() {
 	params := &cloudwatch.ListMetricsInput{
 		Dimensions: []*cloudwatch.DimensionFilter{
 			{ // Required
-				Name:  aws.String("DimensionName"), // Required
-				Value: aws.String("DimensionValue"),
+				Name:  aws.StringPtr("DimensionName"), // Required
+				Value: aws.StringPtr("DimensionValue"),
 			},
 			// More values...
 		},
-		MetricName: aws.String("MetricName"),
-		Namespace:  aws.String("Namespace"),
-		NextToken:  aws.String("NextToken"),
+		MetricName: aws.StringPtr("MetricName"),
+		Namespace:  aws.StringPtr("Namespace"),
+		NextToken:  aws.StringPtr("NextToken"),
 	}
 	resp, err := svc.ListMetrics(params)
 
@@ -294,36 +294,36 @@ func ExampleCloudWatch_PutMetricAlarm() {
 	svc := cloudwatch.New(nil)
 
 	params := &cloudwatch.PutMetricAlarmInput{
-		AlarmName:          aws.String("AlarmName"),          // Required
-		ComparisonOperator: aws.String("ComparisonOperator"), // Required
-		EvaluationPeriods:  aws.Long(1),                      // Required
-		MetricName:         aws.String("MetricName"),         // Required
-		Namespace:          aws.String("Namespace"),          // Required
-		Period:             aws.Long(1),                      // Required
-		Statistic:          aws.String("Statistic"),          // Required
-		Threshold:          aws.Double(1.0),                  // Required
-		ActionsEnabled:     aws.Boolean(true),
+		AlarmName:          aws.StringPtr("AlarmName"),          // Required
+		ComparisonOperator: aws.StringPtr("ComparisonOperator"), // Required
+		EvaluationPeriods:  aws.Int64Ptr(1),                     // Required
+		MetricName:         aws.StringPtr("MetricName"),         // Required
+		Namespace:          aws.StringPtr("Namespace"),          // Required
+		Period:             aws.Int64Ptr(1),                     // Required
+		Statistic:          aws.StringPtr("Statistic"),          // Required
+		Threshold:          aws.Float64Ptr(1.0),                 // Required
+		ActionsEnabled:     aws.BoolPtr(true),
 		AlarmActions: []*string{
-			aws.String("ResourceName"), // Required
+			aws.StringPtr("ResourceName"), // Required
 			// More values...
 		},
-		AlarmDescription: aws.String("AlarmDescription"),
+		AlarmDescription: aws.StringPtr("AlarmDescription"),
 		Dimensions: []*cloudwatch.Dimension{
 			{ // Required
-				Name:  aws.String("DimensionName"),  // Required
-				Value: aws.String("DimensionValue"), // Required
+				Name:  aws.StringPtr("DimensionName"),  // Required
+				Value: aws.StringPtr("DimensionValue"), // Required
 			},
 			// More values...
 		},
 		InsufficientDataActions: []*string{
-			aws.String("ResourceName"), // Required
+			aws.StringPtr("ResourceName"), // Required
 			// More values...
 		},
 		OKActions: []*string{
-			aws.String("ResourceName"), // Required
+			aws.StringPtr("ResourceName"), // Required
 			// More values...
 		},
-		Unit: aws.String("StandardUnit"),
+		Unit: aws.StringPtr("StandardUnit"),
 	}
 	resp, err := svc.PutMetricAlarm(params)
 
@@ -352,27 +352,27 @@ func ExampleCloudWatch_PutMetricData() {
 	params := &cloudwatch.PutMetricDataInput{
 		MetricData: []*cloudwatch.MetricDatum{ // Required
 			{ // Required
-				MetricName: aws.String("MetricName"), // Required
+				MetricName: aws.StringPtr("MetricName"), // Required
 				Dimensions: []*cloudwatch.Dimension{
 					{ // Required
-						Name:  aws.String("DimensionName"),  // Required
-						Value: aws.String("DimensionValue"), // Required
+						Name:  aws.StringPtr("DimensionName"),  // Required
+						Value: aws.StringPtr("DimensionValue"), // Required
 					},
 					// More values...
 				},
 				StatisticValues: &cloudwatch.StatisticSet{
-					Maximum:     aws.Double(1.0), // Required
-					Minimum:     aws.Double(1.0), // Required
-					SampleCount: aws.Double(1.0), // Required
-					Sum:         aws.Double(1.0), // Required
+					Maximum:     aws.Float64Ptr(1.0), // Required
+					Minimum:     aws.Float64Ptr(1.0), // Required
+					SampleCount: aws.Float64Ptr(1.0), // Required
+					Sum:         aws.Float64Ptr(1.0), // Required
 				},
-				Timestamp: aws.Time(time.Now()),
-				Unit:      aws.String("StandardUnit"),
-				Value:     aws.Double(1.0),
+				Timestamp: aws.TimePtr(time.Now()),
+				Unit:      aws.StringPtr("StandardUnit"),
+				Value:     aws.Float64Ptr(1.0),
 			},
 			// More values...
 		},
-		Namespace: aws.String("Namespace"), // Required
+		Namespace: aws.StringPtr("Namespace"), // Required
 	}
 	resp, err := svc.PutMetricData(params)
 
@@ -399,10 +399,10 @@ func ExampleCloudWatch_SetAlarmState() {
 	svc := cloudwatch.New(nil)
 
 	params := &cloudwatch.SetAlarmStateInput{
-		AlarmName:       aws.String("AlarmName"),   // Required
-		StateReason:     aws.String("StateReason"), // Required
-		StateValue:      aws.String("StateValue"),  // Required
-		StateReasonData: aws.String("StateReasonData"),
+		AlarmName:       aws.StringPtr("AlarmName"),   // Required
+		StateReason:     aws.StringPtr("StateReason"), // Required
+		StateValue:      aws.StringPtr("StateValue"),  // Required
+		StateReasonData: aws.StringPtr("StateReasonData"),
 	}
 	resp, err := svc.SetAlarmState(params)
 

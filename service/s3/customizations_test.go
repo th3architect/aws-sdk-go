@@ -27,10 +27,10 @@ func assertMD5(t *testing.T, req *aws.Request) {
 func TestMD5InPutBucketCORS(t *testing.T) {
 	svc := s3.New(nil)
 	req, _ := svc.PutBucketCORSRequest(&s3.PutBucketCORSInput{
-		Bucket: aws.String("bucketname"),
+		Bucket: aws.StringPtr("bucketname"),
 		CORSConfiguration: &s3.CORSConfiguration{
 			CORSRules: []*s3.CORSRule{
-				{AllowedMethods: []*string{aws.String("GET")}},
+				{AllowedMethods: []*string{aws.StringPtr("GET")}},
 			},
 		},
 	})
@@ -40,13 +40,13 @@ func TestMD5InPutBucketCORS(t *testing.T) {
 func TestMD5InPutBucketLifecycle(t *testing.T) {
 	svc := s3.New(nil)
 	req, _ := svc.PutBucketLifecycleRequest(&s3.PutBucketLifecycleInput{
-		Bucket: aws.String("bucketname"),
+		Bucket: aws.StringPtr("bucketname"),
 		LifecycleConfiguration: &s3.LifecycleConfiguration{
 			Rules: []*s3.LifecycleRule{
 				{
-					ID:     aws.String("ID"),
-					Prefix: aws.String("Prefix"),
-					Status: aws.String("Enabled"),
+					ID:     aws.StringPtr("ID"),
+					Prefix: aws.StringPtr("Prefix"),
+					Status: aws.StringPtr("Enabled"),
 				},
 			},
 		},
@@ -57,8 +57,8 @@ func TestMD5InPutBucketLifecycle(t *testing.T) {
 func TestMD5InPutBucketPolicy(t *testing.T) {
 	svc := s3.New(nil)
 	req, _ := svc.PutBucketPolicyRequest(&s3.PutBucketPolicyInput{
-		Bucket: aws.String("bucketname"),
-		Policy: aws.String("{}"),
+		Bucket: aws.StringPtr("bucketname"),
+		Policy: aws.StringPtr("{}"),
 	})
 	assertMD5(t, req)
 }
@@ -66,10 +66,10 @@ func TestMD5InPutBucketPolicy(t *testing.T) {
 func TestMD5InPutBucketTagging(t *testing.T) {
 	svc := s3.New(nil)
 	req, _ := svc.PutBucketTaggingRequest(&s3.PutBucketTaggingInput{
-		Bucket: aws.String("bucketname"),
+		Bucket: aws.StringPtr("bucketname"),
 		Tagging: &s3.Tagging{
 			TagSet: []*s3.Tag{
-				{Key: aws.String("KEY"), Value: aws.String("VALUE")},
+				{Key: aws.StringPtr("KEY"), Value: aws.StringPtr("VALUE")},
 			},
 		},
 	})
@@ -79,10 +79,10 @@ func TestMD5InPutBucketTagging(t *testing.T) {
 func TestMD5InDeleteObjects(t *testing.T) {
 	svc := s3.New(nil)
 	req, _ := svc.DeleteObjectsRequest(&s3.DeleteObjectsInput{
-		Bucket: aws.String("bucketname"),
+		Bucket: aws.StringPtr("bucketname"),
 		Delete: &s3.Delete{
 			Objects: []*s3.ObjectIdentifier{
-				{Key: aws.String("key")},
+				{Key: aws.StringPtr("key")},
 			},
 		},
 	})

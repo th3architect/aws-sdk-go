@@ -20,30 +20,30 @@ func ExampleMobileAnalytics_PutEvents() {
 	svc := mobileanalytics.New(nil)
 
 	params := &mobileanalytics.PutEventsInput{
-		ClientContext: aws.String("String"), // Required
+		ClientContext: aws.StringPtr("String"), // Required
 		Events: []*mobileanalytics.Event{ // Required
 			{ // Required
-				EventType: aws.String("String50Chars"),    // Required
-				Timestamp: aws.String("ISO8601Timestamp"), // Required
+				EventType: aws.StringPtr("String50Chars"),    // Required
+				Timestamp: aws.StringPtr("ISO8601Timestamp"), // Required
 				Attributes: map[string]*string{
-					"Key": aws.String("String0to1000Chars"), // Required
+					"Key": aws.StringPtr("String0to1000Chars"), // Required
 					// More values...
 				},
 				Metrics: map[string]*float64{
-					"Key": aws.Double(1.0), // Required
+					"Key": aws.Float64Ptr(1.0), // Required
 					// More values...
 				},
 				Session: &mobileanalytics.Session{
-					Duration:       aws.Long(1),
-					ID:             aws.String("String50Chars"),
-					StartTimestamp: aws.String("ISO8601Timestamp"),
-					StopTimestamp:  aws.String("ISO8601Timestamp"),
+					Duration:       aws.Int64Ptr(1),
+					ID:             aws.StringPtr("String50Chars"),
+					StartTimestamp: aws.StringPtr("ISO8601Timestamp"),
+					StopTimestamp:  aws.StringPtr("ISO8601Timestamp"),
 				},
-				Version: aws.String("String10Chars"),
+				Version: aws.StringPtr("String10Chars"),
 			},
 			// More values...
 		},
-		ClientContextEncoding: aws.String("String"),
+		ClientContextEncoding: aws.StringPtr("String"),
 	}
 	resp, err := svc.PutEvents(params)
 

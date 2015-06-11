@@ -145,7 +145,7 @@ var (
 // appropriate Region and Endpoint set. Will set r.Error if the endpoint or
 // region is not valid.
 func ValidateEndpointHandler(r *Request) {
-	if r.Service.SigningRegion == "" && r.Service.Config.Region == "" {
+	if r.Service.SigningRegion == "" && r.Service.Config.Region.Get() == "" {
 		r.Error = ErrMissingRegion
 	} else if r.Service.Endpoint == "" {
 		r.Error = ErrMissingEndpoint

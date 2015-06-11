@@ -16,10 +16,10 @@ var _ = unit.Imported
 func TestPresignHandler(t *testing.T) {
 	svc := s3.New(nil)
 	req, _ := svc.PutObjectRequest(&s3.PutObjectInput{
-		Bucket:             aws.String("bucket"),
-		Key:                aws.String("key"),
-		ContentDisposition: aws.String("a+b c$d"),
-		ACL:                aws.String("public-read"),
+		Bucket:             aws.StringPtr("bucket"),
+		Key:                aws.StringPtr("key"),
+		ContentDisposition: aws.StringPtr("a+b c$d"),
+		ACL:                aws.StringPtr("public-read"),
 	})
 	req.Time = time.Unix(0, 0)
 	urlstr, err := req.Presign(5 * time.Minute)

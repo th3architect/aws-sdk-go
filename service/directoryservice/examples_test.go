@@ -22,21 +22,21 @@ func ExampleDirectoryService_ConnectDirectory() {
 	params := &directoryservice.ConnectDirectoryInput{
 		ConnectSettings: &directoryservice.DirectoryConnectSettings{ // Required
 			CustomerDNSIPs: []*string{ // Required
-				aws.String("IpAddr"), // Required
+				aws.StringPtr("IpAddr"), // Required
 				// More values...
 			},
-			CustomerUserName: aws.String("UserName"), // Required
+			CustomerUserName: aws.StringPtr("UserName"), // Required
 			SubnetIDs: []*string{ // Required
-				aws.String("SubnetId"), // Required
+				aws.StringPtr("SubnetId"), // Required
 				// More values...
 			},
-			VPCID: aws.String("VpcId"), // Required
+			VPCID: aws.StringPtr("VpcId"), // Required
 		},
-		Name:        aws.String("DirectoryName"),   // Required
-		Password:    aws.String("ConnectPassword"), // Required
-		Size:        aws.String("DirectorySize"),   // Required
-		Description: aws.String("Description"),
-		ShortName:   aws.String("DirectoryShortName"),
+		Name:        aws.StringPtr("DirectoryName"),   // Required
+		Password:    aws.StringPtr("ConnectPassword"), // Required
+		Size:        aws.StringPtr("DirectorySize"),   // Required
+		Description: aws.StringPtr("Description"),
+		ShortName:   aws.StringPtr("DirectoryShortName"),
 	}
 	resp, err := svc.ConnectDirectory(params)
 
@@ -63,8 +63,8 @@ func ExampleDirectoryService_CreateAlias() {
 	svc := directoryservice.New(nil)
 
 	params := &directoryservice.CreateAliasInput{
-		Alias:       aws.String("AliasName"),   // Required
-		DirectoryID: aws.String("DirectoryId"), // Required
+		Alias:       aws.StringPtr("AliasName"),   // Required
+		DirectoryID: aws.StringPtr("DirectoryId"), // Required
 	}
 	resp, err := svc.CreateAlias(params)
 
@@ -91,17 +91,17 @@ func ExampleDirectoryService_CreateComputer() {
 	svc := directoryservice.New(nil)
 
 	params := &directoryservice.CreateComputerInput{
-		ComputerName: aws.String("ComputerName"),     // Required
-		DirectoryID:  aws.String("DirectoryId"),      // Required
-		Password:     aws.String("ComputerPassword"), // Required
+		ComputerName: aws.StringPtr("ComputerName"),     // Required
+		DirectoryID:  aws.StringPtr("DirectoryId"),      // Required
+		Password:     aws.StringPtr("ComputerPassword"), // Required
 		ComputerAttributes: []*directoryservice.Attribute{
 			{ // Required
-				Name:  aws.String("AttributeName"),
-				Value: aws.String("AttributeValue"),
+				Name:  aws.StringPtr("AttributeName"),
+				Value: aws.StringPtr("AttributeValue"),
 			},
 			// More values...
 		},
-		OrganizationalUnitDistinguishedName: aws.String("OrganizationalUnitDN"),
+		OrganizationalUnitDistinguishedName: aws.StringPtr("OrganizationalUnitDN"),
 	}
 	resp, err := svc.CreateComputer(params)
 
@@ -128,17 +128,17 @@ func ExampleDirectoryService_CreateDirectory() {
 	svc := directoryservice.New(nil)
 
 	params := &directoryservice.CreateDirectoryInput{
-		Name:        aws.String("DirectoryName"), // Required
-		Password:    aws.String("Password"),      // Required
-		Size:        aws.String("DirectorySize"), // Required
-		Description: aws.String("Description"),
-		ShortName:   aws.String("DirectoryShortName"),
+		Name:        aws.StringPtr("DirectoryName"), // Required
+		Password:    aws.StringPtr("Password"),      // Required
+		Size:        aws.StringPtr("DirectorySize"), // Required
+		Description: aws.StringPtr("Description"),
+		ShortName:   aws.StringPtr("DirectoryShortName"),
 		VPCSettings: &directoryservice.DirectoryVPCSettings{
 			SubnetIDs: []*string{ // Required
-				aws.String("SubnetId"), // Required
+				aws.StringPtr("SubnetId"), // Required
 				// More values...
 			},
-			VPCID: aws.String("VpcId"), // Required
+			VPCID: aws.StringPtr("VpcId"), // Required
 		},
 	}
 	resp, err := svc.CreateDirectory(params)
@@ -166,8 +166,8 @@ func ExampleDirectoryService_CreateSnapshot() {
 	svc := directoryservice.New(nil)
 
 	params := &directoryservice.CreateSnapshotInput{
-		DirectoryID: aws.String("DirectoryId"), // Required
-		Name:        aws.String("SnapshotName"),
+		DirectoryID: aws.StringPtr("DirectoryId"), // Required
+		Name:        aws.StringPtr("SnapshotName"),
 	}
 	resp, err := svc.CreateSnapshot(params)
 
@@ -194,7 +194,7 @@ func ExampleDirectoryService_DeleteDirectory() {
 	svc := directoryservice.New(nil)
 
 	params := &directoryservice.DeleteDirectoryInput{
-		DirectoryID: aws.String("DirectoryId"), // Required
+		DirectoryID: aws.StringPtr("DirectoryId"), // Required
 	}
 	resp, err := svc.DeleteDirectory(params)
 
@@ -221,7 +221,7 @@ func ExampleDirectoryService_DeleteSnapshot() {
 	svc := directoryservice.New(nil)
 
 	params := &directoryservice.DeleteSnapshotInput{
-		SnapshotID: aws.String("SnapshotId"), // Required
+		SnapshotID: aws.StringPtr("SnapshotId"), // Required
 	}
 	resp, err := svc.DeleteSnapshot(params)
 
@@ -249,11 +249,11 @@ func ExampleDirectoryService_DescribeDirectories() {
 
 	params := &directoryservice.DescribeDirectoriesInput{
 		DirectoryIDs: []*string{
-			aws.String("DirectoryId"), // Required
+			aws.StringPtr("DirectoryId"), // Required
 			// More values...
 		},
-		Limit:     aws.Long(1),
-		NextToken: aws.String("NextToken"),
+		Limit:     aws.Int64Ptr(1),
+		NextToken: aws.StringPtr("NextToken"),
 	}
 	resp, err := svc.DescribeDirectories(params)
 
@@ -280,11 +280,11 @@ func ExampleDirectoryService_DescribeSnapshots() {
 	svc := directoryservice.New(nil)
 
 	params := &directoryservice.DescribeSnapshotsInput{
-		DirectoryID: aws.String("DirectoryId"),
-		Limit:       aws.Long(1),
-		NextToken:   aws.String("NextToken"),
+		DirectoryID: aws.StringPtr("DirectoryId"),
+		Limit:       aws.Int64Ptr(1),
+		NextToken:   aws.StringPtr("NextToken"),
 		SnapshotIDs: []*string{
-			aws.String("SnapshotId"), // Required
+			aws.StringPtr("SnapshotId"), // Required
 			// More values...
 		},
 	}
@@ -313,7 +313,7 @@ func ExampleDirectoryService_DisableRadius() {
 	svc := directoryservice.New(nil)
 
 	params := &directoryservice.DisableRadiusInput{
-		DirectoryID: aws.String("DirectoryId"), // Required
+		DirectoryID: aws.StringPtr("DirectoryId"), // Required
 	}
 	resp, err := svc.DisableRadius(params)
 
@@ -340,9 +340,9 @@ func ExampleDirectoryService_DisableSSO() {
 	svc := directoryservice.New(nil)
 
 	params := &directoryservice.DisableSSOInput{
-		DirectoryID: aws.String("DirectoryId"), // Required
-		Password:    aws.String("ConnectPassword"),
-		UserName:    aws.String("UserName"),
+		DirectoryID: aws.StringPtr("DirectoryId"), // Required
+		Password:    aws.StringPtr("ConnectPassword"),
+		UserName:    aws.StringPtr("UserName"),
 	}
 	resp, err := svc.DisableSSO(params)
 
@@ -369,19 +369,19 @@ func ExampleDirectoryService_EnableRadius() {
 	svc := directoryservice.New(nil)
 
 	params := &directoryservice.EnableRadiusInput{
-		DirectoryID: aws.String("DirectoryId"), // Required
+		DirectoryID: aws.StringPtr("DirectoryId"), // Required
 		RadiusSettings: &directoryservice.RadiusSettings{ // Required
-			AuthenticationProtocol: aws.String("RadiusAuthenticationProtocol"),
-			DisplayLabel:           aws.String("RadiusDisplayLabel"),
-			RadiusPort:             aws.Long(1),
-			RadiusRetries:          aws.Long(1),
+			AuthenticationProtocol: aws.StringPtr("RadiusAuthenticationProtocol"),
+			DisplayLabel:           aws.StringPtr("RadiusDisplayLabel"),
+			RadiusPort:             aws.Int64Ptr(1),
+			RadiusRetries:          aws.Int64Ptr(1),
 			RadiusServers: []*string{
-				aws.String("Server"), // Required
+				aws.StringPtr("Server"), // Required
 				// More values...
 			},
-			RadiusTimeout:   aws.Long(1),
-			SharedSecret:    aws.String("RadiusSharedSecret"),
-			UseSameUsername: aws.Boolean(true),
+			RadiusTimeout:   aws.Int64Ptr(1),
+			SharedSecret:    aws.StringPtr("RadiusSharedSecret"),
+			UseSameUsername: aws.BoolPtr(true),
 		},
 	}
 	resp, err := svc.EnableRadius(params)
@@ -409,9 +409,9 @@ func ExampleDirectoryService_EnableSSO() {
 	svc := directoryservice.New(nil)
 
 	params := &directoryservice.EnableSSOInput{
-		DirectoryID: aws.String("DirectoryId"), // Required
-		Password:    aws.String("ConnectPassword"),
-		UserName:    aws.String("UserName"),
+		DirectoryID: aws.StringPtr("DirectoryId"), // Required
+		Password:    aws.StringPtr("ConnectPassword"),
+		UserName:    aws.StringPtr("UserName"),
 	}
 	resp, err := svc.EnableSSO(params)
 
@@ -463,7 +463,7 @@ func ExampleDirectoryService_GetSnapshotLimits() {
 	svc := directoryservice.New(nil)
 
 	params := &directoryservice.GetSnapshotLimitsInput{
-		DirectoryID: aws.String("DirectoryId"), // Required
+		DirectoryID: aws.StringPtr("DirectoryId"), // Required
 	}
 	resp, err := svc.GetSnapshotLimits(params)
 
@@ -490,7 +490,7 @@ func ExampleDirectoryService_RestoreFromSnapshot() {
 	svc := directoryservice.New(nil)
 
 	params := &directoryservice.RestoreFromSnapshotInput{
-		SnapshotID: aws.String("SnapshotId"), // Required
+		SnapshotID: aws.StringPtr("SnapshotId"), // Required
 	}
 	resp, err := svc.RestoreFromSnapshot(params)
 
@@ -517,19 +517,19 @@ func ExampleDirectoryService_UpdateRadius() {
 	svc := directoryservice.New(nil)
 
 	params := &directoryservice.UpdateRadiusInput{
-		DirectoryID: aws.String("DirectoryId"), // Required
+		DirectoryID: aws.StringPtr("DirectoryId"), // Required
 		RadiusSettings: &directoryservice.RadiusSettings{ // Required
-			AuthenticationProtocol: aws.String("RadiusAuthenticationProtocol"),
-			DisplayLabel:           aws.String("RadiusDisplayLabel"),
-			RadiusPort:             aws.Long(1),
-			RadiusRetries:          aws.Long(1),
+			AuthenticationProtocol: aws.StringPtr("RadiusAuthenticationProtocol"),
+			DisplayLabel:           aws.StringPtr("RadiusDisplayLabel"),
+			RadiusPort:             aws.Int64Ptr(1),
+			RadiusRetries:          aws.Int64Ptr(1),
 			RadiusServers: []*string{
-				aws.String("Server"), // Required
+				aws.StringPtr("Server"), // Required
 				// More values...
 			},
-			RadiusTimeout:   aws.Long(1),
-			SharedSecret:    aws.String("RadiusSharedSecret"),
-			UseSameUsername: aws.Boolean(true),
+			RadiusTimeout:   aws.Int64Ptr(1),
+			SharedSecret:    aws.StringPtr("RadiusSharedSecret"),
+			UseSameUsername: aws.BoolPtr(true),
 		},
 	}
 	resp, err := svc.UpdateRadius(params)
