@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/awsutil"
 )
 
 const opAbortMultipartUpload = "AbortMultipartUpload"
@@ -1575,6 +1576,16 @@ type metadataAbortMultipartUploadInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s AbortMultipartUploadInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s AbortMultipartUploadInput) GoString() string {
+	return s.String()
+}
+
 type AbortMultipartUploadOutput struct {
 	// If present, indicates that the requester was successfully charged for the
 	// request.
@@ -1585,6 +1596,16 @@ type AbortMultipartUploadOutput struct {
 
 type metadataAbortMultipartUploadOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s AbortMultipartUploadOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s AbortMultipartUploadOutput) GoString() string {
+	return s.String()
 }
 
 type AccessControlPolicy struct {
@@ -1598,6 +1619,16 @@ type AccessControlPolicy struct {
 
 type metadataAccessControlPolicy struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s AccessControlPolicy) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s AccessControlPolicy) GoString() string {
+	return s.String()
 }
 
 type Bucket struct {
@@ -1614,6 +1645,16 @@ type metadataBucket struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s Bucket) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Bucket) GoString() string {
+	return s.String()
+}
+
 type BucketLoggingStatus struct {
 	LoggingEnabled *LoggingEnabled `type:"structure"`
 
@@ -1624,6 +1665,16 @@ type metadataBucketLoggingStatus struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s BucketLoggingStatus) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s BucketLoggingStatus) GoString() string {
+	return s.String()
+}
+
 type CORSConfiguration struct {
 	CORSRules []*CORSRule `locationName:"CORSRule" type:"list" flattened:"true"`
 
@@ -1632,6 +1683,16 @@ type CORSConfiguration struct {
 
 type metadataCORSConfiguration struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s CORSConfiguration) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CORSConfiguration) GoString() string {
+	return s.String()
 }
 
 type CORSRule struct {
@@ -1661,6 +1722,16 @@ type metadataCORSRule struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CORSRule) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CORSRule) GoString() string {
+	return s.String()
+}
+
 type CloudFunctionConfiguration struct {
 	CloudFunction *string `type:"string"`
 
@@ -1682,6 +1753,16 @@ type metadataCloudFunctionConfiguration struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CloudFunctionConfiguration) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CloudFunctionConfiguration) GoString() string {
+	return s.String()
+}
+
 type CommonPrefix struct {
 	Prefix *string `type:"string"`
 
@@ -1690,6 +1771,16 @@ type CommonPrefix struct {
 
 type metadataCommonPrefix struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s CommonPrefix) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CommonPrefix) GoString() string {
+	return s.String()
 }
 
 type CompleteMultipartUploadInput struct {
@@ -1712,6 +1803,16 @@ type CompleteMultipartUploadInput struct {
 
 type metadataCompleteMultipartUploadInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"MultipartUpload"`
+}
+
+// String returns the string representation
+func (s CompleteMultipartUploadInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CompleteMultipartUploadInput) GoString() string {
+	return s.String()
 }
 
 type CompleteMultipartUploadOutput struct {
@@ -1750,6 +1851,16 @@ type metadataCompleteMultipartUploadOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CompleteMultipartUploadOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CompleteMultipartUploadOutput) GoString() string {
+	return s.String()
+}
+
 type CompletedMultipartUpload struct {
 	Parts []*CompletedPart `locationName:"Part" type:"list" flattened:"true"`
 
@@ -1758,6 +1869,16 @@ type CompletedMultipartUpload struct {
 
 type metadataCompletedMultipartUpload struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s CompletedMultipartUpload) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CompletedMultipartUpload) GoString() string {
+	return s.String()
 }
 
 type CompletedPart struct {
@@ -1772,6 +1893,16 @@ type CompletedPart struct {
 
 type metadataCompletedPart struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s CompletedPart) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CompletedPart) GoString() string {
+	return s.String()
 }
 
 type Condition struct {
@@ -1796,6 +1927,16 @@ type Condition struct {
 
 type metadataCondition struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s Condition) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Condition) GoString() string {
+	return s.String()
 }
 
 type CopyObjectInput struct {
@@ -1922,6 +2063,16 @@ type metadataCopyObjectInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CopyObjectInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CopyObjectInput) GoString() string {
+	return s.String()
+}
+
 type CopyObjectOutput struct {
 	CopyObjectResult *CopyObjectResult `type:"structure"`
 
@@ -1959,6 +2110,16 @@ type metadataCopyObjectOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"CopyObjectResult"`
 }
 
+// String returns the string representation
+func (s CopyObjectOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CopyObjectOutput) GoString() string {
+	return s.String()
+}
+
 type CopyObjectResult struct {
 	ETag *string `type:"string"`
 
@@ -1969,6 +2130,16 @@ type CopyObjectResult struct {
 
 type metadataCopyObjectResult struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s CopyObjectResult) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CopyObjectResult) GoString() string {
+	return s.String()
 }
 
 type CopyPartResult struct {
@@ -1985,6 +2156,16 @@ type metadataCopyPartResult struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CopyPartResult) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CopyPartResult) GoString() string {
+	return s.String()
+}
+
 type CreateBucketConfiguration struct {
 	// Specifies the region where the bucket will be created. If you don't specify
 	// a region, the bucket will be created in US Standard.
@@ -1995,6 +2176,16 @@ type CreateBucketConfiguration struct {
 
 type metadataCreateBucketConfiguration struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s CreateBucketConfiguration) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateBucketConfiguration) GoString() string {
+	return s.String()
 }
 
 type CreateBucketInput struct {
@@ -2028,6 +2219,16 @@ type metadataCreateBucketInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"CreateBucketConfiguration"`
 }
 
+// String returns the string representation
+func (s CreateBucketInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateBucketInput) GoString() string {
+	return s.String()
+}
+
 type CreateBucketOutput struct {
 	Location *string `location:"header" locationName:"Location" type:"string"`
 
@@ -2036,6 +2237,16 @@ type CreateBucketOutput struct {
 
 type metadataCreateBucketOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s CreateBucketOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateBucketOutput) GoString() string {
+	return s.String()
 }
 
 type CreateMultipartUploadInput struct {
@@ -2128,6 +2339,16 @@ type metadataCreateMultipartUploadInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CreateMultipartUploadInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateMultipartUploadInput) GoString() string {
+	return s.String()
+}
+
 type CreateMultipartUploadOutput struct {
 	// Name of the bucket to which the multipart upload was initiated.
 	Bucket *string `locationName:"Bucket" type:"string"`
@@ -2167,6 +2388,16 @@ type metadataCreateMultipartUploadOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CreateMultipartUploadOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateMultipartUploadOutput) GoString() string {
+	return s.String()
+}
+
 type Delete struct {
 	Objects []*ObjectIdentifier `locationName:"Object" type:"list" flattened:"true" required:"true"`
 
@@ -2181,6 +2412,16 @@ type metadataDelete struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s Delete) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Delete) GoString() string {
+	return s.String()
+}
+
 type DeleteBucketCORSInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -2191,12 +2432,32 @@ type metadataDeleteBucketCORSInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeleteBucketCORSInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketCORSInput) GoString() string {
+	return s.String()
+}
+
 type DeleteBucketCORSOutput struct {
 	metadataDeleteBucketCORSOutput `json:"-" xml:"-"`
 }
 
 type metadataDeleteBucketCORSOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteBucketCORSOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketCORSOutput) GoString() string {
+	return s.String()
 }
 
 type DeleteBucketInput struct {
@@ -2209,6 +2470,16 @@ type metadataDeleteBucketInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeleteBucketInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketInput) GoString() string {
+	return s.String()
+}
+
 type DeleteBucketLifecycleInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -2219,6 +2490,16 @@ type metadataDeleteBucketLifecycleInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeleteBucketLifecycleInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketLifecycleInput) GoString() string {
+	return s.String()
+}
+
 type DeleteBucketLifecycleOutput struct {
 	metadataDeleteBucketLifecycleOutput `json:"-" xml:"-"`
 }
@@ -2227,12 +2508,32 @@ type metadataDeleteBucketLifecycleOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeleteBucketLifecycleOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketLifecycleOutput) GoString() string {
+	return s.String()
+}
+
 type DeleteBucketOutput struct {
 	metadataDeleteBucketOutput `json:"-" xml:"-"`
 }
 
 type metadataDeleteBucketOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteBucketOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketOutput) GoString() string {
+	return s.String()
 }
 
 type DeleteBucketPolicyInput struct {
@@ -2245,12 +2546,32 @@ type metadataDeleteBucketPolicyInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeleteBucketPolicyInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketPolicyInput) GoString() string {
+	return s.String()
+}
+
 type DeleteBucketPolicyOutput struct {
 	metadataDeleteBucketPolicyOutput `json:"-" xml:"-"`
 }
 
 type metadataDeleteBucketPolicyOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteBucketPolicyOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketPolicyOutput) GoString() string {
+	return s.String()
 }
 
 type DeleteBucketReplicationInput struct {
@@ -2263,12 +2584,32 @@ type metadataDeleteBucketReplicationInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeleteBucketReplicationInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketReplicationInput) GoString() string {
+	return s.String()
+}
+
 type DeleteBucketReplicationOutput struct {
 	metadataDeleteBucketReplicationOutput `json:"-" xml:"-"`
 }
 
 type metadataDeleteBucketReplicationOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteBucketReplicationOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketReplicationOutput) GoString() string {
+	return s.String()
 }
 
 type DeleteBucketTaggingInput struct {
@@ -2281,12 +2622,32 @@ type metadataDeleteBucketTaggingInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeleteBucketTaggingInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketTaggingInput) GoString() string {
+	return s.String()
+}
+
 type DeleteBucketTaggingOutput struct {
 	metadataDeleteBucketTaggingOutput `json:"-" xml:"-"`
 }
 
 type metadataDeleteBucketTaggingOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteBucketTaggingOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketTaggingOutput) GoString() string {
+	return s.String()
 }
 
 type DeleteBucketWebsiteInput struct {
@@ -2299,12 +2660,32 @@ type metadataDeleteBucketWebsiteInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeleteBucketWebsiteInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketWebsiteInput) GoString() string {
+	return s.String()
+}
+
 type DeleteBucketWebsiteOutput struct {
 	metadataDeleteBucketWebsiteOutput `json:"-" xml:"-"`
 }
 
 type metadataDeleteBucketWebsiteOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteBucketWebsiteOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteBucketWebsiteOutput) GoString() string {
+	return s.String()
 }
 
 type DeleteMarkerEntry struct {
@@ -2328,6 +2709,16 @@ type DeleteMarkerEntry struct {
 
 type metadataDeleteMarkerEntry struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteMarkerEntry) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteMarkerEntry) GoString() string {
+	return s.String()
 }
 
 type DeleteObjectInput struct {
@@ -2355,6 +2746,16 @@ type metadataDeleteObjectInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeleteObjectInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteObjectInput) GoString() string {
+	return s.String()
+}
+
 type DeleteObjectOutput struct {
 	// Specifies whether the versioned object that was permanently deleted was (true)
 	// or was not (false) a delete marker.
@@ -2373,6 +2774,16 @@ type DeleteObjectOutput struct {
 
 type metadataDeleteObjectOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteObjectOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteObjectOutput) GoString() string {
+	return s.String()
 }
 
 type DeleteObjectsInput struct {
@@ -2397,6 +2808,16 @@ type metadataDeleteObjectsInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Delete"`
 }
 
+// String returns the string representation
+func (s DeleteObjectsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteObjectsInput) GoString() string {
+	return s.String()
+}
+
 type DeleteObjectsOutput struct {
 	Deleted []*DeletedObject `type:"list" flattened:"true"`
 
@@ -2411,6 +2832,16 @@ type DeleteObjectsOutput struct {
 
 type metadataDeleteObjectsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteObjectsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteObjectsOutput) GoString() string {
+	return s.String()
 }
 
 type DeletedObject struct {
@@ -2429,6 +2860,16 @@ type metadataDeletedObject struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeletedObject) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeletedObject) GoString() string {
+	return s.String()
+}
+
 type Destination struct {
 	// Amazon resource name (ARN) of the bucket where you want Amazon S3 to store
 	// replicas of the object identified by the rule.
@@ -2439,6 +2880,16 @@ type Destination struct {
 
 type metadataDestination struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s Destination) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Destination) GoString() string {
+	return s.String()
 }
 
 type Error struct {
@@ -2457,6 +2908,16 @@ type metadataError struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s Error) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Error) GoString() string {
+	return s.String()
+}
+
 type ErrorDocument struct {
 	// The object key name to use when a 4XX class error occurs.
 	Key *string `type:"string" required:"true"`
@@ -2468,6 +2929,16 @@ type metadataErrorDocument struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ErrorDocument) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ErrorDocument) GoString() string {
+	return s.String()
+}
+
 type GetBucketACLInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -2476,6 +2947,16 @@ type GetBucketACLInput struct {
 
 type metadataGetBucketACLInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetBucketACLInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketACLInput) GoString() string {
+	return s.String()
 }
 
 type GetBucketACLOutput struct {
@@ -2491,6 +2972,16 @@ type metadataGetBucketACLOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetBucketACLOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketACLOutput) GoString() string {
+	return s.String()
+}
+
 type GetBucketCORSInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -2499,6 +2990,16 @@ type GetBucketCORSInput struct {
 
 type metadataGetBucketCORSInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetBucketCORSInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketCORSInput) GoString() string {
+	return s.String()
 }
 
 type GetBucketCORSOutput struct {
@@ -2511,6 +3012,16 @@ type metadataGetBucketCORSOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetBucketCORSOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketCORSOutput) GoString() string {
+	return s.String()
+}
+
 type GetBucketLifecycleInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -2519,6 +3030,16 @@ type GetBucketLifecycleInput struct {
 
 type metadataGetBucketLifecycleInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetBucketLifecycleInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketLifecycleInput) GoString() string {
+	return s.String()
 }
 
 type GetBucketLifecycleOutput struct {
@@ -2531,6 +3052,16 @@ type metadataGetBucketLifecycleOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetBucketLifecycleOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketLifecycleOutput) GoString() string {
+	return s.String()
+}
+
 type GetBucketLocationInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -2539,6 +3070,16 @@ type GetBucketLocationInput struct {
 
 type metadataGetBucketLocationInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetBucketLocationInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketLocationInput) GoString() string {
+	return s.String()
 }
 
 type GetBucketLocationOutput struct {
@@ -2551,6 +3092,16 @@ type metadataGetBucketLocationOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetBucketLocationOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketLocationOutput) GoString() string {
+	return s.String()
+}
+
 type GetBucketLoggingInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -2561,6 +3112,16 @@ type metadataGetBucketLoggingInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetBucketLoggingInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketLoggingInput) GoString() string {
+	return s.String()
+}
+
 type GetBucketLoggingOutput struct {
 	LoggingEnabled *LoggingEnabled `type:"structure"`
 
@@ -2569,6 +3130,16 @@ type GetBucketLoggingOutput struct {
 
 type metadataGetBucketLoggingOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetBucketLoggingOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketLoggingOutput) GoString() string {
+	return s.String()
 }
 
 type GetBucketNotificationConfigurationRequest struct {
@@ -2582,6 +3153,16 @@ type metadataGetBucketNotificationConfigurationRequest struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetBucketNotificationConfigurationRequest) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketNotificationConfigurationRequest) GoString() string {
+	return s.String()
+}
+
 type GetBucketPolicyInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -2590,6 +3171,16 @@ type GetBucketPolicyInput struct {
 
 type metadataGetBucketPolicyInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetBucketPolicyInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketPolicyInput) GoString() string {
+	return s.String()
 }
 
 type GetBucketPolicyOutput struct {
@@ -2603,6 +3194,16 @@ type metadataGetBucketPolicyOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Policy"`
 }
 
+// String returns the string representation
+func (s GetBucketPolicyOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketPolicyOutput) GoString() string {
+	return s.String()
+}
+
 type GetBucketReplicationInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -2611,6 +3212,16 @@ type GetBucketReplicationInput struct {
 
 type metadataGetBucketReplicationInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetBucketReplicationInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketReplicationInput) GoString() string {
+	return s.String()
 }
 
 type GetBucketReplicationOutput struct {
@@ -2625,6 +3236,16 @@ type metadataGetBucketReplicationOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"ReplicationConfiguration"`
 }
 
+// String returns the string representation
+func (s GetBucketReplicationOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketReplicationOutput) GoString() string {
+	return s.String()
+}
+
 type GetBucketRequestPaymentInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -2633,6 +3254,16 @@ type GetBucketRequestPaymentInput struct {
 
 type metadataGetBucketRequestPaymentInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetBucketRequestPaymentInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketRequestPaymentInput) GoString() string {
+	return s.String()
 }
 
 type GetBucketRequestPaymentOutput struct {
@@ -2646,6 +3277,16 @@ type metadataGetBucketRequestPaymentOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetBucketRequestPaymentOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketRequestPaymentOutput) GoString() string {
+	return s.String()
+}
+
 type GetBucketTaggingInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -2654,6 +3295,16 @@ type GetBucketTaggingInput struct {
 
 type metadataGetBucketTaggingInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetBucketTaggingInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketTaggingInput) GoString() string {
+	return s.String()
 }
 
 type GetBucketTaggingOutput struct {
@@ -2666,6 +3317,16 @@ type metadataGetBucketTaggingOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetBucketTaggingOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketTaggingOutput) GoString() string {
+	return s.String()
+}
+
 type GetBucketVersioningInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -2674,6 +3335,16 @@ type GetBucketVersioningInput struct {
 
 type metadataGetBucketVersioningInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetBucketVersioningInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketVersioningInput) GoString() string {
+	return s.String()
 }
 
 type GetBucketVersioningOutput struct {
@@ -2692,6 +3363,16 @@ type metadataGetBucketVersioningOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetBucketVersioningOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketVersioningOutput) GoString() string {
+	return s.String()
+}
+
 type GetBucketWebsiteInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -2700,6 +3381,16 @@ type GetBucketWebsiteInput struct {
 
 type metadataGetBucketWebsiteInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetBucketWebsiteInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketWebsiteInput) GoString() string {
+	return s.String()
 }
 
 type GetBucketWebsiteOutput struct {
@@ -2716,6 +3407,16 @@ type GetBucketWebsiteOutput struct {
 
 type metadataGetBucketWebsiteOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetBucketWebsiteOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetBucketWebsiteOutput) GoString() string {
+	return s.String()
 }
 
 type GetObjectACLInput struct {
@@ -2739,6 +3440,16 @@ type metadataGetObjectACLInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetObjectACLInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetObjectACLInput) GoString() string {
+	return s.String()
+}
+
 type GetObjectACLOutput struct {
 	// A list of grants.
 	Grants []*Grant `locationName:"AccessControlList" locationNameList:"Grant" type:"list"`
@@ -2754,6 +3465,16 @@ type GetObjectACLOutput struct {
 
 type metadataGetObjectACLOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetObjectACLOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetObjectACLOutput) GoString() string {
+	return s.String()
 }
 
 type GetObjectInput struct {
@@ -2829,6 +3550,16 @@ type GetObjectInput struct {
 
 type metadataGetObjectInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetObjectInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetObjectInput) GoString() string {
+	return s.String()
 }
 
 type GetObjectOutput struct {
@@ -2932,6 +3663,16 @@ type metadataGetObjectOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Body"`
 }
 
+// String returns the string representation
+func (s GetObjectOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetObjectOutput) GoString() string {
+	return s.String()
+}
+
 type GetObjectTorrentInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -2950,6 +3691,16 @@ type metadataGetObjectTorrentInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetObjectTorrentInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetObjectTorrentInput) GoString() string {
+	return s.String()
+}
+
 type GetObjectTorrentOutput struct {
 	Body io.ReadCloser `type:"blob"`
 
@@ -2964,6 +3715,16 @@ type metadataGetObjectTorrentOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Body"`
 }
 
+// String returns the string representation
+func (s GetObjectTorrentOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetObjectTorrentOutput) GoString() string {
+	return s.String()
+}
+
 type Grant struct {
 	Grantee *Grantee `type:"structure"`
 
@@ -2975,6 +3736,16 @@ type Grant struct {
 
 type metadataGrant struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s Grant) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Grant) GoString() string {
+	return s.String()
 }
 
 type Grantee struct {
@@ -3000,6 +3771,16 @@ type metadataGrantee struct {
 	SDKShapeTraits bool `type:"structure" xmlPrefix:"xsi" xmlURI:"http://www.w3.org/2001/XMLSchema-instance"`
 }
 
+// String returns the string representation
+func (s Grantee) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Grantee) GoString() string {
+	return s.String()
+}
+
 type HeadBucketInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -3010,12 +3791,32 @@ type metadataHeadBucketInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s HeadBucketInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s HeadBucketInput) GoString() string {
+	return s.String()
+}
+
 type HeadBucketOutput struct {
 	metadataHeadBucketOutput `json:"-" xml:"-"`
 }
 
 type metadataHeadBucketOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s HeadBucketOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s HeadBucketOutput) GoString() string {
+	return s.String()
 }
 
 type HeadObjectInput struct {
@@ -3073,6 +3874,16 @@ type HeadObjectInput struct {
 
 type metadataHeadObjectInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s HeadObjectInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s HeadObjectInput) GoString() string {
+	return s.String()
 }
 
 type HeadObjectOutput struct {
@@ -3170,6 +3981,16 @@ type metadataHeadObjectOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s HeadObjectOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s HeadObjectOutput) GoString() string {
+	return s.String()
+}
+
 type IndexDocument struct {
 	// A suffix that is appended to a request that is for a directory on the website
 	// endpoint (e.g. if the suffix is index.html and you make a request to samplebucket/images/
@@ -3182,6 +4003,16 @@ type IndexDocument struct {
 
 type metadataIndexDocument struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s IndexDocument) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s IndexDocument) GoString() string {
+	return s.String()
 }
 
 type Initiator struct {
@@ -3197,6 +4028,16 @@ type Initiator struct {
 
 type metadataInitiator struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s Initiator) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Initiator) GoString() string {
+	return s.String()
 }
 
 // Container for specifying the AWS Lambda notification configuration.
@@ -3218,6 +4059,16 @@ type metadataLambdaFunctionConfiguration struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s LambdaFunctionConfiguration) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s LambdaFunctionConfiguration) GoString() string {
+	return s.String()
+}
+
 type LifecycleConfiguration struct {
 	Rules []*LifecycleRule `locationName:"Rule" type:"list" flattened:"true" required:"true"`
 
@@ -3226,6 +4077,16 @@ type LifecycleConfiguration struct {
 
 type metadataLifecycleConfiguration struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s LifecycleConfiguration) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s LifecycleConfiguration) GoString() string {
+	return s.String()
 }
 
 type LifecycleExpiration struct {
@@ -3242,6 +4103,16 @@ type LifecycleExpiration struct {
 
 type metadataLifecycleExpiration struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s LifecycleExpiration) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s LifecycleExpiration) GoString() string {
+	return s.String()
 }
 
 type LifecycleRule struct {
@@ -3280,12 +4151,32 @@ type metadataLifecycleRule struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s LifecycleRule) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s LifecycleRule) GoString() string {
+	return s.String()
+}
+
 type ListBucketsInput struct {
 	metadataListBucketsInput `json:"-" xml:"-"`
 }
 
 type metadataListBucketsInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListBucketsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListBucketsInput) GoString() string {
+	return s.String()
 }
 
 type ListBucketsOutput struct {
@@ -3298,6 +4189,16 @@ type ListBucketsOutput struct {
 
 type metadataListBucketsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListBucketsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListBucketsOutput) GoString() string {
+	return s.String()
 }
 
 type ListMultipartUploadsInput struct {
@@ -3337,6 +4238,16 @@ type ListMultipartUploadsInput struct {
 
 type metadataListMultipartUploadsInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListMultipartUploadsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListMultipartUploadsInput) GoString() string {
+	return s.String()
 }
 
 type ListMultipartUploadsOutput struct {
@@ -3387,6 +4298,16 @@ type metadataListMultipartUploadsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ListMultipartUploadsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListMultipartUploadsOutput) GoString() string {
+	return s.String()
+}
+
 type ListObjectVersionsInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -3419,6 +4340,16 @@ type ListObjectVersionsInput struct {
 
 type metadataListObjectVersionsInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListObjectVersionsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListObjectVersionsInput) GoString() string {
+	return s.String()
 }
 
 type ListObjectVersionsOutput struct {
@@ -3464,6 +4395,16 @@ type metadataListObjectVersionsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ListObjectVersionsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListObjectVersionsOutput) GoString() string {
+	return s.String()
+}
+
 type ListObjectsInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -3493,6 +4434,16 @@ type ListObjectsInput struct {
 
 type metadataListObjectsInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListObjectsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListObjectsInput) GoString() string {
+	return s.String()
 }
 
 type ListObjectsOutput struct {
@@ -3533,6 +4484,16 @@ type metadataListObjectsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ListObjectsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListObjectsOutput) GoString() string {
+	return s.String()
+}
+
 type ListPartsInput struct {
 	Bucket *string `location:"uri" locationName:"Bucket" type:"string" required:"true"`
 
@@ -3559,6 +4520,16 @@ type ListPartsInput struct {
 
 type metadataListPartsInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListPartsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListPartsInput) GoString() string {
+	return s.String()
 }
 
 type ListPartsOutput struct {
@@ -3606,6 +4577,16 @@ type metadataListPartsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ListPartsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListPartsOutput) GoString() string {
+	return s.String()
+}
+
 type LoggingEnabled struct {
 	// Specifies the bucket where you want Amazon S3 to store server access logs.
 	// You can have your logs delivered to any bucket that you own, including the
@@ -3626,6 +4607,16 @@ type LoggingEnabled struct {
 
 type metadataLoggingEnabled struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s LoggingEnabled) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s LoggingEnabled) GoString() string {
+	return s.String()
 }
 
 type MultipartUpload struct {
@@ -3653,6 +4644,16 @@ type metadataMultipartUpload struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s MultipartUpload) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s MultipartUpload) GoString() string {
+	return s.String()
+}
+
 // Specifies when noncurrent object versions expire. Upon expiration, Amazon
 // S3 permanently deletes the noncurrent object versions. You set this lifecycle
 // configuration action on a bucket that has versioning enabled (or suspended)
@@ -3671,6 +4672,16 @@ type NoncurrentVersionExpiration struct {
 
 type metadataNoncurrentVersionExpiration struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s NoncurrentVersionExpiration) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s NoncurrentVersionExpiration) GoString() string {
+	return s.String()
 }
 
 // Container for the transition rule that describes when noncurrent objects
@@ -3696,6 +4707,16 @@ type metadataNoncurrentVersionTransition struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s NoncurrentVersionTransition) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s NoncurrentVersionTransition) GoString() string {
+	return s.String()
+}
+
 // Container for specifying the notification configuration of the bucket. If
 // this element is empty, notifications are turned off on the bucket.
 type NotificationConfiguration struct {
@@ -3712,6 +4733,16 @@ type metadataNotificationConfiguration struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s NotificationConfiguration) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s NotificationConfiguration) GoString() string {
+	return s.String()
+}
+
 type NotificationConfigurationDeprecated struct {
 	CloudFunctionConfiguration *CloudFunctionConfiguration `type:"structure"`
 
@@ -3724,6 +4755,16 @@ type NotificationConfigurationDeprecated struct {
 
 type metadataNotificationConfigurationDeprecated struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s NotificationConfigurationDeprecated) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s NotificationConfigurationDeprecated) GoString() string {
+	return s.String()
 }
 
 type Object struct {
@@ -3747,6 +4788,16 @@ type metadataObject struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s Object) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Object) GoString() string {
+	return s.String()
+}
+
 type ObjectIdentifier struct {
 	// Key name of the object to delete.
 	Key *string `type:"string" required:"true"`
@@ -3759,6 +4810,16 @@ type ObjectIdentifier struct {
 
 type metadataObjectIdentifier struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ObjectIdentifier) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ObjectIdentifier) GoString() string {
+	return s.String()
 }
 
 type ObjectVersion struct {
@@ -3792,6 +4853,16 @@ type metadataObjectVersion struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ObjectVersion) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ObjectVersion) GoString() string {
+	return s.String()
+}
+
 type Owner struct {
 	DisplayName *string `type:"string"`
 
@@ -3802,6 +4873,16 @@ type Owner struct {
 
 type metadataOwner struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s Owner) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Owner) GoString() string {
+	return s.String()
 }
 
 type Part struct {
@@ -3822,6 +4903,16 @@ type Part struct {
 
 type metadataPart struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s Part) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Part) GoString() string {
+	return s.String()
 }
 
 type PutBucketACLInput struct {
@@ -3855,12 +4946,32 @@ type metadataPutBucketACLInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"AccessControlPolicy"`
 }
 
+// String returns the string representation
+func (s PutBucketACLInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketACLInput) GoString() string {
+	return s.String()
+}
+
 type PutBucketACLOutput struct {
 	metadataPutBucketACLOutput `json:"-" xml:"-"`
 }
 
 type metadataPutBucketACLOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s PutBucketACLOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketACLOutput) GoString() string {
+	return s.String()
 }
 
 type PutBucketCORSInput struct {
@@ -3875,12 +4986,32 @@ type metadataPutBucketCORSInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"CORSConfiguration"`
 }
 
+// String returns the string representation
+func (s PutBucketCORSInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketCORSInput) GoString() string {
+	return s.String()
+}
+
 type PutBucketCORSOutput struct {
 	metadataPutBucketCORSOutput `json:"-" xml:"-"`
 }
 
 type metadataPutBucketCORSOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s PutBucketCORSOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketCORSOutput) GoString() string {
+	return s.String()
 }
 
 type PutBucketLifecycleInput struct {
@@ -3895,12 +5026,32 @@ type metadataPutBucketLifecycleInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"LifecycleConfiguration"`
 }
 
+// String returns the string representation
+func (s PutBucketLifecycleInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketLifecycleInput) GoString() string {
+	return s.String()
+}
+
 type PutBucketLifecycleOutput struct {
 	metadataPutBucketLifecycleOutput `json:"-" xml:"-"`
 }
 
 type metadataPutBucketLifecycleOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s PutBucketLifecycleOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketLifecycleOutput) GoString() string {
+	return s.String()
 }
 
 type PutBucketLoggingInput struct {
@@ -3915,12 +5066,32 @@ type metadataPutBucketLoggingInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"BucketLoggingStatus"`
 }
 
+// String returns the string representation
+func (s PutBucketLoggingInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketLoggingInput) GoString() string {
+	return s.String()
+}
+
 type PutBucketLoggingOutput struct {
 	metadataPutBucketLoggingOutput `json:"-" xml:"-"`
 }
 
 type metadataPutBucketLoggingOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s PutBucketLoggingOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketLoggingOutput) GoString() string {
+	return s.String()
 }
 
 type PutBucketNotificationConfigurationInput struct {
@@ -3937,12 +5108,32 @@ type metadataPutBucketNotificationConfigurationInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"NotificationConfiguration"`
 }
 
+// String returns the string representation
+func (s PutBucketNotificationConfigurationInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketNotificationConfigurationInput) GoString() string {
+	return s.String()
+}
+
 type PutBucketNotificationConfigurationOutput struct {
 	metadataPutBucketNotificationConfigurationOutput `json:"-" xml:"-"`
 }
 
 type metadataPutBucketNotificationConfigurationOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s PutBucketNotificationConfigurationOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketNotificationConfigurationOutput) GoString() string {
+	return s.String()
 }
 
 type PutBucketNotificationInput struct {
@@ -3957,12 +5148,32 @@ type metadataPutBucketNotificationInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"NotificationConfiguration"`
 }
 
+// String returns the string representation
+func (s PutBucketNotificationInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketNotificationInput) GoString() string {
+	return s.String()
+}
+
 type PutBucketNotificationOutput struct {
 	metadataPutBucketNotificationOutput `json:"-" xml:"-"`
 }
 
 type metadataPutBucketNotificationOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s PutBucketNotificationOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketNotificationOutput) GoString() string {
+	return s.String()
 }
 
 type PutBucketPolicyInput struct {
@@ -3978,12 +5189,32 @@ type metadataPutBucketPolicyInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Policy"`
 }
 
+// String returns the string representation
+func (s PutBucketPolicyInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketPolicyInput) GoString() string {
+	return s.String()
+}
+
 type PutBucketPolicyOutput struct {
 	metadataPutBucketPolicyOutput `json:"-" xml:"-"`
 }
 
 type metadataPutBucketPolicyOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s PutBucketPolicyOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketPolicyOutput) GoString() string {
+	return s.String()
 }
 
 type PutBucketReplicationInput struct {
@@ -4000,12 +5231,32 @@ type metadataPutBucketReplicationInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"ReplicationConfiguration"`
 }
 
+// String returns the string representation
+func (s PutBucketReplicationInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketReplicationInput) GoString() string {
+	return s.String()
+}
+
 type PutBucketReplicationOutput struct {
 	metadataPutBucketReplicationOutput `json:"-" xml:"-"`
 }
 
 type metadataPutBucketReplicationOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s PutBucketReplicationOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketReplicationOutput) GoString() string {
+	return s.String()
 }
 
 type PutBucketRequestPaymentInput struct {
@@ -4020,12 +5271,32 @@ type metadataPutBucketRequestPaymentInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"RequestPaymentConfiguration"`
 }
 
+// String returns the string representation
+func (s PutBucketRequestPaymentInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketRequestPaymentInput) GoString() string {
+	return s.String()
+}
+
 type PutBucketRequestPaymentOutput struct {
 	metadataPutBucketRequestPaymentOutput `json:"-" xml:"-"`
 }
 
 type metadataPutBucketRequestPaymentOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s PutBucketRequestPaymentOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketRequestPaymentOutput) GoString() string {
+	return s.String()
 }
 
 type PutBucketTaggingInput struct {
@@ -4040,12 +5311,32 @@ type metadataPutBucketTaggingInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Tagging"`
 }
 
+// String returns the string representation
+func (s PutBucketTaggingInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketTaggingInput) GoString() string {
+	return s.String()
+}
+
 type PutBucketTaggingOutput struct {
 	metadataPutBucketTaggingOutput `json:"-" xml:"-"`
 }
 
 type metadataPutBucketTaggingOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s PutBucketTaggingOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketTaggingOutput) GoString() string {
+	return s.String()
 }
 
 type PutBucketVersioningInput struct {
@@ -4064,12 +5355,32 @@ type metadataPutBucketVersioningInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"VersioningConfiguration"`
 }
 
+// String returns the string representation
+func (s PutBucketVersioningInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketVersioningInput) GoString() string {
+	return s.String()
+}
+
 type PutBucketVersioningOutput struct {
 	metadataPutBucketVersioningOutput `json:"-" xml:"-"`
 }
 
 type metadataPutBucketVersioningOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s PutBucketVersioningOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketVersioningOutput) GoString() string {
+	return s.String()
 }
 
 type PutBucketWebsiteInput struct {
@@ -4084,12 +5395,32 @@ type metadataPutBucketWebsiteInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"WebsiteConfiguration"`
 }
 
+// String returns the string representation
+func (s PutBucketWebsiteInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketWebsiteInput) GoString() string {
+	return s.String()
+}
+
 type PutBucketWebsiteOutput struct {
 	metadataPutBucketWebsiteOutput `json:"-" xml:"-"`
 }
 
 type metadataPutBucketWebsiteOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s PutBucketWebsiteOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutBucketWebsiteOutput) GoString() string {
+	return s.String()
 }
 
 type PutObjectACLInput struct {
@@ -4131,6 +5462,16 @@ type metadataPutObjectACLInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"AccessControlPolicy"`
 }
 
+// String returns the string representation
+func (s PutObjectACLInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutObjectACLInput) GoString() string {
+	return s.String()
+}
+
 type PutObjectACLOutput struct {
 	// If present, indicates that the requester was successfully charged for the
 	// request.
@@ -4141,6 +5482,16 @@ type PutObjectACLOutput struct {
 
 type metadataPutObjectACLOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s PutObjectACLOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutObjectACLOutput) GoString() string {
+	return s.String()
 }
 
 type PutObjectInput struct {
@@ -4240,6 +5591,16 @@ type metadataPutObjectInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Body"`
 }
 
+// String returns the string representation
+func (s PutObjectInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutObjectInput) GoString() string {
+	return s.String()
+}
+
 type PutObjectOutput struct {
 	// Entity tag for the uploaded object.
 	ETag *string `location:"header" locationName:"ETag" type:"string"`
@@ -4280,6 +5641,16 @@ type metadataPutObjectOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s PutObjectOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutObjectOutput) GoString() string {
+	return s.String()
+}
+
 // Container for specifying an configuration when you want Amazon S3 to publish
 // events to an Amazon Simple Queue Service (Amazon SQS) queue.
 type QueueConfiguration struct {
@@ -4300,6 +5671,16 @@ type metadataQueueConfiguration struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s QueueConfiguration) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s QueueConfiguration) GoString() string {
+	return s.String()
+}
+
 type QueueConfigurationDeprecated struct {
 	// Bucket event for which to send notifications.
 	Event *string `type:"string"`
@@ -4317,6 +5698,16 @@ type QueueConfigurationDeprecated struct {
 
 type metadataQueueConfigurationDeprecated struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s QueueConfigurationDeprecated) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s QueueConfigurationDeprecated) GoString() string {
+	return s.String()
 }
 
 type Redirect struct {
@@ -4351,6 +5742,16 @@ type metadataRedirect struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s Redirect) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Redirect) GoString() string {
+	return s.String()
+}
+
 type RedirectAllRequestsTo struct {
 	// Name of the host where requests will be redirected.
 	HostName *string `type:"string" required:"true"`
@@ -4364,6 +5765,16 @@ type RedirectAllRequestsTo struct {
 
 type metadataRedirectAllRequestsTo struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s RedirectAllRequestsTo) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s RedirectAllRequestsTo) GoString() string {
+	return s.String()
 }
 
 // Container for replication rules. You can add as many as 1,000 rules. Total
@@ -4382,6 +5793,16 @@ type ReplicationConfiguration struct {
 
 type metadataReplicationConfiguration struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ReplicationConfiguration) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ReplicationConfiguration) GoString() string {
+	return s.String()
 }
 
 type ReplicationRule struct {
@@ -4405,6 +5826,16 @@ type metadataReplicationRule struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ReplicationRule) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ReplicationRule) GoString() string {
+	return s.String()
+}
+
 type RequestPaymentConfiguration struct {
 	// Specifies who pays for the download and request fees.
 	Payer *string `type:"string" required:"true"`
@@ -4414,6 +5845,16 @@ type RequestPaymentConfiguration struct {
 
 type metadataRequestPaymentConfiguration struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s RequestPaymentConfiguration) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s RequestPaymentConfiguration) GoString() string {
+	return s.String()
 }
 
 type RestoreObjectInput struct {
@@ -4438,6 +5879,16 @@ type metadataRestoreObjectInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"RestoreRequest"`
 }
 
+// String returns the string representation
+func (s RestoreObjectInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s RestoreObjectInput) GoString() string {
+	return s.String()
+}
+
 type RestoreObjectOutput struct {
 	// If present, indicates that the requester was successfully charged for the
 	// request.
@@ -4450,6 +5901,16 @@ type metadataRestoreObjectOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s RestoreObjectOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s RestoreObjectOutput) GoString() string {
+	return s.String()
+}
+
 type RestoreRequest struct {
 	// Lifetime of the active copy in days
 	Days *int64 `type:"integer" required:"true"`
@@ -4459,6 +5920,16 @@ type RestoreRequest struct {
 
 type metadataRestoreRequest struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s RestoreRequest) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s RestoreRequest) GoString() string {
+	return s.String()
 }
 
 type RoutingRule struct {
@@ -4480,6 +5951,16 @@ type metadataRoutingRule struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s RoutingRule) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s RoutingRule) GoString() string {
+	return s.String()
+}
+
 type Tag struct {
 	// Name of the tag.
 	Key *string `type:"string" required:"true"`
@@ -4494,6 +5975,16 @@ type metadataTag struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s Tag) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Tag) GoString() string {
+	return s.String()
+}
+
 type Tagging struct {
 	TagSet []*Tag `locationNameList:"Tag" type:"list" required:"true"`
 
@@ -4502,6 +5993,16 @@ type Tagging struct {
 
 type metadataTagging struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s Tagging) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Tagging) GoString() string {
+	return s.String()
 }
 
 type TargetGrant struct {
@@ -4515,6 +6016,16 @@ type TargetGrant struct {
 
 type metadataTargetGrant struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s TargetGrant) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s TargetGrant) GoString() string {
+	return s.String()
 }
 
 // Container for specifying the configuration when you want Amazon S3 to publish
@@ -4535,6 +6046,16 @@ type TopicConfiguration struct {
 
 type metadataTopicConfiguration struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s TopicConfiguration) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s TopicConfiguration) GoString() string {
+	return s.String()
 }
 
 type TopicConfigurationDeprecated struct {
@@ -4558,6 +6079,16 @@ type metadataTopicConfigurationDeprecated struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s TopicConfigurationDeprecated) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s TopicConfigurationDeprecated) GoString() string {
+	return s.String()
+}
+
 type Transition struct {
 	// Indicates at what date the object is to be moved or deleted. Should be in
 	// GMT ISO 8601 Format.
@@ -4575,6 +6106,16 @@ type Transition struct {
 
 type metadataTransition struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s Transition) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Transition) GoString() string {
+	return s.String()
 }
 
 type UploadPartCopyInput struct {
@@ -4655,6 +6196,16 @@ type metadataUploadPartCopyInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s UploadPartCopyInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s UploadPartCopyInput) GoString() string {
+	return s.String()
+}
+
 type UploadPartCopyOutput struct {
 	CopyPartResult *CopyPartResult `type:"structure"`
 
@@ -4689,6 +6240,16 @@ type UploadPartCopyOutput struct {
 
 type metadataUploadPartCopyOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"CopyPartResult"`
+}
+
+// String returns the string representation
+func (s UploadPartCopyOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s UploadPartCopyOutput) GoString() string {
+	return s.String()
 }
 
 type UploadPartInput struct {
@@ -4738,6 +6299,16 @@ type metadataUploadPartInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Body"`
 }
 
+// String returns the string representation
+func (s UploadPartInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s UploadPartInput) GoString() string {
+	return s.String()
+}
+
 type UploadPartOutput struct {
 	// Entity tag for the uploaded object.
 	ETag *string `location:"header" locationName:"ETag" type:"string"`
@@ -4771,6 +6342,16 @@ type metadataUploadPartOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s UploadPartOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s UploadPartOutput) GoString() string {
+	return s.String()
+}
+
 type VersioningConfiguration struct {
 	// Specifies whether MFA delete is enabled in the bucket versioning configuration.
 	// This element is only returned if the bucket has been configured with MFA
@@ -4787,6 +6368,16 @@ type metadataVersioningConfiguration struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s VersioningConfiguration) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s VersioningConfiguration) GoString() string {
+	return s.String()
+}
+
 type WebsiteConfiguration struct {
 	ErrorDocument *ErrorDocument `type:"structure"`
 
@@ -4801,4 +6392,14 @@ type WebsiteConfiguration struct {
 
 type metadataWebsiteConfiguration struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s WebsiteConfiguration) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s WebsiteConfiguration) GoString() string {
+	return s.String()
 }

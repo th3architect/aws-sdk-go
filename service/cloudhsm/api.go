@@ -5,6 +5,7 @@ package cloudhsm
 
 import (
 	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/awsutil"
 )
 
 const opCreateHAPG = "CreateHapg"
@@ -517,6 +518,16 @@ type metadataCreateHAPGInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CreateHAPGInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateHAPGInput) GoString() string {
+	return s.String()
+}
+
 // Contains the output of the CreateHAPartitionGroup action.
 type CreateHAPGOutput struct {
 	// The ARN of the high-availability partition group.
@@ -527,6 +538,16 @@ type CreateHAPGOutput struct {
 
 type metadataCreateHAPGOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s CreateHAPGOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateHAPGOutput) GoString() string {
+	return s.String()
 }
 
 // Contains the inputs for the CreateHsm operation.
@@ -571,6 +592,16 @@ type metadataCreateHSMInput struct {
 	SDKShapeTraits bool `locationName:"CreateHsmRequest" type:"structure"`
 }
 
+// String returns the string representation
+func (s CreateHSMInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateHSMInput) GoString() string {
+	return s.String()
+}
+
 // Contains the output of the CreateHsm operation.
 type CreateHSMOutput struct {
 	// The ARN of the HSM.
@@ -581,6 +612,16 @@ type CreateHSMOutput struct {
 
 type metadataCreateHSMOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s CreateHSMOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateHSMOutput) GoString() string {
+	return s.String()
 }
 
 // Contains the inputs for the CreateLunaClient action.
@@ -599,6 +640,16 @@ type metadataCreateLunaClientInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CreateLunaClientInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateLunaClientInput) GoString() string {
+	return s.String()
+}
+
 // Contains the output of the CreateLunaClient action.
 type CreateLunaClientOutput struct {
 	// The ARN of the client.
@@ -609,6 +660,16 @@ type CreateLunaClientOutput struct {
 
 type metadataCreateLunaClientOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s CreateLunaClientOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateLunaClientOutput) GoString() string {
+	return s.String()
 }
 
 // Contains the inputs for the DeleteHapg action.
@@ -623,6 +684,16 @@ type metadataDeleteHAPGInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeleteHAPGInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteHAPGInput) GoString() string {
+	return s.String()
+}
+
 // Contains the output of the DeleteHapg action.
 type DeleteHAPGOutput struct {
 	// The status of the action.
@@ -633,6 +704,16 @@ type DeleteHAPGOutput struct {
 
 type metadataDeleteHAPGOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteHAPGOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteHAPGOutput) GoString() string {
+	return s.String()
 }
 
 // Contains the inputs for the DeleteHsm operation.
@@ -647,6 +728,16 @@ type metadataDeleteHSMInput struct {
 	SDKShapeTraits bool `locationName:"DeleteHsmRequest" type:"structure"`
 }
 
+// String returns the string representation
+func (s DeleteHSMInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteHSMInput) GoString() string {
+	return s.String()
+}
+
 // Contains the output of the DeleteHsm operation.
 type DeleteHSMOutput struct {
 	// The status of the operation.
@@ -657,6 +748,16 @@ type DeleteHSMOutput struct {
 
 type metadataDeleteHSMOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteHSMOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteHSMOutput) GoString() string {
+	return s.String()
 }
 
 type DeleteLunaClientInput struct {
@@ -670,6 +771,16 @@ type metadataDeleteLunaClientInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeleteLunaClientInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteLunaClientInput) GoString() string {
+	return s.String()
+}
+
 type DeleteLunaClientOutput struct {
 	// The status of the action.
 	Status *string `type:"string" required:"true"`
@@ -679,6 +790,16 @@ type DeleteLunaClientOutput struct {
 
 type metadataDeleteLunaClientOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteLunaClientOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteLunaClientOutput) GoString() string {
+	return s.String()
 }
 
 // Contains the inputs for the DescribeHapg action.
@@ -691,6 +812,16 @@ type DescribeHAPGInput struct {
 
 type metadataDescribeHAPGInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DescribeHAPGInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DescribeHAPGInput) GoString() string {
+	return s.String()
 }
 
 // Contains the output of the DescribeHapg action.
@@ -730,6 +861,16 @@ type metadataDescribeHAPGOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DescribeHAPGOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DescribeHAPGOutput) GoString() string {
+	return s.String()
+}
+
 // Contains the inputs for the DescribeHsm operation.
 type DescribeHSMInput struct {
 	// The ARN of the HSM. Either the HsmArn or the SerialNumber parameter must
@@ -745,6 +886,16 @@ type DescribeHSMInput struct {
 
 type metadataDescribeHSMInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DescribeHSMInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DescribeHSMInput) GoString() string {
+	return s.String()
 }
 
 // Contains the output of the DescribeHsm operation.
@@ -822,6 +973,16 @@ type metadataDescribeHSMOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DescribeHSMOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DescribeHSMOutput) GoString() string {
+	return s.String()
+}
+
 type DescribeLunaClientInput struct {
 	// The certificate fingerprint.
 	CertificateFingerprint *string `type:"string"`
@@ -834,6 +995,16 @@ type DescribeLunaClientInput struct {
 
 type metadataDescribeLunaClientInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DescribeLunaClientInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DescribeLunaClientInput) GoString() string {
+	return s.String()
 }
 
 type DescribeLunaClientOutput struct {
@@ -859,6 +1030,16 @@ type metadataDescribeLunaClientOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DescribeLunaClientOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DescribeLunaClientOutput) GoString() string {
+	return s.String()
+}
+
 type GetConfigInput struct {
 	// The ARN of the client.
 	ClientARN *string `locationName:"ClientArn" type:"string" required:"true"`
@@ -875,6 +1056,16 @@ type GetConfigInput struct {
 
 type metadataGetConfigInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetConfigInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetConfigInput) GoString() string {
+	return s.String()
 }
 
 type GetConfigOutput struct {
@@ -894,6 +1085,16 @@ type metadataGetConfigOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetConfigOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetConfigOutput) GoString() string {
+	return s.String()
+}
+
 // Contains the inputs for the ListAvailableZones action.
 type ListAvailableZonesInput struct {
 	metadataListAvailableZonesInput `json:"-" xml:"-"`
@@ -901,6 +1102,16 @@ type ListAvailableZonesInput struct {
 
 type metadataListAvailableZonesInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListAvailableZonesInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListAvailableZonesInput) GoString() string {
+	return s.String()
 }
 
 type ListAvailableZonesOutput struct {
@@ -914,6 +1125,16 @@ type metadataListAvailableZonesOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ListAvailableZonesOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListAvailableZonesOutput) GoString() string {
+	return s.String()
+}
+
 type ListHSMsInput struct {
 	// The NextToken value from a previous call to ListHsms. Pass null if this is
 	// the first call.
@@ -924,6 +1145,16 @@ type ListHSMsInput struct {
 
 type metadataListHSMsInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListHSMsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListHSMsInput) GoString() string {
+	return s.String()
 }
 
 // Contains the output of the ListHsms operation.
@@ -942,6 +1173,16 @@ type metadataListHSMsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ListHSMsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListHSMsOutput) GoString() string {
+	return s.String()
+}
+
 type ListHapgsInput struct {
 	// The NextToken value from a previous call to ListHapgs. Pass null if this
 	// is the first call.
@@ -952,6 +1193,16 @@ type ListHapgsInput struct {
 
 type metadataListHapgsInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListHapgsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListHapgsInput) GoString() string {
+	return s.String()
 }
 
 type ListHapgsOutput struct {
@@ -969,6 +1220,16 @@ type metadataListHapgsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ListHapgsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListHapgsOutput) GoString() string {
+	return s.String()
+}
+
 type ListLunaClientsInput struct {
 	// The NextToken value from a previous call to ListLunaClients. Pass null if
 	// this is the first call.
@@ -979,6 +1240,16 @@ type ListLunaClientsInput struct {
 
 type metadataListLunaClientsInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListLunaClientsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListLunaClientsInput) GoString() string {
+	return s.String()
 }
 
 type ListLunaClientsOutput struct {
@@ -994,6 +1265,16 @@ type ListLunaClientsOutput struct {
 
 type metadataListLunaClientsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListLunaClientsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListLunaClientsOutput) GoString() string {
+	return s.String()
 }
 
 type ModifyHAPGInput struct {
@@ -1014,6 +1295,16 @@ type metadataModifyHAPGInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ModifyHAPGInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ModifyHAPGInput) GoString() string {
+	return s.String()
+}
+
 type ModifyHAPGOutput struct {
 	// The ARN of the high-availability partition group.
 	HAPGARN *string `locationName:"HapgArn" type:"string"`
@@ -1023,6 +1314,16 @@ type ModifyHAPGOutput struct {
 
 type metadataModifyHAPGOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ModifyHAPGOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ModifyHAPGOutput) GoString() string {
+	return s.String()
 }
 
 // Contains the inputs for the ModifyHsm operation.
@@ -1058,6 +1359,16 @@ type metadataModifyHSMInput struct {
 	SDKShapeTraits bool `locationName:"ModifyHsmRequest" type:"structure"`
 }
 
+// String returns the string representation
+func (s ModifyHSMInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ModifyHSMInput) GoString() string {
+	return s.String()
+}
+
 // Contains the output of the ModifyHsm operation.
 type ModifyHSMOutput struct {
 	// The ARN of the HSM.
@@ -1068,6 +1379,16 @@ type ModifyHSMOutput struct {
 
 type metadataModifyHSMOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ModifyHSMOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ModifyHSMOutput) GoString() string {
+	return s.String()
 }
 
 type ModifyLunaClientInput struct {
@@ -1084,6 +1405,16 @@ type metadataModifyLunaClientInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ModifyLunaClientInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ModifyLunaClientInput) GoString() string {
+	return s.String()
+}
+
 type ModifyLunaClientOutput struct {
 	// The ARN of the client.
 	ClientARN *string `locationName:"ClientArn" type:"string"`
@@ -1093,4 +1424,14 @@ type ModifyLunaClientOutput struct {
 
 type metadataModifyLunaClientOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ModifyLunaClientOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ModifyLunaClientOutput) GoString() string {
+	return s.String()
 }

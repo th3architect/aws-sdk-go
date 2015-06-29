@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/awsutil"
 )
 
 const opCreateTrail = "CreateTrail"
@@ -290,6 +291,16 @@ type metadataCreateTrailInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CreateTrailInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateTrailInput) GoString() string {
+	return s.String()
+}
+
 // Returns the objects or data listed below if successful. Otherwise, returns
 // an error.
 type CreateTrailOutput struct {
@@ -327,6 +338,16 @@ type metadataCreateTrailOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CreateTrailOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateTrailOutput) GoString() string {
+	return s.String()
+}
+
 // The request that specifies the name of a trail to delete.
 type DeleteTrailInput struct {
 	// The name of a trail to be deleted.
@@ -339,6 +360,16 @@ type metadataDeleteTrailInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeleteTrailInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteTrailInput) GoString() string {
+	return s.String()
+}
+
 // Returns the objects or data listed below if successful. Otherwise, returns
 // an error.
 type DeleteTrailOutput struct {
@@ -347,6 +378,16 @@ type DeleteTrailOutput struct {
 
 type metadataDeleteTrailOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteTrailOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteTrailOutput) GoString() string {
+	return s.String()
 }
 
 // Returns information about the trail.
@@ -361,6 +402,16 @@ type metadataDescribeTrailsInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DescribeTrailsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DescribeTrailsInput) GoString() string {
+	return s.String()
+}
+
 // Returns the objects or data listed below if successful. Otherwise, returns
 // an error.
 type DescribeTrailsOutput struct {
@@ -372,6 +423,16 @@ type DescribeTrailsOutput struct {
 
 type metadataDescribeTrailsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DescribeTrailsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DescribeTrailsOutput) GoString() string {
+	return s.String()
 }
 
 // Contains information about an event that was returned by a lookup request.
@@ -403,6 +464,16 @@ type metadataEvent struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s Event) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Event) GoString() string {
+	return s.String()
+}
+
 // The name of a trail about which you want the current status.
 type GetTrailStatusInput struct {
 	// The name of the trail for which you are requesting the current status.
@@ -413,6 +484,16 @@ type GetTrailStatusInput struct {
 
 type metadataGetTrailStatusInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetTrailStatusInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetTrailStatusInput) GoString() string {
+	return s.String()
 }
 
 // Returns the objects or data listed below if successful. Otherwise, returns
@@ -463,6 +544,16 @@ type metadataGetTrailStatusOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetTrailStatusOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetTrailStatusOutput) GoString() string {
+	return s.String()
+}
+
 // Specifies an attribute and value that filter the events returned.
 type LookupAttribute struct {
 	// Specifies an attribute on which to filter the events returned.
@@ -476,6 +567,16 @@ type LookupAttribute struct {
 
 type metadataLookupAttribute struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s LookupAttribute) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s LookupAttribute) GoString() string {
+	return s.String()
 }
 
 // Contains a request for LookupEvents.
@@ -512,6 +613,16 @@ type metadataLookupEventsInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s LookupEventsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s LookupEventsInput) GoString() string {
+	return s.String()
+}
+
 // Contains a response to a LookupEvents action.
 type LookupEventsOutput struct {
 	// A list of events returned based on the lookup attributes specified and the
@@ -531,6 +642,16 @@ type LookupEventsOutput struct {
 
 type metadataLookupEventsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s LookupEventsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s LookupEventsOutput) GoString() string {
+	return s.String()
 }
 
 // Specifies the type and name of a resource referenced by an event.
@@ -555,6 +676,16 @@ type metadataResource struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s Resource) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Resource) GoString() string {
+	return s.String()
+}
+
 // The request to CloudTrail to start logging AWS API calls for an account.
 type StartLoggingInput struct {
 	// The name of the trail for which CloudTrail logs AWS API calls.
@@ -567,6 +698,16 @@ type metadataStartLoggingInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s StartLoggingInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s StartLoggingInput) GoString() string {
+	return s.String()
+}
+
 // Returns the objects or data listed below if successful. Otherwise, returns
 // an error.
 type StartLoggingOutput struct {
@@ -575,6 +716,16 @@ type StartLoggingOutput struct {
 
 type metadataStartLoggingOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s StartLoggingOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s StartLoggingOutput) GoString() string {
+	return s.String()
 }
 
 // Passes the request to CloudTrail to stop logging AWS API calls for the specified
@@ -591,6 +742,16 @@ type metadataStopLoggingInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s StopLoggingInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s StopLoggingInput) GoString() string {
+	return s.String()
+}
+
 // Returns the objects or data listed below if successful. Otherwise, returns
 // an error.
 type StopLoggingOutput struct {
@@ -599,6 +760,16 @@ type StopLoggingOutput struct {
 
 type metadataStopLoggingOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s StopLoggingOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s StopLoggingOutput) GoString() string {
+	return s.String()
 }
 
 // The settings for a trail.
@@ -633,6 +804,16 @@ type Trail struct {
 
 type metadataTrail struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s Trail) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Trail) GoString() string {
+	return s.String()
 }
 
 // Specifies settings to update for the trail.
@@ -672,6 +853,16 @@ type metadataUpdateTrailInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s UpdateTrailInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s UpdateTrailInput) GoString() string {
+	return s.String()
+}
+
 // Returns the objects or data listed below if successful. Otherwise, returns
 // an error.
 type UpdateTrailOutput struct {
@@ -707,4 +898,14 @@ type UpdateTrailOutput struct {
 
 type metadataUpdateTrailOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s UpdateTrailOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s UpdateTrailOutput) GoString() string {
+	return s.String()
 }

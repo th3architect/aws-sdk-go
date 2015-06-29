@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/awsutil"
 )
 
 const opAddTagsToOnPremisesInstances = "AddTagsToOnPremisesInstances"
@@ -901,12 +902,32 @@ type metadataAddTagsToOnPremisesInstancesInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s AddTagsToOnPremisesInstancesInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s AddTagsToOnPremisesInstancesInput) GoString() string {
+	return s.String()
+}
+
 type AddTagsToOnPremisesInstancesOutput struct {
 	metadataAddTagsToOnPremisesInstancesOutput `json:"-" xml:"-"`
 }
 
 type metadataAddTagsToOnPremisesInstancesOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s AddTagsToOnPremisesInstancesOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s AddTagsToOnPremisesInstancesOutput) GoString() string {
+	return s.String()
 }
 
 // Information about an application.
@@ -931,6 +952,16 @@ type metadataApplicationInfo struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ApplicationInfo) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ApplicationInfo) GoString() string {
+	return s.String()
+}
+
 // Information about an Auto Scaling group.
 type AutoScalingGroup struct {
 	// An Auto Scaling lifecycle event hook name.
@@ -946,6 +977,16 @@ type metadataAutoScalingGroup struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s AutoScalingGroup) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s AutoScalingGroup) GoString() string {
+	return s.String()
+}
+
 // Represents the input of a batch get applications operation.
 type BatchGetApplicationsInput struct {
 	// A list of application names, with multiple application names separated by
@@ -957,6 +998,16 @@ type BatchGetApplicationsInput struct {
 
 type metadataBatchGetApplicationsInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s BatchGetApplicationsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s BatchGetApplicationsInput) GoString() string {
+	return s.String()
 }
 
 // Represents the output of a batch get applications operation.
@@ -971,6 +1022,16 @@ type metadataBatchGetApplicationsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s BatchGetApplicationsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s BatchGetApplicationsOutput) GoString() string {
+	return s.String()
+}
+
 // Represents the input of a batch get deployments operation.
 type BatchGetDeploymentsInput struct {
 	// A list of deployment IDs, with multiple deployment IDs separated by spaces.
@@ -981,6 +1042,16 @@ type BatchGetDeploymentsInput struct {
 
 type metadataBatchGetDeploymentsInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s BatchGetDeploymentsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s BatchGetDeploymentsInput) GoString() string {
+	return s.String()
 }
 
 // Represents the output of a batch get deployments operation.
@@ -995,6 +1066,16 @@ type metadataBatchGetDeploymentsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s BatchGetDeploymentsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s BatchGetDeploymentsOutput) GoString() string {
+	return s.String()
+}
+
 // Represents the input of a batch get on-premises instances operation.
 type BatchGetOnPremisesInstancesInput struct {
 	// The names of the on-premises instances to get information about.
@@ -1007,6 +1088,16 @@ type metadataBatchGetOnPremisesInstancesInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s BatchGetOnPremisesInstancesInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s BatchGetOnPremisesInstancesInput) GoString() string {
+	return s.String()
+}
+
 // Represents the output of a batch get on-premises instances operation.
 type BatchGetOnPremisesInstancesOutput struct {
 	// Information about the on-premises instances.
@@ -1017,6 +1108,16 @@ type BatchGetOnPremisesInstancesOutput struct {
 
 type metadataBatchGetOnPremisesInstancesOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s BatchGetOnPremisesInstancesOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s BatchGetOnPremisesInstancesOutput) GoString() string {
+	return s.String()
 }
 
 // Represents the input of a create application operation.
@@ -1032,6 +1133,16 @@ type metadataCreateApplicationInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CreateApplicationInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateApplicationInput) GoString() string {
+	return s.String()
+}
+
 // Represents the output of a create application operation.
 type CreateApplicationOutput struct {
 	// A unique application ID.
@@ -1042,6 +1153,16 @@ type CreateApplicationOutput struct {
 
 type metadataCreateApplicationOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s CreateApplicationOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateApplicationOutput) GoString() string {
+	return s.String()
 }
 
 // Represents the input of a create deployment configuration operation.
@@ -1074,6 +1195,16 @@ type metadataCreateDeploymentConfigInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CreateDeploymentConfigInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateDeploymentConfigInput) GoString() string {
+	return s.String()
+}
+
 // Represents the output of a create deployment configuration operation.
 type CreateDeploymentConfigOutput struct {
 	// A unique deployment configuration ID.
@@ -1084,6 +1215,16 @@ type CreateDeploymentConfigOutput struct {
 
 type metadataCreateDeploymentConfigOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s CreateDeploymentConfigOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateDeploymentConfigOutput) GoString() string {
+	return s.String()
 }
 
 // Represents the input of a create deployment group operation.
@@ -1146,6 +1287,16 @@ type metadataCreateDeploymentGroupInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CreateDeploymentGroupInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateDeploymentGroupInput) GoString() string {
+	return s.String()
+}
+
 // Represents the output of a create deployment group operation.
 type CreateDeploymentGroupOutput struct {
 	// A unique deployment group ID.
@@ -1156,6 +1307,16 @@ type CreateDeploymentGroupOutput struct {
 
 type metadataCreateDeploymentGroupOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s CreateDeploymentGroupOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateDeploymentGroupOutput) GoString() string {
+	return s.String()
 }
 
 // Represents the input of a create deployment operation.
@@ -1200,6 +1361,16 @@ type metadataCreateDeploymentInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CreateDeploymentInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateDeploymentInput) GoString() string {
+	return s.String()
+}
+
 // Represents the output of a create deployment operation.
 type CreateDeploymentOutput struct {
 	// A unique deployment ID.
@@ -1210,6 +1381,16 @@ type CreateDeploymentOutput struct {
 
 type metadataCreateDeploymentOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s CreateDeploymentOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateDeploymentOutput) GoString() string {
+	return s.String()
 }
 
 // Represents the input of a delete application operation.
@@ -1225,12 +1406,32 @@ type metadataDeleteApplicationInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeleteApplicationInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteApplicationInput) GoString() string {
+	return s.String()
+}
+
 type DeleteApplicationOutput struct {
 	metadataDeleteApplicationOutput `json:"-" xml:"-"`
 }
 
 type metadataDeleteApplicationOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteApplicationOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteApplicationOutput) GoString() string {
+	return s.String()
 }
 
 // Represents the input of a delete deployment configuration operation.
@@ -1246,12 +1447,32 @@ type metadataDeleteDeploymentConfigInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeleteDeploymentConfigInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteDeploymentConfigInput) GoString() string {
+	return s.String()
+}
+
 type DeleteDeploymentConfigOutput struct {
 	metadataDeleteDeploymentConfigOutput `json:"-" xml:"-"`
 }
 
 type metadataDeleteDeploymentConfigOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteDeploymentConfigOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteDeploymentConfigOutput) GoString() string {
+	return s.String()
 }
 
 // Represents the input of a delete deployment group operation.
@@ -1270,6 +1491,16 @@ type metadataDeleteDeploymentGroupInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeleteDeploymentGroupInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteDeploymentGroupInput) GoString() string {
+	return s.String()
+}
+
 // Represents the output of a delete deployment group operation.
 type DeleteDeploymentGroupOutput struct {
 	// If the output contains no data, and the corresponding deployment group contained
@@ -1285,6 +1516,16 @@ type DeleteDeploymentGroupOutput struct {
 
 type metadataDeleteDeploymentGroupOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteDeploymentGroupOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteDeploymentGroupOutput) GoString() string {
+	return s.String()
 }
 
 // Information about a deployment configuration.
@@ -1306,6 +1547,16 @@ type DeploymentConfigInfo struct {
 
 type metadataDeploymentConfigInfo struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeploymentConfigInfo) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeploymentConfigInfo) GoString() string {
+	return s.String()
 }
 
 // Information about a deployment group.
@@ -1343,6 +1594,16 @@ type DeploymentGroupInfo struct {
 
 type metadataDeploymentGroupInfo struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeploymentGroupInfo) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeploymentGroupInfo) GoString() string {
+	return s.String()
 }
 
 // Information about a deployment.
@@ -1413,6 +1674,16 @@ type metadataDeploymentInfo struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeploymentInfo) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeploymentInfo) GoString() string {
+	return s.String()
+}
+
 // Information about the deployment status of the instances in the deployment.
 type DeploymentOverview struct {
 	// The number of instances that have failed in the deployment.
@@ -1437,6 +1708,16 @@ type metadataDeploymentOverview struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeploymentOverview) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeploymentOverview) GoString() string {
+	return s.String()
+}
+
 // Represents the input of a deregister on-premises instance operation.
 type DeregisterOnPremisesInstanceInput struct {
 	// The name of the on-premises instance to deregister.
@@ -1449,12 +1730,32 @@ type metadataDeregisterOnPremisesInstanceInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeregisterOnPremisesInstanceInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeregisterOnPremisesInstanceInput) GoString() string {
+	return s.String()
+}
+
 type DeregisterOnPremisesInstanceOutput struct {
 	metadataDeregisterOnPremisesInstanceOutput `json:"-" xml:"-"`
 }
 
 type metadataDeregisterOnPremisesInstanceOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeregisterOnPremisesInstanceOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeregisterOnPremisesInstanceOutput) GoString() string {
+	return s.String()
 }
 
 // Diagnostic information about executable scripts that are part of a deployment.
@@ -1485,6 +1786,16 @@ type metadataDiagnostics struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s Diagnostics) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Diagnostics) GoString() string {
+	return s.String()
+}
+
 // Information about a tag filter.
 type EC2TagFilter struct {
 	// The tag filter key.
@@ -1503,6 +1814,16 @@ type EC2TagFilter struct {
 
 type metadataEC2TagFilter struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s EC2TagFilter) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s EC2TagFilter) GoString() string {
+	return s.String()
 }
 
 // Information about a deployment error.
@@ -1540,6 +1861,16 @@ type metadataErrorInformation struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ErrorInformation) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ErrorInformation) GoString() string {
+	return s.String()
+}
+
 // Information about an application revision.
 type GenericRevisionInfo struct {
 	// A list of deployment groups that use this revision.
@@ -1564,6 +1895,16 @@ type metadataGenericRevisionInfo struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GenericRevisionInfo) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GenericRevisionInfo) GoString() string {
+	return s.String()
+}
+
 // Represents the input of a get application operation.
 type GetApplicationInput struct {
 	// The name of an existing AWS CodeDeploy application associated with the applicable
@@ -1577,6 +1918,16 @@ type metadataGetApplicationInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetApplicationInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetApplicationInput) GoString() string {
+	return s.String()
+}
+
 // Represents the output of a get application operation.
 type GetApplicationOutput struct {
 	// Information about the application.
@@ -1587,6 +1938,16 @@ type GetApplicationOutput struct {
 
 type metadataGetApplicationOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetApplicationOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetApplicationOutput) GoString() string {
+	return s.String()
 }
 
 // Represents the input of a get application revision operation.
@@ -1603,6 +1964,16 @@ type GetApplicationRevisionInput struct {
 
 type metadataGetApplicationRevisionInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetApplicationRevisionInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetApplicationRevisionInput) GoString() string {
+	return s.String()
 }
 
 // Represents the output of a get application revision operation.
@@ -1624,6 +1995,16 @@ type metadataGetApplicationRevisionOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetApplicationRevisionOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetApplicationRevisionOutput) GoString() string {
+	return s.String()
+}
+
 // Represents the input of a get deployment configuration operation.
 type GetDeploymentConfigInput struct {
 	// The name of an existing deployment configuration associated with the applicable
@@ -1637,6 +2018,16 @@ type metadataGetDeploymentConfigInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetDeploymentConfigInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetDeploymentConfigInput) GoString() string {
+	return s.String()
+}
+
 // Represents the output of a get deployment configuration operation.
 type GetDeploymentConfigOutput struct {
 	// Information about the deployment configuration.
@@ -1647,6 +2038,16 @@ type GetDeploymentConfigOutput struct {
 
 type metadataGetDeploymentConfigOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetDeploymentConfigOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetDeploymentConfigOutput) GoString() string {
+	return s.String()
 }
 
 // Represents the input of a get deployment group operation.
@@ -1665,6 +2066,16 @@ type metadataGetDeploymentGroupInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetDeploymentGroupInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetDeploymentGroupInput) GoString() string {
+	return s.String()
+}
+
 // Represents the output of a get deployment group operation.
 type GetDeploymentGroupOutput struct {
 	// Information about the deployment group.
@@ -1675,6 +2086,16 @@ type GetDeploymentGroupOutput struct {
 
 type metadataGetDeploymentGroupOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetDeploymentGroupOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetDeploymentGroupOutput) GoString() string {
+	return s.String()
 }
 
 // Represents the input of a get deployment operation.
@@ -1688,6 +2109,16 @@ type GetDeploymentInput struct {
 
 type metadataGetDeploymentInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetDeploymentInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetDeploymentInput) GoString() string {
+	return s.String()
 }
 
 // Represents the input of a get deployment instance operation.
@@ -1705,6 +2136,16 @@ type metadataGetDeploymentInstanceInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetDeploymentInstanceInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetDeploymentInstanceInput) GoString() string {
+	return s.String()
+}
+
 // Represents the output of a get deployment instance operation.
 type GetDeploymentInstanceOutput struct {
 	// Information about the instance.
@@ -1715,6 +2156,16 @@ type GetDeploymentInstanceOutput struct {
 
 type metadataGetDeploymentInstanceOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetDeploymentInstanceOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetDeploymentInstanceOutput) GoString() string {
+	return s.String()
 }
 
 // Represents the output of a get deployment operation.
@@ -1729,6 +2180,16 @@ type metadataGetDeploymentOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetDeploymentOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetDeploymentOutput) GoString() string {
+	return s.String()
+}
+
 // Represents the input of a get on-premises instance operation.
 type GetOnPremisesInstanceInput struct {
 	// The name of the on-premises instance to get information about
@@ -1741,6 +2202,16 @@ type metadataGetOnPremisesInstanceInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetOnPremisesInstanceInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetOnPremisesInstanceInput) GoString() string {
+	return s.String()
+}
+
 // Represents the output of a get on-premises instance operation.
 type GetOnPremisesInstanceOutput struct {
 	// Information about the on-premises instance.
@@ -1751,6 +2222,16 @@ type GetOnPremisesInstanceOutput struct {
 
 type metadataGetOnPremisesInstanceOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetOnPremisesInstanceOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetOnPremisesInstanceOutput) GoString() string {
+	return s.String()
 }
 
 // Information about the location of application artifacts that are stored in
@@ -1771,6 +2252,16 @@ type GitHubLocation struct {
 
 type metadataGitHubLocation struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GitHubLocation) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GitHubLocation) GoString() string {
+	return s.String()
 }
 
 // Information about an on-premises instance.
@@ -1799,6 +2290,16 @@ type InstanceInfo struct {
 
 type metadataInstanceInfo struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s InstanceInfo) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s InstanceInfo) GoString() string {
+	return s.String()
 }
 
 // Information about an instance in a deployment.
@@ -1831,6 +2332,16 @@ type metadataInstanceSummary struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s InstanceSummary) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s InstanceSummary) GoString() string {
+	return s.String()
+}
+
 // Information about a deployment lifecycle event.
 type LifecycleEvent struct {
 	// Diagnostic information about the deployment lifecycle event.
@@ -1860,6 +2371,16 @@ type LifecycleEvent struct {
 
 type metadataLifecycleEvent struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s LifecycleEvent) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s LifecycleEvent) GoString() string {
+	return s.String()
 }
 
 // Represents the input of a list application revisions operation.
@@ -1915,6 +2436,16 @@ type metadataListApplicationRevisionsInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ListApplicationRevisionsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListApplicationRevisionsInput) GoString() string {
+	return s.String()
+}
+
 // Represents the output of a list application revisions operation.
 type ListApplicationRevisionsOutput struct {
 	// If the amount of information that is returned is significantly large, an
@@ -1933,6 +2464,16 @@ type metadataListApplicationRevisionsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ListApplicationRevisionsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListApplicationRevisionsOutput) GoString() string {
+	return s.String()
+}
+
 // Represents the input of a list applications operation.
 type ListApplicationsInput struct {
 	// An identifier that was returned from the previous list applications call,
@@ -1944,6 +2485,16 @@ type ListApplicationsInput struct {
 
 type metadataListApplicationsInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListApplicationsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListApplicationsInput) GoString() string {
+	return s.String()
 }
 
 // Represents the output of a list applications operation.
@@ -1963,6 +2514,16 @@ type metadataListApplicationsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ListApplicationsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListApplicationsOutput) GoString() string {
+	return s.String()
+}
+
 // Represents the input of a list deployment configurations operation.
 type ListDeploymentConfigsInput struct {
 	// An identifier that was returned from the previous list deployment configurations
@@ -1975,6 +2536,16 @@ type ListDeploymentConfigsInput struct {
 
 type metadataListDeploymentConfigsInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListDeploymentConfigsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListDeploymentConfigsInput) GoString() string {
+	return s.String()
 }
 
 // Represents the output of a list deployment configurations operation.
@@ -1996,6 +2567,16 @@ type metadataListDeploymentConfigsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ListDeploymentConfigsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListDeploymentConfigsOutput) GoString() string {
+	return s.String()
+}
+
 // Represents the input of a list deployment groups operation.
 type ListDeploymentGroupsInput struct {
 	// The name of an existing AWS CodeDeploy application associated with the applicable
@@ -2012,6 +2593,16 @@ type ListDeploymentGroupsInput struct {
 
 type metadataListDeploymentGroupsInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListDeploymentGroupsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListDeploymentGroupsInput) GoString() string {
+	return s.String()
 }
 
 // Represents the output of a list deployment groups operation.
@@ -2033,6 +2624,16 @@ type ListDeploymentGroupsOutput struct {
 
 type metadataListDeploymentGroupsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListDeploymentGroupsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListDeploymentGroupsOutput) GoString() string {
+	return s.String()
 }
 
 // Represents the input of a list deployment instances operation.
@@ -2063,6 +2664,16 @@ type metadataListDeploymentInstancesInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ListDeploymentInstancesInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListDeploymentInstancesInput) GoString() string {
+	return s.String()
+}
+
 // Represents the output of a list deployment instances operation.
 type ListDeploymentInstancesOutput struct {
 	// A list of instances IDs.
@@ -2079,6 +2690,16 @@ type ListDeploymentInstancesOutput struct {
 
 type metadataListDeploymentInstancesOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListDeploymentInstancesOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListDeploymentInstancesOutput) GoString() string {
+	return s.String()
 }
 
 // Represents the input of a list deployments operation.
@@ -2114,6 +2735,16 @@ type metadataListDeploymentsInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ListDeploymentsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListDeploymentsInput) GoString() string {
+	return s.String()
+}
+
 // Represents the output of a list deployments operation.
 type ListDeploymentsOutput struct {
 	// A list of deployment IDs.
@@ -2129,6 +2760,16 @@ type ListDeploymentsOutput struct {
 
 type metadataListDeploymentsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListDeploymentsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListDeploymentsOutput) GoString() string {
+	return s.String()
 }
 
 // Represents the input of a list on-premises instances operation.
@@ -2157,6 +2798,16 @@ type metadataListOnPremisesInstancesInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ListOnPremisesInstancesInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListOnPremisesInstancesInput) GoString() string {
+	return s.String()
+}
+
 // Represents the output of list on-premises instances operation.
 type ListOnPremisesInstancesOutput struct {
 	// The list of matching on-premises instance names.
@@ -2173,6 +2824,16 @@ type ListOnPremisesInstancesOutput struct {
 
 type metadataListOnPremisesInstancesOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListOnPremisesInstancesOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListOnPremisesInstancesOutput) GoString() string {
+	return s.String()
 }
 
 // Information about minimum healthy instances.
@@ -2204,6 +2865,16 @@ type metadataMinimumHealthyHosts struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s MinimumHealthyHosts) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s MinimumHealthyHosts) GoString() string {
+	return s.String()
+}
+
 // Represents the input of a register application revision operation.
 type RegisterApplicationRevisionInput struct {
 	// The name of an existing AWS CodeDeploy application associated with the applicable
@@ -2224,12 +2895,32 @@ type metadataRegisterApplicationRevisionInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s RegisterApplicationRevisionInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s RegisterApplicationRevisionInput) GoString() string {
+	return s.String()
+}
+
 type RegisterApplicationRevisionOutput struct {
 	metadataRegisterApplicationRevisionOutput `json:"-" xml:"-"`
 }
 
 type metadataRegisterApplicationRevisionOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s RegisterApplicationRevisionOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s RegisterApplicationRevisionOutput) GoString() string {
+	return s.String()
 }
 
 // Represents the input of register on-premises instance operation.
@@ -2247,12 +2938,32 @@ type metadataRegisterOnPremisesInstanceInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s RegisterOnPremisesInstanceInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s RegisterOnPremisesInstanceInput) GoString() string {
+	return s.String()
+}
+
 type RegisterOnPremisesInstanceOutput struct {
 	metadataRegisterOnPremisesInstanceOutput `json:"-" xml:"-"`
 }
 
 type metadataRegisterOnPremisesInstanceOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s RegisterOnPremisesInstanceOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s RegisterOnPremisesInstanceOutput) GoString() string {
+	return s.String()
 }
 
 // Represents the input of a remove tags from on-premises instances operation.
@@ -2270,12 +2981,32 @@ type metadataRemoveTagsFromOnPremisesInstancesInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s RemoveTagsFromOnPremisesInstancesInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s RemoveTagsFromOnPremisesInstancesInput) GoString() string {
+	return s.String()
+}
+
 type RemoveTagsFromOnPremisesInstancesOutput struct {
 	metadataRemoveTagsFromOnPremisesInstancesOutput `json:"-" xml:"-"`
 }
 
 type metadataRemoveTagsFromOnPremisesInstancesOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s RemoveTagsFromOnPremisesInstancesOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s RemoveTagsFromOnPremisesInstancesOutput) GoString() string {
+	return s.String()
 }
 
 // Information about an application revision's location.
@@ -2299,6 +3030,16 @@ type RevisionLocation struct {
 
 type metadataRevisionLocation struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s RevisionLocation) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s RevisionLocation) GoString() string {
+	return s.String()
 }
 
 // Information about the location of application artifacts that are stored in
@@ -2338,6 +3079,16 @@ type metadataS3Location struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s S3Location) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s S3Location) GoString() string {
+	return s.String()
+}
+
 // Represents the input of a stop deployment operation.
 type StopDeploymentInput struct {
 	// The unique ID of a deployment.
@@ -2348,6 +3099,16 @@ type StopDeploymentInput struct {
 
 type metadataStopDeploymentInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s StopDeploymentInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s StopDeploymentInput) GoString() string {
+	return s.String()
 }
 
 // Represents the output of a stop deployment operation.
@@ -2367,6 +3128,16 @@ type metadataStopDeploymentOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s StopDeploymentOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s StopDeploymentOutput) GoString() string {
+	return s.String()
+}
+
 // Information about a tag.
 type Tag struct {
 	// The tag's key.
@@ -2380,6 +3151,16 @@ type Tag struct {
 
 type metadataTag struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s Tag) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s Tag) GoString() string {
+	return s.String()
 }
 
 // Information about an on-premises instance tag filter.
@@ -2402,6 +3183,16 @@ type metadataTagFilter struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s TagFilter) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s TagFilter) GoString() string {
+	return s.String()
+}
+
 // Information about a time range.
 type TimeRange struct {
 	// The time range's end time.
@@ -2421,6 +3212,16 @@ type metadataTimeRange struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s TimeRange) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s TimeRange) GoString() string {
+	return s.String()
+}
+
 // Represents the input of an update application operation.
 type UpdateApplicationInput struct {
 	// The current name of the application that you want to change.
@@ -2436,12 +3237,32 @@ type metadataUpdateApplicationInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s UpdateApplicationInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s UpdateApplicationInput) GoString() string {
+	return s.String()
+}
+
 type UpdateApplicationOutput struct {
 	metadataUpdateApplicationOutput `json:"-" xml:"-"`
 }
 
 type metadataUpdateApplicationOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s UpdateApplicationOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s UpdateApplicationOutput) GoString() string {
+	return s.String()
 }
 
 // Represents the input of an update deployment group operation.
@@ -2481,6 +3302,16 @@ type metadataUpdateDeploymentGroupInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s UpdateDeploymentGroupInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s UpdateDeploymentGroupInput) GoString() string {
+	return s.String()
+}
+
 // Represents the output of an update deployment group operation.
 type UpdateDeploymentGroupOutput struct {
 	// If the output contains no data, and the corresponding deployment group contained
@@ -2495,4 +3326,14 @@ type UpdateDeploymentGroupOutput struct {
 
 type metadataUpdateDeploymentGroupOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s UpdateDeploymentGroupOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s UpdateDeploymentGroupOutput) GoString() string {
+	return s.String()
 }

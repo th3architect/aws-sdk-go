@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/awsutil"
 )
 
 const opCreateAlias = "CreateAlias"
@@ -842,6 +843,16 @@ type metadataAliasListEntry struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s AliasListEntry) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s AliasListEntry) GoString() string {
+	return s.String()
+}
+
 type CreateAliasInput struct {
 	// String that contains the display name. The name must start with the word
 	// "alias" followed by a forward slash (alias/). Aliases that begin with "alias/AWS"
@@ -861,12 +872,32 @@ type metadataCreateAliasInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CreateAliasInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateAliasInput) GoString() string {
+	return s.String()
+}
+
 type CreateAliasOutput struct {
 	metadataCreateAliasOutput `json:"-" xml:"-"`
 }
 
 type metadataCreateAliasOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s CreateAliasOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateAliasOutput) GoString() string {
+	return s.String()
 }
 
 type CreateGrantInput struct {
@@ -903,6 +934,16 @@ type metadataCreateGrantInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CreateGrantInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateGrantInput) GoString() string {
+	return s.String()
+}
+
 type CreateGrantOutput struct {
 	// Unique grant identifier. You can use the GrantId value to revoke a grant.
 	GrantID *string `locationName:"GrantId" type:"string"`
@@ -915,6 +956,16 @@ type CreateGrantOutput struct {
 
 type metadataCreateGrantOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s CreateGrantOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateGrantOutput) GoString() string {
+	return s.String()
 }
 
 type CreateKeyInput struct {
@@ -937,6 +988,16 @@ type metadataCreateKeyInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s CreateKeyInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateKeyInput) GoString() string {
+	return s.String()
+}
+
 type CreateKeyOutput struct {
 	// Metadata associated with the key.
 	KeyMetadata *KeyMetadata `type:"structure"`
@@ -946,6 +1007,16 @@ type CreateKeyOutput struct {
 
 type metadataCreateKeyOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s CreateKeyOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s CreateKeyOutput) GoString() string {
+	return s.String()
 }
 
 type DecryptInput struct {
@@ -967,6 +1038,16 @@ type metadataDecryptInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DecryptInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DecryptInput) GoString() string {
+	return s.String()
+}
+
 type DecryptOutput struct {
 	// ARN of the key used to perform the decryption. This value is returned if
 	// no errors are encountered during the operation.
@@ -983,6 +1064,16 @@ type metadataDecryptOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DecryptOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DecryptOutput) GoString() string {
+	return s.String()
+}
+
 type DeleteAliasInput struct {
 	// The alias to be deleted. The name must start with the word "alias" followed
 	// by a forward slash (alias/). Aliases that begin with "alias/AWS" are reserved.
@@ -995,12 +1086,32 @@ type metadataDeleteAliasInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DeleteAliasInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteAliasInput) GoString() string {
+	return s.String()
+}
+
 type DeleteAliasOutput struct {
 	metadataDeleteAliasOutput `json:"-" xml:"-"`
 }
 
 type metadataDeleteAliasOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteAliasOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DeleteAliasOutput) GoString() string {
+	return s.String()
 }
 
 type DescribeKeyInput struct {
@@ -1019,6 +1130,16 @@ type metadataDescribeKeyInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DescribeKeyInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DescribeKeyInput) GoString() string {
+	return s.String()
+}
+
 type DescribeKeyOutput struct {
 	// Metadata associated with the key.
 	KeyMetadata *KeyMetadata `type:"structure"`
@@ -1028,6 +1149,16 @@ type DescribeKeyOutput struct {
 
 type metadataDescribeKeyOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DescribeKeyOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DescribeKeyOutput) GoString() string {
+	return s.String()
 }
 
 type DisableKeyInput struct {
@@ -1044,12 +1175,32 @@ type metadataDisableKeyInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DisableKeyInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DisableKeyInput) GoString() string {
+	return s.String()
+}
+
 type DisableKeyOutput struct {
 	metadataDisableKeyOutput `json:"-" xml:"-"`
 }
 
 type metadataDisableKeyOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DisableKeyOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DisableKeyOutput) GoString() string {
+	return s.String()
 }
 
 type DisableKeyRotationInput struct {
@@ -1066,12 +1217,32 @@ type metadataDisableKeyRotationInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s DisableKeyRotationInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DisableKeyRotationInput) GoString() string {
+	return s.String()
+}
+
 type DisableKeyRotationOutput struct {
 	metadataDisableKeyRotationOutput `json:"-" xml:"-"`
 }
 
 type metadataDisableKeyRotationOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s DisableKeyRotationOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s DisableKeyRotationOutput) GoString() string {
+	return s.String()
 }
 
 type EnableKeyInput struct {
@@ -1088,12 +1259,32 @@ type metadataEnableKeyInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s EnableKeyInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s EnableKeyInput) GoString() string {
+	return s.String()
+}
+
 type EnableKeyOutput struct {
 	metadataEnableKeyOutput `json:"-" xml:"-"`
 }
 
 type metadataEnableKeyOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s EnableKeyOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s EnableKeyOutput) GoString() string {
+	return s.String()
 }
 
 type EnableKeyRotationInput struct {
@@ -1110,12 +1301,32 @@ type metadataEnableKeyRotationInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s EnableKeyRotationInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s EnableKeyRotationInput) GoString() string {
+	return s.String()
+}
+
 type EnableKeyRotationOutput struct {
 	metadataEnableKeyRotationOutput `json:"-" xml:"-"`
 }
 
 type metadataEnableKeyRotationOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s EnableKeyRotationOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s EnableKeyRotationOutput) GoString() string {
+	return s.String()
 }
 
 type EncryptInput struct {
@@ -1146,6 +1357,16 @@ type metadataEncryptInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s EncryptInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s EncryptInput) GoString() string {
+	return s.String()
+}
+
 type EncryptOutput struct {
 	// The encrypted plaintext. If you are using the CLI, the value is Base64 encoded.
 	// Otherwise, it is not encoded.
@@ -1159,6 +1380,16 @@ type EncryptOutput struct {
 
 type metadataEncryptOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s EncryptOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s EncryptOutput) GoString() string {
+	return s.String()
 }
 
 type GenerateDataKeyInput struct {
@@ -1194,6 +1425,16 @@ type metadataGenerateDataKeyInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GenerateDataKeyInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GenerateDataKeyInput) GoString() string {
+	return s.String()
+}
+
 type GenerateDataKeyOutput struct {
 	// Ciphertext that contains the encrypted data key. You must store the blob
 	// and enough information to reconstruct the encryption context so that the
@@ -1218,6 +1459,16 @@ type GenerateDataKeyOutput struct {
 
 type metadataGenerateDataKeyOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GenerateDataKeyOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GenerateDataKeyOutput) GoString() string {
+	return s.String()
 }
 
 type GenerateDataKeyWithoutPlaintextInput struct {
@@ -1252,6 +1503,16 @@ type metadataGenerateDataKeyWithoutPlaintextInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GenerateDataKeyWithoutPlaintextInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GenerateDataKeyWithoutPlaintextInput) GoString() string {
+	return s.String()
+}
+
 type GenerateDataKeyWithoutPlaintextOutput struct {
 	// Ciphertext that contains the wrapped data key. You must store the blob and
 	// encryption context so that the key can be used in a future decrypt operation.
@@ -1271,6 +1532,16 @@ type metadataGenerateDataKeyWithoutPlaintextOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GenerateDataKeyWithoutPlaintextOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GenerateDataKeyWithoutPlaintextOutput) GoString() string {
+	return s.String()
+}
+
 type GenerateRandomInput struct {
 	// Integer that contains the number of bytes to generate. Common values are
 	// 128, 256, 512, 1024 and so on. The current limit is 1024 bytes.
@@ -1283,6 +1554,16 @@ type metadataGenerateRandomInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GenerateRandomInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GenerateRandomInput) GoString() string {
+	return s.String()
+}
+
 type GenerateRandomOutput struct {
 	// Plaintext that contains the unpredictable byte string.
 	Plaintext []byte `type:"blob"`
@@ -1292,6 +1573,16 @@ type GenerateRandomOutput struct {
 
 type metadataGenerateRandomOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GenerateRandomOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GenerateRandomOutput) GoString() string {
+	return s.String()
 }
 
 type GetKeyPolicyInput struct {
@@ -1312,6 +1603,16 @@ type metadataGetKeyPolicyInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetKeyPolicyInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetKeyPolicyInput) GoString() string {
+	return s.String()
+}
+
 type GetKeyPolicyOutput struct {
 	// A policy document in JSON format.
 	Policy *string `type:"string"`
@@ -1321,6 +1622,16 @@ type GetKeyPolicyOutput struct {
 
 type metadataGetKeyPolicyOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetKeyPolicyOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetKeyPolicyOutput) GoString() string {
+	return s.String()
 }
 
 type GetKeyRotationStatusInput struct {
@@ -1337,6 +1648,16 @@ type metadataGetKeyRotationStatusInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GetKeyRotationStatusInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetKeyRotationStatusInput) GoString() string {
+	return s.String()
+}
+
 type GetKeyRotationStatusOutput struct {
 	// A Boolean value that specifies whether key rotation is enabled.
 	KeyRotationEnabled *bool `type:"boolean"`
@@ -1346,6 +1667,16 @@ type GetKeyRotationStatusOutput struct {
 
 type metadataGetKeyRotationStatusOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GetKeyRotationStatusOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GetKeyRotationStatusOutput) GoString() string {
+	return s.String()
 }
 
 // Contains constraints on the grant.
@@ -1362,6 +1693,16 @@ type GrantConstraints struct {
 
 type metadataGrantConstraints struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s GrantConstraints) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GrantConstraints) GoString() string {
+	return s.String()
 }
 
 // Contains information about each entry in the grant list.
@@ -1394,6 +1735,16 @@ type metadataGrantListEntry struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s GrantListEntry) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s GrantListEntry) GoString() string {
+	return s.String()
+}
+
 // Contains information about each entry in the key list.
 type KeyListEntry struct {
 	// ARN of the key.
@@ -1407,6 +1758,16 @@ type KeyListEntry struct {
 
 type metadataKeyListEntry struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s KeyListEntry) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s KeyListEntry) GoString() string {
+	return s.String()
 }
 
 // Contains metadata associated with a specific key.
@@ -1439,6 +1800,16 @@ type metadataKeyMetadata struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s KeyMetadata) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s KeyMetadata) GoString() string {
+	return s.String()
+}
+
 type ListAliasesInput struct {
 	// Specify this parameter when paginating results to indicate the maximum number
 	// of aliases you want in each response. If there are additional aliases beyond
@@ -1455,6 +1826,16 @@ type ListAliasesInput struct {
 
 type metadataListAliasesInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListAliasesInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListAliasesInput) GoString() string {
+	return s.String()
 }
 
 type ListAliasesOutput struct {
@@ -1475,6 +1856,16 @@ type ListAliasesOutput struct {
 
 type metadataListAliasesOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListAliasesOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListAliasesOutput) GoString() string {
+	return s.String()
 }
 
 type ListGrantsInput struct {
@@ -1502,6 +1893,16 @@ type metadataListGrantsInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ListGrantsInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListGrantsInput) GoString() string {
+	return s.String()
+}
+
 type ListGrantsOutput struct {
 	// A list of grants.
 	Grants []*GrantListEntry `type:"list"`
@@ -1520,6 +1921,16 @@ type ListGrantsOutput struct {
 
 type metadataListGrantsOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListGrantsOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListGrantsOutput) GoString() string {
+	return s.String()
 }
 
 type ListKeyPoliciesInput struct {
@@ -1549,6 +1960,16 @@ type metadataListKeyPoliciesInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ListKeyPoliciesInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListKeyPoliciesInput) GoString() string {
+	return s.String()
+}
+
 type ListKeyPoliciesOutput struct {
 	// If Truncated is true, this value is present and contains the value to use
 	// for the Marker request parameter in a subsequent pagination request.
@@ -1570,6 +1991,16 @@ type metadataListKeyPoliciesOutput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ListKeyPoliciesOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListKeyPoliciesOutput) GoString() string {
+	return s.String()
+}
+
 type ListKeysInput struct {
 	// Specify this parameter only when paginating results to indicate the maximum
 	// number of keys you want listed in the response. If there are additional keys
@@ -1587,6 +2018,16 @@ type ListKeysInput struct {
 
 type metadataListKeysInput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListKeysInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListKeysInput) GoString() string {
+	return s.String()
 }
 
 type ListKeysOutput struct {
@@ -1607,6 +2048,16 @@ type ListKeysOutput struct {
 
 type metadataListKeysOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListKeysOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ListKeysOutput) GoString() string {
+	return s.String()
 }
 
 type PutKeyPolicyInput struct {
@@ -1630,12 +2081,32 @@ type metadataPutKeyPolicyInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s PutKeyPolicyInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutKeyPolicyInput) GoString() string {
+	return s.String()
+}
+
 type PutKeyPolicyOutput struct {
 	metadataPutKeyPolicyOutput `json:"-" xml:"-"`
 }
 
 type metadataPutKeyPolicyOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s PutKeyPolicyOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s PutKeyPolicyOutput) GoString() string {
+	return s.String()
 }
 
 type ReEncryptInput struct {
@@ -1668,6 +2139,16 @@ type metadataReEncryptInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s ReEncryptInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ReEncryptInput) GoString() string {
+	return s.String()
+}
+
 type ReEncryptOutput struct {
 	// The re-encrypted data. If you are using the CLI, the value is Base64 encoded.
 	// Otherwise, it is not encoded.
@@ -1684,6 +2165,16 @@ type ReEncryptOutput struct {
 
 type metadataReEncryptOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s ReEncryptOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s ReEncryptOutput) GoString() string {
+	return s.String()
 }
 
 type RetireGrantInput struct {
@@ -1707,12 +2198,32 @@ type metadataRetireGrantInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s RetireGrantInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s RetireGrantInput) GoString() string {
+	return s.String()
+}
+
 type RetireGrantOutput struct {
 	metadataRetireGrantOutput `json:"-" xml:"-"`
 }
 
 type metadataRetireGrantOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s RetireGrantOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s RetireGrantOutput) GoString() string {
+	return s.String()
 }
 
 type RevokeGrantInput struct {
@@ -1732,12 +2243,32 @@ type metadataRevokeGrantInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s RevokeGrantInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s RevokeGrantInput) GoString() string {
+	return s.String()
+}
+
 type RevokeGrantOutput struct {
 	metadataRevokeGrantOutput `json:"-" xml:"-"`
 }
 
 type metadataRevokeGrantOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s RevokeGrantOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s RevokeGrantOutput) GoString() string {
+	return s.String()
 }
 
 type UpdateAliasInput struct {
@@ -1759,12 +2290,32 @@ type metadataUpdateAliasInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s UpdateAliasInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s UpdateAliasInput) GoString() string {
+	return s.String()
+}
+
 type UpdateAliasOutput struct {
 	metadataUpdateAliasOutput `json:"-" xml:"-"`
 }
 
 type metadataUpdateAliasOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s UpdateAliasOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s UpdateAliasOutput) GoString() string {
+	return s.String()
 }
 
 type UpdateKeyDescriptionInput struct {
@@ -1784,10 +2335,30 @@ type metadataUpdateKeyDescriptionInput struct {
 	SDKShapeTraits bool `type:"structure"`
 }
 
+// String returns the string representation
+func (s UpdateKeyDescriptionInput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s UpdateKeyDescriptionInput) GoString() string {
+	return s.String()
+}
+
 type UpdateKeyDescriptionOutput struct {
 	metadataUpdateKeyDescriptionOutput `json:"-" xml:"-"`
 }
 
 type metadataUpdateKeyDescriptionOutput struct {
 	SDKShapeTraits bool `type:"structure"`
+}
+
+// String returns the string representation
+func (s UpdateKeyDescriptionOutput) String() string {
+	return awsutil.StringValue(s)
+}
+
+// GoString returns the string representation
+func (s UpdateKeyDescriptionOutput) GoString() string {
+	return s.String()
 }
